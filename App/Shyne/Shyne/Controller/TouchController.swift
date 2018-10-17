@@ -66,21 +66,63 @@ class TouchController: SKSpriteNode {
         }
     }
     
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for t in touches{
-//            let location = t.location(in: parent!)
-//            let previousLocation = t.previousLocation(in: parent!)
-//
-//            for button in [rigth_button, left_button]{
-//                if button.contains(previousLocation) && !button.contains(location){
-//                    let index = arrayOfButtons.contains(button)
-//                    if index{
-//                        arrayOfButtons.removeAll()
-//                        touchControlDelegate?.follow(command: "cancel \(button.name)")
-//                    }
-//                }
-//            }
-//        }
-//    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches{
+            let location = t.location(in: parent!)
+            let previousLocation = t.previousLocation(in: parent!)
+
+            for button in [rigth_button, left_button]{
+                if button.contains(previousLocation) && !button.contains(location){
+                    let index = arrayOfButtons.contains(button)
+                    if index{
+                        arrayOfButtons.removeAll()
+                        touchControlDelegate?.follow(command: "cancel \(button.name!)")
+                    }
+                }else if !button.contains(previousLocation) && button.contains(location){
+                    arrayOfButtons.append(button)
+                    if(touchControlDelegate != nil){
+                        touchControlDelegate?.follow(command: button.name!)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches{
+            let location = t.location(in: parent!)
+            let previousLocation = t.location(in: parent!)
+            
+            for button in [rigth_button, left_button]{
+                if button.contains(location) || button.contains(previousLocation){
+                    if arrayOfButtons.contains(button){
+                        arrayOfButtons.removeAll()
+                        if touchControlDelegate != nil{
+                            touchControlDelegate?.follow(command: "cancel \(button.name!)")
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func touchUp(touches: Set<UITouch>?, withEvent event: UIEvent) -> () {
+        for t in touches!{
+            let location = t.location(in: parent!)
+            let previousLocation = t.location(in: parent!)
+            
+            for button in [rigth_button, left_button]{
+                if button.contains(location) || button.contains(previousLocation){
+                    if arrayOfButtons.contains(button){
+                        arrayOfButtons.removeAll()
+                        if touchControlDelegate != nil{
+                            touchControlDelegate?.follow(command: "cancel \(button.name!)")
+                        }
+                    }
+                }
+            }
+        }
+    }
     
 }

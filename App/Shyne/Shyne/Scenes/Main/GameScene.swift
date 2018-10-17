@@ -43,6 +43,14 @@ class GameScene: SKScene {
         }
     }
     
+    override func didMove(to view: SKView) {
+        if let thePlayer = childNode(withName: "Player"){
+            if let pcComponent = thePlayer.entity?.component(ofType: PlayerControl.self){
+                pcComponent.setupControllers(camera: camera!, scene: self)
+            }
+        }
+    }
+    
     func touchMoved(toPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
