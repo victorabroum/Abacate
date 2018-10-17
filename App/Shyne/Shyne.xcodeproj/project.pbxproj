@@ -19,6 +19,7 @@
 		765B3DD42177C245004AA4E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD32177C245004AA4E3 /* Player.swift */; };
 		765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD62177C4CC004AA4E3 /* TouchController.swift */; };
 		765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */; };
+		765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		765B3DD32177C245004AA4E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		765B3DD62177C4CC004AA4E3 /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				765B3DD62177C4CC004AA4E3 /* TouchController.swift */,
+				765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				765B3DB82177A72A004AA4E3 /* GameScene.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
+				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
