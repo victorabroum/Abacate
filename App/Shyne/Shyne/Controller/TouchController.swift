@@ -12,6 +12,10 @@ class TouchController: SKSpriteNode {
     
     var rigth_button = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 50, height: 50))
     var left_button = SKSpriteNode(color: UIColor.orange, size: CGSize(width: 50, height: 50))
+    
+    var arrayOfButtons = [SKSpriteNode]()
+    
+    var touchControlDelegate : TouchControlDelegate?
 
     init(frame: CGRect) {
         super.init(texture: nil, color: UIColor.clear, size: frame.size)
@@ -43,6 +47,23 @@ class TouchController: SKSpriteNode {
         button.zPosition = zPositionToButton
         
         self.addChild(button)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches{
+            let location = t.location(in: parent!)
+            
+            for button in [rigth_button, left_button]{
+                // Se o clique foi no botão
+                // *E* é o primiero clique
+                if button.contains(location) && !arrayOfButtons.contains(button){
+                    arrayOfButtons.append(button)
+                    if(touchControlDelegate != nil){
+                        touchControlDelegate?.follow(command: button.name)
+                    }
+                }
+            }
+        }
     }
     
 }
