@@ -60,17 +60,49 @@
 		765B3DB02177A72A004AA4E3 /* Shyne */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DCC2177A996004AA4E3 /* Actions */,
+				765B3DCB2177A988004AA4E3 /* ViewController */,
+				765B3DC92177A950004AA4E3 /* Scenes */,
 				765B3DB12177A72A004AA4E3 /* AppDelegate.swift */,
-				765B3DB32177A72A004AA4E3 /* GameScene.sks */,
-				765B3DB52177A72A004AA4E3 /* Actions.sks */,
-				765B3DB72177A72A004AA4E3 /* GameScene.swift */,
-				765B3DB92177A72A004AA4E3 /* GameViewController.swift */,
 				765B3DBB2177A72A004AA4E3 /* Main.storyboard */,
 				765B3DBE2177A72C004AA4E3 /* Assets.xcassets */,
 				765B3DC02177A72C004AA4E3 /* LaunchScreen.storyboard */,
 				765B3DC32177A72C004AA4E3 /* Info.plist */,
 			);
 			path = Shyne;
+			sourceTree = "<group>";
+		};
+		765B3DC92177A950004AA4E3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DCA2177A970004AA4E3 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		765B3DCA2177A970004AA4E3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DB72177A72A004AA4E3 /* GameScene.swift */,
+				765B3DB32177A72A004AA4E3 /* GameScene.sks */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		765B3DCB2177A988004AA4E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DB92177A72A004AA4E3 /* GameViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		765B3DCC2177A996004AA4E3 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DB52177A72A004AA4E3 /* Actions.sks */,
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
