@@ -66,4 +66,21 @@ class TouchController: SKSpriteNode {
         }
     }
     
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for t in touches{
+//            let location = t.location(in: parent!)
+//            let previousLocation = t.previousLocation(in: parent!)
+//
+//            for button in [rigth_button, left_button]{
+//                if button.contains(previousLocation) && !button.contains(location){
+//                    let index = arrayOfButtons.contains(button)
+//                    if index{
+//                        arrayOfButtons.removeAll()
+//                        touchControlDelegate?.follow(command: "cancel \(button.name)")
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
 }
