@@ -17,6 +17,8 @@
 		765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DC02177A72C004AA4E3 /* LaunchScreen.storyboard */; };
 		765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD02177C062004AA4E3 /* Walkable.swift */; };
 		765B3DD42177C245004AA4E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD32177C245004AA4E3 /* Player.swift */; };
+		765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD62177C4CC004AA4E3 /* TouchController.swift */; };
+		765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		765B3DC32177A72C004AA4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		765B3DD02177C062004AA4E3 /* Walkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walkable.swift; sourceTree = "<group>"; };
 		765B3DD32177C245004AA4E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		765B3DD62177C4CC004AA4E3 /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
+		765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		765B3DB02177A72A004AA4E3 /* Shyne */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DD52177C4AD004AA4E3 /* Controller */,
 				765B3DD22177C234004AA4E3 /* Entities */,
 				765B3DCD2177BB3C004AA4E3 /* Components */,
 				765B3DCC2177A996004AA4E3 /* Actions */,
@@ -74,6 +79,7 @@
 				765B3DBE2177A72C004AA4E3 /* Assets.xcassets */,
 				765B3DC02177A72C004AA4E3 /* LaunchScreen.storyboard */,
 				765B3DC32177A72C004AA4E3 /* Info.plist */,
+				765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */,
 			);
 			path = Shyne;
 			sourceTree = "<group>";
@@ -125,6 +131,14 @@
 				765B3DD32177C245004AA4E3 /* Player.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		765B3DD52177C4AD004AA4E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DD62177C4CC004AA4E3 /* TouchController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +218,9 @@
 				765B3DB82177A72A004AA4E3 /* GameScene.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
+				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
+				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
