@@ -18,6 +18,9 @@ enum PlayerMovement {
 }
 
 class GameScene: SKScene {
+    //Nickson objetos
+    var caixa : caixaDeDialogo?
+    //
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -28,6 +31,9 @@ class GameScene: SKScene {
     private var playerNode: SKSpriteNode = SKSpriteNode()
     
     override func sceneDidLoad() {
+        // teste nickson
+        caixa = caixaDeDialogo(personagem: playerNode, texto: "teste", direcao: .left)
+        //
 
         self.lastUpdateTime = 0
         self.playerNode = childNode(withName: "Player") as! SKSpriteNode
@@ -47,8 +53,16 @@ class GameScene: SKScene {
         switch self.playerMovement {
         case .right:
             self.playerNode.position.x += playerVelocity
+            //nickson teste//
+            caixa?.removeFromParent()
+            playerNode.addChild(caixa!)
+            caixa?.entrar()
+            //
         case .left:
             self.playerNode.position.x -= playerVelocity
+            //teste nickson
+            caixa?.sair()
+            //
         case .up:
             self.playerNode.position.y += playerVelocity
         case .down:

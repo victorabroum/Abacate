@@ -15,7 +15,6 @@
 		765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DBB2177A72A004AA4E3 /* Main.storyboard */; };
 		765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DBE2177A72C004AA4E3 /* Assets.xcassets */; };
 		765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DC02177A72C004AA4E3 /* LaunchScreen.storyboard */; };
-		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD02177C062004AA4E3 /* Walkable.swift */; };
 		765B3DD42177C245004AA4E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD32177C245004AA4E3 /* Player.swift */; };
 		765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD62177C4CC004AA4E3 /* TouchController.swift */; };
@@ -26,6 +25,8 @@
 		765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE12178B552004AA4E3 /* RoomScene.swift */; };
 		765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE52178BCAF004AA4E3 /* Tree.swift */; };
 		765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */; };
+		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
+		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,6 @@
 		765B3DBE2177A72C004AA4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		765B3DC12177A72C004AA4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		765B3DC32177A72C004AA4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		765B3DD02177C062004AA4E3 /* Walkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walkable.swift; sourceTree = "<group>"; };
 		765B3DD32177C245004AA4E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		765B3DD62177C4CC004AA4E3 /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		765B3DE12178B552004AA4E3 /* RoomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
 		765B3DE52178BCAF004AA4E3 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTreeStory.swift; sourceTree = "<group>"; };
+		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
+		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C4B5D7732179148E00181DE7 /* Padaria */,
 				765B3DDE2178B4AF004AA4E3 /* Room */,
 				765B3DCA2177A970004AA4E3 /* Main */,
 			);
@@ -112,8 +115,8 @@
 		765B3DCA2177A970004AA4E3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				765B3DB72177A72A004AA4E3 /* GameScene.swift */,
 				765B3DB32177A72A004AA4E3 /* GameScene.sks */,
+				765B3DB72177A72A004AA4E3 /* GameScene.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -132,14 +135,6 @@
 				765B3DB52177A72A004AA4E3 /* Actions.sks */,
 			);
 			path = Actions;
-			sourceTree = "<group>";
-		};
-		C41DCF892177BF4000F53FEC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		765B3DCD2177BB3C004AA4E3 /* Components */ = {
@@ -192,6 +187,22 @@
 				765B3DE52178BCAF004AA4E3 /* Tree.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		C41DCF892177BF4000F53FEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4B5D7732179148E00181DE7 /* Padaria */ = {
+			isa = PBXGroup;
+			children = (
+				C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */,
+			);
+			path = Padaria;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
+				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

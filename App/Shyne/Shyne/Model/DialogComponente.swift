@@ -47,14 +47,30 @@ class caixaDeDialogo: SKSpriteNode{
             let caminho: SKAction
             switch Direcao {
             case .left:
-                caminho = SKAction.moveBy(x: 100,y: 100, duration: 1)
+                caminho = SKAction.moveBy(x: 100,y: 100, duration: 0.3)
             case .rigth:
-                caminho = SKAction.moveBy(x: -100, y: 100, duration: 1)
+                caminho = SKAction.moveBy(x: -100, y: 100, duration: 0.3)
             }
             self.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
             let moveDown = caminho
-            let scale = SKAction.scale(to: 1, duration: 1)
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let scale = SKAction.scale(to: 1, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
+            
+            let group = SKAction.sequence( [SKAction.group([moveDown, scale, fadeIn])])
+            self.run(group){
+                self.animado = false
+            }
+        }
+    }
+    
+    func entra(ponto: CGPoint){
+        if(!animado){
+            animado = true
+            print("teste")
+            self.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
+            let moveDown = SKAction.move(to: ponto, duration: 0.3)
+            let scale = SKAction.scale(to: 1, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([moveDown, scale, fadeIn])])
             self.run(group){
@@ -66,8 +82,8 @@ class caixaDeDialogo: SKSpriteNode{
     func sair() {
         if(!animado){
             animado = true
-            let scale = SKAction.scale(to: 0, duration: 0.3)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
+            let scale = SKAction.scale(to: 0, duration: 0.1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
             let group = SKAction.group([scale, fadeIn])
             self.run(group){
                 self.animado = false
@@ -76,4 +92,29 @@ class caixaDeDialogo: SKSpriteNode{
         
     }
 
+}
+
+class balaoEscolha{
+    let Personagem: SKSpriteNode
+    let Direcao: sideView
+    let Respostas: [Answer]
+    init(personagem: SKSpriteNode, direcao: sideView, respostas:[Answer]) {
+        Personagem = personagem
+        Direcao = direcao
+        Respostas = respostas
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func desenhar(){
+        let caixa1 : caixaDeDialogo
+        caixa1 = caixaDeDialogo(personagem: Personagem, texto: Respostas[0].text, direcao: Direcao)
+        Personagem.addChild(caixa1)
+        caixa1.entra(ponto: CGPoint(x: Personagem.position.x-200, y: Personagem.position.y))
+        
+    }
+    
+    
 }
