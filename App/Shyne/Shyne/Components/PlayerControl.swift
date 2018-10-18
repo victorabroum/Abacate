@@ -15,6 +15,16 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     var touchControlNode : TouchController?
     var scene: GameScene?
     
+    @objc func swipedUp(_ sender:UISwipeGestureRecognizer){
+        self.scene?.movePlayer(command: "up")
+        print("swiped up")
+    }
+    
+    @objc func swipedDown(_ sender:UISwipeGestureRecognizer){
+        self.scene?.movePlayer(command: "down")
+        print("swiped down")
+    }
+    
     func setupControllers(camera: SKCameraNode, scene: SKScene) -> () {
         touchControlNode = TouchController(frame: scene.frame)
         touchControlNode?.touchControlDelegate = self
@@ -26,6 +36,16 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         camera.addChild(touchControlNode!)
         
         self.scene = scene as? GameScene
+        
+        // Swipe up
+        let swipeUp:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp(_:)))
+        swipeUp.direction = .up
+        self.scene?.view?.addGestureRecognizer(swipeUp)
+        
+        // Swipe down
+        let swipeDown:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedDown(_:)))
+        swipeDown.direction = .down
+        self.scene?.view?.addGestureRecognizer(swipeDown)
     }
     
     func follow(command: String?) {
@@ -36,22 +56,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         
         if self.scene != nil {
             self.scene?.movePlayer(command: command!)
-//            switch command {
-//            case "right":
-//                // Move to right
-//
-//                break
-//            case "left":
-//                // Move to left
-//                break
-//            default:
-//                // Cancel move
-//                break
-//            }
         }
-        
-        
     }
-    
     
 }
