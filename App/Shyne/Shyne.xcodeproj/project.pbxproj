@@ -21,6 +21,8 @@
 		765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */; };
 		765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */; };
 		765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DDC2177D0EE004AA4E3 /* PlayerControl.swift */; };
+		765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */; };
+		765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE12178B552004AA4E3 /* RoomScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlDelegate.swift; sourceTree = "<group>"; };
 		765B3DDC2177D0EE004AA4E3 /* PlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControl.swift; sourceTree = "<group>"; };
+		765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene.sks; sourceTree = "<group>"; };
+		765B3DE12178B552004AA4E3 /* RoomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DDE2178B4AF004AA4E3 /* Room */,
 				765B3DCA2177A970004AA4E3 /* Main */,
 			);
 			path = Scenes;
@@ -145,6 +150,15 @@
 				765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		765B3DDE2178B4AF004AA4E3 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */,
+				765B3DE12178B552004AA4E3 /* RoomScene.swift */,
+			);
+			path = Room;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
+				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
 				765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */,
 				765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */,
 				765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */,
@@ -227,6 +242,7 @@
 				765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
+				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
 			);

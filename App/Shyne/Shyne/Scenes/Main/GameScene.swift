@@ -50,6 +50,14 @@ class GameScene: SKScene {
             self.playerNode.position.y += playerVelocity
         case .down:
             self.playerNode.position.y -= playerVelocity
+            // Se quiser mudar de scene é assim
+            // Basta pedir para scene atual apresentar a scene que deseja ir
+            // A transição é opcional mas é pra ficar bonito
+//            print("Vamos para a prox scene")
+//            let transition: SKTransition = SKTransition.fade(withDuration: 1)
+//            if let roomScene = RoomScene(fileNamed: "RoomScene"){
+//                self.view?.presentScene(roomScene, transition: transition)
+//            }
         default:
             // Idle
             break
