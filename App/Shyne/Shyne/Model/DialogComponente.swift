@@ -17,14 +17,17 @@ class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
     var Direcao: sideView
+    var animado: Bool
     
     init(personagem: SKNode, texto: String, direcao: sideView) {
         Personagem = personagem
         Texto = texto
         Direcao = direcao
+        animado = false
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         self.setScale(1)
+        self.zPosition = 100
         let text = SKLabelNode(text: texto)
         text.fontName = "Chalkduster"
         text.position = CGPoint(x: 0, y: 0)
@@ -38,24 +41,39 @@ class caixaDeDialogo: SKSpriteNode{
     }
     
     func entrar(){
-        let caminho: SKAction
-        switch Direcao {
-        case .left:
-            caminho = SKAction.move(by: CGVector(dx: 100, dy: 50), duration: 1)
-        case .rigth:
-            caminho = SKAction.move(by: CGVector(dx: -100, dy: 50), duration: 1)
+        if(!animado){
+            animado = true
+            
+            let caminho: SKAction
+            switch Direcao {
+            case .left:
+                caminho = SKAction.moveBy(x: 100,y: 100, duration: 1)
+            case .rigth:
+                caminho = SKAction.moveBy(x: -100, y: 100, duration: 1)
+            }
+            self.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
+            let moveDown = caminho
+            let scale = SKAction.scale(to: 1, duration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            
+            let group = SKAction.sequence( [SKAction.group([moveDown, scale, fadeIn])])
+            self.run(group){
+                self.animado = false
+            }
         }
-        let moveDown = caminho
-        let scale = SKAction.scale(to: 1, duration: 1)
-        let fadeIn = SKAction.fadeIn(withDuration: 1)
-        let group = SKAction.group([moveDown, scale, fadeIn])
-        self.run(group)
     }
     
     func sair() {
-        let scale = SKAction.scale(to: 0, duration: 0.3)
-        let fadeIn = SKAction.fadeIn(withDuration: 0.3)
-        let group = SKAction.group([scale, fadeIn])
-        self.run(group)
+        if(!animado){
+            animado = true
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
+            let group = SKAction.group([scale, fadeIn])
+            self.run(group){
+                self.animado = false
+            }
+        }
+        
     }
+
 }
