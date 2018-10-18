@@ -83,6 +83,10 @@ class TouchController: SKSpriteNode {
                     if(touchControlDelegate != nil){
                         touchControlDelegate?.follow(command: button.name!)
                     }
+                }else if button.contains(previousLocation) && button.contains(location){
+                    if(touchControlDelegate != nil){
+                        touchControlDelegate?.follow(command: button.name!)
+                    }
                 }
             }
         }

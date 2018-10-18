@@ -36,7 +36,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         
         // Move the player Node
         
-        if playerNode != nil {
+        if self.playerNode != nil {
             switch command {
             case "rigth":
                 // Move to right
