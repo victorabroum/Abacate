@@ -48,6 +48,8 @@ class GameScene: SKScene {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.green
+            let caixa = caixaDeDialogo(personagem: n, texto: "teste", cena: self)
+            caixa.criar()
             self.addChild(n)
         }
     }
