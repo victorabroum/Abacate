@@ -8,36 +8,40 @@
 
 import SpriteKit
 
-class caixaDeDialogo{
+class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
-    var cenario: SKNode
     
-    init(personagem: SKNode, texto: String, cena: SKNode) {
+    init(personagem: SKNode, texto: String) {
         Personagem = personagem
         Texto = texto
-        cenario = cena
+        
+        super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
+        self.setScale(1)
+        let text = SKLabelNode(text: texto)
+        text.fontName = "Chalkduster"
+        text.position = CGPoint(x: 0, y: 0)
+        text.fontColor = .black
+        self.addChild(text)
+        
     }
     
-    func criar(){
-        let caixaDialogo = SKSpriteNode(color: .white, size: CGSize(width: 100, height: 50))
-        caixaDialogo.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
-        
-        let textoDialogo = SKLabelNode(fontNamed: "Chalkduster")
-        textoDialogo.text = Texto
-        textoDialogo.fontSize = 50
-        textoDialogo.fontColor = SKColor.green
-        textoDialogo.position = CGPoint(x: 0, y: 0)
-        caixaDialogo.addChild(textoDialogo)
-        
-        cenario.addChild(caixaDialogo)
-        
-        caixaDialogo.setScale(0)
-        
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func entrar(){
         let moveDown = SKAction.moveBy(x: -100, y: 50, duration: 1)
         let scale = SKAction.scale(to: 1, duration: 1)
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let group = SKAction.group([moveDown, scale, fadeIn])
-        caixaDialogo.run(group)
+        self.run(group)
+    }
+    
+    func sair() {
+        let scale = SKAction.scale(to: 0, duration: 0.3)
+        let fadeIn = SKAction.fadeIn(withDuration: 0.3)
+        let group = SKAction.group([scale, fadeIn])
+        self.run(group)
     }
 }

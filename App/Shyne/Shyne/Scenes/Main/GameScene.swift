@@ -19,6 +19,8 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
+        
+        
 
         self.lastUpdateTime = 0
         
@@ -46,10 +48,15 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+            let teste = SKShapeNode(circleOfRadius: 10)
+            teste.position = CGPoint(x: 0, y: 0)
+            self.addChild(teste)
             n.position = pos
             n.strokeColor = SKColor.green
-            let caixa = caixaDeDialogo(personagem: n, texto: "teste", cena: self)
-            caixa.criar()
+            let caixa = caixaDeDialogo(personagem: teste, texto: "teste")
+            caixa.sair()
+            teste.addChild(caixa)
+            
             self.addChild(n)
         }
     }
