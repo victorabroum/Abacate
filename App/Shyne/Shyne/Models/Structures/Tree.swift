@@ -8,11 +8,25 @@
 
 import Foundation
 
+struct Feel{
+    var happy: Float = 0.0
+    var normal: Float = 0.0
+    var shy: Float = 0.0
+    
+    init(happy: Float, normal: Float, shy: Float) {
+        self.happy = happy
+        self.normal = normal
+        self.shy = shy
+    }
+}
+
 class Answer{
     var text: String
+    var amount: Feel
     
-    init(withText text: String) {
+    init(withText text: String, withAmount amount: Feel) {
         self.text = text
+        self.amount = amount
     }
 }
 
