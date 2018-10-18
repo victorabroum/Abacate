@@ -40,10 +40,10 @@ class PlayerControl : GKComponent, TouchControlDelegate{
             switch command {
             case "rigth":
                 // Move to right
-                self.playerNode?.position.x -= self.playerVelocity
+                self.playerNode?.position.x += self.playerVelocity
             case "left":
                 // Move to left
-                self.playerNode?.position.x += self.playerVelocity
+                self.playerNode?.position.x -= self.playerVelocity
             default:
                 // Cancel move
                 break

@@ -10,8 +10,8 @@ import SpriteKit
 
 class TouchController: SKSpriteNode {
     
-    var rigth_button = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 50, height: 50))
-    var left_button = SKSpriteNode(color: UIColor.orange, size: CGSize(width: 50, height: 50))
+    var rigth_button = SKSpriteNode()
+    var left_button = SKSpriteNode()
     
     var arrayOfButtons = [SKSpriteNode]()
     
@@ -19,6 +19,13 @@ class TouchController: SKSpriteNode {
 
     init(frame: CGRect) {
         super.init(texture: nil, color: UIColor.clear, size: frame.size)
+        
+        print("HEIGHT => \(frame.size.height)")
+        
+        rigth_button = SKSpriteNode(texture: nil, color: UIColor.blue, size: CGSize(width: frame.size.width/2, height: frame.size.height))
+        rigth_button.anchorPoint = CGPoint(x: 0, y: 0.5)
+        left_button = SKSpriteNode(texture: nil, color: UIColor.orange, size: CGSize(width: frame.size.width/2, height: frame.size.height))
+        left_button.anchorPoint = CGPoint(x: 1, y: 0.5)
         
         setupControl(size: frame.size)
         
@@ -32,7 +39,7 @@ class TouchController: SKSpriteNode {
     
     func setupControl(size: CGSize){
         addButton(button: rigth_button, position: CGPoint(x: 0, y: 0) , name: "rigth", scale: 1.0)
-        addButton(button: left_button, position: CGPoint(x: 100, y: 0) , name: "left", scale: 1.0)
+        addButton(button: left_button, position: CGPoint(x: 0, y: 0) , name: "left", scale: 1.0)
 
     }
     
