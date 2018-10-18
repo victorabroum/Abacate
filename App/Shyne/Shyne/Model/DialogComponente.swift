@@ -8,13 +8,20 @@
 
 import SpriteKit
 
+enum sideView{
+    case left
+    case rigth
+}
+
 class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
+    var Direcao: sideView
     
-    init(personagem: SKNode, texto: String) {
+    init(personagem: SKNode, texto: String, direcao: sideView) {
         Personagem = personagem
         Texto = texto
+        Direcao = direcao
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         self.setScale(1)
@@ -31,7 +38,14 @@ class caixaDeDialogo: SKSpriteNode{
     }
     
     func entrar(){
-        let moveDown = SKAction.moveBy(x: -100, y: 50, duration: 1)
+        let caminho: SKAction
+        switch Direcao {
+        case .left:
+            caminho = SKAction.move(by: CGVector(dx: 100, dy: 50), duration: 1)
+        case .rigth:
+            caminho = SKAction.move(by: CGVector(dx: -100, dy: 50), duration: 1)
+        }
+        let moveDown = caminho
         let scale = SKAction.scale(to: 1, duration: 1)
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let group = SKAction.group([moveDown, scale, fadeIn])
