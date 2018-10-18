@@ -32,6 +32,9 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
         self.playerNode = childNode(withName: "Player") as! SKSpriteNode
         
+        // Cria a tree para cena
+        // makeTreeOfRoom()
+        
     }
     
     override func didMove(to view: SKView) {

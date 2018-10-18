@@ -24,6 +24,7 @@
 		765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */; };
 		765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE12178B552004AA4E3 /* RoomScene.swift */; };
 		765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE52178BCAF004AA4E3 /* Tree.swift */; };
+		765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene.sks; sourceTree = "<group>"; };
 		765B3DE12178B552004AA4E3 /* RoomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
 		765B3DE52178BCAF004AA4E3 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTreeStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */,
 				765B3DE12178B552004AA4E3 /* RoomScene.swift */,
+				765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				765B3DB82177A72A004AA4E3 /* GameScene.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
+				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
 				765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,

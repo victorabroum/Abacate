@@ -33,3 +33,16 @@ class Node {
         child.parent = self
     }
 }
+
+extension Node: CustomStringConvertible {
+    
+    var description: String{
+        get{
+            if !childrens.isEmpty {
+                text += " {" + childrens.map { $0.description }.joined(separator: ", ") + "} "
+            }
+            return text
+        }
+        
+    }
+}
