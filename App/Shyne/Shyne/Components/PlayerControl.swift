@@ -13,10 +13,9 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     
     let playerVelocity: CGFloat = 3.0
     var touchControlNode : TouchController?
-    var playerNode: SKSpriteNode?
+    var scene: GameScene?
     
-    func setupControllers(camera: SKCameraNode, scene: SKScene,
-                          playerNode: SKSpriteNode) -> () {
+    func setupControllers(camera: SKCameraNode, scene: SKScene) -> () {
         touchControlNode = TouchController(frame: scene.frame)
         touchControlNode?.touchControlDelegate = self
         
@@ -26,8 +25,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Add o node como filha do node camera
         camera.addChild(touchControlNode!)
         
-        // Iniciando o PlayerNode
-        self.playerNode = playerNode
+        self.scene = scene as? GameScene
     }
     
     func follow(command: String?) {
@@ -36,18 +34,20 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         
         // Move the player Node
         
-        if self.playerNode != nil {
-            switch command {
-            case "rigth":
-                // Move to right
-                self.playerNode?.position.x += self.playerVelocity
-            case "left":
-                // Move to left
-                self.playerNode?.position.x -= self.playerVelocity
-            default:
-                // Cancel move
-                break
-            }
+        if self.scene != nil {
+            self.scene?.movePlayer(command: command!)
+//            switch command {
+//            case "right":
+//                // Move to right
+//
+//                break
+//            case "left":
+//                // Move to left
+//                break
+//            default:
+//                // Cancel move
+//                break
+//            }
         }
         
         
