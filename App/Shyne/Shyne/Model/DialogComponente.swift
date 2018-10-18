@@ -93,28 +93,3 @@ class caixaDeDialogo: SKSpriteNode{
     }
 
 }
-
-class balaoEscolha{
-    let Personagem: SKSpriteNode
-    let Direcao: sideView
-    let Respostas: [Answer]
-    init(personagem: SKSpriteNode, direcao: sideView, respostas:[Answer]) {
-        Personagem = personagem
-        Direcao = direcao
-        Respostas = respostas
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func desenhar(){
-        let caixa1 : caixaDeDialogo
-        caixa1 = caixaDeDialogo(personagem: Personagem, texto: Respostas[0].text, direcao: Direcao)
-        Personagem.addChild(caixa1)
-        caixa1.entra(ponto: CGPoint(x: Personagem.position.x-200, y: Personagem.position.y))
-        
-    }
-    
-    
-}
