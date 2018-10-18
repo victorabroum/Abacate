@@ -13,6 +13,8 @@ enum PlayerMovement {
     case right
     case left
     case idle
+    case up
+    case down
 }
 
 class GameScene: SKScene {
@@ -44,6 +46,10 @@ class GameScene: SKScene {
             self.playerNode.position.x += playerVelocity
         case .left:
             self.playerNode.position.x -= playerVelocity
+        case .up:
+            self.playerNode.position.y += playerVelocity
+        case .down:
+            self.playerNode.position.y -= playerVelocity
         default:
             // Idle
             break
@@ -56,6 +62,10 @@ class GameScene: SKScene {
             self.playerMovement = .right
         case "left":
             self.playerMovement = .left
+        case "up":
+            self.playerMovement = .up
+        case "down":
+            self.playerMovement = .down
         default:
             // Idle
             self.playerMovement = .idle
