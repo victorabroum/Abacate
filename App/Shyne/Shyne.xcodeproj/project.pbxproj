@@ -115,6 +115,7 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DED217A58DC004AA4E3 /* House */,
 				C4B5D7732179148E00181DE7 /* Padaria */,
 				765B3DDE2178B4AF004AA4E3 /* Room */,
 				765B3DCA2177A970004AA4E3 /* Main */,
@@ -176,9 +177,7 @@
 		765B3DDE2178B4AF004AA4E3 /* Room */ = {
 			isa = PBXGroup;
 			children = (
-				765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */,
-				765B3DE12178B552004AA4E3 /* RoomScene.swift */,
-				765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */,
+				765B3DEF217A591E004AA4E3 /* 01(day) */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -189,6 +188,31 @@
 				765B3DE52178BCAF004AA4E3 /* Tree.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		765B3DED217A58DC004AA4E3 /* House */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DEE217A58E5004AA4E3 /* 01(day) */,
+			);
+			path = House;
+			sourceTree = "<group>";
+		};
+		765B3DEE217A58E5004AA4E3 /* 01(day) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "01(day)";
+			sourceTree = "<group>";
+		};
+		765B3DEF217A591E004AA4E3 /* 01(day) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DDF2178B4F1004AA4E3 /* RoomScene.sks */,
+				765B3DE12178B552004AA4E3 /* RoomScene.swift */,
+				765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */,
+			);
+			name = "01(day)";
 			sourceTree = "<group>";
 		};
 		C41DCF892177BF4000F53FEC /* Model */ = {
