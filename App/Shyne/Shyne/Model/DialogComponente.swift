@@ -16,17 +16,16 @@ enum sideView{
 class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
-    var Direcao: sideView
     var animado: Bool
     
-    init(personagem: SKNode, texto: String, direcao: sideView) {
+    init(personagem: SKNode, texto: String) {
         Personagem = personagem
         Texto = texto
-        Direcao = direcao
         animado = false
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
-        self.setScale(1)
+        isUserInteractionEnabled = true
+        self.setScale(0)
         self.zPosition = 100
         let text = SKLabelNode(text: texto)
         text.fontName = "Chalkduster"
@@ -40,19 +39,20 @@ class caixaDeDialogo: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func entrar(){
+    func entrar()->Void{
+        
+        
         if(!animado){
             animado = true
+            let moveDown : SKAction
             
-            let caminho: SKAction
-            switch Direcao {
-            case .left:
-                caminho = SKAction.moveBy(x: 100,y: 100, duration: 0.3)
-            case .rigth:
-                caminho = SKAction.moveBy(x: -100, y: 100, duration: 0.3)
+            if(Personagem.position.y == CGFloat(0)){
+                moveDown = SKAction.moveTo(y: -150, duration: 0.3)
             }
-            self.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
-            let moveDown = caminho
+            else{
+                moveDown = SKAction.moveTo(y: 150, duration: 0.3)
+            }
+            
             let scale = SKAction.scale(to: 1, duration: 0.3)
             let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
@@ -63,23 +63,7 @@ class caixaDeDialogo: SKSpriteNode{
         }
     }
     
-    func entra(ponto: CGPoint){
-        if(!animado){
-            animado = true
-            print("teste")
-            self.position = CGPoint(x: Personagem.position.x, y: Personagem.position.y)
-            let moveDown = SKAction.move(to: ponto, duration: 0.3)
-            let scale = SKAction.scale(to: 1, duration: 0.3)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
-            
-            let group = SKAction.sequence( [SKAction.group([moveDown, scale, fadeIn])])
-            self.run(group){
-                self.animado = false
-            }
-        }
-    }
-    
-    func sair() {
+    func sair()->Void{
         if(!animado){
             animado = true
             let scale = SKAction.scale(to: 0, duration: 0.1)
@@ -89,7 +73,12 @@ class caixaDeDialogo: SKSpriteNode{
                 self.animado = false
             }
         }
-        
+        self.removeFromParent()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        //adiciona o valor ao status da historia
     }
 
 }
