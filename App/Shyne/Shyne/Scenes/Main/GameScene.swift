@@ -23,7 +23,6 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     var balaodeescolha: baloesDeEscolha?
-    var dialogo : caixaDeDialogo?
     
     private var lastUpdateTime : TimeInterval = 0
     

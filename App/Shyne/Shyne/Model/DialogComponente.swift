@@ -95,11 +95,16 @@ class caixaDeDialogo: SKSpriteNode{
 }
 
 class Balao: SKSpriteNode{
-    init(direcao: sideView, texto: String) {
+    
+    let Resposta: Answer
+    init(direcao: sideView, resposta: Answer) {
+        Resposta = resposta
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
+        isUserInteractionEnabled = true
         self.setScale(0)
+        self.zPosition = 1000
         
-        let text = SKLabelNode(text: texto)
+        let text = SKLabelNode(text: Resposta.text)
         text.fontName = "Chalkduster"
         text.position = CGPoint(x: 0, y: 0)
         text.fontColor = .black
@@ -110,10 +115,9 @@ class Balao: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches{
-            
-        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        //adiciona o valor ao status da historia
     }
 }
 
@@ -133,9 +137,9 @@ class baloesDeEscolha{
         Direcao = direcao
         Respostas = respostas
         
-        balao1 = Balao(direcao: direcao, texto: Respostas[0].text)
-        balao2 = Balao(direcao: direcao, texto: Respostas[1].text)
-        balao3 = Balao(direcao: direcao, texto: Respostas[2].text)
+        balao1 = Balao(direcao: direcao, resposta: Respostas[0])
+        balao2 = Balao(direcao: direcao, resposta: Respostas[1])
+        balao3 = Balao(direcao: direcao, resposta: Respostas[2])
         balao1.position = CGPoint(x: personagem.position.x-150, y: personagem.position.y)
         balao2.position = CGPoint(x: personagem.position.x-150, y: personagem.position.y + 100)
         balao3.position = CGPoint(x: personagem.position.x, y: personagem.position.y+100)
