@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		666DA8B221790DA90078F77C /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666DA8B121790DA90078F77C /* Lista.swift */; };
 		765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DB12177A72A004AA4E3 /* AppDelegate.swift */; };
 		765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB32177A72A004AA4E3 /* GameScene.sks */; };
 		765B3DB62177A72A004AA4E3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB52177A72A004AA4E3 /* Actions.sks */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666DA8B121790DA90078F77C /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
 		765B3DAE2177A72A004AA4E3 /* Shyne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shyne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765B3DB12177A72A004AA4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		765B3DB32177A72A004AA4E3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -67,9 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		666DA8B021790D5E0078F77C /* ObjetosInteraveis */ = {
+			isa = PBXGroup;
+			children = (
+				666DA8B121790DA90078F77C /* Lista.swift */,
+			);
+			path = ObjetosInteraveis;
+			sourceTree = "<group>";
+		};
 		765B3DA52177A72A004AA4E3 = {
 			isa = PBXGroup;
 			children = (
+				666DA8B021790D5E0078F77C /* ObjetosInteraveis */,
 				765B3DB02177A72A004AA4E3 /* Shyne */,
 				765B3DAF2177A72A004AA4E3 /* Products */,
 			);
@@ -295,6 +306,7 @@
 				C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
+				666DA8B221790DA90078F77C /* Lista.swift in Sources */,
 				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
 				765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,

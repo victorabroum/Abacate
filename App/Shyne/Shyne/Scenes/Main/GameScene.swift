@@ -17,7 +17,7 @@ enum PlayerMovement {
     case down
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -34,7 +34,7 @@ class GameScene: SKScene {
         
         // Cria a tree para cena
         // makeTreeOfRoom()
-        
+        physicsWorld.contactDelegate = self
     }
     
     override func didMove(to view: SKView) {
@@ -83,5 +83,14 @@ class GameScene: SKScene {
             break
         }
     }
-    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if let nome=contact.bodyB.node?.name!{
+            lista[nome]?.funcaoEntrada()
+        }
+    }
+    func didEnd(_ contact: SKPhysicsContact) {
+        if let nome=contact.bodyB.node?.name!{
+            lista[nome]?.funcaoSaida()
+        }
+    }
 }
