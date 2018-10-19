@@ -38,6 +38,14 @@ class Answer{
     }
 }
 
+extension Answer: CustomStringConvertible{
+    var description: String {
+        get {
+            return "Choie - \(text)\n"
+        }
+    }
+}
+
 class Node {
     var text: String
     var choices: [Answer]
