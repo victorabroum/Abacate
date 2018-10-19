@@ -28,6 +28,7 @@
 		765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
+		C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C54CC4217A09C9003F7769 /* StatusStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTreeStory.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
+		C4C54CC4217A09C9003F7769 /* StatusStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		765B3DB02177A72A004AA4E3 /* Shyne */ = {
 			isa = PBXGroup;
 			children = (
+				C4C54CC3217A099E003F7769 /* New Group */,
 				C41DCF892177BF4000F53FEC /* Model */,
 				765B3DD52177C4AD004AA4E3 /* Controller */,
 				765B3DD22177C234004AA4E3 /* Entities */,
@@ -208,6 +211,14 @@
 			path = Padaria;
 			sourceTree = "<group>";
 		};
+		C4C54CC3217A099E003F7769 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				C4C54CC4217A09C9003F7769 /* StatusStory.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +305,7 @@
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
+				C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
