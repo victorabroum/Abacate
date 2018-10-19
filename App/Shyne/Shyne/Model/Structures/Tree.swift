@@ -31,10 +31,18 @@ class Answer{
         self.child = []
     }
     
-    init(with text: String, with amount: Feel, with child: [Node]) {
+    init(withText text: String, withAmount amount: Feel, withChild child: [Node]) {
         self.text = text
         self.amount = amount
         self.child = child
+    }
+}
+
+extension Answer: CustomStringConvertible{
+    var description: String {
+        get {
+            return "Choie - \(text)\n"
+        }
     }
 }
 

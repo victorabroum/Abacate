@@ -22,5 +22,8 @@ var secondTalk: Node = Node(withText: textSecondTalk, withChoices: [])
 
 // Construindo o fluxo
 func makeTreeOfRoom() -> (){
+    cBlack.child.append(secondTalk)
+    cPurple.child.append(secondTalk)
+    cBlue.child.append(secondTalk)
     rootNode.add(child: secondTalk)
 }
