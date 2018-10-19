@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				C41DCF892177BF4000F53FEC /* Model */,
-				765B3DE32178BC69004AA4E3 /* Models */,
 				765B3DD52177C4AD004AA4E3 /* Controller */,
 				765B3DD22177C234004AA4E3 /* Entities */,
 				765B3DCD2177BB3C004AA4E3 /* Components */,
@@ -184,14 +183,6 @@
 			path = Room;
 			sourceTree = "<group>";
 		};
-		765B3DE32178BC69004AA4E3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				765B3DE42178BC74004AA4E3 /* Structures */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		765B3DE42178BC74004AA4E3 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +194,7 @@
 		C41DCF892177BF4000F53FEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
 			);
 			path = Model;

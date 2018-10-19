@@ -23,10 +23,18 @@ struct Feel{
 class Answer{
     var text: String
     var amount: Feel
+    var child: [Node]
     
     init(withText text: String, withAmount amount: Feel) {
         self.text = text
         self.amount = amount
+        self.child = []
+    }
+    
+    init(with text: String, with amount: Feel, with child: [Node]) {
+        self.text = text
+        self.amount = amount
+        self.child = child
     }
 }
 
