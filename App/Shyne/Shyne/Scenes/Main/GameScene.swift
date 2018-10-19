@@ -22,8 +22,6 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    var balaodeescolha: baloesDeEscolha?
-    
     private var lastUpdateTime : TimeInterval = 0
     
     private var playerMovement: PlayerMovement = .idle
@@ -36,9 +34,6 @@ class GameScene: SKScene {
         
         // Cria a tree para cena
         // makeTreeOfRoom()
-        balaodeescolha = baloesDeEscolha(personagem: playerNode, direcao: .left, respostas: rootNode.choices)
-        
-        balaodeescolha!.desenhar()
         
     }
     
