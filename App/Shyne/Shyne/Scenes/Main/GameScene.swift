@@ -35,7 +35,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.playerNode = childNode(withName: "Player") as! SKSpriteNode
         
         // Cria a tree para cena
-        // makeTreeOfRoom()
+        house01makeTree()
+        print("Tree of house 1 => \n \(house01Root)")
+        print("Um teste \(house01Root.childrens[0].choices)")
         physicsWorld.contactDelegate = self
         
         
