@@ -17,10 +17,12 @@ class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
     var animado: Bool
+    var Cena: SKScene
     
-    init(personagem: SKNode, texto: String) {
+    init(personagem: SKNode, texto: String, cena: SKScene) {
         Personagem = personagem
         Texto = texto
+        Cena = cena
         animado = false
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
@@ -40,7 +42,7 @@ class caixaDeDialogo: SKSpriteNode{
     }
     
     func entrar()->Void{
-        
+        Personagem.addChild(self)
         
         if(!animado){
             animado = true
@@ -79,6 +81,8 @@ class caixaDeDialogo: SKSpriteNode{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         //adiciona o valor ao status da historia
+        sair()
+        drawnD
     }
 
 }

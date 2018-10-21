@@ -20,6 +20,8 @@ enum PlayerMovement {
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var caixa : caixaDeDialogo?
+    var escolhas : baloesDeEscolha?
+    var indexNode : Node?
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -30,6 +32,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     private var playerNode: SKSpriteNode = SKSpriteNode()
     
     override func sceneDidLoad() {
+        
+        makeTreeOfRoom()
+        indexNode = rootNode
 
         self.lastUpdateTime = 0
         self.playerNode = childNode(withName: "Player") as! SKSpriteNode
@@ -39,6 +44,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         
+    }
+    
+    func drawnDialog(){
+        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text)
+        caixa?.entrar()
+        if(indexNode?.choices.count != 0 ){
+            
+        }
     }
     
     override func didMove(to view: SKView) {
@@ -93,7 +106,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             caixa = caixaDeDialogo(personagem: contact.bodyA.node!, texto: (lista[nome]?.mensagem)!)
             lista["caixa"]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
             lista["caixa"]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
-            contact.bodyA.node!.addChild(caixa!)
             lista[nome]?.funcaoEntrada!(caixa!)
         }
     }
