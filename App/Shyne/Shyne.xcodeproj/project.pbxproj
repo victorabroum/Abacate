@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		666DA8B221790DA90078F77C /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666DA8B121790DA90078F77C /* Lista.swift */; };
+		760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD4E217E259200640A5C /* PlayerNode.swift */; };
 		765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DB12177A72A004AA4E3 /* AppDelegate.swift */; };
 		765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB32177A72A004AA4E3 /* GameScene.sks */; };
 		765B3DB62177A72A004AA4E3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB52177A72A004AA4E3 /* Actions.sks */; };
@@ -27,6 +28,22 @@
 		765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE52178BCAF004AA4E3 /* Tree.swift */; };
 		765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */; };
 		765B3DF1217A5A01004AA4E3 /* HouseTreeStory01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DF0217A5A01004AA4E3 /* HouseTreeStory01.swift */; };
+		765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DF4217D7624004AA4E3 /* HouseScene02.sks */; };
+		765B3DF7217D764C004AA4E3 /* HouseScene03.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DF6217D764C004AA4E3 /* HouseScene03.sks */; };
+		765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DF8217D7665004AA4E3 /* HouseScene01.sks */; };
+		765B3DFB217D7686004AA4E3 /* BakeryScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DFA217D7686004AA4E3 /* BakeryScene01.sks */; };
+		765B3DFE217D76B5004AA4E3 /* RoomScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DFD217D76B5004AA4E3 /* RoomScene02.sks */; };
+		765B3E01217D76F3004AA4E3 /* CityScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3E00217D76F3004AA4E3 /* CityScene01.sks */; };
+		765B3E05217D7737004AA4E3 /* CityScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3E04217D7737004AA4E3 /* CityScene02.sks */; };
+		765B3E09217D7796004AA4E3 /* ClassroomScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3E08217D7796004AA4E3 /* ClassroomScene01.sks */; };
+		765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E0A217D77EE004AA4E3 /* ClassroomScene01.swift */; };
+		765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E0C217D785A004AA4E3 /* CityScene02.swift */; };
+		765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E0E217D7884004AA4E3 /* CityScene01.swift */; };
+		765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E10217D78BD004AA4E3 /* RoomScene02.swift */; };
+		765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E12217D78E0004AA4E3 /* HouseScene03.swift */; };
+		765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E14217D78FA004AA4E3 /* HouseScene02.swift */; };
+		765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E16217D7950004AA4E3 /* BakeryScene01.swift */; };
+		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
 		C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C54CC4217A09C9003F7769 /* StatusStory.swift */; };
@@ -34,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		666DA8B121790DA90078F77C /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
+		760CBD4E217E259200640A5C /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		765B3DAE2177A72A004AA4E3 /* Shyne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shyne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765B3DB12177A72A004AA4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		765B3DB32177A72A004AA4E3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -55,6 +73,22 @@
 		765B3DE52178BCAF004AA4E3 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		765B3DE72178C81F004AA4E3 /* RoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTreeStory.swift; sourceTree = "<group>"; };
 		765B3DF0217A5A01004AA4E3 /* HouseTreeStory01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory01.swift; sourceTree = "<group>"; };
+		765B3DF4217D7624004AA4E3 /* HouseScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HouseScene02.sks; sourceTree = "<group>"; };
+		765B3DF6217D764C004AA4E3 /* HouseScene03.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HouseScene03.sks; sourceTree = "<group>"; };
+		765B3DF8217D7665004AA4E3 /* HouseScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HouseScene01.sks; sourceTree = "<group>"; };
+		765B3DFA217D7686004AA4E3 /* BakeryScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BakeryScene01.sks; sourceTree = "<group>"; };
+		765B3DFD217D76B5004AA4E3 /* RoomScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene02.sks; sourceTree = "<group>"; };
+		765B3E00217D76F3004AA4E3 /* CityScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CityScene01.sks; sourceTree = "<group>"; };
+		765B3E04217D7737004AA4E3 /* CityScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CityScene02.sks; sourceTree = "<group>"; };
+		765B3E08217D7796004AA4E3 /* ClassroomScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ClassroomScene01.sks; sourceTree = "<group>"; };
+		765B3E0A217D77EE004AA4E3 /* ClassroomScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomScene01.swift; sourceTree = "<group>"; };
+		765B3E0C217D785A004AA4E3 /* CityScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityScene02.swift; sourceTree = "<group>"; };
+		765B3E0E217D7884004AA4E3 /* CityScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityScene01.swift; sourceTree = "<group>"; };
+		765B3E10217D78BD004AA4E3 /* RoomScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomScene02.swift; sourceTree = "<group>"; };
+		765B3E12217D78E0004AA4E3 /* HouseScene03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene03.swift; sourceTree = "<group>"; };
+		765B3E14217D78FA004AA4E3 /* HouseScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene02.swift; sourceTree = "<group>"; };
+		765B3E16217D7950004AA4E3 /* BakeryScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryScene01.swift; sourceTree = "<group>"; };
+		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
 		C4C54CC4217A09C9003F7769 /* StatusStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStory.swift; sourceTree = "<group>"; };
@@ -120,9 +154,10 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				765B3E06217D7752004AA4E3 /* Collage */,
+				765B3DFF217D76E2004AA4E3 /* City */,
 				765B3DED217A58DC004AA4E3 /* House */,
 				C4B5D7732179148E00181DE7 /* Padaria */,
-				765B3DDE2178B4AF004AA4E3 /* Room */,
 				765B3DCA2177A970004AA4E3 /* Main */,
 			);
 			path = Scenes;
@@ -182,6 +217,7 @@
 		765B3DDE2178B4AF004AA4E3 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DFC217D76A0004AA4E3 /* 02(night) */,
 				765B3DEF217A591E004AA4E3 /* 01(day) */,
 			);
 			path = Room;
@@ -198,6 +234,9 @@
 		765B3DED217A58DC004AA4E3 /* House */ = {
 			isa = PBXGroup;
 			children = (
+				765B3DDE2178B4AF004AA4E3 /* Room */,
+				765B3DF3217D75F6004AA4E3 /* 03(night) */,
+				765B3DF2217D75CD004AA4E3 /* 02(after bakery) */,
 				765B3DEE217A58E5004AA4E3 /* 01(day) */,
 			);
 			path = House;
@@ -207,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				765B3DF0217A5A01004AA4E3 /* HouseTreeStory01.swift */,
+				765B3DF8217D7665004AA4E3 /* HouseScene01.sks */,
+				765B3E18217D7971004AA4E3 /* HouseScene01.swift */,
 			);
 			path = "01(day)";
 			sourceTree = "<group>";
@@ -221,11 +262,83 @@
 			name = "01(day)";
 			sourceTree = "<group>";
 		};
+		765B3DF2217D75CD004AA4E3 /* 02(after bakery) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DF4217D7624004AA4E3 /* HouseScene02.sks */,
+				765B3E14217D78FA004AA4E3 /* HouseScene02.swift */,
+			);
+			path = "02(after bakery)";
+			sourceTree = "<group>";
+		};
+		765B3DF3217D75F6004AA4E3 /* 03(night) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DF6217D764C004AA4E3 /* HouseScene03.sks */,
+				765B3E12217D78E0004AA4E3 /* HouseScene03.swift */,
+			);
+			path = "03(night)";
+			sourceTree = "<group>";
+		};
+		765B3DFC217D76A0004AA4E3 /* 02(night) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3DFD217D76B5004AA4E3 /* RoomScene02.sks */,
+				765B3E10217D78BD004AA4E3 /* RoomScene02.swift */,
+			);
+			name = "02(night)";
+			sourceTree = "<group>";
+		};
+		765B3DFF217D76E2004AA4E3 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				765B3E03217D7713004AA4E3 /* 02(night) */,
+				765B3E02217D7703004AA4E3 /* 01(day) */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		765B3E02217D7703004AA4E3 /* 01(day) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3E00217D76F3004AA4E3 /* CityScene01.sks */,
+				765B3E0E217D7884004AA4E3 /* CityScene01.swift */,
+			);
+			path = "01(day)";
+			sourceTree = "<group>";
+		};
+		765B3E03217D7713004AA4E3 /* 02(night) */ = {
+			isa = PBXGroup;
+			children = (
+				765B3E04217D7737004AA4E3 /* CityScene02.sks */,
+				765B3E0C217D785A004AA4E3 /* CityScene02.swift */,
+			);
+			path = "02(night)";
+			sourceTree = "<group>";
+		};
+		765B3E06217D7752004AA4E3 /* Collage */ = {
+			isa = PBXGroup;
+			children = (
+				765B3E07217D7780004AA4E3 /* Classroom */,
+			);
+			path = Collage;
+			sourceTree = "<group>";
+		};
+		765B3E07217D7780004AA4E3 /* Classroom */ = {
+			isa = PBXGroup;
+			children = (
+				765B3E08217D7796004AA4E3 /* ClassroomScene01.sks */,
+				765B3E0A217D77EE004AA4E3 /* ClassroomScene01.swift */,
+			);
+			path = Classroom;
+			sourceTree = "<group>";
+		};
 		C41DCF892177BF4000F53FEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
+				760CBD4E217E259200640A5C /* PlayerNode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */,
+				765B3DFA217D7686004AA4E3 /* BakeryScene01.sks */,
+				765B3E16217D7950004AA4E3 /* BakeryScene01.swift */,
 			);
 			path = Padaria;
 			sourceTree = "<group>";
@@ -304,11 +419,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765B3DFE217D76B5004AA4E3 /* RoomScene02.sks in Resources */,
+				765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */,
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
+				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
+				765B3E05217D7737004AA4E3 /* CityScene02.sks in Resources */,
 				765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */,
+				765B3E01217D76F3004AA4E3 /* CityScene01.sks in Resources */,
+				765B3DFB217D7686004AA4E3 /* BakeryScene01.sks in Resources */,
+				765B3DF7217D764C004AA4E3 /* HouseScene03.sks in Resources */,
 				765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */,
 				765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */,
+				765B3E09217D7796004AA4E3 /* ClassroomScene01.sks in Resources */,
 				765B3DB62177A72A004AA4E3 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,21 +443,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */,
 				765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */,
+				765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */,
 				765B3DB82177A72A004AA4E3 /* GameScene.swift in Sources */,
 				C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
 				666DA8B221790DA90078F77C /* Lista.swift in Sources */,
+				765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */,
+				765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */,
 				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
 				765B3DF1217A5A01004AA4E3 /* HouseTreeStory01.swift in Sources */,
 				765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */,
+				765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */,
+				760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */,
+				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
 				C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
+				765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */,
+				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
 			);
