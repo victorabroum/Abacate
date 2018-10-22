@@ -81,6 +81,8 @@ class PlayerNode: SKSpriteNode {
                 self.isWalking = false
                 break
             }
+        }else{
+            self.isWalking = false
         }
     }
     
