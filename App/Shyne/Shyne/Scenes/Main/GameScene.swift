@@ -46,12 +46,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
     }
     
-    func drawnDialog(){
-        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text)
+    public func drawnDialog(){
+        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
         caixa?.entrar()
-        if(indexNode?.choices.count != 0 ){
-            
-        }
+        makeTreeOfRoom()
+        indexNode = indexNode!.childrens[0]
     }
     
     override func didMove(to view: SKView) {
@@ -103,7 +102,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         if let nome=contact.bodyA.node?.name!{
-            caixa = caixaDeDialogo(personagem: contact.bodyA.node!, texto: (lista[nome]?.mensagem)!)
+            caixa = caixaDeDialogo(personagem: contact.bodyA.node!, texto: (lista[nome]?.mensagem)!, cena: self)
             lista["caixa"]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
             lista["caixa"]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
             lista[nome]?.funcaoEntrada!(caixa!)

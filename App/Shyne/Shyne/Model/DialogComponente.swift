@@ -17,9 +17,9 @@ class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
     var animado: Bool
-    var Cena: SKScene
+    var Cena: GameScene
     
-    init(personagem: SKNode, texto: String, cena: SKScene) {
+    init(personagem: SKNode, texto: String, cena: GameScene) {
         Personagem = personagem
         Texto = texto
         Cena = cena
@@ -82,7 +82,7 @@ class caixaDeDialogo: SKSpriteNode{
     {
         //adiciona o valor ao status da historia
         sair()
-        drawnD
+        Cena.drawnDialog()
     }
 
 }
