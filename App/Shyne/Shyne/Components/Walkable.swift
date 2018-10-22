@@ -15,6 +15,6 @@ class Walkable: GKComponent {
     var node = SKSpriteNode()
     
     func startWalk() -> () {
-        
+        node.run(SKAction(named: "playerWalk")!)
     }
 }
