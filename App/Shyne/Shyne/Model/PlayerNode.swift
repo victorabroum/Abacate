@@ -39,6 +39,7 @@ class PlayerNode: SKSpriteNode {
     // Func to prepare camera and control
     
     func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+        self.cameraReference.alpha = 0
         self.cameraReference.position.y += 225
         self.addChild(self.cameraReference)
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
