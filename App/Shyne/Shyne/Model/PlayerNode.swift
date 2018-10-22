@@ -51,6 +51,8 @@ class PlayerNode: SKSpriteNode {
     // Player Can Walk?
     func playerCanWalk(_ flag: Bool) -> () {
         self.canWalk = flag
+        self.isWalking = false
+        self.actualDirection = .idle
     }
     
     // Func to make player moves
@@ -81,8 +83,6 @@ class PlayerNode: SKSpriteNode {
                 self.isWalking = false
                 break
             }
-        }else{
-            self.isWalking = false
         }
     }
     
