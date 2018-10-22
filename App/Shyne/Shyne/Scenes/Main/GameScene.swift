@@ -30,7 +30,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
-        self.playerNode = childNode(withName: "Player") as! SKSpriteNode
+        self.playerNode = childNode(withName: "playerNode") as! SKSpriteNode
         
         // Cria a tree para cena
         house01makeTree()
