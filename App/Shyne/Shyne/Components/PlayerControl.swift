@@ -82,7 +82,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
 
 //        // get the frame of the entire level contents
         let boardNode:SKSpriteNode = scene?.childNode(withName: "background")! as! SKSpriteNode
-        let bounds: CGFloat = (boardNode.size.width / 2) - (boardNode.size.width / 5) + 30
+        let bounds: CGFloat = (boardNode.size.width / 2) - (boardNode.size.width / 5) + 550
         let middleRange = SKRange(lowerLimit: -bounds, upperLimit: bounds)
         let levelEdgeConstraint = SKConstraint.distance(middleRange, to: boardNode)
 

@@ -47,8 +47,14 @@ class PlayerNode: SKSpriteNode {
         
         switch self.actualDirection {
         case .right:
+            if self.xScale <= 0{
+                self.xScale *= -1
+            }
             self.position.x += playerVelocity
         case .left:
+            if self.xScale >= 0{
+                self.xScale *= -1
+            }
             self.position.x -= playerVelocity
         case .up:
             self.position.y += playerVelocity
