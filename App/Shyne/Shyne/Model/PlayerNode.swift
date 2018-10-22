@@ -12,6 +12,8 @@ import SpriteKit
 class PlayerNode: SKSpriteNode {
     
     var actualDirection: PlayerMovement = .idle
+    var isWalking: Bool = false
+    var cameraReference: SKSpriteNode = SKSpriteNode(texture: nil, color: UIColor.brown, size: CGSize(width: 50, height: 50))
     
     public func movePlayer(command: String) -> () {
         switch command {
@@ -37,6 +39,8 @@ class PlayerNode: SKSpriteNode {
     // Func to prepare camera and control
     
     func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+        self.cameraReference.position.y += 225
+        self.addChild(self.cameraReference)
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
             pcComponent.setupControllers(camera: camera, scene: scene)
         }
@@ -44,6 +48,10 @@ class PlayerNode: SKSpriteNode {
     
     // Func to make player moves
     func makePlayerWalk(){
+        
+        if !self.isWalking {
+            self.animateWalking()
+        }
         
         switch self.actualDirection {
         case .right:
@@ -61,8 +69,17 @@ class PlayerNode: SKSpriteNode {
         case .down:
             self.position.y -= playerVelocity
         default:
+            // Idle
+            self.isWalking = false
             break
         }
+    }
+    
+    func animateWalking() -> (){
+        self.isWalking = true
+        let walkComponent: Walkable = Walkable()
+        walkComponent.node = self
+        walkComponent.startWalk()
     }
 
 }
