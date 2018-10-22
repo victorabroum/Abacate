@@ -12,7 +12,7 @@ import SpriteKit
 var zPositionToButton: CGFloat = 10
 
 // For The Player
-var playerVelocity: CGFloat = 15.0
+var playerVelocity: CGFloat = 8.0
 
 // Possibles direction for player moves
 enum PlayerMovement {
