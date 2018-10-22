@@ -29,6 +29,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
     }
     
+    public func changeIndexNodeBallon(node: [Node]){
+        indexNode = node.first
+        
+    }
+    
     public func drawnDialog(){
         
 //        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
