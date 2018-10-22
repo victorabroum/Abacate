@@ -13,8 +13,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     private var playerNode: PlayerNode?
     var caixa : caixaDeDialogo?
-    var escolhas : baloesDeEscolha?
+    var escolhas: baloesDeEscolha?
     var indexNode : Node?
+    var ballon = false
     
     override func sceneDidLoad() {
         
@@ -36,10 +37,26 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 //        }
 //        caixa?.entrar()
         
-        if(indexNode != nil){
-            caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
+        if(!ballon){
+            if(indexNode != nil){
+                if(escolhas != nil){
+                    escolhas?.sair()
+                }
+                caixa = caixaDeDialogo(personagem: playerNode!, texto: indexNode!.text, cena: self)
+                caixa?.entrar()
+                if(!(indexNode!.choices.isEmpty)){
+                    ballon = true
+                    escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, cena: self)
+                }
+                else{
+                    indexNode = indexNode!.childrens.first
+                }
+            }
+        }
+        else{
+            escolhas?.desenhar()
+            ballon = false
             indexNode = indexNode!.childrens.first
-            caixa?.entrar()
         }
     }
     

@@ -90,8 +90,11 @@ class caixaDeDialogo: SKSpriteNode{
 class Balao: SKSpriteNode{
     
     let Resposta: Answer
-    init(direcao: sideView, resposta: Answer) {
+    var Cena: GameScene
+    
+    init(resposta: Answer, cena: GameScene) {
         Resposta = resposta
+        Cena = cena
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
         self.setScale(0)
@@ -111,6 +114,7 @@ class Balao: SKSpriteNode{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         //adiciona o valor ao status da historia
+        Cena.drawnDialog()
     }
 }
 
@@ -122,20 +126,20 @@ class baloesDeEscolha{
     let balao2 : Balao
     let balao3 : Balao
     let Personagem : SKSpriteNode
-    let Direcao : sideView
     let Respostas : [Answer]
+    var Cena: GameScene
     
-    init(personagem: SKSpriteNode, direcao: sideView, respostas:[Answer]) {
+    init(personagem: SKSpriteNode, respostas:[Answer], cena: GameScene) {
         Personagem = personagem
-        Direcao = direcao
         Respostas = respostas
+        Cena = cena
         
-        balao1 = Balao(direcao: direcao, resposta: Respostas[0])
-        balao2 = Balao(direcao: direcao, resposta: Respostas[1])
-        balao3 = Balao(direcao: direcao, resposta: Respostas[2])
-        balao1.position = CGPoint(x: personagem.position.x-150, y: personagem.position.y)
-        balao2.position = CGPoint(x: personagem.position.x-150, y: personagem.position.y + 100)
-        balao3.position = CGPoint(x: personagem.position.x, y: personagem.position.y+100)
+        balao1 = Balao(resposta: Respostas[0], cena: cena)
+        balao2 = Balao(resposta: Respostas[1], cena: cena)
+        balao3 = Balao(resposta: Respostas[2], cena: cena)
+        balao1.position = CGPoint(x: -150, y: 100)
+        balao2.position = CGPoint(x: 150, y: 100)
+        balao3.position = CGPoint(x: 0, y: 100)
     }
     
     func desenhar(){
@@ -179,6 +183,41 @@ class baloesDeEscolha{
             }
         }
         
+    }
+    
+    func sair()->Void{
+        if(!animado1){
+            animado1 = true
+            let scale = SKAction.scale(to: 0, duration: 0.1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let group = SKAction.group([scale, fadeIn])
+            balao1.run(group){
+                self.animado1 = false
+            }
+        }
+        balao1.removeFromParent()
+        
+        if(!animado2){
+            animado2 = true
+            let scale = SKAction.scale(to: 0, duration: 0.1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let group = SKAction.group([scale, fadeIn])
+            balao2.run(group){
+                self.animado2 = false
+            }
+        }
+        balao2.removeFromParent()
+        
+        if(!animado3){
+            animado3 = true
+            let scale = SKAction.scale(to: 0, duration: 0.1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let group = SKAction.group([scale, fadeIn])
+            balao3.run(group){
+                self.animado3 = false
+            }
+        }
+        balao3.removeFromParent()
     }
     
 }
