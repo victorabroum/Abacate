@@ -11,17 +11,19 @@ import GameplayKit
 
 class PlayerControl : GKComponent, TouchControlDelegate{
     
-    let playerVelocity: CGFloat = 3.0
     var touchControlNode : TouchController?
     var scene: GameScene?
+    var playerNode: PlayerNode?
     
     @objc func swipedUp(_ sender:UISwipeGestureRecognizer){
-        self.scene?.movePlayer(command: "up")
+//        self.scene?.movePlayer(command: "up")
+        self.playerNode?.movePlayer(command: "up")
         print("swiped up")
     }
     
     @objc func swipedDown(_ sender:UISwipeGestureRecognizer){
-        self.scene?.movePlayer(command: "down")
+//        self.scene?.movePlayer(command: "down")
+        self.playerNode?.movePlayer(command: "down")
         print("swiped down")
     }
     
@@ -35,8 +37,34 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Add o node como filha do node camera
         camera.addChild(touchControlNode!)
         
+        // Get reference of Game Scene
         self.scene = scene as? GameScene
         
+        playerNode = self.scene?.childNode(withName: "playerNode") as? PlayerNode
+        
+        // Set swipe controller
+        self.setSwiperController()
+        
+        // Set camera constraints
+        if self.playerNode != nil{
+            print("Tem player")
+            self.set(cameraConstraints: camera, onplayerNode: self.playerNode!)
+        }
+        
+        
+    }
+    
+    func follow(command: String?) {
+        // Do something
+//        print("command \(command!)")
+        
+        if self.scene != nil {
+//            self.scene?.movePlayer(command: command!)
+            self.playerNode?.movePlayer(command: command!)
+        }
+    }
+    
+    func setSwiperController() -> () {
         // Swipe up
         let swipeUp:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp(_:)))
         swipeUp.direction = .up
@@ -48,15 +76,22 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         self.scene?.view?.addGestureRecognizer(swipeDown)
     }
     
-    func follow(command: String?) {
-        // Do something
-        print("command \(command!)")
-        
-        // Move the player Node
-        
-        if self.scene != nil {
-            self.scene?.movePlayer(command: command!)
-        }
+    func set(cameraConstraints camera: SKCameraNode, onplayerNode player: SKSpriteNode) -> () {
+        let zeroRange = SKRange(constantValue: 0)
+        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, to: player)
+
+//        // get the frame of the entire level contents
+        let boardNode:SKSpriteNode = scene?.childNode(withName: "background")! as! SKSpriteNode
+        let bounds: CGFloat = (boardNode.size.width / 2) - (boardNode.size.width / 5) + 30
+        let middleRange = SKRange(lowerLimit: -bounds, upperLimit: bounds)
+        let levelEdgeConstraint = SKConstraint.distance(middleRange, to: boardNode)
+
+        camera.constraints = [playerBotLocationConstraint, levelEdgeConstraint]
+    }
+    
+    // Caso precise remover as constrains da camera seguir o player
+    func removeConstrainsts(ofCamera camera: SKCameraNode) -> () {
+        camera.constraints = []
     }
     
 }

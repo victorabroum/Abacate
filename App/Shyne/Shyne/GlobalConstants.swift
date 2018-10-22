@@ -13,3 +13,12 @@ var zPositionToButton: CGFloat = 10
 
 // For The Player
 var playerVelocity: CGFloat = 10.0
+
+// Possibles direction for player moves
+enum PlayerMovement {
+    case right
+    case left
+    case idle
+    case up
+    case down
+}

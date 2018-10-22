@@ -75,7 +75,7 @@ class TouchController: SKSpriteNode {
                 if button.contains(location) && !arrayOfButtons.contains(button){
                     arrayOfButtons.append(button)
                     if(touchControlDelegate != nil){
-                        touchControlDelegate?.follow(command: button.name)
+                        touchControlDelegate?.follow(command: button.name!)
                     }
                 }
             }
