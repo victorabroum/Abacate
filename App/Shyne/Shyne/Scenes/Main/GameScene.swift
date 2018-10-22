@@ -17,12 +17,12 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
     
     private var playerMovement: PlayerMovement = .idle
-    private var playerNode: SKSpriteNode = SKSpriteNode()
+    private var playerNode: PlayerNode?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
-        self.playerNode = childNode(withName: "playerNode") as! SKSpriteNode
+        self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
         // Cria a tree para cena
         house01makeTree()
@@ -32,30 +32,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        if let pcComponent = self.playerNode.entity?.component(ofType: PlayerControl.self){
+        if let pcComponent = self.playerNode!.entity?.component(ofType: PlayerControl.self){
             pcComponent.setupControllers(camera: camera!, scene: self)
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        makeWalk(onPlayerNode: self.playerNode, inDirection: self.playerMovement)
-    }
-    
-    public func movePlayer(command: String) -> () {
-        switch command {
-        case "right":
-            self.playerMovement = .right
-        case "left":
-            self.playerMovement = .left
-        case "up":
-            self.playerMovement = .up
-        case "down":
-            self.playerMovement = .down
-        default:
-            // Idle
-            self.playerMovement = .idle
-            break
-        }
+//        makeWalk(onPlayerNode: self.playerNode!, inDirection: self.playerNode!.getActualDirection())
+        self.playerNode!.makePlayerWalk()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

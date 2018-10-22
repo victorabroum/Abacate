@@ -13,15 +13,17 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     
     var touchControlNode : TouchController?
     var scene: GameScene?
-    var playerNode: SKSpriteNode?
+    var playerNode: PlayerNode?
     
     @objc func swipedUp(_ sender:UISwipeGestureRecognizer){
-        self.scene?.movePlayer(command: "up")
+//        self.scene?.movePlayer(command: "up")
+        self.playerNode?.movePlayer(command: "up")
         print("swiped up")
     }
     
     @objc func swipedDown(_ sender:UISwipeGestureRecognizer){
-        self.scene?.movePlayer(command: "down")
+//        self.scene?.movePlayer(command: "down")
+        self.playerNode?.movePlayer(command: "down")
         print("swiped down")
     }
     
@@ -38,7 +40,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Get reference of Game Scene
         self.scene = scene as? GameScene
         
-        playerNode = self.scene?.childNode(withName: "playerNode") as? SKSpriteNode
+        playerNode = self.scene?.childNode(withName: "playerNode") as? PlayerNode
         
         // Set swipe controller
         self.setSwiperController()
@@ -56,11 +58,9 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Do something
 //        print("command \(command!)")
         
-        // Move the player Node
-        //self.playerNode.position.x += playerVelocity
-        
         if self.scene != nil {
-            self.scene?.movePlayer(command: command!)
+//            self.scene?.movePlayer(command: command!)
+            self.playerNode?.movePlayer(command: command!)
         }
     }
     
