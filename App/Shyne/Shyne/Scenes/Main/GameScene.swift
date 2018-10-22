@@ -47,10 +47,18 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     public func drawnDialog(){
-        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
-        caixa?.entrar()
-        makeTreeOfRoom()
-        indexNode = indexNode!.childrens[0]
+        
+//        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
+//        if(indexNode!.childrens.first != nil){
+//            indexNode = indexNode!.childrens.first
+//        }
+//        caixa?.entrar()
+        
+        if(indexNode != nil){
+            caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
+            indexNode = indexNode!.childrens.first
+            caixa?.entrar()
+        }
     }
     
     override func didMove(to view: SKView) {
