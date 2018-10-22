@@ -12,6 +12,9 @@
 		66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */; };
 		760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD4E217E259200640A5C /* PlayerNode.swift */; };
 		760CBD52217E45BD00640A5C /* PlayerAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 760CBD51217E45BD00640A5C /* PlayerAction.sks */; };
+		760CBD55217E654000640A5C /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD54217E654000640A5C /* WalkingState.swift */; };
+		760CBD57217E660300640A5C /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD56217E660300640A5C /* IdleState.swift */; };
+		760CBD59217E6B0500640A5C /* PlayerIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD58217E6B0500640A5C /* PlayerIdle.swift */; };
 		765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DB12177A72A004AA4E3 /* AppDelegate.swift */; };
 		765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB32177A72A004AA4E3 /* GameScene.sks */; };
 		765B3DB62177A72A004AA4E3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB52177A72A004AA4E3 /* Actions.sks */; };
@@ -57,6 +60,9 @@
 		66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRoomTreeStory.swift; sourceTree = "<group>"; };
 		760CBD4E217E259200640A5C /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		760CBD51217E45BD00640A5C /* PlayerAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerAction.sks; sourceTree = "<group>"; };
+		760CBD54217E654000640A5C /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalkingState.swift; path = State/WalkingState.swift; sourceTree = "<group>"; };
+		760CBD56217E660300640A5C /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IdleState.swift; path = State/IdleState.swift; sourceTree = "<group>"; };
+		760CBD58217E6B0500640A5C /* PlayerIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerIdle.swift; sourceTree = "<group>"; };
 		765B3DAE2177A72A004AA4E3 /* Shyne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shyne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765B3DB12177A72A004AA4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		765B3DB32177A72A004AA4E3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -121,6 +127,16 @@
 			isa = PBXGroup;
 			children = (
 				760CBD51217E45BD00640A5C /* PlayerAction.sks */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		760CBD53217E652100640A5C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				760CBD4E217E259200640A5C /* PlayerNode.swift */,
+				760CBD54217E654000640A5C /* WalkingState.swift */,
+				760CBD56217E660300640A5C /* IdleState.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -204,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				765B3DD02177C062004AA4E3 /* Walkable.swift */,
+				760CBD58217E6B0500640A5C /* PlayerIdle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -350,9 +367,9 @@
 		C41DCF892177BF4000F53FEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				760CBD53217E652100640A5C /* Player */,
 				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
-				760CBD4E217E259200640A5C /* PlayerNode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +474,7 @@
 				C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
+				760CBD55217E654000640A5C /* WalkingState.swift in Sources */,
 				666DA8B221790DA90078F77C /* Lista.swift in Sources */,
 				765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */,
 				765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */,
@@ -471,10 +489,12 @@
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
+				760CBD59217E6B0500640A5C /* PlayerIdle.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */,
 				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
+				760CBD57217E660300640A5C /* IdleState.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
 				66B259E0217E3E71002F4ECC /* HouseTreeStory02.swift in Sources */,
 			);
