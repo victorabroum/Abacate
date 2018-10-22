@@ -15,18 +15,6 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     var scene: GameScene?
     var playerNode: PlayerNode?
     
-    @objc func swipedUp(_ sender:UISwipeGestureRecognizer){
-//        self.scene?.movePlayer(command: "up")
-        self.playerNode?.movePlayer(command: "up")
-        print("swiped up")
-    }
-    
-    @objc func swipedDown(_ sender:UISwipeGestureRecognizer){
-//        self.scene?.movePlayer(command: "down")
-        self.playerNode?.movePlayer(command: "down")
-        print("swiped down")
-    }
-    
     func setupControllers(camera: SKCameraNode, scene: SKScene) -> () {
         touchControlNode = TouchController(frame: scene.frame)
         touchControlNode?.touchControlDelegate = self
@@ -42,9 +30,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         
         playerNode = self.scene?.childNode(withName: "playerNode") as? PlayerNode
         
-        // Set swipe controller
-        self.setSwiperController()
-        
+
         // Set camera constraints
         if self.playerNode != nil{
             print("Tem player")
@@ -62,18 +48,6 @@ class PlayerControl : GKComponent, TouchControlDelegate{
 //            self.scene?.movePlayer(command: command!)
             self.playerNode?.movePlayer(command: command!)
         }
-    }
-    
-    func setSwiperController() -> () {
-        // Swipe up
-        let swipeUp:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp(_:)))
-        swipeUp.direction = .up
-        self.scene?.view?.addGestureRecognizer(swipeUp)
-        
-        // Swipe down
-        let swipeDown:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedDown(_:)))
-        swipeDown.direction = .down
-        self.scene?.view?.addGestureRecognizer(swipeDown)
     }
     
     func set(cameraConstraints camera: SKCameraNode, onplayerNode player: SKSpriteNode) -> () {
