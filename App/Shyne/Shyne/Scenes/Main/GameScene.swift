@@ -19,8 +19,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         
-        makeTreeOfRoom()
-        indexNode = rootNode
+        house01makeTree()
+        indexNode = house01Root
 
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
