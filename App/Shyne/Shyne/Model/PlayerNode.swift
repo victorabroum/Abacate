@@ -34,6 +34,14 @@ class PlayerNode: SKSpriteNode {
         return self.actualDirection
     }
     
+    // Func to prepare camera and control
+    
+    func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+        if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+            pcComponent.setupControllers(camera: camera, scene: scene)
+        }
+    }
+    
     // Func to make player moves
     func makePlayerWalk(){
         
