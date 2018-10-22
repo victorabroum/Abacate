@@ -89,7 +89,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func didEnd(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
             print(nome)
-            lista[nome]?.funcaoSaida!(caixa!)
         }
     }
 }

@@ -12,6 +12,9 @@ import SpriteKit
 class PlayerNode: SKSpriteNode {
     
     var actualDirection: PlayerMovement = .idle
+    var isWalking: Bool = false
+    var canWalk: Bool = true
+    var cameraReference: SKSpriteNode = SKSpriteNode(texture: nil, color: UIColor.brown, size: CGSize(width: 50, height: 50))
     
     public func movePlayer(command: String) -> () {
         switch command {
@@ -35,28 +38,57 @@ class PlayerNode: SKSpriteNode {
     }
     
     // Func to prepare camera and control
-    
     func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+        self.cameraReference.alpha = 0
+        self.cameraReference.position.y += 225
+        self.addChild(self.cameraReference)
+        self.canWalk = true
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
             pcComponent.setupControllers(camera: camera, scene: scene)
         }
     }
     
+    // Player Can Walk?
+    func playerCanWalk(_ flag: Bool) -> () {
+        self.canWalk = flag
+    }
+    
     // Func to make player moves
     func makePlayerWalk(){
         
-        switch self.actualDirection {
-        case .right:
-            self.position.x += playerVelocity
-        case .left:
-            self.position.x -= playerVelocity
-        case .up:
-            self.position.y += playerVelocity
-        case .down:
-            self.position.y -= playerVelocity
-        default:
-            break
+        if self.canWalk{
+            if !self.isWalking {
+                self.animateWalking()
+            }
+            
+            switch self.actualDirection {
+            case .right:
+                if self.xScale <= 0{
+                    self.xScale *= -1
+                }
+                self.position.x += playerVelocity
+            case .left:
+                if self.xScale >= 0{
+                    self.xScale *= -1
+                }
+                self.position.x -= playerVelocity
+            case .up:
+                self.position.y += playerVelocity
+            case .down:
+                self.position.y -= playerVelocity
+            default:
+                // Idle
+                self.isWalking = false
+                break
+            }
         }
+    }
+    
+    func animateWalking() -> (){
+        self.isWalking = true
+        let walkComponent: Walkable = Walkable()
+        walkComponent.node = self
+        walkComponent.startWalk()
     }
 
 }

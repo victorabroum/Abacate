@@ -12,7 +12,7 @@ import SpriteKit
 var zPositionToButton: CGFloat = 10
 
 // For The Player
-var playerVelocity: CGFloat = 10.0
+var playerVelocity: CGFloat = 15.0
 
 // Possibles direction for player moves
 enum PlayerMovement {
@@ -22,3 +22,8 @@ enum PlayerMovement {
     case up
     case down
 }
+
+// Status of choices
+var happyStatus: Float = 0.0
+var normalStatus: Float = 0.0
+var shyStatus: Float = 0.0
