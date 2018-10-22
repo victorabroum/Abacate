@@ -12,4 +12,4 @@ import SpriteKit
 var zPositionToButton: CGFloat = 10
 
 // For The Player
-var playerVelocity: CGFloat = 3.0
+var playerVelocity: CGFloat = 10.0
