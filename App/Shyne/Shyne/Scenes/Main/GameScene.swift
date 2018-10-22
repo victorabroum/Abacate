@@ -45,7 +45,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         if(!ballon){
             if(indexNode != nil){
                 if(escolhas != nil){
-                    //funcao que faz o play no andar
+                    self.playerNode!.playerCanWalk(false)
                     escolhas?.sair()
                 }
                 caixa = caixaDeDialogo(personagem: playerNode!, texto: indexNode!.text, cena: self)
@@ -59,7 +59,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 }
             }
             else{
-                self.playerNode!.makePlayerWalk()
+                self.playerNode!.playerCanWalk(true)
             }
         }
         else{
