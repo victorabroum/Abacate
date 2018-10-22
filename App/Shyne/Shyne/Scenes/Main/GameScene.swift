@@ -13,10 +13,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     private var playerNode: PlayerNode?
     var dialogavel1: Dialogavel?
-//    var caixa : caixaDeDialogo?
-//    var escolhas: baloesDeEscolha?
-//    var indexNode : Node?
-//    var ballon = false
     
     override func sceneDidLoad() {
         
@@ -31,46 +27,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         dialogavel1!.indexNode = house01Root
         
     }
-    
-//    public func changeIndexNodeBallon(node: [Node]){
-//        indexNode = node.first
-//        
-//    }
-//    
-//    public func drawnDialog(){
-//        
-////        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
-////        if(indexNode!.childrens.first != nil){
-////            indexNode = indexNode!.childrens.first
-////        }
-////        caixa?.entrar()
-//        
-//        if(!ballon){
-//            if(indexNode != nil){
-//                self.playerNode!.playerCanWalk(false)
-//                if(escolhas != nil){
-//                    escolhas?.sair()
-//                }
-//                caixa = caixaDeDialogo(personagem: playerNode!, texto: indexNode!.text, cena: self)
-//                caixa?.entrar()
-//                if(!(indexNode!.choices.isEmpty)){
-//                    ballon = true
-//                    escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, cena: self)
-//                }
-//                else{
-//                    indexNode = indexNode!.childrens.first
-//                }
-//            }
-//            else{
-//                self.playerNode!.playerCanWalk(true)
-//            }
-//        }
-//        else{
-//            escolhas?.desenhar()
-//            ballon = false
-//            indexNode = indexNode!.childrens.first
-//        }
-//    }
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self)
