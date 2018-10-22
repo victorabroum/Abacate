@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class PlayerNode: SKSpriteNode {
     
@@ -15,6 +16,25 @@ class PlayerNode: SKSpriteNode {
     var isWalking: Bool = false
     var canWalk: Bool = true
     var cameraReference: SKSpriteNode = SKSpriteNode(texture: nil, color: UIColor.brown, size: CGSize(width: 50, height: 50))
+    var stateMachine: GKStateMachine?
+    
+    func prepareStateMachine() -> (){
+        self.stateMachine = GKStateMachine(states: [IdleState(withPlayerNode: self),
+                                                    WalkingState(withPlayerNode: self)])
+    }
+    
+    func enterIdleState(){
+        if self.stateMachine != nil{
+            self.stateMachine?.enter(IdleState.self)
+        }
+    }
+    
+    func enterWalkingState(){
+        if self.stateMachine != nil{
+            self.stateMachine?.enter(WalkingState.self)
+        }
+    }
+    
     
     public func movePlayer(command: String) -> () {
         switch command {
@@ -39,10 +59,20 @@ class PlayerNode: SKSpriteNode {
     
     // Func to prepare camera and control
     func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+        // Add camera reference to follow
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += 225
         self.addChild(self.cameraReference)
+        
+        // Setup statemachine
+        self.prepareStateMachine()
+        // Began in idle state
+        self.enterIdleState()
+        
+        // Said player really can walk
         self.canWalk = true
+        
+        // Setup component controllers
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
             pcComponent.setupControllers(camera: camera, scene: scene)
         }
@@ -51,17 +81,15 @@ class PlayerNode: SKSpriteNode {
     // Player Can Walk?
     func playerCanWalk(_ flag: Bool) -> () {
         self.canWalk = flag
-        self.isWalking = false
-        self.actualDirection = .idle
+        if !flag {
+            self.enterIdleState()
+        }
     }
     
     // Func to make player moves
     func makePlayerWalk(){
         
         if self.canWalk{
-            if !self.isWalking {
-                self.animateWalking()
-            }
             
             switch self.actualDirection {
             case .right:
@@ -69,28 +97,21 @@ class PlayerNode: SKSpriteNode {
                     self.xScale *= -1
                 }
                 self.position.x += playerVelocity
+                self.enterWalkingState()
             case .left:
                 if self.xScale >= 0{
                     self.xScale *= -1
                 }
                 self.position.x -= playerVelocity
-            case .up:
-                self.position.y += playerVelocity
-            case .down:
-                self.position.y -= playerVelocity
+                self.enterWalkingState()
             default:
                 // Idle
                 self.isWalking = false
-                break
+                self.enterIdleState()
             }
+        }else{
+            self.enterIdleState()
         }
-    }
-    
-    func animateWalking() -> (){
-        self.isWalking = true
-        let walkComponent: Walkable = Walkable()
-        walkComponent.node = self
-        walkComponent.startWalk()
     }
 
 }
