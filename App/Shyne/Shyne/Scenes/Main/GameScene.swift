@@ -44,8 +44,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         if(!ballon){
             if(indexNode != nil){
+                self.playerNode!.playerCanWalk(false)
                 if(escolhas != nil){
-                    self.playerNode!.playerCanWalk(false)
                     escolhas?.sair()
                 }
                 caixa = caixaDeDialogo(personagem: playerNode!, texto: indexNode!.text, cena: self)
@@ -88,7 +88,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     func didEnd(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
-            print(nome)
+            lista[nome]?.funcaoSaida!(caixa!)
         }
     }
 }
