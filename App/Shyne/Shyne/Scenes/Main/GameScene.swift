@@ -9,14 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-enum PlayerMovement {
-    case right
-    case left
-    case idle
-    case up
-    case down
-}
-
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var entities = [GKEntity]()
@@ -46,27 +38,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        switch self.playerMovement {
-        case .right:
-            self.playerNode.position.x += playerVelocity
-        case .left:
-            self.playerNode.position.x -= playerVelocity
-        case .up:
-            self.playerNode.position.y += playerVelocity
-        case .down:
-            self.playerNode.position.y -= playerVelocity
-            // Se quiser mudar de scene é assim
-            // Basta pedir para scene atual apresentar a scene que deseja ir
-            // A transição é opcional mas é pra ficar bonito
-//            print("Vamos para a prox scene")
-//            let transition: SKTransition = SKTransition.fade(withDuration: 1)
-//            if let roomScene = RoomScene(fileNamed: "RoomScene"){
-//                self.view?.presentScene(roomScene, transition: transition)
-//            }
-        default:
-            // Idle
-            break
-        }
+        makeWalk(onPlayerNode: self.playerNode, inDirection: self.playerMovement)
     }
     
     public func movePlayer(command: String) -> () {
@@ -85,6 +57,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             break
         }
     }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyB.node?.name!{
             lista[nome]?.funcaoEntrada()

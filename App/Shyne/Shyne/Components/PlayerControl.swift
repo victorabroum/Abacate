@@ -13,6 +13,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     
     var touchControlNode : TouchController?
     var scene: GameScene?
+    var playerNode: SKSpriteNode?
     
     @objc func swipedUp(_ sender:UISwipeGestureRecognizer){
         self.scene?.movePlayer(command: "up")
@@ -37,13 +38,15 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Get reference of Game Scene
         self.scene = scene as? GameScene
         
+        playerNode = self.scene?.childNode(withName: "playerNode") as? SKSpriteNode
+        
         // Set swipe controller
         self.setSwiperController()
         
         // Set camera constraints
-        if let playerNode: SKSpriteNode = self.scene?.childNode(withName: "playerNode") as? SKSpriteNode{
+        if self.playerNode != nil{
             print("Tem player")
-            self.set(cameraConstraints: camera, onplayerNode: playerNode)
+            self.set(cameraConstraints: camera, onplayerNode: self.playerNode!)
         }
         
         
@@ -54,6 +57,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
 //        print("command \(command!)")
         
         // Move the player Node
+        //self.playerNode.position.x += playerVelocity
         
         if self.scene != nil {
             self.scene?.movePlayer(command: command!)
