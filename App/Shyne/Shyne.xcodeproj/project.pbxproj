@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		666DA8B221790DA90078F77C /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666DA8B121790DA90078F77C /* Lista.swift */; };
+		66B259E0217E3E71002F4ECC /* HouseTreeStory02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */; };
+		66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */; };
 		760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD4E217E259200640A5C /* PlayerNode.swift */; };
 		765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DB12177A72A004AA4E3 /* AppDelegate.swift */; };
 		765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DB32177A72A004AA4E3 /* GameScene.sks */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		666DA8B121790DA90078F77C /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
+		66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory02.swift; sourceTree = "<group>"; };
+		66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRoomTreeStory.swift; sourceTree = "<group>"; };
 		760CBD4E217E259200640A5C /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		765B3DAE2177A72A004AA4E3 /* Shyne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shyne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		765B3DB12177A72A004AA4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 			children = (
 				765B3DF4217D7624004AA4E3 /* HouseScene02.sks */,
 				765B3E14217D78FA004AA4E3 /* HouseScene02.swift */,
+				66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */,
 			);
 			path = "02(after bakery)";
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			children = (
 				765B3E08217D7796004AA4E3 /* ClassroomScene01.sks */,
 				765B3E0A217D77EE004AA4E3 /* ClassroomScene01.swift */,
+				66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */,
 			);
 			path = Classroom;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
+				66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
 				C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
@@ -469,6 +476,7 @@
 				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,
+				66B259E0217E3E71002F4ECC /* HouseTreeStory02.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,18 +32,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        if let nome=contact.bodyA.node?.name!{
-            caixa = caixaDeDialogo(personagem: contact.bodyA.node!, texto: (lista[nome]?.mensagem)!)
+        if (contact.bodyA.node?.name!) != nil{
             lista["caixa"]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
             lista["caixa"]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
-            contact.bodyA.node!.addChild(caixa!)
-            lista[nome]?.funcaoEntrada!(caixa!)
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
             print(nome)
-            lista[nome]?.funcaoSaida!(caixa!)
         }
     }
 }
