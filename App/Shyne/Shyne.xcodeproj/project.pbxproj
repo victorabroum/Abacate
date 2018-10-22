@@ -49,7 +49,6 @@
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
-		C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C54CC4217A09C9003F7769 /* StatusStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +96,6 @@
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
-		C4C54CC4217A09C9003F7769 /* StatusStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +145,6 @@
 		765B3DB02177A72A004AA4E3 /* Shyne */ = {
 			isa = PBXGroup;
 			children = (
-				C4C54CC3217A099E003F7769 /* New Group */,
 				C41DCF892177BF4000F53FEC /* Model */,
 				765B3DD52177C4AD004AA4E3 /* Controller */,
 				765B3DD22177C234004AA4E3 /* Entities */,
@@ -207,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				765B3DD02177C062004AA4E3 /* Walkable.swift */,
-				765B3DDC2177D0EE004AA4E3 /* PlayerControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -225,6 +221,7 @@
 			children = (
 				765B3DD62177C4CC004AA4E3 /* TouchController.swift */,
 				765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */,
+				765B3DDC2177D0EE004AA4E3 /* PlayerControl.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,14 +367,6 @@
 			path = Padaria;
 			sourceTree = "<group>";
 		};
-		C4C54CC3217A099E003F7769 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				C4C54CC4217A09C9003F7769 /* StatusStory.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -482,7 +471,6 @@
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */,
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
-				C4C54CC5217A09C9003F7769 /* StatusStory.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */,
 				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
