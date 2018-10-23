@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class PlayerNode: SKSpriteNode {
+class PlayerNode: SKSpriteNode{
     
     var actualDirection: PlayerMovement = .idle
     var isWalking: Bool = false

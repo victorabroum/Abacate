@@ -10,5 +10,19 @@ import UIKit
 import SpriteKit
 
 class CityScene01: SKScene {
+    
+    var playerNode: PlayerNode?
+    
+    override func sceneDidLoad() {
+        self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
+    }
+    
+    override func didMove(to view: SKView) {
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 135)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        self.playerNode?.makePlayerWalk()
+    }
 
 }
