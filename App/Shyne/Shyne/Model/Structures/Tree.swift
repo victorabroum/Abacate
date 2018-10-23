@@ -50,12 +50,20 @@ class Node {
     var text: String
     var choices: [Answer]
     var childrens: [Node] = []
+    var nodeToTalk: String
     weak var parent: Node? // this is parent
     
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text
         self.choices = choices
+        self.nodeToTalk = "playerNode"
+    }
+    
+    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String) {
+        self.text = text
+        self.choices = choices
+        self.nodeToTalk = node
     }
     
     func add(child: Node) -> () {
