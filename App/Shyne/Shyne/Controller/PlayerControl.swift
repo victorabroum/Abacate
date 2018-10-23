@@ -32,9 +32,14 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         
 
         // Set camera constraints
-        if self.playerNode != nil{
-            self.set(cameraConstraints: camera, onplayerNode: self.playerNode!.cameraReference, withOffset: offset)
+        // Just if needed
+        if !(offset == -1) {
+            if self.playerNode != nil{
+                self.set(cameraConstraints: camera, onplayerNode: self.playerNode!.cameraReference, withOffset: (offset <= 200 ? 0 : 550))
+            }
         }
+        
+        
         
         
     }
