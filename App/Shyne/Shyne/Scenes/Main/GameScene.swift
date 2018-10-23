@@ -54,11 +54,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
             lista[novoNome]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
-            
-            
-            
-            
-            
+    
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
