@@ -58,10 +58,13 @@ class PlayerNode: SKSpriteNode {
     }
     
     // Func to prepare camera and control
-    func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene){
+    func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene, withCameraOffset cameraOffset: CGFloat){
+        
+        self.zPosition = playerZPosition
+        
         // Add camera reference to follow
-        self.cameraReference.alpha = 0
-        self.cameraReference.position.y += 225
+        self.cameraReference.alpha = 1
+        self.cameraReference.position.y += cameraOffset
         self.addChild(self.cameraReference)
         
         // Setup statemachine
@@ -74,7 +77,7 @@ class PlayerNode: SKSpriteNode {
         
         // Setup component controllers
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-            pcComponent.setupControllers(camera: camera, scene: scene)
+            pcComponent.setupControllers(camera: camera, scene: scene, withOffset: (cameraOffset <= 200 ? 0 : 550))
         }
     }
     

@@ -29,7 +29,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self)
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 225)
     }
     
     override func update(_ currentTime: TimeInterval) {
