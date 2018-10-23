@@ -23,7 +23,7 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         print("ROOM didMove")
-        playerNode?.prepareControl(withCamera: camera!, inScene: self)
+        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 0)
     }
     
     override func update(_ currentTime: TimeInterval) {
