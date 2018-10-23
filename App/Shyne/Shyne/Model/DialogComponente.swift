@@ -141,8 +141,8 @@ class baloesDeEscolha{
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
         balao1.position = CGPoint(x: -150, y: 100)
-        balao2.position = CGPoint(x: 150, y: 100)
-        balao3.position = CGPoint(x: 0, y: 100)
+        balao2.position = CGPoint(x: 150, y: 170)
+        balao3.position = CGPoint(x: 0, y: 240)
     }
     
     func desenhar(){
@@ -231,9 +231,13 @@ class Dialogavel{
     var indexNode : Node?
     var ballon = false
     var playerNode: PlayerNode?
+    var cena: SKScene
     
-    init(Playernode: PlayerNode) {
-        playerNode = Playernode
+    init(cena: SKScene) {
+        self.cena = cena
+        if let p = self.cena.childNode(withName: "playerNode") as? PlayerNode{
+            self.playerNode = p
+        }
     }
     
     
@@ -256,7 +260,7 @@ class Dialogavel{
                 if(escolhas != nil){
                     escolhas?.sair()
                 }
-                caixa = caixaDeDialogo(personagem: playerNode!, texto: indexNode!.text, dialogavel: self)
+                caixa = caixaDeDialogo(personagem: indexNode, texto: indexNode!.text, dialogavel: self)
                 caixa?.entrar()
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true
