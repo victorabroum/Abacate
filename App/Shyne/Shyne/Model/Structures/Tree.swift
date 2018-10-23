@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 struct Feel{
     var happy: Float = 0.0
@@ -50,17 +51,32 @@ class Node {
     var text: String
     var choices: [Answer]
     var childrens: [Node] = []
+    var nodeToTalk: String
     weak var parent: Node? // this is parent
     
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text
         self.choices = choices
+        self.nodeToTalk = "playerNode"
+    }
+    
+    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String) {
+        self.text = text
+        self.choices = choices
+        self.nodeToTalk = node
     }
     
     func add(child: Node) -> () {
         childrens.append(child)
         child.parent = self
+    }
+    
+    func getNodeReference(named name: String, inScene scene: SKScene) -> SKSpriteNode? {
+        if let node: SKSpriteNode = scene.childNode(withName: name) as? SKSpriteNode{
+            return node
+        }
+        return nil
     }
 }
 
