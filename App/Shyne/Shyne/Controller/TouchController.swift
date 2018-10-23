@@ -55,7 +55,7 @@ class TouchController: SKSpriteNode {
     func addButton(button: SKSpriteNode,
                    position: CGPoint,
                    name: String,
-                   scale: CGFloat) -> (){
+                   scale: CGFloat){
     
         button.position = position
         button.name = name
@@ -129,7 +129,7 @@ class TouchController: SKSpriteNode {
         
     }
     
-    func touchUp(touches: Set<UITouch>?, withEvent event: UIEvent) -> () {
+    func touchUp(touches: Set<UITouch>?, withEvent event: UIEvent){
         for t in touches!{
             let location = t.location(in: parent!)
             let previousLocation = t.location(in: parent!)

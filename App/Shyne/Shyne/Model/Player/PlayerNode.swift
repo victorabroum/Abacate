@@ -18,7 +18,7 @@ class PlayerNode: SKSpriteNode {
     var cameraReference: SKSpriteNode = SKSpriteNode(texture: nil, color: UIColor.brown, size: CGSize(width: 50, height: 50))
     var stateMachine: GKStateMachine?
     
-    func prepareStateMachine() -> (){
+    func prepareStateMachine(){
         self.stateMachine = GKStateMachine(states: [IdleState(withPlayerNode: self),
                                                     WalkingState(withPlayerNode: self)])
     }
@@ -36,7 +36,7 @@ class PlayerNode: SKSpriteNode {
     }
     
     
-    public func movePlayer(command: String) -> () {
+    public func movePlayer(command: String){
         switch command {
         case "right":
             self.actualDirection = .right
@@ -58,7 +58,7 @@ class PlayerNode: SKSpriteNode {
     }
     
     // Func to prepare camera and control
-    func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene) -> () {
+    func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene){
         // Add camera reference to follow
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += 225
@@ -79,7 +79,7 @@ class PlayerNode: SKSpriteNode {
     }
     
     // Player Can Walk?
-    func playerCanWalk(_ flag: Bool) -> () {
+    func playerCanWalk(_ flag: Bool){
         self.canWalk = flag
         if !flag {
             self.enterIdleState()

@@ -67,7 +67,7 @@ class Node {
         self.nodeToTalk = node
     }
     
-    func add(child: Node) -> () {
+    func add(child: Node){
         childrens.append(child)
         child.parent = self
     }

@@ -14,7 +14,7 @@ class PlayerIdle: GKComponent {
 
     var node = SKSpriteNode()
     
-    func startIdle() -> () {
+    func startIdle(){
         node.removeAllActions()
         node.run(SKAction(named: "idle")!)
     }
