@@ -15,7 +15,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     var scene: GameScene?
     var playerNode: PlayerNode?
     
-    func setupControllers(camera: SKCameraNode, scene: SKScene) -> () {
+    func setupControllers(camera: SKCameraNode, scene: SKScene){
         touchControlNode = TouchController(frame: scene.frame)
         touchControlNode?.touchControlDelegate = self
         
@@ -50,7 +50,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         }
     }
     
-    func set(cameraConstraints camera: SKCameraNode, onplayerNode player: SKSpriteNode) -> () {
+    func set(cameraConstraints camera: SKCameraNode, onplayerNode player: SKSpriteNode){
         let zeroRange = SKRange(constantValue: 0)
         let playerBotLocationConstraint = SKConstraint.distance(zeroRange, to: player)
 
@@ -64,7 +64,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     }
     
     // Caso precise remover as constrains da camera seguir o player
-    func removeConstrainsts(ofCamera camera: SKCameraNode) -> () {
+    func removeConstrainsts(ofCamera camera: SKCameraNode){
         camera.constraints = []
     }
     
