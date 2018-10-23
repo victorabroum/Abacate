@@ -15,5 +15,6 @@ struct Objeto{
 }
 
 var lista:[String:Objeto] = [
-    "caixa":Objeto(nome: "caixa", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
+    "caixa":Objeto(nome: "caixa", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "dady":Objeto(nome: "dady", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
 ]

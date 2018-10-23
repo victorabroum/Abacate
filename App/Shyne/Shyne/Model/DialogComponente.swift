@@ -17,12 +17,12 @@ class caixaDeDialogo: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
     var animado: Bool
-    var Cena: GameScene
+    var dialogavel1: Dialogavel
     
-    init(personagem: SKNode, texto: String, cena: GameScene) {
+    init(personagem: SKNode, texto: String, dialogavel: Dialogavel) {
         Personagem = personagem
         Texto = texto
-        Cena = cena
+        dialogavel1 = dialogavel
         animado = false
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
@@ -82,7 +82,7 @@ class caixaDeDialogo: SKSpriteNode{
     {
         //adiciona o valor ao status da historia
         sair()
-        Cena.drawnDialog()
+        dialogavel1.drawnDialog()
     }
 
 }
@@ -90,11 +90,11 @@ class caixaDeDialogo: SKSpriteNode{
 class Balao: SKSpriteNode{
     
     let Resposta: Answer
-    var Cena: GameScene
+    var dialogavel1: Dialogavel
     
-    init(resposta: Answer, cena: GameScene) {
+    init(resposta: Answer, dialogavel: Dialogavel) {
         Resposta = resposta
-        Cena = cena
+        dialogavel1 = dialogavel
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
         self.setScale(0)
@@ -115,9 +115,9 @@ class Balao: SKSpriteNode{
     {
         //adiciona o valor ao status da historia
         if(!(Resposta.child.isEmpty)){
-            Cena.changeIndexNodeBallon(node: Resposta.child)
+           dialogavel1.changeIndexNodeBallon(node: Resposta.child)
         }
-        Cena.drawnDialog()
+        dialogavel1.drawnDialog()
     }
 }
 
@@ -130,19 +130,19 @@ class baloesDeEscolha{
     let balao3 : Balao
     let Personagem : SKSpriteNode
     let Respostas : [Answer]
-    var Cena: GameScene
+    var dialogavel1: Dialogavel
     
-    init(personagem: SKSpriteNode, respostas:[Answer], cena: GameScene) {
+    init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel) {
         Personagem = personagem
         Respostas = respostas
-        Cena = cena
+        dialogavel1 = dialogavel
         
-        balao1 = Balao(resposta: Respostas[0], cena: cena)
-        balao2 = Balao(resposta: Respostas[1], cena: cena)
-        balao3 = Balao(resposta: Respostas[2], cena: cena)
+        balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
+        balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
+        balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
         balao1.position = CGPoint(x: -150, y: 100)
-        balao2.position = CGPoint(x: 150, y: 100)
-        balao3.position = CGPoint(x: 0, y: 100)
+        balao2.position = CGPoint(x: 150, y: 170)
+        balao3.position = CGPoint(x: 0, y: 240)
     }
     
     func desenhar(){
@@ -223,4 +223,61 @@ class baloesDeEscolha{
         balao3.removeFromParent()
     }
     
+}
+
+class Dialogavel{
+    var caixa : caixaDeDialogo?
+    var escolhas: baloesDeEscolha?
+    var indexNode : Node?
+    var ballon = false
+    var playerNode: PlayerNode?
+    var cena: SKScene
+    
+    init(cena: SKScene) {
+        self.cena = cena
+        if let p = self.cena.childNode(withName: "playerNode") as? PlayerNode{
+            self.playerNode = p
+        }
+    }
+    
+    
+    public func changeIndexNodeBallon(node: [Node]){
+        indexNode = node.first
+        
+    }
+    
+    public func drawnDialog(){
+        
+        //        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
+        //        if(indexNode!.childrens.first != nil){
+        //            indexNode = indexNode!.childrens.first
+        //        }
+        //        caixa?.entrar()
+        
+        if(!ballon){
+            if(indexNode != nil){
+                self.playerNode!.playerCanWalk(false)
+                if(escolhas != nil){
+                    escolhas?.sair()
+                }
+                caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
+                caixa?.entrar()
+                if(!(indexNode!.choices.isEmpty)){
+                    ballon = true
+                    escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
+                }
+                else{
+                    indexNode = indexNode!.childrens.first
+                }
+            }
+            else{
+                self.playerNode!.playerCanWalk(true)
+            }
+        }
+        else{
+            escolhas?.desenhar()
+            ballon = false
+            indexNode = indexNode!.childrens.first
+        }
+    }
 }

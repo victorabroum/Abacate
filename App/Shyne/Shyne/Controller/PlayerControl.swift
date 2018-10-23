@@ -33,7 +33,6 @@ class PlayerControl : GKComponent, TouchControlDelegate{
 
         // Set camera constraints
         if self.playerNode != nil{
-            print("Tem player")
             self.set(cameraConstraints: camera, onplayerNode: self.playerNode!.cameraReference)
         }
         
