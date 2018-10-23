@@ -77,7 +77,7 @@ class PlayerNode: SKSpriteNode {
         
         // Setup component controllers
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-            pcComponent.setupControllers(camera: camera, scene: scene, withOffset: (cameraOffset <= 200 ? 0 : 550))
+            pcComponent.setupControllers(camera: camera, scene: scene, withOffset: cameraOffset)
         }
     }
     
