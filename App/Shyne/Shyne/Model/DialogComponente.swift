@@ -260,7 +260,7 @@ class Dialogavel{
                 if(escolhas != nil){
                     escolhas?.sair()
                 }
-                caixa = caixaDeDialogo(personagem: indexNode, texto: indexNode!.text, dialogavel: self)
+                caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
                 caixa?.entrar()
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true

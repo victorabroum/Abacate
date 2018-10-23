@@ -21,7 +21,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
-        dialogavel1 = Dialogavel(Playernode: playerNode!)
+        dialogavel1 = Dialogavel(cena: self)
         
         house01makeTree()
         dialogavel1!.indexNode = house01Root
@@ -37,17 +37,40 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
         if let nome=contact.bodyA.node?.name!{
-            dialogavel1!.caixa = caixaDeDialogo(personagem: contact.bodyA.node!, texto: (lista[nome]?.mensagem)!, dialogavel: dialogavel1!)
-            lista["caixa"]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
-            lista["caixa"]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
-            lista[nome]?.funcaoEntrada!(dialogavel1!.caixa!)
+            var novoNome:String {
+                get {
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                }
+            }
+
+            
+            if novoNome == "dady"{
+                dialogavel1?.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dady")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
+            }else if(novoNome == "caixa"){
+                dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
+            }
+            
+            lista[novoNome]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
+            lista[novoNome]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
+            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+            
+            
+            
+            
+            
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
-            lista[nome]?.funcaoSaida!(dialogavel1!.caixa!)
+            
+            var novoNome:String {
+                get {
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                }
+            }
+            
+            lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
         }
     }
 }

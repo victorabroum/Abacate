@@ -30,7 +30,6 @@ class IdleState: GKState {
     
     override func didEnter(from previousState: GKState?) {
         if (previousState as? WalkingState) != nil{
-            print("IDLE")
             self.nodeToIdle.entity?.removeComponent(ofType: Walkable.self)
             let idle: PlayerIdle = PlayerIdle()
             idle.node = self.nodeToIdle
