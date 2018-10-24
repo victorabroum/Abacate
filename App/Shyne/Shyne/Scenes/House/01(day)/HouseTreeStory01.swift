@@ -16,9 +16,9 @@ var house01Root: Node = Node(withText: NSLocalizedString("Bom dia filho!", comme
 
 // D2
 // choice 1 -> d3_1
-var c1: Answer = Answer(withText: NSLocalizedString("Tudo bem, deixe comigo!", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
+var c1: Answer = Answer(withText: NSLocalizedString("Tudo bem,\n deixecomigo!", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
 // choice 2 -> d3_2
-var c2: Answer = Answer(withText: NSLocalizedString("Mas eu não estou com fome, pai.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
+var c2: Answer = Answer(withText: NSLocalizedString("Mas eu não estou\n com fome, pai.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
 // choice 3 -> d3_3
 var c3: Answer = Answer(withText: NSLocalizedString("Não quero ir pai, tem muita gente lá!", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
 var d2: Node = Node(withText: NSLocalizedString("Você pode ir na padaria comprar pão francês?", comment: "Pedido para comprar um tipo específico de pão"), withChoices: [c1, c2, c3], inNodeNamed: "dad")
