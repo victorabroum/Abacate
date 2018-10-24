@@ -10,8 +10,8 @@ import Foundation
 struct Objeto{
     var nome:String
     var mensagem:String
-    var funcaoEntrada:((_ objeto:caixaDeDialogo)->Void)?
-    var funcaoSaida:((_ objeto:caixaDeDialogo)->Void)?
+    var funcaoEntrada:((_ objeto:caixa)->Void)?
+    var funcaoSaida:((_ objeto:caixa)->Void)?
 }
 
 var lista:[String:Objeto] = [

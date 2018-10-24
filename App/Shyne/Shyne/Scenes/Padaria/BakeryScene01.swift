@@ -10,5 +10,13 @@ import UIKit
 import SpriteKit
 
 class BakeryScene01: SKScene {
+    
+    override func sceneDidLoad() {
+        print("olaaaaaaaaaa")
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        print("foi")
+    }
 
 }

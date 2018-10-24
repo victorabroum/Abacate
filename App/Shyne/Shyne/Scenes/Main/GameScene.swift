@@ -46,19 +46,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 
             
             if novoNome == "dady"{
-                dialogavel1?.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dady")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
+                let cenaProxima:SKScene = BakeryScene01(size: self.size)
+                dialogavel1?.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!, cenaAtual: self, cenaProxima: cenaProxima)
             }else if(novoNome == "caixa"){
                 dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
+            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
-            
-            
-            
-            
-            
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
