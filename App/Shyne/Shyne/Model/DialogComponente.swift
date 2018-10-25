@@ -216,6 +216,7 @@ class Balao: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
         //adiciona o valor ao status da historia
         if(!(Resposta.child.isEmpty)){
            dialogavel1.changeIndexNodeBallon(node: Resposta.child)
