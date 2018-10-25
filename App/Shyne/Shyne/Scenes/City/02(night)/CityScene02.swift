@@ -19,7 +19,7 @@ class CityScene02: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 135)
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
     }
     
     override func update(_ currentTime: TimeInterval) {
