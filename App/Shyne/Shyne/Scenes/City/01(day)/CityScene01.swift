@@ -25,7 +25,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 135)
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -39,9 +39,6 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                     return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
-            print("Entrou")
-            
             
             if novoNome == "bakeryDoor"{
                 

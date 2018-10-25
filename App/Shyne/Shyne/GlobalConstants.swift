@@ -30,4 +30,4 @@ var normalStatus: Float = 0.0
 var shyStatus: Float = 0.0
 
 // Flags important para o game
-var finishedBakery: Bool = false
+var finishedBakery: Bool = true
