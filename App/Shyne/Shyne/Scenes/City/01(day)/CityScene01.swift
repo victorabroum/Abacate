@@ -8,10 +8,13 @@
 
 import UIKit
 import SpriteKit
+import GameKit
 
 class CityScene01: SKScene {
     
     var playerNode: PlayerNode?
+    
+    var entities = [GKEntity]()
     
     override func sceneDidLoad() {
         self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
