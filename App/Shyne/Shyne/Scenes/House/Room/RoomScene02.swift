@@ -8,12 +8,24 @@
 
 import UIKit
 import SpriteKit
-class RoomScene02: SKScene {
+import GameKit
+
+class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
-    var playerNode: PlayerNode?
+    var playerNode:PlayerNode?
+    var dialogavel1: Dialogavel?
     
     override func sceneDidLoad() {
-        self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
+        print("Room didLoad")
+        playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
+        
+        physicsWorld.contactDelegate = self
+        self.dialogavel1 = Dialogavel(cena: self)
+        
+        //Preparando a tree story dessa scene
+        makeTreeOfRoom()
+        // Indicando a raiz da story
+        self.dialogavel1!.indexNode = rootNode
     }
     
     override func didMove(to view: SKView) {
@@ -23,5 +35,38 @@ class RoomScene02: SKScene {
     override func update(_ currentTime: TimeInterval) {
         self.playerNode?.makePlayerWalk()
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("sdsdsdsdsdsdsdsdsddsd")
+        if let nome=contact.bodyA.node?.name!{
+            var novoNome:String {
+                get {
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                }
+            }
+            
+            
+            if novoNome == "cama"{
+                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!)
+            }
+            
+            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+            
+        }
+    }
+    func didEnd(_ contact: SKPhysicsContact) {
+        if let nome=contact.bodyA.node?.name!{
+            
+            var novoNome:String {
+                get {
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                }
+            }
+            
+            lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+        }
 
+}
 }
