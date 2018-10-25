@@ -19,11 +19,17 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
         physicsWorld.contactDelegate = self
+        self.dialogavel1 = Dialogavel(cena: self)
+        
+        //Preparando a tree story dessa scene
+        makeTreeOfRoom()
+        // Indicando a raiz da story
+        self.dialogavel1!.indexNode = rootNode
     }
     
     override func didMove(to view: SKView) {
         print("ROOM didMove")
-        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 0)
+        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -39,12 +45,13 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
             }
             
             
-            if novoNome == "armario"{
+            if novoNome == "triggerCloset"{
+                print("CONTATO")
                 dialogavel1?.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
+            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
             
         }

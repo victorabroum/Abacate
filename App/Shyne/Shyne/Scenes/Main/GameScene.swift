@@ -29,7 +29,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 225)
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -46,8 +46,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 
             
             if novoNome == "dady"{
-                let cenaProxima:SKScene = RoomScene(fileNamed: "RoomScene")!
-                dialogavel1?.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!, cenaAtual: self, cenaProxima: cenaProxima)
+                let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
+                if let nextScene = cenaProxima.rootNode as? HouseScene01{
+                    nextScene.entities = cenaProxima.entities
+                    dialogavel1?.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!, cenaAtual: self, cenaProxima: nextScene)
+                }
+                
+                
             }else if(novoNome == "caixa"){
                 dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
             }
