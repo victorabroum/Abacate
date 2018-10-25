@@ -46,7 +46,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 
             
             if novoNome == "dady"{
-                let cenaProxima:SKScene = BakeryScene01(size: self.size)
+                let cenaProxima:SKScene = RoomScene(fileNamed: "RoomScene")!
                 dialogavel1?.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!, cenaAtual: self, cenaProxima: cenaProxima)
             }else if(novoNome == "caixa"){
                 dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
