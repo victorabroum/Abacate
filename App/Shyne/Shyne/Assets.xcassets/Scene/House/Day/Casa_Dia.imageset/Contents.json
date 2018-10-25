@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Casa Dia.png",
+      "filename" : "Casa_Dia.png",
       "scale" : "1x"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Casa Dia@3x.png",
+      "filename" : "Casa Noite@3x.png",
       "scale" : "3x"
     }
   ],
