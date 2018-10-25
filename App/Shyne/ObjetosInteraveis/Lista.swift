@@ -35,5 +35,6 @@ var lista:[String:Objeto] = [
     "triggerCloset":Objeto(nome: "triggerCloset", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "porta":Objeto(nome: "porta", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "cama":Objeto(nome: "cama", mensagem: "Quer dar uma dormidinha?\n...", funcaoEntrada: nil, funcaoSaida: nil),
-    "padeiro":Objeto(nome: "cama", mensagem: "No céu tem pão.", funcaoEntrada: nil, funcaoSaida: nil)
+    "padeiro":Objeto(nome: "cama", mensagem: "No céu tem pão.", funcaoEntrada: nil, funcaoSaida: nil),
+    "professora":Objeto(nome: "professora", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
 ]
