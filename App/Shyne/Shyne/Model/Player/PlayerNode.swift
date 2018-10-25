@@ -61,7 +61,7 @@ class PlayerNode: SKSpriteNode{
     func prepareControl(withCamera camera: SKCameraNode, inScene scene: SKScene, withCameraOffset cameraOffset: CGFloat){
         
         self.zPosition = playerZPosition
-        
+        self.texture?.filteringMode = .linear
         
         // Add camera reference to follow
         self.cameraReference.alpha = 1
