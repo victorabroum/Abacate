@@ -8,11 +8,16 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class HouseScene01: SKScene, SKPhysicsContactDelegate {
     
     var playerNode: PlayerNode?
     var dialogBox01: Dialogavel?
+    
+    var entities = [GKEntity]()
+    
+    private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode

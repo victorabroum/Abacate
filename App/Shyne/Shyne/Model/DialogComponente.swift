@@ -105,7 +105,7 @@ class Transicao{
     
     func troca(){
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
-        cenaProxima.camera?.setScale((cenaProxima.xScale))
+        cenaProxima.scaleMode = SKSceneScaleMode.aspectFill
         cenaAtual.view?.presentScene(cenaProxima, transition: transition)
     }
 }
