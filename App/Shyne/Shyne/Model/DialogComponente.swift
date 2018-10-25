@@ -25,12 +25,11 @@ class caixa: SKSpriteNode{
         super.init(texture: nil, color: .white, size: CGSize(width: 0, height: 0))
         isUserInteractionEnabled = true
         
-        self.zPosition = 100
-        
+        self.zPosition = 1000
+        self.alpha = 1
         text!.numberOfLines = 2
         text!.fontName = "Futura"
-        print(self.Personagem.frame.size.height)
-        text!.fontSize = ((self.Personagem.frame.size.height/2))
+        text!.fontSize = 32
         text!.position = CGPoint(x: 0, y: 0)
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
@@ -49,6 +48,7 @@ class caixa: SKSpriteNode{
     }
     
     func entrar()->Void{
+        
         Personagem.addChild(self)
         
         if(!animado){

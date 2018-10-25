@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import GameKit
 
 class RoomScene: SKScene,SKPhysicsContactDelegate {
     
@@ -37,6 +38,7 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+                        print("sdsdsdsdsdsdsdsdsddsd")
         if let nome=contact.bodyA.node?.name!{
             var novoNome:String {
                 get {
@@ -46,8 +48,14 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
             
             
             if novoNome == "triggerCloset"{
-                print("CONTATO")
                 dialogavel1?.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
+            }else if novoNome == "porta"{
+                let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
+                if let nextScene = cenaProxima.rootNode as? HouseScene01{
+                    nextScene.entities = cenaProxima.entities
+                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, cenaAtual: self, cenaProxima: nextScene)
+                }
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
