@@ -204,6 +204,7 @@ class Balao: SKSpriteNode{
         self.size.width = text.frame.size.width+10
         self.size.height = text.frame.size.height+10
         
+        
         self.setScale(0)
         text.fontColor = .black
         
