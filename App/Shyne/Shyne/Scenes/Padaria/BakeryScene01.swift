@@ -65,4 +65,17 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
         }
     }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        if let nome=contact.bodyA.node?.name!{
+            
+            var novoNome:String {
+                get {
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                }
+            }
+            
+            lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+        }
+    }
 }
