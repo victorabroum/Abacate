@@ -33,6 +33,7 @@ class caixa: SKSpriteNode{
         text!.position = CGPoint(x: 0, y: 0)
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
+        self.texture = SKTexture(imageNamed: "dialogue_box_top")
 
         self.size.width = text!.frame.size.width+10
         self.size.height = text!.frame.size.height+10
@@ -218,6 +219,9 @@ class Balao: SKSpriteNode{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         //adiciona o valor ao status da historia
+        if(self.Resposta.child.count == 0){
+            self.removeFromParent()
+        }
         if(!(Resposta.child.isEmpty)){
            dialogavel1.changeIndexNodeBallon(node: Resposta.child)
         }
@@ -244,6 +248,7 @@ class baloesDeEscolha{
         balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
+        balao1.texture = SKTexture(imageNamed: "dialogue_box_")
         balao1.position = CGPoint(x: -50, y: 0)
         balao2.position = CGPoint(x: 0, y: 100)
         balao3.position = CGPoint(x: 50, y: 0)
