@@ -28,5 +28,6 @@ var lista:[String:Objeto] = [
     "caixa":Objeto(nome: "caixa", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "dady":Objeto(nome: "dady", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "armario":Objeto(nome: "dady", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
-    "triggerDad":Objeto(nome: "triggerDad", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
+    "triggerDad":Objeto(nome: "triggerDad", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "porta":Objeto(nome: "porta", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
 ]
