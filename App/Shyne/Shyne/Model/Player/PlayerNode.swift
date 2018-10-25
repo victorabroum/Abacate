@@ -62,6 +62,7 @@ class PlayerNode: SKSpriteNode{
         
         self.zPosition = playerZPosition
         
+        
         // Add camera reference to follow
         self.cameraReference.alpha = 1
         self.cameraReference.position.y += cameraOffset
@@ -76,6 +77,7 @@ class PlayerNode: SKSpriteNode{
         self.canWalk = true
         
         // Setup component controllers
+        
         if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
             pcComponent.setupControllers(camera: camera, scene: scene, withOffset: cameraOffset)
         }
