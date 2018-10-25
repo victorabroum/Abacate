@@ -57,6 +57,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
         }
+        print("Houve Colisão.")
     }
     func didEnd(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
