@@ -23,7 +23,7 @@ class caixa: SKSpriteNode{
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
         
-        self.zPosition = 100
+        self.zPosition = 1000
         
         let text = SKLabelNode(text: texto)
         text.numberOfLines = 2
@@ -46,7 +46,9 @@ class caixa: SKSpriteNode{
     }
     
     func entrar()->Void{
+        
         Personagem.addChild(self)
+        
         
         if(!animado){
             animado = true

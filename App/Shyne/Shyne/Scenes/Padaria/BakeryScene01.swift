@@ -8,24 +8,16 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class BakeryScene01: SKScene {
     
-    var flag: Bool = false
+    var entities = [GKEntity]()
     
     override func sceneDidLoad() {
-        print("olaaaaaaaaaa")
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        print("foi")
-        
-        if !flag{
-            if let gato = self.childNode(withName: "background") as? SKSpriteNode{
-                print("UHUULLLL \(gato)")
-            }
-            flag = true
-        }
     }
 
 }
