@@ -49,7 +49,8 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
             
             if novoNome == "triggerCloset"{
                 dialogavel1?.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogavel1!)
-            }else if novoNome == "porta"{
+            }
+            if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
