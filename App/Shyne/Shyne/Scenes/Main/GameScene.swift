@@ -29,7 +29,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self)
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 225)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -55,6 +55,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
             lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+    
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
