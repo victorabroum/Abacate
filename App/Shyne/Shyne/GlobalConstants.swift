@@ -28,3 +28,6 @@ enum PlayerMovement {
 var happyStatus: Float = 0.0
 var normalStatus: Float = 0.0
 var shyStatus: Float = 0.0
+
+// Flags important para o game
+var finishedBakery: Bool = false

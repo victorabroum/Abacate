@@ -8,7 +8,10 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class ClassroomScene01: SKScene {
+    
+    var entities = [GKEntity]()
 
 }

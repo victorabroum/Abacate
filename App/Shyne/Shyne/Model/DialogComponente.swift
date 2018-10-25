@@ -51,6 +51,7 @@ class caixa: SKSpriteNode{
         
         Personagem.addChild(self)
         
+        
         if(!animado){
             animado = true
             let moveDown : SKAction
