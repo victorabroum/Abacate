@@ -12,6 +12,16 @@ struct Objeto{
     var mensagem:String
     var funcaoEntrada:((_ objeto:caixa)->Void)?
     var funcaoSaida:((_ objeto:caixa)->Void)?
+    var interado:Bool = false
+    init(nome:String,mensagem:String,funcaoEntrada:((_ objeto:caixa)->Void)?,funcaoSaida:((_ objeto:caixa)->Void)?) {
+        self.nome=nome
+        self.mensagem=mensagem
+        self.funcaoEntrada=funcaoEntrada
+        self.funcaoSaida=funcaoSaida
+    }
+    mutating func interagido(){
+        self.interado = true
+    }
 }
 
 var lista:[String:Objeto] = [
