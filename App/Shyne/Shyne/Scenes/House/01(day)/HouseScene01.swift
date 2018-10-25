@@ -48,10 +48,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixaDeDialogo)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixaDeDialogo)->Void in n.sair()}
+            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
-            
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
