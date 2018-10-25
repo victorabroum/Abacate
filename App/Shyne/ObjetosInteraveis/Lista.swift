@@ -12,11 +12,22 @@ struct Objeto{
     var mensagem:String
     var funcaoEntrada:((_ objeto:caixa)->Void)?
     var funcaoSaida:((_ objeto:caixa)->Void)?
+    var interado:Bool = false
+    init(nome:String,mensagem:String,funcaoEntrada:((_ objeto:caixa)->Void)?,funcaoSaida:((_ objeto:caixa)->Void)?) {
+        self.nome=nome
+        self.mensagem=mensagem
+        self.funcaoEntrada=funcaoEntrada
+        self.funcaoSaida=funcaoSaida
+    }
+    mutating func interagido(){
+        self.interado = true
+    }
 }
 
 var lista:[String:Objeto] = [
     "caixa":Objeto(nome: "caixa", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "dady":Objeto(nome: "dady", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "armario":Objeto(nome: "dady", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
-    "triggerDad":Objeto(nome: "triggerDad", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
+    "triggerDad":Objeto(nome: "triggerDad", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "porta":Objeto(nome: "porta", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
 ]

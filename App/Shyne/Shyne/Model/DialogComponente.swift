@@ -13,31 +13,34 @@ class caixa: SKSpriteNode{
     var Texto: String
     var dialogavel1: Dialogavel
     var animado: Bool
+    let text: SKLabelNode?
     
     init(personagem: SKNode, texto: String, dialogavel: Dialogavel){
         Personagem = personagem
         Texto = texto
         dialogavel1 = dialogavel
         animado = false
+        text = SKLabelNode(text: texto)
         
-        super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
+        super.init(texture: nil, color: .white, size: CGSize(width: 0, height: 0))
         isUserInteractionEnabled = true
         
         self.zPosition = 100
         
-        let text = SKLabelNode(text: texto)
-        text.numberOfLines = 2
-        self.size.width = text.frame.size.width+20
-        self.size.height = text.frame.size.height+20
-        text.fontName = "Chalkduster"
-        text.position = CGPoint(x: 0, y: 0)
-        text.horizontalAlignmentMode = .center
-        text.verticalAlignmentMode = .center
-        text.fontSize = 20
+        text!.numberOfLines = 2
+        text!.fontName = "Futura"
+        print(self.Personagem.frame.size.height)
+        text!.fontSize = ((self.Personagem.frame.size.height/2))
+        text!.position = CGPoint(x: 0, y: 0)
+        text!.horizontalAlignmentMode = .center
+        text!.verticalAlignmentMode = .center
+
+        self.size.width = text!.frame.size.width+10
+        self.size.height = text!.frame.size.height+10
         self.setScale(0)
-        text.fontColor = .black
+        text!.fontColor = .black
         
-        self.addChild(text)
+        self.addChild(text!)
 
     }
     
@@ -53,10 +56,10 @@ class caixa: SKSpriteNode{
             let moveDown : SKAction
             
             if(Personagem.position.y == CGFloat(0)){
-                moveDown = SKAction.moveTo(y: -150, duration: 0.3)
+                moveDown = SKAction.moveTo(y: CGFloat(-70 * Texto.split(separator: "\n").count), duration: 0.3)
             }
             else{
-                moveDown = SKAction.moveTo(y: 150, duration: 0.3)
+                moveDown = SKAction.moveTo(y: CGFloat(70 * Texto.split(separator: "\n").count), duration: 0.3)
             }
             
             let  scalex: SKAction
@@ -105,7 +108,7 @@ class Transicao{
     
     func troca(){
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
-        cenaProxima.camera?.setScale((cenaProxima.xScale))
+        cenaProxima.scaleMode = SKSceneScaleMode.aspectFill
         cenaAtual.view?.presentScene(cenaProxima, transition: transition)
     }
 }
@@ -179,24 +182,27 @@ class Balao: SKSpriteNode{
     
     let Resposta: Answer
     var dialogavel1: Dialogavel
+    let text : SKLabelNode
     
     init(resposta: Answer, dialogavel: Dialogavel) {
         Resposta = resposta
         dialogavel1 = dialogavel
+        text = SKLabelNode(text: Resposta.text)
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
         
         self.zPosition = 1000
         
-        let text = SKLabelNode(text: Resposta.text)
         text.numberOfLines = 2
-        self.size.width = text.frame.size.width+20
-        self.size.height = text.frame.size.height+20
+        text.fontSize = 10
         text.fontName = "Chalkduster"
         text.position = CGPoint(x: 0, y: 0)
         text.horizontalAlignmentMode = .center
         text.verticalAlignmentMode = .center
-        text.fontSize = 20
+        
+        self.size.width = text.frame.size.width+10
+        self.size.height = text.frame.size.height+10
+        
         self.setScale(0)
         text.fontColor = .black
         
@@ -236,9 +242,9 @@ class baloesDeEscolha{
         balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-        balao1.position = CGPoint(x: -150, y: 130)
-        balao2.position = CGPoint(x: 0, y: 200)
-        balao3.position = CGPoint(x: 150, y: 270)
+        balao1.position = CGPoint(x: -50, y: 70)
+        balao2.position = CGPoint(x: 0, y: 100)
+        balao3.position = CGPoint(x: 50, y: 130)
     }
     
     func desenhar(){
