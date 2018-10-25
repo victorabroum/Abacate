@@ -10,5 +10,22 @@ import UIKit
 import SpriteKit
 
 class BakeryScene01: SKScene {
+    
+    var flag: Bool = false
+    
+    override func sceneDidLoad() {
+        print("olaaaaaaaaaa")
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+//        print("foi")
+        
+        if !flag{
+            if let gato = self.childNode(withName: "background") as? SKSpriteNode{
+                print("UHUULLLL \(gato)")
+            }
+            flag = true
+        }
+    }
 
 }

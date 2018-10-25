@@ -8,18 +8,13 @@
 
 import SpriteKit
 
-enum sideView{
-    case left
-    case rigth
-}
-
-class caixaDeDialogo: SKSpriteNode{
+class caixa: SKSpriteNode{
     var Personagem: SKNode
     var Texto: String
-    var animado: Bool
     var dialogavel1: Dialogavel
+    var animado: Bool
     
-    init(personagem: SKNode, texto: String, dialogavel: Dialogavel) {
+    init(personagem: SKNode, texto: String, dialogavel: Dialogavel){
         Personagem = personagem
         Texto = texto
         dialogavel1 = dialogavel
@@ -27,14 +22,23 @@ class caixaDeDialogo: SKSpriteNode{
         
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
-        self.setScale(0)
+        
         self.zPosition = 100
+        
         let text = SKLabelNode(text: texto)
+        text.numberOfLines = 2
+        self.size.width = text.frame.size.width+20
+        self.size.height = text.frame.size.height+20
         text.fontName = "Chalkduster"
         text.position = CGPoint(x: 0, y: 0)
+        text.horizontalAlignmentMode = .center
+        text.verticalAlignmentMode = .center
+        text.fontSize = 20
+        self.setScale(0)
         text.fontColor = .black
-        self.addChild(text)
         
+        self.addChild(text)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,10 +59,20 @@ class caixaDeDialogo: SKSpriteNode{
                 moveDown = SKAction.moveTo(y: 150, duration: 0.3)
             }
             
-            let scale = SKAction.scale(to: 1, duration: 0.3)
+            let  scalex: SKAction
+            
+            if(self.Personagem.xScale<0){
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
+                
+            }else{
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
+            }
+            
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
+            
             let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
-            let group = SKAction.sequence( [SKAction.group([moveDown, scale, fadeIn])])
+            let group = SKAction.sequence( [SKAction.group([moveDown,scalex,  scale, fadeIn])])
             self.run(group){
                 self.animado = false
             }
@@ -76,6 +90,80 @@ class caixaDeDialogo: SKSpriteNode{
             }
         }
         self.removeFromParent()
+    }
+    
+}
+
+class Transicao{
+    var cenaAtual: SKScene
+    var cenaProxima: SKScene
+    
+    init(cenaAtual: SKScene, cenaProxima: SKScene) {
+        self.cenaAtual = cenaAtual
+        self.cenaProxima = cenaProxima
+    }
+    
+    func troca(){
+        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+        cenaProxima.camera?.setScale((cenaProxima.xScale))
+        cenaAtual.view?.presentScene(cenaProxima, transition: transition)
+    }
+}
+
+class caixaDeTrocaDeCena: caixa{
+    var cenaAtual: SKScene
+    var cenaProxima: SKScene
+    var transicao: Transicao?
+    
+    init(personagem: SKNode, dialogavel: Dialogavel, cenaAtual: SKScene, cenaProxima: SKScene){
+        self.cenaAtual = cenaAtual
+        self.cenaProxima = cenaProxima
+        super.init(personagem: personagem, texto: "...", dialogavel: dialogavel)
+        
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.transicao = Transicao(cenaAtual: cenaAtual, cenaProxima: cenaProxima)
+        self.transicao!.troca()
+    }
+}
+
+class caixaDeEscada: caixa{
+    var personagem: SKNode
+    
+    init(personagem: SKNode, dialogavel: Dialogavel) {
+        self.personagem = personagem
+        super.init(personagem: self.personagem, texto: "...", dialogavel: dialogavel)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("subiu")
+    }
+}
+
+class caixaDeDialogo: caixa{
+//    var Personagem: SKNode
+//    var Texto: String
+//    var animado: Bool
+//    var dialogavel1: Dialogavel
+    
+    override init(personagem: SKNode, texto: String, dialogavel: Dialogavel) {
+        super.init(personagem: personagem, texto: texto, dialogavel: dialogavel)
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -97,13 +185,21 @@ class Balao: SKSpriteNode{
         dialogavel1 = dialogavel
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         isUserInteractionEnabled = true
-        self.setScale(0)
+        
         self.zPosition = 1000
         
         let text = SKLabelNode(text: Resposta.text)
+        text.numberOfLines = 2
+        self.size.width = text.frame.size.width+20
+        self.size.height = text.frame.size.height+20
         text.fontName = "Chalkduster"
         text.position = CGPoint(x: 0, y: 0)
+        text.horizontalAlignmentMode = .center
+        text.verticalAlignmentMode = .center
+        text.fontSize = 20
+        self.setScale(0)
         text.fontColor = .black
+        
         self.addChild(text)
     }
     
@@ -140,34 +236,52 @@ class baloesDeEscolha{
         balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-        balao1.position = CGPoint(x: -150, y: 100)
-        balao2.position = CGPoint(x: 150, y: 170)
-        balao3.position = CGPoint(x: 0, y: 240)
+        balao1.position = CGPoint(x: -150, y: 130)
+        balao2.position = CGPoint(x: 0, y: 200)
+        balao3.position = CGPoint(x: 150, y: 270)
     }
     
     func desenhar(){
-        
         Personagem.addChild(balao1);
         
         if(!animado1){
             animado1 = true
-            let scale = SKAction.scale(to: 1, duration: 1)
+            let  scalex: SKAction
+            if(self.Personagem.xScale<0){
+                scalex = SKAction.scaleX(to: -1, duration: 1)
+                
+            }else{
+                scalex = SKAction.scaleX(to: 1, duration: 1)
+            }
+            
+            let scale = SKAction.scaleY(to: 1, duration: 1)
+            
             let fadeIn = SKAction.fadeIn(withDuration: 1)
             
-            let group = SKAction.sequence( [SKAction.group([scale, fadeIn])])
+            let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao1.run(group){
                 self.animado1 = false
             }
+            
         }
         
         Personagem.addChild(balao2)
         
         if(!animado2){
             animado2 = true
-            let scale = SKAction.scale(to: 1, duration: 1)
+            let  scalex: SKAction
+            if(self.Personagem.xScale<0){
+                scalex = SKAction.scaleX(to: -1, duration: 1)
+                
+            }else{
+                scalex = SKAction.scaleX(to: 1, duration: 1)
+            }
+            
+            let scale = SKAction.scaleY(to: 1, duration: 1)
+            
             let fadeIn = SKAction.fadeIn(withDuration: 1)
             
-            let group = SKAction.sequence( [SKAction.group([scale, fadeIn])])
+            let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao2.run(group){
                 self.animado2 = false
             }
@@ -177,10 +291,20 @@ class baloesDeEscolha{
         
         if(!animado3){
             animado3 = true
-            let scale = SKAction.scale(to: 1, duration: 1)
+            let  scalex: SKAction
+            if(self.Personagem.xScale<0){
+                scalex = SKAction.scaleX(to: -1, duration: 1)
+                
+            }else{
+                scalex = SKAction.scaleX(to: 1, duration: 1)
+            }
+            
+            let scale = SKAction.scaleY(to: 1, duration: 1)
+            
             let fadeIn = SKAction.fadeIn(withDuration: 1)
             
-            let group = SKAction.sequence( [SKAction.group([scale, fadeIn])])
+            let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
+
             balao3.run(group){
                 self.animado3 = false
             }
@@ -226,7 +350,7 @@ class baloesDeEscolha{
 }
 
 class Dialogavel{
-    var caixa : caixaDeDialogo?
+    var caixa : caixa?
     var escolhas: baloesDeEscolha?
     var indexNode : Node?
     var ballon = false
@@ -247,12 +371,6 @@ class Dialogavel{
     }
     
     public func drawnDialog(){
-        
-        //        caixa = caixaDeDialogo(personagem: playerNode, texto: indexNode!.text, cena: self)
-        //        if(indexNode!.childrens.first != nil){
-        //            indexNode = indexNode!.childrens.first
-        //        }
-        //        caixa?.entrar()
         
         if(!ballon){
             if(indexNode != nil){
