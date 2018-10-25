@@ -220,7 +220,7 @@ class Balao: SKSpriteNode{
     {
         //adiciona o valor ao status da historia
         if(self.Resposta.child.count == 0){
-            self.removeFromParent()
+            dialogavel1.escolhas?.sair()
         }
         if(!(Resposta.child.isEmpty)){
            dialogavel1.changeIndexNodeBallon(node: Resposta.child)
