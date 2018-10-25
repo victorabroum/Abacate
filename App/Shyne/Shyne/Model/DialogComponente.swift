@@ -243,9 +243,9 @@ class baloesDeEscolha{
         balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-        balao1.position = CGPoint(x: -50, y: 70)
+        balao1.position = CGPoint(x: -50, y: 0)
         balao2.position = CGPoint(x: 0, y: 100)
-        balao3.position = CGPoint(x: 50, y: 130)
+        balao3.position = CGPoint(x: 50, y: 0)
     }
     
     func desenhar(){
