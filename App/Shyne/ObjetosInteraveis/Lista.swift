@@ -32,7 +32,7 @@ var lista:[String:Objeto] = [
     "bakeryDoor":Objeto(nome: "bakeryDoor", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "houseDoor":Objeto(nome: "houseDoor", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "busStop":Objeto(nome: "busStop", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
-    "triggerCloset":Objeto(nome: "triggerCloset", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil)
+    "triggerCloset":Objeto(nome: "triggerCloset", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "porta":Objeto(nome: "porta", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "cama":Objeto(nome: "cama", mensagem: "Quer dar uma dormidinha?\n...", funcaoEntrada: nil, funcaoSaida: nil)
 ]
