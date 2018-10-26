@@ -218,6 +218,7 @@ class Balao: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
         //adiciona o valor ao status da historia
         if(self.Resposta.child.count == 0){
             dialogavel1.escolhas?.sair()

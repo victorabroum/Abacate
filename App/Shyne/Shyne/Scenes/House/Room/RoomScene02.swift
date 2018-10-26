@@ -37,7 +37,6 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("sdsdsdsdsdsdsdsdsddsd")
         if let nome=contact.bodyA.node?.name!{
             var novoNome:String {
                 get {
