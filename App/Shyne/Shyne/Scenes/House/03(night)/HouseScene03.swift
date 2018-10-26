@@ -8,7 +8,10 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class HouseScene03: SKScene {
+    
+    var entities = [GKEntity]()
 
 }
