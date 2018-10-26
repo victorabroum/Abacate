@@ -71,7 +71,6 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                     return (nome == "porta" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
         }
     }
 }
