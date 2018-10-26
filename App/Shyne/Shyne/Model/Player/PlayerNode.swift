@@ -118,5 +118,16 @@ class PlayerNode: SKSpriteNode{
             self.enterIdleState()
         }
     }
+    
+    func makeMove(fromPosition from: CGPoint, toPosition pos: CGPoint, withDuration duration: TimeInterval){
+//        self.anchorPoint = CGPoint(x: 0.5, y: 0)
+        self.position = from
+        
+        let moveAction = SKAction.move(to: pos, duration: duration)
+        let animateAction = SKAction(named: "stairs")
+        let group = SKAction.group([moveAction, animateAction!])
+        
+        self.run(group)
+    }
 
 }

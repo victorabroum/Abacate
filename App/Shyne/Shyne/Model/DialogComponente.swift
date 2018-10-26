@@ -156,6 +156,7 @@ class caixaDeEscada: caixa{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        dialogavel1.caixa?.sair()
         self.function()
     }
 }

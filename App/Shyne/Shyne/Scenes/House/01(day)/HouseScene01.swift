@@ -58,11 +58,30 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
             }else if(novoNome == "goUp"){
-                print("Go Up")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!,function:{(()->Void).self})
+                if let upPos = self.childNode(withName: "goDown"){
+                    
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        
+                        if (self.playerNode?.xScale)! >= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: upPos.position.x, y: upPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                    })
+                }
             }else if(novoNome == "goDown"){
-                print("Go Down")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!,function:{(()->Void).self})
+                if let downPos = self.childNode(withName: "goUp"){
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        if (self.playerNode?.xScale)! <= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: downPos.position.x, y: downPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                    })
+                }
+                
+                
             }
             
             
@@ -81,6 +100,21 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+        }
+    }
+    
+    func goDownStairs() {
+        print("Go down")
+        if let downPos = self.childNode(withName: "goUp"){
+            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
+        }
+        
+    }
+    
+    func goUpStairs() {
+        print("Go Up")
+        if let downPos = self.childNode(withName: "goDown"){
+            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
         }
     }
 
