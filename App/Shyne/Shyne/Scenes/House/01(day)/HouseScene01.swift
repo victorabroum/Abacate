@@ -83,5 +83,16 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
         }
     }
+    
+    func goUpStairs() {
+        if let upPoint = self.childNode(withName: "goUp"){
+            self.playerNode?.run(SKAction.move(to: CGPoint(x: upPoint.position.x, y: upPoint.position.y), duration: 1))
+        }
+        
+    }
+    
+    func goDownStairs() {
+        
+    }
 
 }
