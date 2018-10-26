@@ -30,4 +30,11 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
         // Indicando a raiz da story
         self.dialogBox01!.indexNode = house01Root
     }
+    override func didMove(to view: SKView) {
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        self.playerNode!.makePlayerWalk()
+    }
 }
