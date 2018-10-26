@@ -14,6 +14,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     var playerNode:PlayerNode?
     var dialogavel1: Dialogavel?
+    var entities = [GKEntity]()
     
     override func sceneDidLoad() {
         print("Room didLoad")
@@ -66,6 +67,5 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             
             lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
         }
-
-}
+    }
 }
