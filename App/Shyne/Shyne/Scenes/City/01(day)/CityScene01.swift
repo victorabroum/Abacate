@@ -60,7 +60,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                         if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                            dialoge?.caixa = caixaDeEscada(personagem: trigger!, dialogavel: dialoge!, function: {print("class")})
+                            dialoge?.caixa = caixaDeEscada(personagem: trigger!, dialogavel: dialoge!,function:{(()->Void).self})
                         }
                     }
                     
