@@ -91,8 +91,8 @@ class caixa: SKSpriteNode{
     func sair()->Void{
         if(!animado){
             animado = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             self.run(group){
                 self.animado = false
@@ -289,15 +289,15 @@ class baloesDeEscolha{
             animado1 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao1.run(group){
@@ -312,15 +312,15 @@ class baloesDeEscolha{
             animado2 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao2.run(group){
@@ -334,15 +334,15 @@ class baloesDeEscolha{
             animado3 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
 
@@ -356,8 +356,8 @@ class baloesDeEscolha{
     func sair()->Void{
         if(!animado1){
             animado1 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao1.run(group){
                 self.animado1 = false
@@ -367,8 +367,8 @@ class baloesDeEscolha{
         
         if(!animado2){
             animado2 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao2.run(group){
                 self.animado2 = false
@@ -378,8 +378,8 @@ class baloesDeEscolha{
         
         if(!animado3){
             animado3 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao3.run(group){
                 self.animado3 = false
