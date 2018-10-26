@@ -58,12 +58,30 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
             }else if(novoNome == "goUp"){
-                
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: self.goUpStairs)
+                if let upPos = self.childNode(withName: "goDown"){
+                    
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        
+                        if (self.playerNode?.xScale)! >= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: upPos.position.x, y: upPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                    })
+                }
             }else if(novoNome == "goDown"){
+                if let downPos = self.childNode(withName: "goUp"){
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        if (self.playerNode?.xScale)! <= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: downPos.position.x, y: downPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                    })
+                }
                 
-//                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: self.goDownStairs)
+                
             }
             
             
