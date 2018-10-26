@@ -59,10 +59,10 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }else if(novoNome == "goUp"){
                 print("Go Up")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!,function:{(()->Void).self})
             }else if(novoNome == "goDown"){
                 print("Go Down")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!,function:{(()->Void).self})
             }
             
             
