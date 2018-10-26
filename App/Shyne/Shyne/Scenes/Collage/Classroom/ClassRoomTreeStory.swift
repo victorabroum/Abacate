@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 var classRoomRoot: Node = Node(withText: NSLocalizedString("Formem grupos de até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
 

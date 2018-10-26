@@ -254,33 +254,42 @@ class baloesDeEscolha{
         dialogavel1 = dialogavel
         
         balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
+        if(Respostas[0].function != nil){
+            balao1.function = Respostas[0].function
+        }
         balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
+        if(Respostas[1].function != nil){
+            balao2.function = Respostas[1].function
+        }
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-        balao1.texture = SKTexture(imageNamed: "dialogue_box_")
+        if(Respostas[2].function != nil){
+            balao3.function = Respostas[2].function
+        }
+        //balao1.texture = SKTexture(imageNamed: "dialogue_box_")
         balao1.position = CGPoint(x: -50, y: 0)
         balao2.position = CGPoint(x: 0, y: 100)
         balao3.position = CGPoint(x: 50, y: 0)
     }
     
-    init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel, function: @escaping ()->Void) {
-        Personagem = personagem
-        Respostas = respostas
-        dialogavel1 = dialogavel
-        self.function = function
-        
-        balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
-        balao1.function = self.function
-        balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
-        balao2.function = self.function
-        balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-        balao3.function = self.function
-//        balao1.texture = SKTexture(imageNamed: "dialogue_box_dir")
-        balao1.position = CGPoint(x: -50, y: 0)
-//        balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
-        balao2.position = CGPoint(x: 0, y: 100)
-//        balao3.texture = SKTexture(imageNamed: "dialogue_box_esq")
-        balao3.position = CGPoint(x: 50, y: 0)
-    }
+//    init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel, function: @escaping ()->Void) {
+//        Personagem = personagem
+//        Respostas = respostas
+//        dialogavel1 = dialogavel
+//        self.function = function
+//
+//        balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
+//        balao1.function = self.function
+//        balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
+//        balao2.function = self.function
+//        balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
+//        balao3.function = self.function
+////        balao1.texture = SKTexture(imageNamed: "dialogue_box_dir")
+//        balao1.position = CGPoint(x: -50, y: 0)
+////        balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
+//        balao2.position = CGPoint(x: 0, y: 100)
+////        balao3.texture = SKTexture(imageNamed: "dialogue_box_esq")
+//        balao3.position = CGPoint(x: 50, y: 0)
+//    }
     
     func desenhar(){
         Personagem.addChild(balao1);
@@ -423,12 +432,7 @@ class Dialogavel{
                 caixa?.entrar()
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true
-                    if(indexNode?.function != nil){
-                        escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self, function: (indexNode?.function)!)
-                    }
-                    else{
-                        escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
-                    }
+                    escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
                 }
                 else{
                     indexNode = indexNode!.childrens.first

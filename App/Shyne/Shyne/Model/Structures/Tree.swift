@@ -25,6 +25,9 @@ class Answer{
     var text: String
     var amount: Feel
     var child: [Node]
+    //nickson teste/////////
+    var function: (()->Void)?
+    ////////////////////////
     
     init(withText text: String, withAmount amount: Feel) {
         self.text = text
@@ -53,11 +56,6 @@ class Node {
     var childrens: [Node] = []
     var nodeToTalk: String
     weak var parent: Node? // this is parent
-    
-    //nickson teste/////////
-    var function: (()->Void)?
-    ////////////////////////
-    
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text
