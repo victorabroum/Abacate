@@ -14,7 +14,8 @@ var textForRoot: String = "Qual casaco uso hoje?"
 var cBlack: Answer = Answer(withText: "Preto", withAmount: Feel(happy: 0, normal: 0.5, shy: 0.3))
 var cPurple: Answer = Answer(withText: "Roxo", withAmount: Feel(happy: 0.5, normal: 0.1, shy: 0.2))
 var cBlue: Answer = Answer(withText: "Azul", withAmount: Feel(happy: 0.6, normal: 0.1, shy: 0))
-var rootNode: Node = Node(withText: textForRoot, withChoices: [cBlack, cPurple, cBlue])
+//var rootNode: Node = Node(withText: textForRoot, withChoices: [cBlack, cPurple, cBlue])
+var rootNode: Node = Node(withText: textForRoot, withChoices: [cBlack,cPurple,cBlue])
 
 // D2 -> End
 var textSecondTalk: String = "Então vai ser esse!"
