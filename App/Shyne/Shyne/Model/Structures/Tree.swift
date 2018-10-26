@@ -54,6 +54,10 @@ class Node {
     var nodeToTalk: String
     weak var parent: Node? // this is parent
     
+    //nickson teste/////////
+    var function: (()->Void)?
+    ////////////////////////
+    
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text

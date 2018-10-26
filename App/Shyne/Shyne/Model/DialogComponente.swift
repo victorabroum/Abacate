@@ -33,7 +33,7 @@ class caixa: SKSpriteNode{
         text!.position = CGPoint(x: 0, y: 0)
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
-        self.texture = SKTexture(imageNamed: "dialogue_box_top")
+        //self.texture = SKTexture(imageNamed: "dialogue_box_top")
 
         self.size.width = text!.frame.size.width+10
         self.size.height = text!.frame.size.height+10
@@ -185,12 +185,14 @@ class Balao: SKSpriteNode{
     let Resposta: Answer
     var dialogavel1: Dialogavel
     let text : SKLabelNode
+    var function: (()->Void)?
     
     init(resposta: Answer, dialogavel: Dialogavel) {
         Resposta = resposta
         dialogavel1 = dialogavel
         text = SKLabelNode(text: Resposta.text)
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
+        self.function = self.nextBalon
         isUserInteractionEnabled = true
         
         self.zPosition = 1000
@@ -218,13 +220,17 @@ class Balao: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        
         //adiciona o valor ao status da historia
+        function!()
+    }
+    
+    func nextBalon(){
         if(self.Resposta.child.count == 0){
             dialogavel1.escolhas?.sair()
+            dialogavel1.indexNode = Resposta.child.first
         }
         if(!(Resposta.child.isEmpty)){
-           dialogavel1.changeIndexNodeBallon(node: Resposta.child)
+            dialogavel1.changeIndexNodeBallon(node: Resposta.child)
         }
         dialogavel1.drawnDialog()
     }
@@ -240,6 +246,7 @@ class baloesDeEscolha{
     let Personagem : SKSpriteNode
     let Respostas : [Answer]
     var dialogavel1: Dialogavel
+    var function: (()->Void)?
     
     init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel) {
         Personagem = personagem
@@ -252,6 +259,26 @@ class baloesDeEscolha{
         balao1.texture = SKTexture(imageNamed: "dialogue_box_")
         balao1.position = CGPoint(x: -50, y: 0)
         balao2.position = CGPoint(x: 0, y: 100)
+        balao3.position = CGPoint(x: 50, y: 0)
+    }
+    
+    init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel, function: @escaping ()->Void) {
+        Personagem = personagem
+        Respostas = respostas
+        dialogavel1 = dialogavel
+        self.function = function
+        
+        balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
+        balao1.function = self.function
+        balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
+        balao2.function = self.function
+        balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
+        balao3.function = self.function
+//        balao1.texture = SKTexture(imageNamed: "dialogue_box_dir")
+        balao1.position = CGPoint(x: -50, y: 0)
+//        balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
+        balao2.position = CGPoint(x: 0, y: 100)
+//        balao3.texture = SKTexture(imageNamed: "dialogue_box_esq")
         balao3.position = CGPoint(x: 50, y: 0)
     }
     
@@ -396,7 +423,12 @@ class Dialogavel{
                 caixa?.entrar()
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true
-                    escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
+                    if(indexNode?.function != nil){
+                        escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self, function: (indexNode?.function)!)
+                    }
+                    else{
+                        escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
+                    }
                 }
                 else{
                     indexNode = indexNode!.childrens.first

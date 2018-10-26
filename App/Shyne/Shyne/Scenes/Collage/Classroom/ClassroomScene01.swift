@@ -32,14 +32,21 @@ class ClassroomScene01: SKScene {
     }
     
     func carregarFalas(){
+        let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene03")!
+        
+        if let nextScene = cenaProxima.rootNode as? HouseScene03{
+            nextScene.entities = cenaProxima.entities
+            var t : Transicao
+            t = Transicao(cenaAtual: self, cenaProxima: nextScene)
+            classRoomRoot.function = {()->Void in t.troca()}
+        }
+        
         self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "professora")!, texto: (lista["professora"]?.mensagem)!, dialogavel: self.dialogBox01!)
         lista["professora"]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
         lista["professora"]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
         lista["professora"]?.funcaoEntrada!(self.dialogBox01!.caixa!)
     }
     override func update(_ currentTime: TimeInterval) {
-        if(self.dialogBox01?.indexNode?.childrens == nil){
-            print("Acabou")
-        }
+        
     }
 }
