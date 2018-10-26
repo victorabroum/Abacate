@@ -14,6 +14,7 @@ class caixa: SKSpriteNode{
     var dialogavel1: Dialogavel
     var animado: Bool
     let text: SKLabelNode?
+    var rect : CGRect?
     
     init(personagem: SKNode, texto: String, dialogavel: Dialogavel){
         Personagem = personagem
@@ -37,6 +38,7 @@ class caixa: SKSpriteNode{
 
         self.size.width = text!.frame.size.width+10
         self.size.height = text!.frame.size.height+10
+        self.rect = self.frame
         self.setScale(0)
         text!.fontColor = .black
         
@@ -57,12 +59,12 @@ class caixa: SKSpriteNode{
             animado = true
             let moveDown : SKAction
             
-            if(Personagem.position.y == CGFloat(0)){
-                moveDown = SKAction.moveTo(y: CGFloat(-70 * Texto.split(separator: "\n").count), duration: 0.3)
-            }
-            else{
-                moveDown = SKAction.moveTo(y: CGFloat(70 * Texto.split(separator: "\n").count), duration: 0.3)
-            }
+            //if(Personagem.position.y == CGFloat(0)){
+            //    moveDown = SKAction.moveTo(y: CGFloat(-70 * Texto.split(separator: "\n").count), duration: 0.3)
+            //}
+            //else{
+            moveDown = SKAction.moveTo(y: (((Personagem.frame.size.height)/2) + rect!.height), duration: 0.3)
+            //}
             
             let  scalex: SKAction
             
@@ -141,9 +143,11 @@ class caixaDeTrocaDeCena: caixa{
 
 class caixaDeEscada: caixa{
     var personagem: SKNode
+    var function: ()->Void
     
-    init(personagem: SKNode, dialogavel: Dialogavel) {
+    init(personagem: SKNode, dialogavel: Dialogavel, function: @escaping ()->Void) {
         self.personagem = personagem
+        self.function = function
         super.init(personagem: self.personagem, texto: "...", dialogavel: dialogavel)
     }
     
@@ -152,7 +156,7 @@ class caixaDeEscada: caixa{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("subiu")
+        self.function()
     }
 }
 
@@ -186,6 +190,7 @@ class Balao: SKSpriteNode{
     var dialogavel1: Dialogavel
     let text : SKLabelNode
     var function: (()->Void)?
+    var rect : CGRect?
     
     init(resposta: Answer, dialogavel: Dialogavel) {
         Resposta = resposta
@@ -198,8 +203,8 @@ class Balao: SKSpriteNode{
         self.zPosition = 1000
         
         text.numberOfLines = 2
-        text.fontSize = 10
-        text.fontName = "Chalkduster"
+        text.fontSize = 32
+        text.fontName = "Future"
         text.position = CGPoint(x: 0, y: 0)
         text.horizontalAlignmentMode = .center
         text.verticalAlignmentMode = .center
@@ -207,6 +212,7 @@ class Balao: SKSpriteNode{
         self.size.width = text.frame.size.width+10
         self.size.height = text.frame.size.height+10
         
+        rect = self.frame
         
         self.setScale(0)
         text.fontColor = .black
@@ -269,30 +275,10 @@ class baloesDeEscolha{
             balao3.function = Respostas[2].function
         }
         //balao1.texture = SKTexture(imageNamed: "dialogue_box_")
-        balao1.position = CGPoint(x: -50, y: 0)
-        balao2.position = CGPoint(x: 0, y: 100)
-        balao3.position = CGPoint(x: 50, y: 0)
+        balao1.position = CGPoint(x: -1*((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
+        balao2.position = CGPoint(x: 0, y: (dialogavel.playerNode!.frame.size.height/2)+balao2.rect!.height)
+        balao3.position = CGPoint(x: ((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
     }
-    
-//    init(personagem: SKSpriteNode, respostas:[Answer], dialogavel: Dialogavel, function: @escaping ()->Void) {
-//        Personagem = personagem
-//        Respostas = respostas
-//        dialogavel1 = dialogavel
-//        self.function = function
-//
-//        balao1 = Balao(resposta: Respostas[0], dialogavel: dialogavel1)
-//        balao1.function = self.function
-//        balao2 = Balao(resposta: Respostas[1], dialogavel: dialogavel1)
-//        balao2.function = self.function
-//        balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
-//        balao3.function = self.function
-////        balao1.texture = SKTexture(imageNamed: "dialogue_box_dir")
-//        balao1.position = CGPoint(x: -50, y: 0)
-////        balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
-//        balao2.position = CGPoint(x: 0, y: 100)
-////        balao3.texture = SKTexture(imageNamed: "dialogue_box_esq")
-//        balao3.position = CGPoint(x: 50, y: 0)
-//    }
     
     func desenhar(){
         Personagem.addChild(balao1);
