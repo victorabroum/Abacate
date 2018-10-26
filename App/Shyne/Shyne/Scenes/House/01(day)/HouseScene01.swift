@@ -58,11 +58,12 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
             }else if(novoNome == "goUp"){
-                print("Go Up")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+                
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: self.goUpStairs)
             }else if(novoNome == "goDown"){
-                print("Go Down")
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+                
+//                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: self.goDownStairs)
             }
             
             
@@ -81,6 +82,21 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+        }
+    }
+    
+    func goDownStairs() {
+        print("Go down")
+        if let downPos = self.childNode(withName: "goUp"){
+            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
+        }
+        
+    }
+    
+    func goUpStairs() {
+        print("Go Up")
+        if let downPos = self.childNode(withName: "goDown"){
+            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
         }
     }
 

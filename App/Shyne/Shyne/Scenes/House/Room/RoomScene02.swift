@@ -47,7 +47,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             
             
             if novoNome == "cama"{
-                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!)
+                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!, function: {print("cama")})
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
