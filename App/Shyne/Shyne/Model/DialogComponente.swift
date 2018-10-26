@@ -221,6 +221,9 @@ class Balao: SKSpriteNode{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         //adiciona o valor ao status da historia
+        happyStatus += Resposta.amount.happy
+        normalStatus += Resposta.amount.normal
+        shyStatus += Resposta.amount.shy
         function!()
     }
     
