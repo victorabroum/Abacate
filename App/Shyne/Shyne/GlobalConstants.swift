@@ -38,3 +38,6 @@ var stairDuration: TimeInterval = 2
 
 // Flags important para o game
 var finishedBakery: Bool = true
+
+
+var escolhaFeita = 1

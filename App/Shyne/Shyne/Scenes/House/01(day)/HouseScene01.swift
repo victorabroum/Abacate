@@ -117,5 +117,4 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
         }
     }
-
 }
