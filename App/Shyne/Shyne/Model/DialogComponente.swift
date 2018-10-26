@@ -28,13 +28,15 @@ class caixa: SKSpriteNode{
         
         self.zPosition = 1000
         self.alpha = 1
-        text!.numberOfLines = 2
+        text!.numberOfLines = 3
         text!.fontName = "Futura"
-        text!.fontSize = 32
+        text!.fontSize = 20
         text!.position = CGPoint(x: 0, y: 0)
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
         //self.texture = SKTexture(imageNamed: "dialogue_box_top")
+        
+        print("\(dialogavel.cena.size.height * dialogavel.cena.size.width)")
 
         self.size.width = text!.frame.size.width+10
         self.size.height = text!.frame.size.height+10
@@ -89,8 +91,8 @@ class caixa: SKSpriteNode{
     func sair()->Void{
         if(!animado){
             animado = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             self.run(group){
                 self.animado = false
@@ -203,9 +205,9 @@ class Balao: SKSpriteNode{
         
         self.zPosition = 1000
         
-        text.numberOfLines = 2
-        text.fontSize = 32
-        text.fontName = "Future"
+        text.numberOfLines = 3
+        text.fontSize = 20
+        text.fontName = "Futura"
         text.position = CGPoint(x: 0, y: 0)
         text.horizontalAlignmentMode = .center
         text.verticalAlignmentMode = .center
@@ -278,7 +280,7 @@ class baloesDeEscolha{
         //balao1.texture = SKTexture(imageNamed: "dialogue_box_")
         balao1.position = CGPoint(x: -1*((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
         balao2.position = CGPoint(x: 0, y: (dialogavel.playerNode!.frame.size.height/2)+balao2.rect!.height)
-        balao3.position = CGPoint(x: ((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
+        balao3.position = CGPoint(x: ((dialogavel.playerNode!.frame.size.width/2)+(balao3.rect!.width/2)), y: 0)
     }
     
     func desenhar(){
@@ -288,15 +290,15 @@ class baloesDeEscolha{
             animado1 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao1.run(group){
@@ -311,15 +313,15 @@ class baloesDeEscolha{
             animado2 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
             balao2.run(group){
@@ -333,15 +335,15 @@ class baloesDeEscolha{
             animado3 = true
             let  scalex: SKAction
             if(self.Personagem.xScale<0){
-                scalex = SKAction.scaleX(to: -1, duration: 1)
+                scalex = SKAction.scaleX(to: -1, duration: 0.3)
                 
             }else{
-                scalex = SKAction.scaleX(to: 1, duration: 1)
+                scalex = SKAction.scaleX(to: 1, duration: 0.3)
             }
             
-            let scale = SKAction.scaleY(to: 1, duration: 1)
+            let scale = SKAction.scaleY(to: 1, duration: 0.3)
             
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             
             let group = SKAction.sequence( [SKAction.group([scalex, scale, fadeIn])])
 
@@ -355,8 +357,8 @@ class baloesDeEscolha{
     func sair()->Void{
         if(!animado1){
             animado1 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao1.run(group){
                 self.animado1 = false
@@ -366,8 +368,8 @@ class baloesDeEscolha{
         
         if(!animado2){
             animado2 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao2.run(group){
                 self.animado2 = false
@@ -377,8 +379,8 @@ class baloesDeEscolha{
         
         if(!animado3){
             animado3 = true
-            let scale = SKAction.scale(to: 0, duration: 0.1)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.1)
+            let scale = SKAction.scale(to: 0, duration: 0.3)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let group = SKAction.group([scale, fadeIn])
             balao3.run(group){
                 self.animado3 = false

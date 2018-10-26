@@ -58,7 +58,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
                 if let nextScene = cenaProxima.rootNode as? CityScene01{
                     nextScene.playerNode!.position = CGPoint(x: -748.625, y: -126.709)
                     nextScene.entities = cenaProxima.entities
-                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: "porta")!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
+                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
             }
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}

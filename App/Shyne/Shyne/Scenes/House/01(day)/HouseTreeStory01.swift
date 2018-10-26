@@ -16,17 +16,17 @@ var house01Root: Node = Node(withText: NSLocalizedString("Bom dia filho!", comme
 
 // D2
 // choice 1 -> d3_1
-var c1: Answer = Answer(withText: NSLocalizedString("Tudo bem, deixe comigo!", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
+var c1: Answer = Answer(withText: NSLocalizedString("Tudo bem,\ndeixe comigo!", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
 // choice 2 -> d3_2
 var c2: Answer = Answer(withText: NSLocalizedString("Mas eu não estou com fome, pai.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
 // choice 3 -> d3_3
-var c3: Answer = Answer(withText: NSLocalizedString("Não quero ir pai, tem muita gente lá!", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
-var d2: Node = Node(withText: NSLocalizedString("Você pode ir na padaria comprar pão francês?", comment: "Pedido para comprar um tipo específico de pão"), withChoices: [c1, c2, c3], inNodeNamed: "dad")
+var c3: Answer = Answer(withText: NSLocalizedString("Não quero ir pai,\ntem muita gente lá!", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
+var d2: Node = Node(withText: NSLocalizedString("Você pode ir na padaria\ncomprar pão francês?", comment: "Pedido para comprar um tipo específico de pão"), withChoices: [c1, c2, c3], inNodeNamed: "dad")
 
 // D3 tem três versões possíveis -> End
-var d3_1: Node = Node(withText: NSLocalizedString("Obrigado, tome aqui o dinheiro", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
+var d3_1: Node = Node(withText: NSLocalizedString("Obrigado,\ntome aqui o dinheiro", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 var d3_2: Node = Node(withText: NSLocalizedString("A sua mãe está, vá logo!", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
-var d3_3: Node = Node(withText: NSLocalizedString("Não seja tímido, vá logo por favor", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
+var d3_3: Node = Node(withText: NSLocalizedString("Não seja tímido,\nvá logo por favor", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 
 func house01makeTree() -> (){
     c1.child.append(d3_1)
