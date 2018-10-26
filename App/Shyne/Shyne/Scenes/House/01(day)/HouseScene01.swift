@@ -57,7 +57,15 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     nextScene.entities = cenaProxima.entities
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
+            }else if(novoNome == "goUp"){
+                print("Go Up")
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
+            }else if(novoNome == "goDown"){
+                print("Go Down")
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!)
             }
+            
+            
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
             lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
