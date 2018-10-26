@@ -37,4 +37,6 @@ var lista:[String:Objeto] = [
     "cama":Objeto(nome: "cama", mensagem: "Quer dar uma dormidinha?\n...", funcaoEntrada: nil, funcaoSaida: nil),
     "padeiro":Objeto(nome: "cama", mensagem: "No céu tem pão.", funcaoEntrada: nil, funcaoSaida: nil),
     "professora":Objeto(nome: "professora", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "goUp":Objeto(nome: "goUp", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "goDown":Objeto(nome: "goDown", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
 ]
