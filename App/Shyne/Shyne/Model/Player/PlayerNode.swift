@@ -121,6 +121,7 @@ class PlayerNode: SKSpriteNode{
     
     func makeMove(fromPosition from: CGPoint, toPosition pos: CGPoint, withDuration duration: TimeInterval){
 //        self.anchorPoint = CGPoint(x: 0.5, y: 0)
+        self.playerCanWalk(false)
         self.position = from
         let backupSize = self.size
         self.size = CGSize(width: 48.48, height: 144)
@@ -140,6 +141,7 @@ class PlayerNode: SKSpriteNode{
         self.run(group, completion: {
             self.size = backupSize
             self.texture = SKTexture(imageNamed: "walk_player_01")
+            self.playerCanWalk(true)
         })
         print("self size \(self.size)")
         print("self size \(backupSize)")
