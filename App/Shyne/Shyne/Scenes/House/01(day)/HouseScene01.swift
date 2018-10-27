@@ -33,6 +33,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        print("ANTES SIZE \((self.playerNode?.yScale)!)") 
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
     }
     
@@ -100,21 +101,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
-        }
-    }
-    
-    func goDownStairs() {
-        print("Go down")
-        if let downPos = self.childNode(withName: "goUp"){
-            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
-        }
-        
-    }
-    
-    func goUpStairs() {
-        print("Go Up")
-        if let downPos = self.childNode(withName: "goDown"){
-            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
         }
     }
 }
