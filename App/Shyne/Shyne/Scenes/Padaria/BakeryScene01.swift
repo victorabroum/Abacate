@@ -56,6 +56,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             }else if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
                 if let nextScene = cenaProxima.rootNode as? CityScene01{
+                    nextScene.playerNode!.position = CGPoint(x: -748.625, y: -126.709)
                     nextScene.entities = cenaProxima.entities
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }

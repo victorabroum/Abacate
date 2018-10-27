@@ -14,6 +14,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     var playerNode:PlayerNode?
     var dialogavel1: Dialogavel?
+    var entities = [GKEntity]()
     
     override func sceneDidLoad() {
         print("Room didLoad")
@@ -46,7 +47,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             
             
             if novoNome == "cama"{
-                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!,function: {(()->Void).self})
+                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!,function:{})
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
@@ -66,6 +67,5 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             
             lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
         }
-
-}
+    }
 }

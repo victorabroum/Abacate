@@ -33,6 +33,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        print("ANTES SIZE \((self.playerNode?.yScale)!)") 
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
     }
     
@@ -57,7 +58,34 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     nextScene.entities = cenaProxima.entities
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
+            }else if(novoNome == "goUp"){
+                if let upPos = self.childNode(withName: "goDown"){
+                    
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        
+                        if (self.playerNode?.xScale)! >= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: upPos.position.x, y: upPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                    })
+                }
+            }else if(novoNome == "goDown"){
+                if let downPos = self.childNode(withName: "goUp"){
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                        if (self.playerNode?.xScale)! <= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: downPos.position.x, y: downPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                    })
+                }
+                
+                
             }
+            
+            
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
             lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
             lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
@@ -75,5 +103,4 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
         }
     }
-
 }
