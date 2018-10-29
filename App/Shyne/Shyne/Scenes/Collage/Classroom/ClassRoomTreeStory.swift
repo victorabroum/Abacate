@@ -9,13 +9,13 @@
 import Foundation
 import GameplayKit
 
-var classRoomRoot: Node = Node(withText: NSLocalizedString("Formem grupos de até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoomRoot: Node = Node(withText: NSLocalizedString("Formem grupos \nde até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("Vou criar minha propria equipe.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
+var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("Vou criar minha\n propria equipe.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
 
-var classRoomRootc2: Answer = Answer(withText: NSLocalizedString("Vou para a equipe do Ruy.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
+var classRoomRootc2: Answer = Answer(withText: NSLocalizedString("Vou para a \nequipe do Ruy.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
 
-var classRoomRootc3: Answer = Answer(withText: NSLocalizedString("Vou esperar me escolherem.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
+var classRoomRootc3: Answer = Answer(withText: NSLocalizedString("Vou esperar \nme escolherem.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
 
 
 func classRoomRootmakeTree(){
