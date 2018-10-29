@@ -61,7 +61,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }else if(novoNome == "goUp"){
                 if let upPos = self.childNode(withName: "goDown"){
                     
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
                         
                         if (self.playerNode?.xScale)! >= 0{
                             self.playerNode?.xScale *= -1
@@ -73,7 +73,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }else if(novoNome == "goDown"){
                 if let downPos = self.childNode(withName: "goUp"){
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
                         if (self.playerNode?.xScale)! <= 0{
                             self.playerNode?.xScale *= -1
                         }
