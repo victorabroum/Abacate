@@ -81,8 +81,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                         self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
                     })
                 }
-                
-                
             }
             
             
