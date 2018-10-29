@@ -54,6 +54,29 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
             
             if novoNome == "dady"{
                 self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dady")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogBox01!)
+            }else if(novoNome == "goUp"){
+                if let upPos = self.childNode(withName: "goDown"){
+                    
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
+                        
+                        if (self.playerNode?.xScale)! >= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: upPos.position.x, y: upPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                    })
+                }
+            }else if(novoNome == "goDown"){
+                if let downPos = self.childNode(withName: "goUp"){
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
+                        if (self.playerNode?.xScale)! <= 0{
+                            self.playerNode?.xScale *= -1
+                        }
+                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: downPos.position.x, y: downPos.position.y), withDuration: stairDuration)
+                        self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                    })
+                }
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
@@ -68,9 +91,11 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
             
             var novoNome:String {
                 get {
-                    return (nome == "porta" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
+            
+            lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
         }
     }
 }

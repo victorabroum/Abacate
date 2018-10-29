@@ -64,7 +64,7 @@ class PlayerNode: SKSpriteNode{
         self.texture?.filteringMode = .linear
         
         // Add camera reference to follow
-        self.cameraReference.alpha = 1
+        self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
         self.addChild(self.cameraReference)
         
