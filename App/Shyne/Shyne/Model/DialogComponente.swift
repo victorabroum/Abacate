@@ -28,6 +28,7 @@ class caixa: SKSpriteNode{
         
         self.zPosition = 1000
         self.alpha = 1
+        
         text!.numberOfLines = 3
         text!.fontName = "Futura"
         text!.fontSize = 18
@@ -35,7 +36,6 @@ class caixa: SKSpriteNode{
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
         text!.position.y += 3
-        //self.texture = SKTexture(imageNamed: "dialogue_box_top")
 
         self.size.width = text!.frame.size.width+20
         self.size.height = text!.frame.size.height+20
@@ -200,6 +200,7 @@ class Balao: SKSpriteNode{
         Resposta = resposta
         dialogavel1 = dialogavel
         text = SKLabelNode(text: Resposta.text)
+        
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         self.function = self.nextBalon
         isUserInteractionEnabled = true
@@ -207,12 +208,13 @@ class Balao: SKSpriteNode{
         self.zPosition = 1000
         
         text.numberOfLines = 3
-        text.fontSize = 18
         text.fontName = "Futura"
+        text.fontSize = 18
         text.position = CGPoint(x: 0, y: 0)
         text.horizontalAlignmentMode = .center
         text.verticalAlignmentMode = .center
-        
+        text.position.y += 3
+
         self.size.width = text.frame.size.width+20
         self.size.height = text.frame.size.height+20
         
@@ -222,7 +224,7 @@ class Balao: SKSpriteNode{
         text.fontColor = .black
         text.zPosition = 30
         text.alpha = 1
-        
+
         self.addChild(text)
     }
     
@@ -277,25 +279,16 @@ class baloesDeEscolha{
             balao2.function = Respostas[1].function
         }
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
+        
         if(Respostas[2].function != nil){
             balao3.function = Respostas[2].function
         }
-        if(Personagem.xScale<0){
-            balao1.texture = SKTexture(imageNamed: "dialogue_box_dir")
-            
-        }
-        else{
-            balao1.texture = SKTexture(imageNamed: "dialogue_box_esq")
-        }
+        
+        balao1.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao1.position = CGPoint(x: -1*((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
         balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao2.position = CGPoint(x: 0, y: (dialogavel.playerNode!.frame.size.height/2)+balao2.rect!.height)
-        if(Personagem.xScale<0){
-            balao3.texture = SKTexture(imageNamed: "dialogue_box_esq")
-        }
-        else{
-            balao3.texture = SKTexture(imageNamed: "dialogue_box_dir")
-        }
+        balao3.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao3.position = CGPoint(x: ((dialogavel.playerNode!.frame.size.width/2)+(balao3.rect!.width/2)), y: 0)
     }
     
