@@ -13,7 +13,7 @@ var textForRootPadaria: String = "Me veja um pão doce"
 var rootNodePadaria: Node = Node(withText: textForRootPadaria, withChoices: [],inNodeNamed:"playerNode")
 //D2->D3
 var textSecondTalkPadaria : String = "Aqui está seu pão doce!"
-var secondTalkPadaria: Node = Node(withText: textSecondTalkPadaria, withChoices: [],inNodeNamed:"padeirocorpo")
+var secondTalkPadaria: Node = Node(withText: textSecondTalkPadaria, withChoices: [],inNodeNamed:"padeiroCaixa")
 //D3->End
 var textThirdTalkPadaria : String = "É q...."
 var rObrigado = Answer(withText: "...O...Obrigado", withAmount: Feel(happy: 0, normal: 0, shy: 1.0))
