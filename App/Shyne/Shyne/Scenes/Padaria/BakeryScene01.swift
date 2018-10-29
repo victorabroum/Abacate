@@ -52,7 +52,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             
             if novoNome == "padeiro"{
                 print("Padeiro")
-                self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "padeirocorpo")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
+                self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "padeiroCaixa")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
             }else if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
                 if let nextScene = cenaProxima.rootNode as? CityScene01{
