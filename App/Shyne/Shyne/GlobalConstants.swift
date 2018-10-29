@@ -41,3 +41,5 @@ var finishedBakery: Bool = true
 
 
 var escolhaFeita = 1
+
+var roupaNaoEscolhida = true
