@@ -64,7 +64,7 @@ class PlayerNode: SKSpriteNode{
         self.texture?.filteringMode = .linear
         
         // Add camera reference to follow
-        self.cameraReference.alpha = 1
+        self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
         self.addChild(self.cameraReference)
         
@@ -121,13 +121,30 @@ class PlayerNode: SKSpriteNode{
     
     func makeMove(fromPosition from: CGPoint, toPosition pos: CGPoint, withDuration duration: TimeInterval){
 //        self.anchorPoint = CGPoint(x: 0.5, y: 0)
+        self.playerCanWalk(false)
         self.position = from
+        let backupSize = self.size
+        self.size = CGSize(width: 48.48, height: 144)
+        
+        var arrayTexture = [SKTexture]()
+        
+        for index in 1 ..< 10 {
+            let textureNamed = SKTexture(imageNamed: "upstairs_player_0\(index)")
+            print("NAMED \(textureNamed)")
+            arrayTexture.append(textureNamed)
+        }
         
         let moveAction = SKAction.move(to: pos, duration: duration)
         let animateAction = SKAction(named: "stairs")
         let group = SKAction.group([moveAction, animateAction!])
         
-        self.run(group)
+        self.run(group, completion: {
+            self.size = backupSize
+            self.texture = SKTexture(imageNamed: "walk_player_01")
+            self.playerCanWalk(true)
+        })
+        print("self size \(self.size)")
+        print("self size \(backupSize)")
     }
 
 }

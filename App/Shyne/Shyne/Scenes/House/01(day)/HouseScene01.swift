@@ -33,6 +33,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        print("ANTES SIZE \((self.playerNode?.yScale)!)") 
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
     }
     
@@ -60,7 +61,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }else if(novoNome == "goUp"){
                 if let upPos = self.childNode(withName: "goDown"){
                     
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
                         
                         if (self.playerNode?.xScale)! >= 0{
                             self.playerNode?.xScale *= -1
@@ -72,7 +73,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }else if(novoNome == "goDown"){
                 if let downPos = self.childNode(withName: "goUp"){
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.playerNode!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
                         if (self.playerNode?.xScale)! <= 0{
                             self.playerNode?.xScale *= -1
                         }
@@ -80,8 +81,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                         self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
                     })
                 }
-                
-                
             }
             
             
@@ -100,21 +99,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
-        }
-    }
-    
-    func goDownStairs() {
-        print("Go down")
-        if let downPos = self.childNode(withName: "goUp"){
-            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
-        }
-        
-    }
-    
-    func goUpStairs() {
-        print("Go Up")
-        if let downPos = self.childNode(withName: "goDown"){
-            self.playerNode?.run(SKAction.move(to: CGPoint(x: downPos.position.x, y: downPos.position.y), duration: 1))
         }
     }
 }

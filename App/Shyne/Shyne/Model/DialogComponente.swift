@@ -28,21 +28,22 @@ class caixa: SKSpriteNode{
         
         self.zPosition = 1000
         self.alpha = 1
+        
         text!.numberOfLines = 3
         text!.fontName = "Futura"
-        text!.fontSize = 20
+        text!.fontSize = 18
         text!.position = CGPoint(x: 0, y: 0)
         text!.horizontalAlignmentMode = .center
         text!.verticalAlignmentMode = .center
-        //self.texture = SKTexture(imageNamed: "dialogue_box_top")
-        
-        print("\(dialogavel.cena.size.height * dialogavel.cena.size.width)")
+        text!.position.y += 3
 
-        self.size.width = text!.frame.size.width+10
-        self.size.height = text!.frame.size.height+10
+        self.size.width = text!.frame.size.width+20
+        self.size.height = text!.frame.size.height+20
+        self.texture = SKTexture(imageNamed: "dialogue_box_top")
         self.rect = self.frame
         self.setScale(0)
         text!.fontColor = .black
+        text?.zPosition = 30
         
         self.addChild(text!)
 
@@ -65,7 +66,7 @@ class caixa: SKSpriteNode{
             //    moveDown = SKAction.moveTo(y: CGFloat(-70 * Texto.split(separator: "\n").count), duration: 0.3)
             //}
             //else{
-            moveDown = SKAction.moveTo(y: (((Personagem.frame.size.height)/2) + rect!.height), duration: 0.3)
+            moveDown = SKAction.moveTo(y: (((Personagem.frame.size.height)/2) + (rect!.height/2)), duration: 0.3)
             //}
             
             let  scalex: SKAction
@@ -199,6 +200,7 @@ class Balao: SKSpriteNode{
         Resposta = resposta
         dialogavel1 = dialogavel
         text = SKLabelNode(text: Resposta.text)
+        
         super.init(texture: nil, color: .white, size: CGSize(width: 100, height: 50))
         self.function = self.nextBalon
         isUserInteractionEnabled = true
@@ -206,20 +208,23 @@ class Balao: SKSpriteNode{
         self.zPosition = 1000
         
         text.numberOfLines = 3
-        text.fontSize = 20
         text.fontName = "Futura"
+        text.fontSize = 18
         text.position = CGPoint(x: 0, y: 0)
         text.horizontalAlignmentMode = .center
         text.verticalAlignmentMode = .center
-        
-        self.size.width = text.frame.size.width+10
-        self.size.height = text.frame.size.height+10
+        text.position.y += 3
+
+        self.size.width = text.frame.size.width+20
+        self.size.height = text.frame.size.height+20
         
         rect = self.frame
         
         self.setScale(0)
         text.fontColor = .black
-        
+        text.zPosition = 30
+        text.alpha = 1
+
         self.addChild(text)
     }
     
@@ -274,12 +279,16 @@ class baloesDeEscolha{
             balao2.function = Respostas[1].function
         }
         balao3 = Balao(resposta: Respostas[2], dialogavel: dialogavel1)
+        
         if(Respostas[2].function != nil){
             balao3.function = Respostas[2].function
         }
-        //balao1.texture = SKTexture(imageNamed: "dialogue_box_")
+        
+        balao1.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao1.position = CGPoint(x: -1*((dialogavel.playerNode!.frame.size.width/2)+(balao1.rect!.width/2)), y: 0)
+        balao2.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao2.position = CGPoint(x: 0, y: (dialogavel.playerNode!.frame.size.height/2)+balao2.rect!.height)
+        balao3.texture = SKTexture(imageNamed: "dialogue_box_top")
         balao3.position = CGPoint(x: ((dialogavel.playerNode!.frame.size.width/2)+(balao3.rect!.width/2)), y: 0)
     }
     
