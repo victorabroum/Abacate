@@ -77,6 +77,12 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                         self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
                     })
                 }
+            }else if novoNome == "triggerDad"{
+                
+                house03makeTree()
+                self.dialogBox01!.indexNode = house03Root
+                
+                self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "Dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
