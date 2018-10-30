@@ -154,6 +154,18 @@ class caixaDeEscada: caixa{
         super.init(personagem: self.personagem, texto: "...", dialogavel: dialogavel)
     }
     
+    init(personagem: SKNode, dialogavel: Dialogavel, texture: String, function: @escaping ()->Void) {
+        self.personagem = personagem
+        self.function = function
+        super.init(personagem: self.personagem, texto: "...", dialogavel: dialogavel)
+        
+        let image: SKTexture = SKTexture(imageNamed: texture)
+        let imageNode = SKSpriteNode(texture: image)
+        imageNode.zPosition = 100
+        
+        self.addChild(imageNode)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
