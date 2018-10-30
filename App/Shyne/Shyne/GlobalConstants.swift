@@ -47,3 +47,5 @@ var indoParaPadaria = true
 
 var listaPermissoesCidade:Set = ["bakeryDoor"]
 var listaPermissoesPadaria:Set = ["padeiro"]
+var listaPermissoesHouse02:Set = ["goDown","goUp","dady"]
+
