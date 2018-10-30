@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Icone_Locker.png",
+      "filename" : "Icone_Door.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icone_Locker@2x.png",
+      "filename" : "Icone_Door@2x.png",
       "scale" : "2x"
     },
     {
