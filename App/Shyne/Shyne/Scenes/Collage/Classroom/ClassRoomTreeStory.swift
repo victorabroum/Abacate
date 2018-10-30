@@ -9,7 +9,11 @@
 import Foundation
 import GameplayKit
 
-var classRoomRoot: Node = Node(withText: NSLocalizedString("Formem grupos \nde até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoomRoot: Node = Node(withText: NSLocalizedString("Então pessoal,\n fechamos mais\n um assunto.", comment: ""), withChoices: [],inNodeNamed:"professora")
+
+var classRoom01D1: Node = Node(withText: NSLocalizedString("Formem grupos\nde até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
+
+var classRoom01D2: Node = Node(withText: NSLocalizedString("Teremos uma \napresentação daqui\n a 5 dias.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
 var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("Vou criar minha\n propria equipe.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
 
@@ -19,7 +23,11 @@ var classRoomRootc3: Answer = Answer(withText: NSLocalizedString("Vou esperar \n
 
 
 func classRoomRootmakeTree(){
-    classRoomRoot.choices.append(classRoomRootc1)
-    classRoomRoot.choices.append(classRoomRootc2)
-    classRoomRoot.choices.append(classRoomRootc3)
+    classRoomRoot.childrens = [classRoom01D2]
+    
+    classRoom01D2.childrens = [classRoom01D1]
+    
+    classRoom01D1.choices.append(classRoomRootc1)
+    classRoom01D1.choices.append(classRoomRootc2)
+    classRoom01D1.choices.append(classRoomRootc3)
 }
