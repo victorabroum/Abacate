@@ -43,7 +43,10 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         self.playerNode!.makePlayerWalk()
         if(dialogBox01?.indexNode == nil){
+            listaPermissoesCidade.remove("bakeryDoor")
             listaPermissoesHouse02.insert("porta")
+            listaPermissoesCidade.remove("houseDoor")
+            listaPermissoesCidade.insert("busStop")
         }
     }
     func didBegin(_ contact: SKPhysicsContact) {
