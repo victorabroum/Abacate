@@ -51,6 +51,7 @@
 		765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E16217D7950004AA4E3 /* BakeryScene01.swift */; };
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
+		C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		765B3E16217D7950004AA4E3 /* BakeryScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryScene01.swift; sourceTree = "<group>"; };
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
+		C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory03.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -306,6 +308,7 @@
 			children = (
 				765B3DF6217D764C004AA4E3 /* HouseScene03.sks */,
 				765B3E12217D78E0004AA4E3 /* HouseScene03.swift */,
+				C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */,
 			);
 			path = "03(night)";
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */,
 				765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */,
 				765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */,
+				C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */,
 				765B3DB82177A72A004AA4E3 /* GameScene.swift in Sources */,
 				C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */,
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
