@@ -45,6 +45,7 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
         if(dialogBox01?.indexNode == nil){
             listaPermissoesCidade.remove("bakeryDoor")
             listaPermissoesHouse02.insert("porta")
+            listaPermissoesHouse02.remove("dady")
             listaPermissoesCidade.remove("houseDoor")
             listaPermissoesCidade.insert("busStop")
         }
