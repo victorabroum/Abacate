@@ -38,6 +38,11 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode!.makePlayerWalk()
+        if(dialogBox01?.indexNode == nil){
+            listaPermissoesPadaria.insert("porta")
+            listaPermissoesCidade.remove("bakeryDoor")
+            listaPermissoesCidade.insert("houseDoor")
+        }
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
@@ -61,9 +66,12 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
                     self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
                 }
             }
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
+            if (listaPermissoesPadaria.contains(novoNome)){
+                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+                lista[novoNome]?.funcaoEntrada!(dialogBox01!.caixa!)
+                
+            }
         }
     }
     
@@ -76,7 +84,9 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
-            lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+            if (listaPermissoesPadaria.contains(novoNome)){
+                lista[novoNome]?.funcaoSaida!(dialogBox01!.caixa!)
+            }
         }
     }
 }

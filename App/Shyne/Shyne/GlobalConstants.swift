@@ -45,4 +45,5 @@ var falouComPaiNaCasa01 = false
 var roupaNaoEscolhida = true
 var indoParaPadaria = true
 
-var listaPermissoesCidade:[String] = ["bakeryDoor"]
+var listaPermissoesCidade:Set = ["bakeryDoor"]
+var listaPermissoesPadaria:Set = ["padeiro"]
