@@ -39,4 +39,5 @@ var lista:[String:Objeto] = [
     "professora":Objeto(nome: "professora", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "goUp":Objeto(nome: "goUp", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
     "goDown":Objeto(nome: "goDown", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
+    "dadDoor":Objeto(nome: "dadDoor", mensagem: "...", funcaoEntrada: nil, funcaoSaida: nil),
 ]
