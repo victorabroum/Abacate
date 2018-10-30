@@ -32,10 +32,13 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         makeTreeOfRoomPadaria()
         // Indicando a raiz da story
         self.dialogBox01!.indexNode = rootNodePadaria
+        self.prepareDialoge()
+        
     }
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -91,4 +94,40 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
+    func prepareDialoge() {
+        rootNodePadaria.action = {
+            self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
+                //                self.padeiroNode?.texture = SKTexture(imageNamed: "")
+                self.dialogBox01?.drawnDialog()
+            })
+            
+        }
+        
+        rVcErrou.function = {
+            // Ele volta para pegar o pão francês
+            self.dialogBox01?.escolhas?.sair()
+            self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
+                self.dialogBox01?.drawnDialog()
+            })
+        }
+        
+        rVcErrouDeNovo.function = {
+            // Ele volta para pegar o pão francês
+            self.dialogBox01?.escolhas?.sair()
+            self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
+                self.dialogBox01?.drawnDialog()
+            })
+        }
+        
+        rObrigado.function = {
+            // Sumi textura do pão
+            self.dialogBox01?.escolhas?.sair()
+            self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
+            self.dialogBox01?.drawnDialog()
+        }
+        
+    }
+    
 }

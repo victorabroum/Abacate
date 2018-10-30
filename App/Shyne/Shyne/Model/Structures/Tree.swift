@@ -56,6 +56,7 @@ class Node {
     var childrens: [Node] = []
     var nodeToTalk: String
     weak var parent: Node? // this is parent
+    var action: (()->Void)?
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text
@@ -67,6 +68,13 @@ class Node {
         self.text = text
         self.choices = choices
         self.nodeToTalk = node
+    }
+    
+    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String, function: @escaping () -> Void) {
+        self.text = text
+        self.choices = choices
+        self.nodeToTalk = node
+        self.action = function
     }
     
     func add(child: Node){
