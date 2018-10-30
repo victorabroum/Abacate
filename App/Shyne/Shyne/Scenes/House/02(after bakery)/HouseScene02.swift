@@ -57,7 +57,7 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
             }else if(novoNome == "goUp"){
                 if let upPos = self.childNode(withName: "goDown"){
                     
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!,texture: "Icone_Upstairs", function: {
                         
                         if (self.playerNode?.xScale)! >= 0{
                             self.playerNode?.xScale *= -1
@@ -69,7 +69,7 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
                 }
             }else if(novoNome == "goDown"){
                 if let downPos = self.childNode(withName: "goUp"){
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, function: {
+                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!,texture: "Icone_Downstairs", function: {
                         if (self.playerNode?.xScale)! <= 0{
                             self.playerNode?.xScale *= -1
                         }
@@ -77,6 +77,8 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
                         self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
                     })
                 }
+            }else if(novoNome == "dadDoor"){
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {print("TRANCADO")})
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
