@@ -47,6 +47,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             listaPermissoesPadaria.insert("porta")
             listaPermissoesCidade.remove("bakeryDoor")
             listaPermissoesCidade.insert("houseDoor")
+            listaPermissoesPadaria.remove("padeiro")
         }
     }
 
