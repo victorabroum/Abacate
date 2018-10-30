@@ -14,6 +14,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     var playerNode: PlayerNode?
     var dialogBox01: Dialogavel?
+    var padeiroNode: SKSpriteNode?
     
     var entities = [GKEntity]()
     
@@ -21,6 +22,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
+        self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
