@@ -99,10 +99,14 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     func prepareDialoge() {
         rootNodePadaria.action = {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
-                //                self.padeiroNode?.texture = SKTexture(imageNamed: "")
                 self.dialogBox01?.drawnDialog()
             })
             
+        }
+        
+        bakery01D4.action = {
+            self.dialogBox01?.drawnDialog()
+            self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
         rVcErrou.function = {
@@ -124,6 +128,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         rObrigado.function = {
             // Sumi textura do pão
             self.dialogBox01?.escolhas?.sair()
+            self.dialogBox01?.indexNode = nil
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
             self.dialogBox01?.drawnDialog()
         }

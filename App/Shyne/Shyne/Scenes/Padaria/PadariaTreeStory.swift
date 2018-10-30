@@ -21,7 +21,14 @@ var rVcErrou = Answer(withText: "Acho que o senhor se enganou...", withAmount: F
 var rVcErrouDeNovo = Answer(withText: "Tu ta errado.", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
 var thirdTalkPadaria: Node = Node(withText: textThirdTalkPadaria, withChoices:[rObrigado,rVcErrou,rVcErrouDeNovo],inNodeNamed:"playerNode")
 
+var bakery01D3 = Node(withText: NSLocalizedString("Desculpe, está aqui\n o pão francês", comment: ""), withChoices: [], inNodeNamed: "padeiroCaixa")
+
+var bakery01D4 = Node(withText: "Tudo bem obrigado", withChoices: [], inNodeNamed: "playerNode")
+
 func makeTreeOfRoomPadaria() -> (){
+    
     rootNodePadaria.add(child: secondTalkPadaria)
     secondTalkPadaria.add(child: thirdTalkPadaria)
+    thirdTalkPadaria.add(child: bakery01D3)
+    bakery01D3.add(child: bakery01D4)
 }
