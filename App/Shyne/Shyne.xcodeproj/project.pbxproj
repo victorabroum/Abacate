@@ -53,6 +53,7 @@
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */; };
+		C491370A2188EDFD009176B9 /* Room02TreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49137092188EDFD009176B9 /* Room02TreeStory.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory03.swift; sourceTree = "<group>"; };
+		C49137092188EDFD009176B9 /* Room02TreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room02TreeStory.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,6 +323,7 @@
 			children = (
 				765B3DFD217D76B5004AA4E3 /* RoomScene02.sks */,
 				765B3E10217D78BD004AA4E3 /* RoomScene02.swift */,
+				C49137092188EDFD009176B9 /* Room02TreeStory.swift */,
 			);
 			name = "02(night)";
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C491370A2188EDFD009176B9 /* Room02TreeStory.swift in Sources */,
 				765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */,
 				765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */,
 				765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */,
