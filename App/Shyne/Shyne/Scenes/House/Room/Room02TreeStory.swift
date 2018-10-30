@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+var room02Root = Node(withText: "Vou é dormir", withChoices: [])
