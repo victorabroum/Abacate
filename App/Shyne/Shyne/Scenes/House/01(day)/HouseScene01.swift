@@ -38,6 +38,10 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if(dialogBox01?.indexNode == nil){
+                falouComPaiNaCasa01 = true
+                self.childNode(withName: "triggerDad")?.removeFromParent()
+        }
         self.playerNode!.makePlayerWalk()
     }
     
@@ -52,6 +56,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             
             if novoNome == "triggerDad"{
                 self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
+                    falouComPaiNaCasa01 = true
             }else if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
                 if let nextScene = cenaProxima.rootNode as? CityScene01{
@@ -86,7 +91,11 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
             lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
+            if(novoNome != "porta"){
+                lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
+            }else if(falouComPaiNaCasa01){
+                lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
+            }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {

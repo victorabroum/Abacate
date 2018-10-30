@@ -41,5 +41,5 @@ var finishedBakery: Bool = true
 
 
 var escolhaFeita = 1
-
+var falouComPaiNaCasa01 = false
 var roupaNaoEscolhida = true
