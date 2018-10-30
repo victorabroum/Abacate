@@ -182,9 +182,16 @@ class caixaDeDialogo: caixa{
 //    var animado: Bool
 //    var dialogavel1: Dialogavel
     
+    var action: (() -> Void)?
+    
     override init(personagem: SKNode, texto: String, dialogavel: Dialogavel) {
         super.init(personagem: personagem, texto: texto, dialogavel: dialogavel)
 
+    }
+    
+    init(personagem: SKNode, texto: String, dialogavel: Dialogavel, function: @escaping ()->Void) {
+        super.init(personagem: personagem, texto: texto, dialogavel: dialogavel)
+        self.action = function
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -195,7 +202,13 @@ class caixaDeDialogo: caixa{
     {
         //adiciona o valor ao status da historia
         sair()
-        dialogavel1.drawnDialog()
+        
+        if self.action != nil{
+            print("FUNC")
+            self.action!()
+        }else{
+            dialogavel1.drawnDialog()
+        }
     }
 
 }
@@ -441,8 +454,15 @@ class Dialogavel{
                 if(escolhas != nil){
                     escolhas?.sair()
                 }
-                caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
+                
+                if indexNode?.action == nil{
+                    caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
+                }else{
+                    caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self, function: (indexNode?.action)!)
+                }
+                
                 caixa?.entrar()
+                
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true
                     escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)
