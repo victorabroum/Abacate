@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-var zPositionToButton: CGFloat = 50
+var zPositionToButton: CGFloat = 999
 
 // For The Player
 var playerVelocity: CGFloat = 2.5
