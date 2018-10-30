@@ -9,11 +9,11 @@
 import Foundation
 import SpriteKit
 
-var zPositionToButton: CGFloat = 999
+var zPositionToButton: CGFloat = 150
 
 // For The Player
 var playerVelocity: CGFloat = 2.5
-var playerZPosition: CGFloat = 450
+var playerZPosition: CGFloat = 50
 
 // Possibles direction for player moves
 enum PlayerMovement {
