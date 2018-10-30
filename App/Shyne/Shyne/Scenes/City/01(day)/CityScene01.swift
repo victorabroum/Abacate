@@ -78,10 +78,12 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                 }
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(dialoge!.caixa!)
-            
+            if (listaPermissoesCidade.contains(novoNome)){
+                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+                lista[novoNome]?.funcaoEntrada!(dialoge!.caixa!)
+                
+            }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
@@ -92,8 +94,9 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                     return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
-            lista[novoNome]?.funcaoSaida!(dialoge!.caixa!)
+            if (listaPermissoesCidade.contains(novoNome)){
+                lista[novoNome]?.funcaoSaida!(dialoge!.caixa!)
+            }
         }
     }
 
