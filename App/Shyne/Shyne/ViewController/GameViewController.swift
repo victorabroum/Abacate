@@ -17,17 +17,12 @@ class GameViewController: UIViewController {
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
-<<<<<<< HEAD
+            
+            // Get the SKScene from the loaded GKScene
         if let scene = GKScene(fileNamed: "HouseScene01") {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! HouseScene01? {
-=======
-        if let scene = GKScene(fileNamed: "ClassroomScene01") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! ClassroomScene01? {
->>>>>>> develop
                 
                 // Copy gameplay related content over to the scene
                 // sceneNode.entities = scene.entities
@@ -46,14 +41,12 @@ class GameViewController: UIViewController {
                     view.showsNodeCount = true
                 }
             }
-        }
-    }
 
-    override var shouldAutorotate: Bool {
+            var shouldAutorotate: Bool {
         return true
     }
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
         } else {
@@ -61,7 +54,9 @@ class GameViewController: UIViewController {
         }
     }
 
-    override var prefersStatusBarHidden: Bool {
+            var prefersStatusBarHidden: Bool {
         return true
     }
+}
+}
 }
