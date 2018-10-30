@@ -63,6 +63,8 @@ class PlayerNode: SKSpriteNode{
         self.zPosition = playerZPosition
         self.texture?.filteringMode = .linear
         
+        self.isUserInteractionEnabled = false
+        
         // Add camera reference to follow
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
