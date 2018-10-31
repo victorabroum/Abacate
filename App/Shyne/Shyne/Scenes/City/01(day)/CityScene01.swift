@@ -99,5 +99,4 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
-
 }

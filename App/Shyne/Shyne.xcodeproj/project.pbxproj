@@ -11,6 +11,7 @@
 		66B259E0217E3E71002F4ECC /* HouseTreeStory02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */; };
 		66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */; };
 		76064EC52188E44D00E1D776 /* Baker.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76064EC42188E44D00E1D776 /* Baker.sks */; };
+		76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76064EC62189E4E000E1D776 /* MusicPanHelper.swift */; };
 		760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD4E217E259200640A5C /* PlayerNode.swift */; };
 		760CBD52217E45BD00640A5C /* PlayerAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 760CBD51217E45BD00640A5C /* PlayerAction.sks */; };
 		760CBD55217E654000640A5C /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD54217E654000640A5C /* WalkingState.swift */; };
@@ -62,6 +63,7 @@
 		66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory02.swift; sourceTree = "<group>"; };
 		66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRoomTreeStory.swift; sourceTree = "<group>"; };
 		76064EC42188E44D00E1D776 /* Baker.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Baker.sks; sourceTree = "<group>"; };
+		76064EC62189E4E000E1D776 /* MusicPanHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPanHelper.swift; sourceTree = "<group>"; };
 		760CBD4E217E259200640A5C /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		760CBD51217E45BD00640A5C /* PlayerAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerAction.sks; sourceTree = "<group>"; };
 		760CBD54217E654000640A5C /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalkingState.swift; path = State/WalkingState.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				760CBD53217E652100640A5C /* Player */,
 				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
+				76064EC62189E4E000E1D776 /* MusicPanHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */,
 				760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */,
 				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
+				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
