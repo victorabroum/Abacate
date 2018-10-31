@@ -38,6 +38,9 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode!.makePlayerWalk()
+        if(dialogBox01?.indexNode==nil){
+            listaPermissoesHouse03.remove("triggerDad")
+        }
     }
     func didBegin(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
@@ -89,11 +92,11 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                 
                 self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "Dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
             }
-            
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!((dialogBox01?.caixa)!)
-            
+            if(listaPermissoesHouse03.contains(novoNome)){
+                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+                lista[novoNome]?.funcaoEntrada!((dialogBox01?.caixa)!)
+            }
         }
     }
     
@@ -106,8 +109,9 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                 }
 
             }
-            
-            lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+            if(listaPermissoesHouse03.contains(novoNome)){
+                lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+            }
         }
     }
 }

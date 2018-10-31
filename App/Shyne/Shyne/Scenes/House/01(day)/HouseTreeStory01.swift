@@ -25,7 +25,7 @@ var d2: Node = Node(withText: NSLocalizedString("Você pode ir na padaria\ncompr
 
 // D3 tem três versões possíveis -> End
 var d3_1: Node = Node(withText: NSLocalizedString("Obrigado,\ntome aqui o dinheiro", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
-var d3_2: Node = Node(withText: NSLocalizedString("A sua mãe está, vá logo!", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
+var d3_2: Node = Node(withText: NSLocalizedString("Mas eu estou, vá logo!", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 var d3_3: Node = Node(withText: NSLocalizedString("Não seja tímido,\nvá logo por favor", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 
 func house01makeTree() -> (){
