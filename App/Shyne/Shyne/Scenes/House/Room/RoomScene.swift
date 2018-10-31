@@ -31,6 +31,10 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         print("ROOM didMove")
         playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        self.dialogavel1!.caixa = caixaDeDialogo(personagem: self.playerNode!, texto: "...", dialogavel: self.dialogavel1!)
+        self.dialogavel1!.caixa!.entrar()
+        self.playerNode?.canWalk = false
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
