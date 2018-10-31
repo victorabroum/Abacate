@@ -133,6 +133,18 @@ class caixaDeTrocaDeCena: caixa{
         
     }
     
+    init(personagem: SKNode, dialogavel: Dialogavel, texture: String, cenaAtual: SKScene, cenaProxima: SKScene) {
+        self.cenaAtual = cenaAtual
+        self.cenaProxima = cenaProxima
+        super.init(personagem: personagem, texto: "...", dialogavel: dialogavel)
+        
+        let image: SKTexture = SKTexture(imageNamed: texture)
+        let imageNode = SKSpriteNode(texture: image)
+        imageNode.zPosition = 100
+        
+        self.addChild(imageNode)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

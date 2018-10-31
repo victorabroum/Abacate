@@ -52,7 +52,7 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
-                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, cenaAtual: self, cenaProxima: nextScene)
+                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
                 }
             }
             
