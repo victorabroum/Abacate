@@ -11,21 +11,46 @@ import SpriteKit
 
 class MusicPanHelper {
     
-    static func updateMusicPan(forThisListner listnerNode: SKNode, fromThisMusicNodes musicNodes: [SKNode]) -> () {
+    static func prepareForPan(thisScne scene: SKScene , forThisListner listner: SKNode, fromThisMusics musics: [SKNode]){
+        
+        // Listner of scene is a Node passed from param
+        scene.listener = listner
+        
+        // Set to 0 all volumes of musics POSITIONALS, just for start
+        for m in musics{
+            
+            if let music: SKAudioNode = m as? SKAudioNode{
+                print("MUSIC NODE \(music)")
+                let initial = SKAction.changeVolume(to: 0, duration: 0)
+                let playInitial = SKAction.play()
+                let sequence = SKAction.sequence([initial, playInitial])
+                music.autoplayLooped = true // Loop the sound
+                music.run(sequence)
+            }
+            
+        }
+        
+    }
+    
+    static func updateMusicPan(inSpace space: CGSize, forThisListner listnerNode: SKNode, fromThisMusicNodes musicNodes: [SKNode]) -> () {
         
         for musicNode in musicNodes{
             
+            let music = musicNode as! SKAudioNode
+            music.run(SKAction.play())
+            
             let distance = self.distanceBetween(thisNode: listnerNode, andThisNode: musicNode).x
             
+            let minimumDistance = space.width / 12
+            
             switch distance{
-            case 0...500:
-                musicNode.run(SKAction.changeVolume(to: 1.5, duration: 0.5))
-            case 501...1000:
-                musicNode.run(SKAction.changeVolume(to: 0.8, duration: 0.5))
-            case 1001...:
-                musicNode.run(SKAction.changeVolume(to: 0, duration: 0.5))
+            case 0 ... minimumDistance:
+                print("MAX")
+                musicNode.run(SKAction.changeVolume(to: 0.6, duration: 0.5))
+            case (minimumDistance + 1) ... (minimumDistance * 2):
+                musicNode.run(SKAction.changeVolume(to: 0.25, duration: 0.5))
             default:
-                break
+                musicNode.run(SKAction.changeVolume(to: 0, duration: 0.5))
             }
         }
         
