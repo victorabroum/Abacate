@@ -23,6 +23,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
         self.dialogavel1 = Dialogavel(cena: self)
         // Indicando a raiz da story
         self.dialogavel1!.indexNode = room02Root
+        
     }
     
     override func didMove(to view: SKView) {
@@ -31,6 +32,9 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode?.makePlayerWalk()
+        if(dialogavel1?.indexNode == nil){
+            listaPermissoesRoom02.remove("cama")
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -45,11 +49,11 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             if novoNome == "cama"{
                 dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogavel1!)
             }
-            
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
-            
+            if(listaPermissoesRoom02.contains(novoNome)){
+                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+                lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+            }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
@@ -60,8 +64,9 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
                     return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
-            lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+            if(listaPermissoesRoom02.contains(novoNome)){
+                lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+            }
         }
     }
 }
