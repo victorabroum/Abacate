@@ -60,7 +60,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                 if let nextScene = cenaProxima.rootNode as? BakeryScene01{
                     nextScene.entities = cenaProxima.entities
                     let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                    dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, cenaAtual: self, cenaProxima: nextScene)
+                    dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
                 }
                 
             }
@@ -90,7 +90,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                         if let nextScene = cenaProxima.rootNode as? HouseScene02{
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                            dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, cenaAtual: self, cenaProxima: nextScene)
+                            dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
                         }
                     }
                 }
