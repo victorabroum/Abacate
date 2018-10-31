@@ -126,7 +126,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
         busNode.zPosition = playerZPosition + 100
         self.addChild(busNode)
         
-        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! + 20, duration: 3)
+        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! - 20, duration: 3)
         let wait = SKAction.wait(forDuration: 0.5)
         let goWay = SKAction.move(by: CGVector(dx: 500, dy: 0), duration: 2)
         let sequence = SKAction.sequence([arrive, wait])
