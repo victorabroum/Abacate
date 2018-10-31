@@ -24,6 +24,15 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
         // Indicando a raiz da story
         self.dialogavel1!.indexNode = room02Root
         
+        room02Root.action = {
+            let cenaProxima = SKScene(fileNamed: "EndGame")
+            
+            let transition:SKTransition = SKTransition.fade(withDuration: 1)
+            cenaProxima!.scaleMode = SKSceneScaleMode.aspectFill
+            self.view?.presentScene(cenaProxima!, transition: transition)
+            
+        }
+        
     }
     
     override func didMove(to view: SKView) {

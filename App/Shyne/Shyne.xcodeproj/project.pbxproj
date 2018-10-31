@@ -54,6 +54,8 @@
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900B218A1CF600A37F32 /* guitarMan01.wav */; };
+		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
+		C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DA4DF218A3B3F003470AC /* EndGame.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */; };
 		C491370A2188EDFD009176B9 /* Room02TreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49137092188EDFD009176B9 /* Room02TreeStory.swift */; };
@@ -110,6 +112,8 @@
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
+		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
+		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory03.swift; sourceTree = "<group>"; };
 		C49137092188EDFD009176B9 /* Room02TreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room02TreeStory.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C40DA4DC218A3AD9003470AC /* EndGame */,
 				765B3E06217D7752004AA4E3 /* Collage */,
 				765B3DFF217D76E2004AA4E3 /* City */,
 				765B3DED217A58DC004AA4E3 /* House */,
@@ -397,6 +402,15 @@
 			path = efeitos;
 			sourceTree = "<group>";
 		};
+		C40DA4DC218A3AD9003470AC /* EndGame */ = {
+			isa = PBXGroup;
+			children = (
+				C40DA4DD218A3B06003470AC /* EndGame.sks */,
+				C40DA4DF218A3B3F003470AC /* EndGame.swift */,
+			);
+			path = EndGame;
+			sourceTree = "<group>";
+		};
 		C41DCF892177BF4000F53FEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +495,7 @@
 				765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */,
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
 				76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */,
+				C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */,
 				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
 				76BA90082189FC1500A37F32 /* door_locked.wav in Resources */,
@@ -515,6 +530,7 @@
 				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
 				760CBD55217E654000640A5C /* WalkingState.swift in Sources */,
 				666DA8B221790DA90078F77C /* Lista.swift in Sources */,
+				C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */,
 				765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */,
 				765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */,
 				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
