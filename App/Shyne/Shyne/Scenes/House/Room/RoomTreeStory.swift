@@ -9,22 +9,21 @@
 import Foundation
 
 // D = Diálogo, Cena do quarto
-// D1 -> D2
-var textForRoot: String = "Qual casaco uso hoje?"
-var cBlack: Answer = Answer(withText: "Preto", withAmount: Feel(happy: 0, normal: 0.5, shy: 0.3))
-var cPurple: Answer = Answer(withText: "Roxo", withAmount: Feel(happy: 0.5, normal: 0.1, shy: 0.2))
-var cBlue: Answer = Answer(withText: "Azul", withAmount: Feel(happy: 0.6, normal: 0.1, shy: 0))
-//var rootNode: Node = Node(withText: textForRoot, withChoices: [cBlack, cPurple, cBlue])
-var rootNode: Node = Node(withText: textForRoot, withChoices: [cBlack,cPurple,cBlue])
+// D1
+var rootNode: Node = Node(withText: "Hoje parece que vai ser frio", withChoices: [])
 
-// D2 -> End
-var textSecondTalk: String = "Então vai ser esse!"
-var secondTalk: Node = Node(withText: textSecondTalk, withChoices: [])
+// D2
+var secondTalk: Node = Node(withText: "Queria nao ter que\nir para a faculdade", withChoices: [])
+
+//D3
+var terceiraTalk = Node(withText: "Tô é com fome", withChoices: [])
+
+//D4
+var quartaTalk = Node(withText: "Vou descer para comer", withChoices: [])
 
 // Construindo o fluxo
 func makeTreeOfRoom() -> (){
-    cBlack.child.append(secondTalk)
-    cPurple.child.append(secondTalk)
-    cBlue.child.append(secondTalk)
     rootNode.add(child: secondTalk)
+    secondTalk.add(child: terceiraTalk)
+    terceiraTalk.add(child: quartaTalk)
 }
