@@ -50,4 +50,4 @@ var listaPermissoesCidade:Set = ["bakeryDoor"]
 var listaPermissoesPadaria:Set = ["padeiro"]
 var listaPermissoesHouse02:Set = ["goDown","goUp","dady", "dadDoor"]
 var listaPermissoesHouse03:Set = ["goDown","goUp","triggerDad","porta"]
-
+var listaPermissoesRoom02:Set = ["cama"]
