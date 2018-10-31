@@ -11,6 +11,7 @@
 		66B259E0217E3E71002F4ECC /* HouseTreeStory02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */; };
 		66B259E2217E465F002F4ECC /* ClassRoomTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */; };
 		76064EC52188E44D00E1D776 /* Baker.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76064EC42188E44D00E1D776 /* Baker.sks */; };
+		76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76064EC62189E4E000E1D776 /* MusicPanHelper.swift */; };
 		760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD4E217E259200640A5C /* PlayerNode.swift */; };
 		760CBD52217E45BD00640A5C /* PlayerAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 760CBD51217E45BD00640A5C /* PlayerAction.sks */; };
 		760CBD55217E654000640A5C /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CBD54217E654000640A5C /* WalkingState.swift */; };
@@ -51,6 +52,8 @@
 		765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E14217D78FA004AA4E3 /* HouseScene02.swift */; };
 		765B3E17217D7950004AA4E3 /* BakeryScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E16217D7950004AA4E3 /* BakeryScene01.swift */; };
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
+		76BA90032189EA2600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90022189EA2600A37F32 /* guitarMan01.wav */; };
+		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
 		C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */; };
 		C491370A2188EDFD009176B9 /* Room02TreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49137092188EDFD009176B9 /* Room02TreeStory.swift */; };
@@ -62,6 +65,7 @@
 		66B259DF217E3E71002F4ECC /* HouseTreeStory02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory02.swift; sourceTree = "<group>"; };
 		66B259E1217E465F002F4ECC /* ClassRoomTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRoomTreeStory.swift; sourceTree = "<group>"; };
 		76064EC42188E44D00E1D776 /* Baker.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Baker.sks; sourceTree = "<group>"; };
+		76064EC62189E4E000E1D776 /* MusicPanHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPanHelper.swift; sourceTree = "<group>"; };
 		760CBD4E217E259200640A5C /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		760CBD51217E45BD00640A5C /* PlayerAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerAction.sks; sourceTree = "<group>"; };
 		760CBD54217E654000640A5C /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalkingState.swift; path = State/WalkingState.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		765B3E14217D78FA004AA4E3 /* HouseScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene02.swift; sourceTree = "<group>"; };
 		765B3E16217D7950004AA4E3 /* BakeryScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryScene01.swift; sourceTree = "<group>"; };
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
+		76BA90022189EA2600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../../../Downloads/Resources/Music/C0/guitarMan01.wav; sourceTree = "<group>"; };
+		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
 		C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory03.swift; sourceTree = "<group>"; };
 		C49137092188EDFD009176B9 /* Room02TreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room02TreeStory.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		765B3DB02177A72A004AA4E3 /* Shyne */ = {
 			isa = PBXGroup;
 			children = (
+				76BA90012189EA1100A37F32 /* Audios */,
 				C41DCF892177BF4000F53FEC /* Model */,
 				765B3DD52177C4AD004AA4E3 /* Controller */,
 				765B3DD22177C234004AA4E3 /* Entities */,
@@ -373,12 +380,30 @@
 			path = Classroom;
 			sourceTree = "<group>";
 		};
+		76BA90012189EA1100A37F32 /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				76BA90062189FC0A00A37F32 /* efeitos */,
+				76BA90022189EA2600A37F32 /* guitarMan01.wav */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		76BA90062189FC0A00A37F32 /* efeitos */ = {
+			isa = PBXGroup;
+			children = (
+				76BA90072189FC1500A37F32 /* door_locked.wav */,
+			);
+			path = efeitos;
+			sourceTree = "<group>";
+		};
 		C41DCF892177BF4000F53FEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				760CBD53217E652100640A5C /* Player */,
 				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
+				76064EC62189E4E000E1D776 /* MusicPanHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,9 +482,11 @@
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
 				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
+				76BA90082189FC1500A37F32 /* door_locked.wav in Resources */,
 				765B3E05217D7737004AA4E3 /* CityScene02.sks in Resources */,
 				765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */,
 				765B3E01217D76F3004AA4E3 /* CityScene01.sks in Resources */,
+				76BA90032189EA2600A37F32 /* guitarMan01.wav in Resources */,
 				765B3DFB217D7686004AA4E3 /* BakeryScene01.sks in Resources */,
 				765B3DF7217D764C004AA4E3 /* HouseScene03.sks in Resources */,
 				765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */,
@@ -496,6 +523,7 @@
 				765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */,
 				760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */,
 				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
+				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,

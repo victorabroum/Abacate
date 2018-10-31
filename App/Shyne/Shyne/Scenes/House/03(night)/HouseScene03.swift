@@ -52,7 +52,8 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                 let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene02")!
                 if let nextScene = cenaProxima.rootNode as? RoomScene02{
                     nextScene.entities = cenaProxima.entities
-                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: "porta")!, dialogavel: self.dialogBox01!, cenaAtual: self, cenaProxima: nextScene)
+                    
+                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: "porta")!, dialogavel: self.dialogBox01!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
                 }
             }else if(novoNome == "goUp"){
                 if let upPos = self.childNode(withName: "goDown"){
@@ -78,7 +79,9 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                     })
                 }
             }else if(novoNome == "dadDoor"){
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {print("TRANCADO")})
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {
+                    self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
+                })
             }else if novoNome == "triggerDad"{
                 
                 house03makeTree()

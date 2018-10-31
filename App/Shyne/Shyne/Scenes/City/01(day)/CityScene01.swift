@@ -14,22 +14,31 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
     
     var playerNode: PlayerNode?
     var dialoge: Dialogavel?
+    var musicsNode: SKNode?
+    
     
     var entities = [GKEntity]()
     
     override func sceneDidLoad() {
         self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
         self.dialoge = Dialogavel(cena: self)
+        if let musicNode = self.childNode(withName: "musics") {
+            self.musicsNode = musicNode
+        }
         
         physicsWorld.contactDelegate = self
     }
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
+        MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
     }
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode?.makePlayerWalk()
+        
+        MusicPanHelper.updateMusicPan(inSpace: self.frame.size, forThisListner: self.playerNode!, fromThisMusicNodes: (self.musicsNode?.children)!)
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -99,5 +108,4 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
-
 }

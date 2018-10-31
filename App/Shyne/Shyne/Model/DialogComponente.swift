@@ -133,11 +133,27 @@ class caixaDeTrocaDeCena: caixa{
         
     }
     
+    init(personagem: SKNode, dialogavel: Dialogavel, texture: String, cenaAtual: SKScene, cenaProxima: SKScene) {
+        self.cenaAtual = cenaAtual
+        self.cenaProxima = cenaProxima
+        super.init(personagem: personagem, texto: "...", dialogavel: dialogavel)
+        
+        let image: SKTexture = SKTexture(imageNamed: texture)
+        let imageNode = SKSpriteNode(texture: image)
+        imageNode.zPosition = 100
+        
+        self.addChild(imageNode)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
         
         self.transicao = Transicao(cenaAtual: cenaAtual, cenaProxima: cenaProxima)
         self.transicao!.troca()
@@ -171,6 +187,11 @@ class caixaDeEscada: caixa{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
         dialogavel1.caixa?.sair()
         self.function()
     }
@@ -202,6 +223,11 @@ class caixaDeDialogo: caixa{
     {
         //adiciona o valor ao status da historia
         sair()
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
         
         if self.action != nil{
             print("FUNC")
@@ -259,6 +285,11 @@ class Balao: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
+//        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
         //adiciona o valor ao status da historia
         happyStatus += Resposta.amount.happy
         normalStatus += Resposta.amount.normal
