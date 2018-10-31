@@ -45,6 +45,7 @@ var falouComPaiNaCasa01 = false
 var roupaNaoEscolhida = true
 var indoParaPadaria = true
 
+var listaPermissoesHouse01:Set = ["goDown","goUp","triggerDad"]
 var listaPermissoesCidade:Set = ["bakeryDoor"]
 var listaPermissoesPadaria:Set = ["padeiro"]
 var listaPermissoesHouse02:Set = ["goDown","goUp","dady", "dadDoor"]
