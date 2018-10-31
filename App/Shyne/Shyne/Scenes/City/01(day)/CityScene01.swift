@@ -69,7 +69,12 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                         if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                            self.dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: self.dialoge!, cenaAtual: self, cenaProxima: nextScene)
+                            self.dialoge?.caixa = caixaDeEscada(personagem: trigger!, dialogavel: self.dialoge!, function: {
+                                // Rola a animação do bus pegando o cara
+                                self.busAnimate(nextScene)
+                            })
+                            
+//                            caixaDeTrocaDeCena(personagem: trigger!, dialogavel: self.dialoge!, cenaAtual: self, cenaProxima: nextScene)
                         }
                     }
                     
@@ -108,4 +113,30 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
+    
+    
+    func busAnimate(_ nextScene: SKScene) {
+        self.playerNode?.playerCanWalk(false)
+        let busNode = SKSpriteNode(imageNamed: "bus")
+        busNode.position.y = -83
+        busNode.zPosition = playerZPosition + 100
+        self.addChild(busNode)
+        
+        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! + 20, duration: 3)
+        let wait = SKAction.wait(forDuration: 0.5)
+        let goWay = SKAction.move(by: CGVector(dx: 500, dy: 0), duration: 2)
+        let sequence = SKAction.sequence([arrive, wait])
+        
+        
+        busNode.run(sequence, completion: {
+            // Troca de cena
+            self.playerNode?.alpha = 0
+            busNode.run(goWay, completion: {
+                let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+                nextScene.scaleMode = SKSceneScaleMode.aspectFill
+                self.view?.presentScene(nextScene, transition: transition)
+            })
+            })
+    }
+    
 }
