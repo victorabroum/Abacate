@@ -60,7 +60,7 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
             
             var novoNome:String {
                 get {
-                    return (nome == "porta" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
