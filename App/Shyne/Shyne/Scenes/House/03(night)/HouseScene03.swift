@@ -78,7 +78,9 @@ class HouseScene03: SKScene,SKPhysicsContactDelegate {
                     })
                 }
             }else if(novoNome == "dadDoor"){
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {print("TRANCADO")})
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {
+                    self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
+                })
             }else if novoNome == "triggerDad"{
                 
                 house03makeTree()
