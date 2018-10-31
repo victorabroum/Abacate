@@ -110,24 +110,27 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
-        rVcErrou.function = {
-            // Ele volta para pegar o pão francês
+        func justSair() {
             self.dialogBox01?.escolhas?.sair()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 self.dialogBox01?.drawnDialog()
             })
+        }
+        
+        rVcErrou.function = {
+            // Ele volta para pegar o pão francês
+            justSair()
         }
         
         rVcErrouDeNovo.function = {
             // Ele volta para pegar o pão francês
-            self.dialogBox01?.escolhas?.sair()
-            self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
-                self.dialogBox01?.drawnDialog()
-            })
+            justSair()
         }
         
         rObrigado.function = {
             // Sumi textura do pão
+            // Ele vai levar o pão errado mesmo
+            escolhaFeita = 0
             self.dialogBox01?.escolhas?.sair()
             self.dialogBox01?.indexNode = nil
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
