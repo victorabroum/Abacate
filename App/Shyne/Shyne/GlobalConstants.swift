@@ -9,11 +9,11 @@
 import Foundation
 import SpriteKit
 
-var zPositionToButton: CGFloat = 50
+var zPositionToButton: CGFloat = 150
 
 // For The Player
 var playerVelocity: CGFloat = 2.5
-var playerZPosition: CGFloat = 450
+var playerZPosition: CGFloat = 50
 
 // Possibles direction for player moves
 enum PlayerMovement {
@@ -45,5 +45,8 @@ var falouComPaiNaCasa01 = false
 var roupaNaoEscolhida = true
 var indoParaPadaria = true
 
+var listaPermissoesHouse01:Set = ["goDown","goUp","triggerDad"]
 var listaPermissoesCidade:Set = ["bakeryDoor"]
 var listaPermissoesPadaria:Set = ["padeiro"]
+var listaPermissoesHouse02:Set = ["goDown","goUp","dady", "dadDoor"]
+

@@ -14,6 +14,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     var playerNode: PlayerNode?
     var dialogBox01: Dialogavel?
+    var padeiroNode: SKSpriteNode?
     
     var entities = [GKEntity]()
     
@@ -21,6 +22,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
+        self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
@@ -30,10 +32,13 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         makeTreeOfRoomPadaria()
         // Indicando a raiz da story
         self.dialogBox01!.indexNode = rootNodePadaria
+        self.prepareDialoge()
+        
     }
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -42,6 +47,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             listaPermissoesPadaria.insert("porta")
             listaPermissoesCidade.remove("bakeryDoor")
             listaPermissoesCidade.insert("houseDoor")
+            listaPermissoesPadaria.remove("padeiro")
         }
     }
 
@@ -89,4 +95,48 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
+    func prepareDialoge() {
+        rootNodePadaria.action = {
+            self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
+                self.dialogBox01?.drawnDialog()
+            })
+            
+        }
+        
+        bakery01D4.action = {
+            self.dialogBox01?.drawnDialog()
+            self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
+        }
+        
+        func justSair() {
+            self.dialogBox01?.escolhas?.sair()
+            self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
+                self.dialogBox01?.drawnDialog()
+            })
+        }
+        
+        rVcErrou.function = {
+            // Ele volta para pegar o pão francês
+            justSair()
+        }
+        
+        rVcErrouDeNovo.function = {
+            // Ele volta para pegar o pão francês
+            justSair()
+        }
+        
+        rObrigado.function = {
+            // Sumi textura do pão
+            // Ele vai levar o pão errado mesmo
+            escolhaFeita = 0
+            self.dialogBox01?.escolhas?.sair()
+            self.dialogBox01?.indexNode = nil
+            self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
+            self.dialogBox01?.drawnDialog()
+        }
+        
+    }
+    
 }

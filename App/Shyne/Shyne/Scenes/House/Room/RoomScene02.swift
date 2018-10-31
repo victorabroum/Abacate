@@ -17,16 +17,12 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     var entities = [GKEntity]()
     
     override func sceneDidLoad() {
-        print("Room didLoad")
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
         physicsWorld.contactDelegate = self
         self.dialogavel1 = Dialogavel(cena: self)
-        
-        //Preparando a tree story dessa scene
-        makeTreeOfRoom()
         // Indicando a raiz da story
-        self.dialogavel1!.indexNode = rootNode
+        self.dialogavel1!.indexNode = room02Root
     }
     
     override func didMove(to view: SKView) {
@@ -47,7 +43,7 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             
             
             if novoNome == "cama"{
-                dialogavel1!.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: dialogavel1!,function:{})
+                dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogavel1!)
             }
             
             lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}

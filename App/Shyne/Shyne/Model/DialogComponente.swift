@@ -133,11 +133,27 @@ class caixaDeTrocaDeCena: caixa{
         
     }
     
+    init(personagem: SKNode, dialogavel: Dialogavel, texture: String, cenaAtual: SKScene, cenaProxima: SKScene) {
+        self.cenaAtual = cenaAtual
+        self.cenaProxima = cenaProxima
+        super.init(personagem: personagem, texto: "...", dialogavel: dialogavel)
+        
+        let image: SKTexture = SKTexture(imageNamed: texture)
+        let imageNode = SKSpriteNode(texture: image)
+        imageNode.zPosition = 100
+        
+        self.addChild(imageNode)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
         
         self.transicao = Transicao(cenaAtual: cenaAtual, cenaProxima: cenaProxima)
         self.transicao!.troca()
@@ -171,6 +187,11 @@ class caixaDeEscada: caixa{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
         dialogavel1.caixa?.sair()
         self.function()
     }
@@ -182,9 +203,16 @@ class caixaDeDialogo: caixa{
 //    var animado: Bool
 //    var dialogavel1: Dialogavel
     
+    var action: (() -> Void)?
+    
     override init(personagem: SKNode, texto: String, dialogavel: Dialogavel) {
         super.init(personagem: personagem, texto: texto, dialogavel: dialogavel)
 
+    }
+    
+    init(personagem: SKNode, texto: String, dialogavel: Dialogavel, function: @escaping ()->Void) {
+        super.init(personagem: personagem, texto: texto, dialogavel: dialogavel)
+        self.action = function
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -195,7 +223,18 @@ class caixaDeDialogo: caixa{
     {
         //adiciona o valor ao status da historia
         sair()
-        dialogavel1.drawnDialog()
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
+        
+        if self.action != nil{
+            print("FUNC")
+            self.action!()
+        }else{
+            dialogavel1.drawnDialog()
+        }
     }
 
 }
@@ -246,6 +285,11 @@ class Balao: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
+//        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
         //adiciona o valor ao status da historia
         happyStatus += Resposta.amount.happy
         normalStatus += Resposta.amount.normal
@@ -441,8 +485,15 @@ class Dialogavel{
                 if(escolhas != nil){
                     escolhas?.sair()
                 }
-                caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
+                
+                if indexNode?.action == nil{
+                    caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self)
+                }else{
+                    caixa = caixaDeDialogo(personagem: indexNode!.getNodeReference(named: indexNode!.nodeToTalk, inScene: self.cena)!, texto: indexNode!.text, dialogavel: self, function: (indexNode?.action)!)
+                }
+                
                 caixa?.entrar()
+                
                 if(!(indexNode!.choices.isEmpty)){
                     ballon = true
                     escolhas = baloesDeEscolha(personagem: playerNode!, respostas: indexNode!.choices, dialogavel: self)

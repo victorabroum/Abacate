@@ -31,6 +31,10 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         print("ROOM didMove")
         playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        self.dialogavel1!.caixa = caixaDeDialogo(personagem: self.playerNode!, texto: "...", dialogavel: self.dialogavel1!)
+        self.dialogavel1!.caixa!.entrar()
+        self.playerNode?.canWalk = false
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -52,7 +56,7 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
-                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, cenaAtual: self, cenaProxima: nextScene)
+                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
                 }
             }
             

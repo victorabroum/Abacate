@@ -12,11 +12,11 @@ import Foundation
 /////////Caminho 1
  var house02Root1: Node = Node(withText: NSLocalizedString("Por que você não trouxe o pão francês?", comment: ""), withChoices: [])
 
-var house02Root1c1: Answer = Answer(withText: NSLocalizedString("O Padeiro se enganou.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [])
+var house02Root1c1: Answer = Answer(withText: NSLocalizedString("O Padeiro se enganou.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [house02Root2])
 // choice 2 -> d3_2
-var house02Root1c2: Answer = Answer(withText: NSLocalizedString("Só tinha pão doce.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [])
+var house02Root1c2: Answer = Answer(withText: NSLocalizedString("Só tinha pão doce.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [house02Root2])
 // choice 3 -> d3_3
-var house02Root1c3: Answer = Answer(withText: NSLocalizedString("Desculpe.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [])
+var house02Root1c3: Answer = Answer(withText: NSLocalizedString("Desculpe.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [house02Root2])
 
 
 ///////Caminho2

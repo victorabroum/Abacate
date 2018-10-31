@@ -25,14 +25,14 @@ class TouchController: SKSpriteNode {
         // Set anchorPoint
         right_button.anchorPoint = CGPoint(x: 0, y: 0.5)
         // Set alpha 0 for this button
-        right_button.alpha = 0
+        right_button.alpha = 0.01
         
         // Initialize left button
         left_button = SKSpriteNode(texture: nil, color: UIColor.orange, size: CGSize(width: frame.size.width/2, height: frame.size.height))
         // Set anchorPoint
         left_button.anchorPoint = CGPoint(x: 1, y: 0.5)
         // Set alpha 0 for this button
-        left_button.alpha = 0
+        left_button.alpha = 0.01
         
         // Call setup controls
         setupControl(size: frame.size)

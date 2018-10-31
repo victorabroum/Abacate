@@ -39,8 +39,8 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         if(dialogBox01?.indexNode == nil){
-                falouComPaiNaCasa01 = true
-                self.childNode(withName: "triggerDad")?.removeFromParent()
+                listaPermissoesHouse01.insert("porta")
+                listaPermissoesHouse01.remove("triggerDad")
         }
         self.playerNode!.makePlayerWalk()
     }
@@ -53,7 +53,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
-            
+            print(novoNome)
             if novoNome == "triggerDad"{
                 self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dad")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
                     falouComPaiNaCasa01 = true
@@ -87,15 +87,14 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     })
                 }
             }else if(novoNome == "dadDoor"){
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {print("TRANCADO")})
+                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {
+                    self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
+                })
             }
             
-            
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            if(novoNome != "porta"){
-                lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
-            }else if(falouComPaiNaCasa01){
+            if (listaPermissoesHouse01.contains(novoNome)){
+                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
                 lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
             }
         }
@@ -108,8 +107,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
-            lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+            if (listaPermissoesHouse01.contains(novoNome)){
+                lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
+            }
         }
     }
 }
