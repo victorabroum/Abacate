@@ -27,6 +27,11 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
         }
         
         physicsWorld.contactDelegate = self
+        
+        if let people = self.childNode(withName: "people"){
+            self.animatePeople(inNodes: people.children)
+        }
+        
     }
     
     override func didMove(to view: SKView) {
@@ -74,7 +79,6 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                                 self.busAnimate(nextScene)
                             })
                             
-//                            caixaDeTrocaDeCena(personagem: trigger!, dialogavel: self.dialoge!, cenaAtual: self, cenaProxima: nextScene)
                         }
                     }
                     
@@ -137,6 +141,13 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                 self.view?.presentScene(nextScene, transition: transition)
             })
             })
+    }
+    
+    func animatePeople(inNodes nodes:[SKNode]){
+        for node in nodes{
+            print("name \(node.name!)")
+            node.run(SKAction.init(named: node.name!)!)
+        }
     }
     
 }
