@@ -116,7 +116,6 @@
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
 		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
 		76BA900F218A494000A37F32 /* city_night.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_night.wav; path = ../../../../Desing/Musics/city_night.wav; sourceTree = "<group>"; };
-		76BA9011218A494600A37F32 /* city_day.flac */ = {isa = PBXFileReference; lastKnownFileType = file; name = city_day.flac; path = ../../../../Desing/Musics/city_day.flac; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
 		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
@@ -393,7 +392,6 @@
 		76BA90012189EA1100A37F32 /* Audios */ = {
 			isa = PBXGroup;
 			children = (
-				76BA9011218A494600A37F32 /* city_day.flac */,
 				76BA900F218A494000A37F32 /* city_night.wav */,
 				76BA900B218A1CF600A37F32 /* guitarMan01.wav */,
 				76BA90062189FC0A00A37F32 /* efeitos */,
