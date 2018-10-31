@@ -54,6 +54,8 @@
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900B218A1CF600A37F32 /* guitarMan01.wav */; };
+		76BA900E218A493800A37F32 /* city_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900D218A493800A37F32 /* city_noise.wav */; };
+		76BA9010218A494000A37F32 /* city_night.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900F218A494000A37F32 /* city_night.wav */; };
 		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
 		C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DA4DF218A3B3F003470AC /* EndGame.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
@@ -112,6 +114,9 @@
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
+		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
+		76BA900F218A494000A37F32 /* city_night.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_night.wav; path = ../../../../Desing/Musics/city_night.wav; sourceTree = "<group>"; };
+		76BA9011218A494600A37F32 /* city_day.flac */ = {isa = PBXFileReference; lastKnownFileType = file; name = city_day.flac; path = ../../../../Desing/Musics/city_day.flac; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
 		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
@@ -388,6 +393,8 @@
 		76BA90012189EA1100A37F32 /* Audios */ = {
 			isa = PBXGroup;
 			children = (
+				76BA9011218A494600A37F32 /* city_day.flac */,
+				76BA900F218A494000A37F32 /* city_night.wav */,
 				76BA900B218A1CF600A37F32 /* guitarMan01.wav */,
 				76BA90062189FC0A00A37F32 /* efeitos */,
 			);
@@ -397,6 +404,7 @@
 		76BA90062189FC0A00A37F32 /* efeitos */ = {
 			isa = PBXGroup;
 			children = (
+				76BA900D218A493800A37F32 /* city_noise.wav */,
 				76BA90072189FC1500A37F32 /* door_locked.wav */,
 			);
 			path = efeitos;
@@ -498,12 +506,14 @@
 				C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */,
 				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
+				76BA900E218A493800A37F32 /* city_noise.wav in Resources */,
 				76BA90082189FC1500A37F32 /* door_locked.wav in Resources */,
 				765B3E05217D7737004AA4E3 /* CityScene02.sks in Resources */,
 				765B3DB42177A72A004AA4E3 /* GameScene.sks in Resources */,
 				765B3E01217D76F3004AA4E3 /* CityScene01.sks in Resources */,
 				765B3DFB217D7686004AA4E3 /* BakeryScene01.sks in Resources */,
 				765B3DF7217D764C004AA4E3 /* HouseScene03.sks in Resources */,
+				76BA9010218A494000A37F32 /* city_night.wav in Resources */,
 				765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */,
 				765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */,
 				76064EC52188E44D00E1D776 /* Baker.sks in Resources */,
