@@ -17,8 +17,8 @@ var house03_D2 = Node(withText: "Boa noite filho", withChoices: [], inNodeNamed:
 //D3
 var house03_C1 = Answer(withText: "Cansativa pai,\nacho que já vou dormir", withAmount: Feel(happy: 0, normal: 1, shy: 0), withChild: [house03_D4_1])
 var house03_C2 = Answer(withText: "Tudo na mesma", withAmount: Feel(happy: 0, normal: 0, shy: 1), withChild: [house03_D4_2])
-var house03_C3 = Answer(withText: "Tenho um mega trabalho\n para daqui 5 dias", withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [house03_D4_2])
-var house03_D3 = Node(withText: "Como foi\na faculdade?", withChoices: [house03_C1,house03_C2,house03_C3], inNodeNamed: "Dad")
+var house03_C3 = Answer(withText: "Tenho um mega\ntrabalho pra daqui\n5 dias", withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [house03_D4_2])
+var house03_D3 = Node(withText: "Como foi\na faculdade?", withChoices: [house03_C1,house03_C3,house03_C2], inNodeNamed: "Dad")
 
 //D4_1
 var house03_D4_1 = Node(withText: "Vou pro meu quarto", withChoices: [])
