@@ -13,7 +13,7 @@ import Foundation
 var rootNode: Node = Node(withText: "Hoje parece que vai ser frio", withChoices: [])
 
 // D2
-var secondTalk: Node = Node(withText: "Queria nao ter que\nir para a faculdade", withChoices: [])
+var secondTalk: Node = Node(withText: "Queria não ter que\nir para a faculdade", withChoices: [])
 
 //D3
 var terceiraTalk = Node(withText: "Tô é com fome", withChoices: [])
