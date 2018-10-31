@@ -9,10 +9,10 @@
 import Foundation
 //Cena da Padaria
 //D1->D2
-var textForRootPadaria: String = "Me veja um pão doce"
+var textForRootPadaria: String = "Me veja um pão francês"
 var rootNodePadaria: Node = Node(withText: textForRootPadaria, withChoices: [],inNodeNamed:"playerNode")
 //D2->D3
-var textSecondTalkPadaria : String = "Aqui está seu pão francês!"
+var textSecondTalkPadaria : String = "Aqui está seu pão doce!"
 var secondTalkPadaria: Node = Node(withText: textSecondTalkPadaria, withChoices: [],inNodeNamed:"padeiroCaixa")
 //D3->End
 var textThirdTalkPadaria : String = "É q...."
