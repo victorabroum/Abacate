@@ -19,6 +19,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     
+    // To control BG Audios
+    var bgAudios: SKNode?
+    
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
@@ -35,6 +38,12 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         print("ANTES SIZE \((self.playerNode?.yScale)!)") 
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
+        
+        // Prepare BG Music
+        if let bga = self.childNode(withName: "bgAudios") {
+            self.bgAudios = bga
+            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -43,6 +52,12 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 listaPermissoesHouse01.remove("triggerDad")
         }
         self.playerNode!.makePlayerWalk()
+    }
+    
+    override func willMove(from view: SKView) {
+        if self.bgAudios != nil{
+            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
