@@ -24,7 +24,7 @@ var house03_D3 = Node(withText: "Como foi\na faculdade?", withChoices: [house03_
 var house03_D4_1 = Node(withText: "Vou pro meu quarto", withChoices: [])
 
 //D4_2
-var house03_D4_2 = Node(withText: "Entendo, venha jantar", withChoices: [], inNodeNamed: "Dad")
+var house03_D4_2 = Node(withText: "Entendo,\nvenha jantar", withChoices: [], inNodeNamed: "Dad")
 
 //D5
 var house03_D5 = Node(withText: "Até amanhã, boa noite", withChoices: [])
