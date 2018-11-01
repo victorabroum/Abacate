@@ -16,6 +16,9 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     var dialogavel1: Dialogavel?
     var entities = [GKEntity]()
     
+    // To control BG Audios
+    var bgAudios: SKNode?
+    
     override func sceneDidLoad() {
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
@@ -37,12 +40,24 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        
+        // Prepare BG Music
+        if let bga = self.childNode(withName: "bgAudios") {
+            self.bgAudios = bga
+            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode?.makePlayerWalk()
         if(dialogavel1?.indexNode == nil){
             listaPermissoesRoom02.remove("cama")
+        }
+    }
+    
+    override func willMove(from view: SKView) {
+        if self.bgAudios != nil{
+            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
         }
     }
     
