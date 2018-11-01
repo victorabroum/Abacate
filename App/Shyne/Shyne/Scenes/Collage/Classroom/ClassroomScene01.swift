@@ -18,6 +18,9 @@ class ClassroomScene01: SKScene {
     
     var entities = [GKEntity]()
     
+    // To control BG Audios
+    var bgAudios: SKNode?
+    
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
@@ -40,9 +43,10 @@ class ClassroomScene01: SKScene {
             nextScene1.entities = cenaProxima1.entities
             var t1 : Transicao
             t1 = Transicao(cenaAtual: self, cenaProxima: nextScene1)
-            classRoomRootc1.function = {()->Void in t1.troca()}
-            classRoomRootc2.function = {()->Void in t1.troca()}
-            classRoomRootc3.function = {()->Void in t1.troca()}
+            
+            class01Player02.action = {
+                t1.troca()
+            }
         }
         
         
@@ -51,6 +55,23 @@ class ClassroomScene01: SKScene {
         lista["professora"]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
         lista["professora"]?.funcaoEntrada!(self.dialogBox01!.caixa!)
     }
+    
+    
+    override func didMove(to view: SKView) {
+        // Prepare BG Music
+        if let bga = self.childNode(withName: "bgAudios") {
+            print("BG AUDIOS")
+            self.bgAudios = bga
+            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
+        }
+    }
+    
+    override func willMove(from view: SKView) {
+        if self.bgAudios != nil{
+            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
+        }
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         
     }

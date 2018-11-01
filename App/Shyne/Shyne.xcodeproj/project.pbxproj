@@ -57,6 +57,12 @@
 		76BA900E218A493800A37F32 /* city_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900D218A493800A37F32 /* city_noise.wav */; };
 		76BA9010218A494000A37F32 /* city_night.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900F218A494000A37F32 /* city_night.wav */; };
 		76BA9013218A4DA800A37F32 /* city_day.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA9012218A4DA800A37F32 /* city_day.wav */; };
+		76BA901F218B38DD00A37F32 /* house.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA901E218B38DD00A37F32 /* house.wav */; };
+		76BA9021218B39EE00A37F32 /* bakery.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA9020218B39ED00A37F32 /* bakery.wav */; };
+		76BA9023218B3A3B00A37F32 /* classroom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA9022218B3A3B00A37F32 /* classroom.wav */; };
+		76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BA9024218B3B5D00A37F32 /* MusicHelper.swift */; };
+		76BA902D218B472C00A37F32 /* Foot_Step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA902C218B472C00A37F32 /* Foot_Step.wav */; };
+		76BA902F218B47DF00A37F32 /* stair_step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA902E218B47DF00A37F32 /* stair_step.wav */; };
 		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
 		C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DA4DF218A3B3F003470AC /* EndGame.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
@@ -118,6 +124,12 @@
 		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
 		76BA900F218A494000A37F32 /* city_night.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_night.wav; path = ../../../../Desing/Musics/city_night.wav; sourceTree = "<group>"; };
 		76BA9012218A4DA800A37F32 /* city_day.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_day.wav; path = ../../../../Desing/Musics/city_day.wav; sourceTree = "<group>"; };
+		76BA901E218B38DD00A37F32 /* house.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = house.wav; path = ../../../../Desing/Musics/house.wav; sourceTree = "<group>"; };
+		76BA9020218B39ED00A37F32 /* bakery.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bakery.wav; path = ../../../../Desing/Musics/bakery.wav; sourceTree = "<group>"; };
+		76BA9022218B3A3B00A37F32 /* classroom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = classroom.wav; path = ../../../../../Desing/Musics/classroom.wav; sourceTree = "<group>"; };
+		76BA9024218B3B5D00A37F32 /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
+		76BA902C218B472C00A37F32 /* Foot_Step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Foot_Step.wav; path = ../../../../../Desing/Musics/Foot_Step.wav; sourceTree = "<group>"; };
+		76BA902E218B47DF00A37F32 /* stair_step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = stair_step.wav; path = ../../../../../Desing/Musics/stair_step.wav; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
 		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
@@ -397,6 +409,8 @@
 				76BA9012218A4DA800A37F32 /* city_day.wav */,
 				76BA900F218A494000A37F32 /* city_night.wav */,
 				76BA900B218A1CF600A37F32 /* guitarMan01.wav */,
+				76BA901E218B38DD00A37F32 /* house.wav */,
+				76BA9020218B39ED00A37F32 /* bakery.wav */,
 				76BA90062189FC0A00A37F32 /* efeitos */,
 			);
 			path = Audios;
@@ -405,6 +419,9 @@
 		76BA90062189FC0A00A37F32 /* efeitos */ = {
 			isa = PBXGroup;
 			children = (
+				76BA902E218B47DF00A37F32 /* stair_step.wav */,
+				76BA902C218B472C00A37F32 /* Foot_Step.wav */,
+				76BA9022218B3A3B00A37F32 /* classroom.wav */,
 				76BA900D218A493800A37F32 /* city_noise.wav */,
 				76BA90072189FC1500A37F32 /* door_locked.wav */,
 			);
@@ -427,6 +444,7 @@
 				765B3DE42178BC74004AA4E3 /* Structures */,
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
 				76064EC62189E4E000E1D776 /* MusicPanHelper.swift */,
+				76BA9024218B3B5D00A37F32 /* MusicHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,11 +518,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				760CBD52217E45BD00640A5C /* PlayerAction.sks in Resources */,
+				76BA902F218B47DF00A37F32 /* stair_step.wav in Resources */,
+				76BA902D218B472C00A37F32 /* Foot_Step.wav in Resources */,
 				765B3DFE217D76B5004AA4E3 /* RoomScene02.sks in Resources */,
 				765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */,
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
+				76BA9021218B39EE00A37F32 /* bakery.wav in Resources */,
 				76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */,
 				C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */,
+				76BA9023218B3A3B00A37F32 /* classroom.wav in Resources */,
 				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
 				76BA900E218A493800A37F32 /* city_noise.wav in Resources */,
@@ -514,6 +536,7 @@
 				76BA9013218A4DA800A37F32 /* city_day.wav in Resources */,
 				765B3E01217D76F3004AA4E3 /* CityScene01.sks in Resources */,
 				765B3DFB217D7686004AA4E3 /* BakeryScene01.sks in Resources */,
+				76BA901F218B38DD00A37F32 /* house.wav in Resources */,
 				765B3DF7217D764C004AA4E3 /* HouseScene03.sks in Resources */,
 				76BA9010218A494000A37F32 /* city_night.wav in Resources */,
 				765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */,
@@ -551,6 +574,7 @@
 				765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */,
 				760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */,
 				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
+				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
@@ -711,7 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -729,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,6 +17,9 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
     var entities = [GKEntity]()
     var dialogavel1: Dialogavel?
     
+    // To control BG Audios
+    var bgAudios: SKNode?
+    
     override func sceneDidLoad() {
         self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
         physicsWorld.contactDelegate = self
@@ -25,6 +28,20 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
+        
+        // Prepare BG Music
+        if let bga = self.childNode(withName: "bgAudios") {
+            self.bgAudios = bga
+            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
+        }
+        
+        self.animateBus()
+    }
+    
+    override func willMove(from view: SKView) {
+        if self.bgAudios != nil{
+            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -65,6 +82,32 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
             }
             
             lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+        }
+    }
+    
+    func animateBus(){
+        self.playerNode?.playerCanWalk(false)
+        self.playerNode?.alpha = 0
+        
+        
+        let busNode = SKSpriteNode(imageNamed: "bus")
+        busNode.xScale *= -1
+        busNode.position.x = self.frame.size.width + 100
+        busNode.position.y = -83
+        busNode.zPosition = playerZPosition + 100
+        self.addChild(busNode)
+        
+        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! - 20, duration: 2)
+        let wait = SKAction.wait(forDuration: 0.5)
+        let goWay = SKAction.move(by: CGVector(dx: -1000, dy: 0), duration: 2)
+        let sequence = SKAction.sequence([arrive, wait])
+        
+        busNode.run(sequence) {
+            self.playerNode?.alpha = 1
+            busNode.run(goWay){
+                busNode.alpha = 0
+                self.playerNode?.playerCanWalk(true)
+            }
         }
     }
 }
