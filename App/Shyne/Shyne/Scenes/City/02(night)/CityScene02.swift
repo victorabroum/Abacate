@@ -91,7 +91,6 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
         
         
         let busNode = SKSpriteNode(imageNamed: "bus_flipped")
-        busNode.xScale *= -1
         busNode.position.x = self.frame.size.width + 100
         busNode.position.y = -83
         busNode.zPosition = playerZPosition + 100
