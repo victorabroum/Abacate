@@ -90,7 +90,7 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
         self.playerNode?.alpha = 0
         
         
-        let busNode = SKSpriteNode(imageNamed: "bus")
+        let busNode = SKSpriteNode(imageNamed: "bus_flipped")
         busNode.xScale *= -1
         busNode.position.x = self.frame.size.width + 100
         busNode.position.y = -83
