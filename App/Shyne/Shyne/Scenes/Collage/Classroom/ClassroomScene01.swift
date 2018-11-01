@@ -43,9 +43,10 @@ class ClassroomScene01: SKScene {
             nextScene1.entities = cenaProxima1.entities
             var t1 : Transicao
             t1 = Transicao(cenaAtual: self, cenaProxima: nextScene1)
-            classRoomRootc1.function = {()->Void in t1.troca()}
-            classRoomRootc2.function = {()->Void in t1.troca()}
-            classRoomRootc3.function = {()->Void in t1.troca()}
+            
+            class01Player02.action = {
+                t1.troca()
+            }
         }
         
         
