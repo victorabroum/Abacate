@@ -735,7 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
+				DEVELOPMENT_TEAM = MT8CKGYHV6;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -753,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
+				DEVELOPMENT_TEAM = MT8CKGYHV6;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
