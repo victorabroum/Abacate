@@ -9,26 +9,26 @@
 import Foundation
 import GameplayKit
 
-var classRoomRoot: Node = Node(withText: NSLocalizedString("Então pessoal,\n fechamos mais\n um assunto.", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoomRoot: Node = Node(withText: NSLocalizedString("So with this,\n we finish another subject.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoom01D1: Node = Node(withText: NSLocalizedString("Formem grupos\nde até 4 pessoas", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoom01D1: Node = Node(withText: NSLocalizedString("Form groups\nof 4 people", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoom01D2: Node = Node(withText: NSLocalizedString("Teremos uma \napresentação daqui\n a 5 dias.", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoom01D2: Node = Node(withText: NSLocalizedString("We'll have a presentation \n 5 days \n from today.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("Vou criar minha\n propria equipe.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [class01Player01])
+var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("I'll make my\n own team.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [class01Player01])
 
-var classRoomRootc2: Answer = Answer(withText: NSLocalizedString("Vou para a \nequipe do Ruy.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [class01Player01])
+var classRoomRootc2: Answer = Answer(withText: NSLocalizedString("I'll go to \nRuy's team.", comment: ""), withAmount: Feel(happy: 0, normal: 0.5, shy: 0.1), withChild: [class01Player01])
 
-var classRoomRootc3: Answer = Answer(withText: NSLocalizedString("Vou esperar \nme escolherem.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [class01Player03])
+var classRoomRootc3: Answer = Answer(withText: NSLocalizedString("I'll wait for\n someone to pick me.", comment: ""), withAmount: Feel(happy: 0, normal: 0.2, shy: 1), withChild: [class01Player03])
 
 
-var class01Player01 = Node(withText: NSLocalizedString("Beleza, amanhã \nresolvo isso!", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player01 = Node(withText: NSLocalizedString("Alright, tomorrow \ni'll settle this!", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var class01Player02 = Node(withText: NSLocalizedString("Agora vou é para casa.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player02 = Node(withText: NSLocalizedString("I getter get going now.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var class01Player03 = Node(withText: NSLocalizedString("Putz, ninguém vai me escolher", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player03 = Node(withText: NSLocalizedString("Damn.. no one will pick me", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var class01Player04 = Node(withText: NSLocalizedString("Tudo bem eu\nfaço sozinho", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player04 = Node(withText: NSLocalizedString("Alright, I'll\n do it by myself", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
 
 func classRoomRootmakeTree(){

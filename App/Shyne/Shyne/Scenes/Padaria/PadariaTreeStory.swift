@@ -9,21 +9,21 @@
 import Foundation
 //Cena da Padaria
 //D1->D2
-var textForRootPadaria: String = "Me veja um real de \npão francês, por favor"
+var textForRootPadaria: String = "Can I have some \nfrench bread, please?"
 var rootNodePadaria: Node = Node(withText: textForRootPadaria, withChoices: [],inNodeNamed:"playerNode")
 //D2->D3
-var textSecondTalkPadaria : String = "Aqui está seu pão doce!"
+var textSecondTalkPadaria : String = "Here's your sweet bread!"
 var secondTalkPadaria: Node = Node(withText: textSecondTalkPadaria, withChoices: [],inNodeNamed:"padeiroCaixa")
 //D3->End
-var textThirdTalkPadaria : String = "É que ..."
-var rObrigado = Answer(withText: "...O...Obrigado", withAmount: Feel(happy: 0, normal: 0, shy: 1.0))
-var rVcErrou = Answer(withText: "Acho que o senhor se enganou...", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
-var rVcErrouDeNovo = Answer(withText: "Mas eu pedi \npão francês!", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
+var textThirdTalkPadaria : String = "Actually..."
+var rObrigado = Answer(withText: "...T...Thanks", withAmount: Feel(happy: 0, normal: 0, shy: 1.0))
+var rVcErrou = Answer(withText: "I think you made\n a mistake...", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
+var rVcErrouDeNovo = Answer(withText: "..But I ordered \nfrench bread!", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
 var thirdTalkPadaria: Node = Node(withText: textThirdTalkPadaria, withChoices:[rObrigado,rVcErrou,rVcErrouDeNovo],inNodeNamed:"playerNode")
 
-var bakery01D3 = Node(withText: NSLocalizedString("Desculpe, está aqui\n o seu pão francês", comment: ""), withChoices: [], inNodeNamed: "padeiroCaixa")
+var bakery01D3 = Node(withText: NSLocalizedString("My bad, here's\n your french bread!", comment: ""), withChoices: [], inNodeNamed: "padeiroCaixa")
 
-var bakery01D4 = Node(withText: "Tudo bem, obrigado!", withChoices: [], inNodeNamed: "playerNode")
+var bakery01D4 = Node(withText: "That's ok,\n thank you!", withChoices: [], inNodeNamed: "playerNode")
 
 func makeTreeOfRoomPadaria() -> (){
     
