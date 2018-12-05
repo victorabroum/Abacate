@@ -17,7 +17,7 @@ var secondTalkPadaria: Node = Node(withText: textSecondTalkPadaria, withChoices:
 //D3->End
 var textThirdTalkPadaria : String = "Actually..."
 var rObrigado = Answer(withText: "...T...Thanks", withAmount: Feel(happy: 0, normal: 0, shy: 1.0))
-var rVcErrou = Answer(withText: "I think you made\n a mistake...", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
+var rVcErrou = Answer(withText: "I think you made a mistake...", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
 var rVcErrouDeNovo = Answer(withText: "..But I ordered \nfrench bread!", withAmount: Feel(happy: 0.5, normal: 0.5, shy: 0))
 var thirdTalkPadaria: Node = Node(withText: textThirdTalkPadaria, withChoices:[rObrigado,rVcErrou,rVcErrouDeNovo],inNodeNamed:"playerNode")
 

@@ -34,12 +34,12 @@ var dHouse02Dadc1 = Node(withText: NSLocalizedString("You know, these \nthings a
 var dHouse02Dadc2 = Node(withText: NSLocalizedString("Make an effort,\n you've got this!", comment: ""), withChoices: [], inNodeNamed: "dad")
 var dHouse02Dadc3 = Node(withText: NSLocalizedString("Hum...", comment: ""), withChoices: [], inNodeNamed: "dad")
 
-var dHouse02Player1 = Node(withText: NSLocalizedString("Yeah... \nI better get going", comment: ""), withChoices: [], inNodeNamed: "playerNode")
-var dHouse02Player2 = Node(withText: NSLocalizedString("I better go \nto school", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var dHouse02Player1 = Node(withText: NSLocalizedString("Yeah... \nI better get going.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var dHouse02Player2 = Node(withText: NSLocalizedString("My class is \nabout to start.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var dHouse02Dadc4 = Node(withText: NSLocalizedString("See you later, kiddo", comment: ""), withChoices: [], inNodeNamed: "dad")
+var dHouse02Dadc4 = Node(withText: NSLocalizedString("See you later, kiddo.", comment: ""), withChoices: [], inNodeNamed: "dad")
 
-var dHouse02Player3 = Node(withText: NSLocalizedString("Later, dad", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var dHouse02Player3 = Node(withText: NSLocalizedString("Later, dad.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
 func house02makeTree(){
     house02Root1.choices.append(house02Root1c1)

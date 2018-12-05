@@ -9,11 +9,11 @@
 import Foundation
 import GameplayKit
 
-var classRoomRoot: Node = Node(withText: NSLocalizedString("So with this,\n we finish another subject.", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoomRoot: Node = Node(withText: NSLocalizedString("So with this, we \n finish another subject.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoom01D1: Node = Node(withText: NSLocalizedString("Form groups\nof 4 people", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoom01D1: Node = Node(withText: NSLocalizedString("Form groups\nof 4 people.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
-var classRoom01D2: Node = Node(withText: NSLocalizedString("We'll have a presentation \n 5 days \n from today.", comment: ""), withChoices: [],inNodeNamed:"professora")
+var classRoom01D2: Node = Node(withText: NSLocalizedString("We'll have a presentation \n 5 days from now.", comment: ""), withChoices: [],inNodeNamed:"professora")
 
 var classRoomRootc1: Answer = Answer(withText: NSLocalizedString("I'll make my\n own team.", comment: ""),withAmount: Feel(happy: 1, normal: 0.3, shy: 0), withChild: [class01Player01])
 
@@ -26,9 +26,9 @@ var class01Player01 = Node(withText: NSLocalizedString("Alright, tomorrow \ni'll
 
 var class01Player02 = Node(withText: NSLocalizedString("I getter get going now.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var class01Player03 = Node(withText: NSLocalizedString("Damn.. no one will pick me", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player03 = Node(withText: NSLocalizedString("Let's face it.. \nno one's gonna pick me.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var class01Player04 = Node(withText: NSLocalizedString("Alright, I'll\n do it by myself", comment: ""), withChoices: [], inNodeNamed: "playerNode")
+var class01Player04 = Node(withText: NSLocalizedString("Alright, I'll\n do it by myself.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
 
 func classRoomRootmakeTree(){
