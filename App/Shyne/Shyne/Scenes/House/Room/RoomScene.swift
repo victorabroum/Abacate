@@ -29,6 +29,22 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
         makeTreeOfRoom()
         // Indicando a raiz da story
         self.dialogavel1!.indexNode = rootNode
+        
+        
+        
+        let interactionBallon = InteractionBallon(iconName: "Icone_Door", referenceScene: self) {
+
+            let ballon = DialogBallon(rootNode: rootNode, referenceScene: self)
+            ballon.setup()
+        }
+
+        interactionBallon.setup()
+        
+//        let dialogBallon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
+//        dialogBallon.setup()
+        
+        
+        
     }
     
     override func didMove(to view: SKView) {
