@@ -33,5 +33,11 @@ func house01makeTree() -> (){
     c2.child.append(d3_2)
     c3.child.append(d3_3)
     
+    d3_3.action = {
+        print("ACTION LOCA")
+        listaPermissoesHouse01.insert("porta")
+        listaPermissoesHouse01.remove("triggerDad")
+    }
+    
     house01Root.add(child: d2)
 }

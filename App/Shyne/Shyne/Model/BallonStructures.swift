@@ -57,6 +57,10 @@ class Ballon : SKSpriteNode{
         self.removeFromParent()
         self.referenceNode.removeAllChildren()
         
+        if(self.rootNode.action != nil){
+            self.rootNode.action!()
+        }
+        
         if(self.rootNode.childrens.count != 0){
             
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
@@ -86,7 +90,7 @@ class Ballon : SKSpriteNode{
         
         // Setup Ballon
         self.position = CGPoint(x: 0, y: 0)
-        self.position.y += (self.size.height/2) + (referenceNode.size.height / 2)
+        self.position.y += (self.size.height/2 - 30) + (referenceNode.size.height / 2)
         
         // Setup Label
         let labelNode = SKLabelNode(text: rootNode.text)
@@ -98,6 +102,7 @@ class Ballon : SKSpriteNode{
         labelNode.verticalAlignmentMode = .center
         labelNode.fontColor = .black
         labelNode.zPosition = self.zPosition + 50
+        
         
         self.addChild(labelNode)
         
@@ -120,6 +125,8 @@ class Ballon : SKSpriteNode{
         backgroundNode.zPosition = self.zPosition + 25
         
         self.addChild(backgroundNode)
+        
+        
             
         // Setup point of ballon
         // TODO: Mudar a textura
@@ -130,6 +137,11 @@ class Ballon : SKSpriteNode{
 //        backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 //        self.addChild(pointBallon)
         
+        if(self.referenceNode.xScale < 0){
+            labelNode.xScale *= -1
+            backgroundNode.xScale *= -1
+//            pointBallon.xScale *= -1
+        }
     }
 }
 
@@ -246,12 +258,57 @@ class DoorBallon : InteractionBallon{
             nextScene.scaleMode = SKSceneScaleMode.aspectFill
             referenceScene.view?.presentScene(nextScene, transition: transition)
         }
-        self.xScale = 1.5
-        self.yScale = 1.5
+        self.xScale = 1.3
+        self.yScale = 1.3
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+class StairBallon: InteractionBallon{
+    init(direction: String, playerNode: PlayerNode, referenceNode: SKSpriteNode, referenceScene: SKScene){
+        
+        super.init(iconName: "", referenceNode: referenceNode, referenceScene: referenceScene, action: {})
+        
+        if(direction == "goDown"){
+            super.iconName = "iconDownstairs"
+            super.action = {
+                
+                if (playerNode.xScale) <= 0{
+                    playerNode.xScale *= -1
+                }
+                
+                
+                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"goDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "goUp")?.position)!, withDuration: stairDuration)
+                
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+            }
+        }else{
+            
+            super.iconName = "iconUpstairs"
+            super.action = {
+                
+                if (playerNode.xScale) >= 0{
+                    playerNode.xScale *= -1
+                }
+                
+                
+                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"goUp")?.position)!, toPosition: (self.referenceScene.childNode(withName: "goDown")?.position)!, withDuration: stairDuration)
+                
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+            }
+            
+        }
+        
+        self.xScale = 1.3
+        self.yScale = 1.3
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
