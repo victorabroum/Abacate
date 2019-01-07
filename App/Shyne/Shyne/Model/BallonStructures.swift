@@ -66,17 +66,21 @@ class Ballon : SKSpriteNode{
             let choicesBallon = ChoicesBallon(choices: self.rootNode.choices, referenceScene: self.referenceScene)
             choicesBallon.setup()
         }else{
-            if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
-                playerNode.playerCanWalk(true)
-            }
+            self.dismiss()
         }
     }
     
-    func setup(){
+    func dismiss(){
+        self.removeFromParent()
+        self.referenceNode.removeAllChildren()
         
         if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
-            playerNode.playerCanWalk(false)
+            playerNode.playerCanWalk(true)
         }
+        
+    }
+    
+    func setup(){
         
         //TODO: Animate this setup
         
@@ -197,10 +201,13 @@ class ChoicesBallon : SKSpriteNode{
 }
 
 class InteractionBallon: Ballon{
-    init(iconName: String, referenceScene: SKScene, action: @escaping (() -> Void)){
-        super.init(rootNode: Node(withText: "", withChoices: []), referenceScene: referenceScene)
+    init(iconName: String, referenceNode: SKSpriteNode, referenceScene: SKScene, action: @escaping (() -> Void)){
+        let auxNode = Node(withText: "", withChoices: [])
+        auxNode.nodeToTalk = referenceNode.name!
+        super.init(rootNode: auxNode, referenceScene: referenceScene)
         self.iconName = iconName
         self.action = action
+        self.referenceNode = referenceNode
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -221,17 +228,44 @@ class InteractionBallon: Ballon{
     override func setup() {
         super.setup()
         
-        let iconNode = SKSpriteNode(imageNamed: iconName!)
-        iconNode.zPosition = super.zPosition + 50
-        iconNode.position = CGPoint.zero
+        if (iconName != ""){
+            let iconNode = SKSpriteNode(imageNamed: iconName!)
+            iconNode.zPosition = super.zPosition + 50
+            iconNode.position = CGPoint.zero
+            
+            super.addChild(iconNode)
+        }
         
-        super.addChild(iconNode)
+    }
+}
+
+class DoorBallon : InteractionBallon{
+    init(referenceNode: SKSpriteNode, referenceScene: SKScene, nextScene: SKScene){
+        super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene) {
+            let transition:SKTransition = SKTransition.fade(withDuration: 1)
+            nextScene.scaleMode = SKSceneScaleMode.aspectFill
+            referenceScene.view?.presentScene(nextScene, transition: transition)
+        }
+        self.xScale = 1.5
+        self.yScale = 1.5
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
 
 class DialogBallon: Ballon{
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("CLICOU NO MALUCO")
         nextBallon()
+    }
+    
+    override func setup() {
+        if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
+            playerNode.playerCanWalk(false)
+        }
+        super.setup()
     }
 }
