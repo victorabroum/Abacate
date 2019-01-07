@@ -69,13 +69,11 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                     let newBallon = DialogBallon.init(rootNode: house01Root, referenceScene: self)
                     newBallon.setup()
                 })
-                ballon?.setup()
             }else if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
                 if let nextScene = cenaProxima.rootNode as? CityScene01{
                     nextScene.entities = cenaProxima.entities
                     ballon = DoorBallon(referenceNode: self.childNode(withName: "referenceDoor")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
-                    ballon?.setup()
                 }
             }else if(novoNome == "goUp"){
                 
@@ -98,13 +96,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 
             }
             
-            
-            
-//            if (listaPermissoesHouse01.contains(novoNome)){
-//                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-//                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-//                lista[novoNome]?.funcaoEntrada!(self.dialogBox01!.caixa!)
-//            }
+            if (listaPermissoesHouse01.contains(novoNome)){
+                ballon?.setup()
+            }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
@@ -118,9 +112,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             
             ballon?.dismiss()
             
-//            if (listaPermissoesHouse01.contains(novoNome)){
-//                lista[novoNome]?.funcaoSaida!(self.dialogBox01!.caixa!)
-//            }
         }
     }
 }
