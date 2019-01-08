@@ -132,12 +132,10 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             listaPermissoesPadaria.remove("padeiro")
             
             self.ballon?.dismiss()
-//            self.dialogBox01?.drawnDialog()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
         func justSair() {
-//            self.dialogBox01?.escolhas?.sair()
             self.ballon?.dismiss()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 
@@ -166,10 +164,8 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             // Sumi textura do pão
             // Ele vai levar o pão errado mesmo
             escolhaFeita = 0
-//            self.dialogBox01?.escolhas?.sair()
             self.ballon?.dismiss()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
-//            self.dialogBox01?.drawnDialog()
         }
         
     }
