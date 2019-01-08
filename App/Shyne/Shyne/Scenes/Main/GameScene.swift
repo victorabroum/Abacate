@@ -15,7 +15,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var dialogavel1: Dialogavel?
     
     override func sceneDidLoad() {
-        
 
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
@@ -25,7 +24,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         house01makeTree()
         dialogavel1!.indexNode = house01Root
-        
     }
     
     override func didMove(to view: SKView) {
