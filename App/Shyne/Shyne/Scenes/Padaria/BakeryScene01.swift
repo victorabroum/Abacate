@@ -136,7 +136,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         }
         
         func justSair() {
-            self.ballon?.dismiss()
+            self.ballon?.removeFromParent()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 
                 self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: self.padeiroNode!, referenceScene: self)
