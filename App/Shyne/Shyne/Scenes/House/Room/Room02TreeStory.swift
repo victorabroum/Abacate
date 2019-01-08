@@ -8,4 +8,4 @@
 
 import Foundation
 
-var room02Root = Node(withText: "Vou é dormir", withChoices: [])
+var room02Root = Node(withText: "I better sleep.", withChoices: [])
