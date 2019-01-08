@@ -36,9 +36,6 @@ var cameraUpper: CGFloat = 7.0
 // Stairs animation duration
 var stairDuration: TimeInterval = 2
 
-// Flags important para o game
-var finishedBakery: Bool = true
-
 
 var escolhaFeita = 1
 var falouComPaiNaCasa01 = false

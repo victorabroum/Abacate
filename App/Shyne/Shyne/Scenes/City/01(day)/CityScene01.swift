@@ -87,34 +87,32 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                     
                 }
                 
-                if finishedBakery{
-                    if(novoNome == "busStop"){
-                        // Rola a animação do bus e depois vai para a sala de aula
-                        
-                        // Go to Classroom
-                        if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
-                            if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
-                                nextScene.entities = cenaProxima.entities
-                                let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                                
-                                ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
-                                    self.busAnimate(nextScene)
-                                })
-                                
-                            }
+                if(novoNome == "busStop"){
+                    // Rola a animação do bus e depois vai para a sala de aula
+                    
+                    // Go to Classroom
+                    if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
+                        if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
+                            nextScene.entities = cenaProxima.entities
+                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                            
+                            ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
+                                self.busAnimate(nextScene)
+                            })
+                            
                         }
-                        
                     }
                     
-                    if(novoNome == "houseDoor"){
-                        // Go to House 02
-                        if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
-                            if let nextScene = cenaProxima.rootNode as? HouseScene02{
-                                nextScene.entities = cenaProxima.entities
-                                let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                                
-                                ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
-                            }
+                }
+                
+                if(novoNome == "houseDoor"){
+                    // Go to House 02
+                    if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
+                        if let nextScene = cenaProxima.rootNode as? HouseScene02{
+                            nextScene.entities = cenaProxima.entities
+                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                            
+                            ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                         }
                     }
                 }
