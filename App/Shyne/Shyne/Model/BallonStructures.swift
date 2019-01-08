@@ -45,7 +45,7 @@ class Ballon : SKSpriteNode{
         self.referenceNode.addChild(self)
     }
     
-    init(rootNode: Node, referenceScene: SKScene){
+    init(rootNode: Node, referenceScene: SKScene, action: (()->Void)? = nil){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
         
@@ -82,10 +82,9 @@ class Ballon : SKSpriteNode{
         self.referenceNode.removeAllChildren()
         
         if(self.rootNode.action != nil){
+            print("FUNCAO")
             self.rootNode.action!()
-        }
-        
-        if(self.rootNode.childrens.count != 0){
+        }else if(self.rootNode.childrens.count != 0){
             
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
             newDialogBallon.setup()
@@ -96,6 +95,8 @@ class Ballon : SKSpriteNode{
         }else{
             self.dismiss()
         }
+        
+        
     }
     
     func dismiss(){
@@ -182,7 +183,19 @@ class ChoicesBallon : SKSpriteNode{
                 auxNode.add(child: choice.child.first!)
             }
             
+            auxNode.action = choice.function
+            
+//            if choice.function != nil {
+//                ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, action: choice.function))
+//            }else {
+//                ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene))
+//            }
+            
+            
+//            ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, action: choice.function))
+            
             ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene))
+            
             
         }
         
