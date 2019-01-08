@@ -313,7 +313,7 @@ class StairBallon: InteractionBallon{
                     playerNode.xScale *= -1
                 }
                 
-                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"goDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "goUp")?.position)!, withDuration: stairDuration)
+                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceUp")?.position)!, withDuration: stairDuration)
                 
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
             }
@@ -329,7 +329,7 @@ class StairBallon: InteractionBallon{
                 }
                 
                 
-                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"goUp")?.position)!, toPosition: (self.referenceScene.childNode(withName: "goDown")?.position)!, withDuration: stairDuration)
+                playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceUp")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceDown")?.position)!, withDuration: stairDuration)
                 
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
             }
@@ -339,6 +339,10 @@ class StairBallon: InteractionBallon{
         self.xScale = 1.2
         self.yScale = 1.2
         
+    }
+    
+    override func dismiss() {
+        self.removeFromParent()
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -89,27 +89,16 @@ class PlayerNode: SKSpriteNode{
     func playerCanWalk(_ flag: Bool){
         self.canWalk = flag
         if !flag {
-            
             self.enterIdleState()
-            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-                pcComponent.touchControlNode?.start()
-            }
-        }else{
-            
-            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-                pcComponent.touchControlNode?.stop()
-            }
         }
     }
     
     // Func to make player moves
     func makePlayerWalk(){
         
+        print("WALK \(self.canWalk)")
+        
         if self.canWalk{
-            
-            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-                pcComponent.touchControlNode?.start()
-            }
             
             switch self.actualDirection {
             case .right:
@@ -130,10 +119,6 @@ class PlayerNode: SKSpriteNode{
                 self.enterIdleState()
             }
         }else{
-            
-            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
-                pcComponent.touchControlNode?.stop()
-            }
             
             self.enterIdleState()
             
