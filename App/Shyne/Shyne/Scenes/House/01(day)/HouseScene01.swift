@@ -30,7 +30,7 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
         // Criando a box do diálogo
         //Preparando a tree story dessa scene
         house01makeTree()
-        // Indicando a raiz da story
+        prepareDialog()
     }
     
     override func didMove(to view: SKView) {
@@ -118,6 +118,29 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 ballon?.dismiss()
             }
             
+        }
+    }
+    
+    func prepareDialog(){
+        d3_1.action = {
+            print("ACTION LOCA")
+            listaPermissoesHouse01.insert("porta")
+            listaPermissoesHouse01.remove("triggerDad")
+            self.ballon?.dismiss()
+        }
+        
+        d3_2.action = {
+            print("ACTION LOCA")
+            listaPermissoesHouse01.insert("porta")
+            listaPermissoesHouse01.remove("triggerDad")
+            self.ballon?.dismiss()
+        }
+        
+        d3_3.action = {
+            print("ACTION LOCA")
+            listaPermissoesHouse01.insert("porta")
+            listaPermissoesHouse01.remove("triggerDad")
+            self.ballon?.dismiss()
         }
     }
 }

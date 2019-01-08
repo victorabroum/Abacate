@@ -89,7 +89,16 @@ class PlayerNode: SKSpriteNode{
     func playerCanWalk(_ flag: Bool){
         self.canWalk = flag
         if !flag {
+            
             self.enterIdleState()
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.start()
+            }
+        }else{
+            
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.stop()
+            }
         }
     }
     
@@ -97,6 +106,10 @@ class PlayerNode: SKSpriteNode{
     func makePlayerWalk(){
         
         if self.canWalk{
+            
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.start()
+            }
             
             switch self.actualDirection {
             case .right:
@@ -117,12 +130,18 @@ class PlayerNode: SKSpriteNode{
                 self.enterIdleState()
             }
         }else{
+            
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.stop()
+            }
+            
             self.enterIdleState()
+            
         }
     }
     
     func makeMove(fromPosition from: CGPoint, toPosition pos: CGPoint, withDuration duration: TimeInterval){
-//        self.anchorPoint = CGPoint(x: 0.5, y: 0)
+        
         self.playerCanWalk(false)
         self.position = from
         let backupSize = self.size
@@ -132,7 +151,6 @@ class PlayerNode: SKSpriteNode{
         
         for index in 1 ..< 10 {
             let textureNamed = SKTexture(imageNamed: "upstairs_player_0\(index)")
-            print("NAMED \(textureNamed)")
             arrayTexture.append(textureNamed)
         }
         
@@ -145,8 +163,6 @@ class PlayerNode: SKSpriteNode{
             self.texture = SKTexture(imageNamed: "walk_player_01")
             self.playerCanWalk(true)
         })
-        print("self size \(self.size)")
-        print("self size \(backupSize)")
     }
 
 }

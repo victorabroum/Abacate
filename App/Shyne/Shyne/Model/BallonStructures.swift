@@ -73,7 +73,6 @@ class Ballon : SKSpriteNode{
         // Resposta háptica
         let notification = UINotificationFeedbackGenerator()
         notification.notificationOccurred(.success)
-
     }
     
     func nextBallon() {
@@ -264,12 +263,8 @@ class InteractionBallon: Ballon{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Execute Action
-        
         super.touchesBegan(touches, with: event)
-        
-        print("EXECUTE ACTION")
         self.action!()
-        
         self.removeFromParent()
     }
     
@@ -312,10 +307,11 @@ class StairBallon: InteractionBallon{
             super.iconName = "iconDownstairs"
             super.action = {
                 
+                
+                
                 if (playerNode.xScale) <= 0{
                     playerNode.xScale *= -1
                 }
-                
                 
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"goDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "goUp")?.position)!, withDuration: stairDuration)
                 
@@ -325,6 +321,8 @@ class StairBallon: InteractionBallon{
             
             super.iconName = "iconUpstairs"
             super.action = {
+                
+                
                 
                 if (playerNode.xScale) >= 0{
                     playerNode.xScale *= -1
