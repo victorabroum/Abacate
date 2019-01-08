@@ -34,7 +34,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        print("ANTES SIZE \((self.playerNode?.yScale)!)") 
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
         
         // Prepare BG Music
@@ -63,40 +62,45 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             print(novoNome)
-            if novoNome == "triggerDad"{
-                
-                ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dad")! as! SKSpriteNode, referenceScene: self, action: {
-                    let newBallon = DialogBallon.init(rootNode: house01Root, referenceScene: self)
-                    newBallon.setup()
-                })
-            }else if novoNome == "porta"{
-                let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
-                if let nextScene = cenaProxima.rootNode as? CityScene01{
-                    nextScene.entities = cenaProxima.entities
-                    ballon = DoorBallon(referenceNode: self.childNode(withName: "referenceDoor")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
-                }
-            }else if(novoNome == "goUp"){
-                
-                
-                ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
-                ballon?.setup()
-                
-            }else if(novoNome == "goDown"){
-                
-                
-                ballon = StairBallon(direction: "goDown", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
-                ballon?.setup()
-                
-            }else if(novoNome == "dadDoor"){
-                
-                ballon = InteractionBallon(iconName: "Icone_Locker", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
-                    self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
-                })
-                ballon?.setup()
-                
-            }
+            
             
             if (listaPermissoesHouse01.contains(novoNome)){
+                
+                if novoNome == "triggerDad"{
+                    ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dad")! as! SKSpriteNode, referenceScene: self, action: {
+                        let newBallon = DialogBallon.init(rootNode: house01Root, referenceScene: self)
+                        newBallon.setup()
+                    })
+                }else if novoNome == "porta"{
+                    let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
+                    if let nextScene = cenaProxima.rootNode as? CityScene01{
+                        nextScene.entities = cenaProxima.entities
+                        
+                        if let doorNode = self.childNode(withName: "referenceDoor") as? SKSpriteNode{
+                            ballon = DoorBallon(referenceNode: doorNode, referenceScene: self, nextScene: nextScene)
+                        }
+                        
+                        
+                    }
+                }else if(novoNome == "goUp"){
+                    
+                    
+                    ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    
+                }else if(novoNome == "goDown"){
+                    
+                    
+                    ballon = StairBallon(direction: "goDown", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    
+                }else if(novoNome == "dadDoor"){
+                    
+                    ballon = InteractionBallon(iconName: "Icone_Locker", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
+                        self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
+                    })
+                    
+                }
+                
+                
                 ballon?.setup()
             }
         }
@@ -110,7 +114,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
-            ballon?.dismiss()
+            if (listaPermissoesHouse01.contains(novoNome)){
+                ballon?.dismiss()
+            }
             
         }
     }

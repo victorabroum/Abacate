@@ -31,10 +31,34 @@ class Ballon : SKSpriteNode{
         super.init(coder: aDecoder)
     }
     
+    init(rootNode: Node, referenceNode: SKSpriteNode, referenceScene: SKScene){
+        self.rootNode = rootNode
+        self.referenceScene = referenceScene
+        self.referenceNode = referenceNode
+        
+        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 100, height: 100))
+        
+        // For is possible to click
+        self.isUserInteractionEnabled = true
+        self.zPosition = 500
+        
+        self.referenceNode.addChild(self)
+    }
+    
     init(rootNode: Node, referenceScene: SKScene){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
-        self.referenceNode = self.referenceScene.childNode(withName: rootNode.nodeToTalk) as! SKSpriteNode
+        
+        if let node = referenceScene.childNode(withName: rootNode.nodeToTalk) as? SKSpriteNode{
+            print("ENCONTROU")
+            self.referenceNode = node
+        }else{
+            print("NAO ENCONTROU ")
+          self.referenceNode = SKSpriteNode()
+        }
+        
+        
+        
         
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 100, height: 100))
         
@@ -215,8 +239,7 @@ class ChoicesBallon : SKSpriteNode{
 class InteractionBallon: Ballon{
     init(iconName: String, referenceNode: SKSpriteNode, referenceScene: SKScene, action: @escaping (() -> Void)){
         let auxNode = Node(withText: "", withChoices: [])
-        auxNode.nodeToTalk = referenceNode.name!
-        super.init(rootNode: auxNode, referenceScene: referenceScene)
+        super.init(rootNode: auxNode, referenceNode: referenceNode, referenceScene: referenceScene)
         self.iconName = iconName
         self.action = action
         self.referenceNode = referenceNode
@@ -258,8 +281,8 @@ class DoorBallon : InteractionBallon{
             nextScene.scaleMode = SKSceneScaleMode.aspectFill
             referenceScene.view?.presentScene(nextScene, transition: transition)
         }
-        self.xScale = 1.3
-        self.yScale = 1.3
+        self.xScale = 1.2
+        self.yScale = 1.2
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -302,8 +325,8 @@ class StairBallon: InteractionBallon{
             
         }
         
-        self.xScale = 1.3
-        self.yScale = 1.3
+        self.xScale = 1.2
+        self.yScale = 1.2
         
     }
     

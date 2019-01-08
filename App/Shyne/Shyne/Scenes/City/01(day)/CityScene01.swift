@@ -13,8 +13,8 @@ import GameplayKit
 class CityScene01: SKScene, SKPhysicsContactDelegate{
     
     var playerNode: PlayerNode?
-    var dialoge: Dialogavel?
     var musicsNode: SKNode?
+    var ballon: Ballon?
     
     
     var entities = [GKEntity]()
@@ -24,7 +24,6 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
     
     override func sceneDidLoad() {
         self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
-        self.dialoge = Dialogavel(cena: self)
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
         }
@@ -69,53 +68,59 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                 }
             }
             
-            if novoNome == "bakeryDoor"{
-                
-                let cenaProxima:GKScene = GKScene(fileNamed: "BakeryScene01")!
-                if let nextScene = cenaProxima.rootNode as? BakeryScene01{
-                    nextScene.entities = cenaProxima.entities
-                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                    dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
-                }
-                
-            }
             
-            if finishedBakery{
-                if(novoNome == "busStop"){
-                    // Rola a animação do bus e depois vai para a sala de aula
-                    
-                    // Go to Classroom
-                    if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
-                        if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
-                            nextScene.entities = cenaProxima.entities
-                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                            self.dialoge?.caixa = caixaDeEscada(personagem: trigger!, dialogavel: self.dialoge!, function: {
-                                // Rola a animação do bus pegando o cara
-                                self.busAnimate(nextScene)
-                            })
-                            
-                        }
-                    }
-                    
-                }
-                
-                if(novoNome == "houseDoor"){
-                    // Go to House 02
-                    if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
-                        if let nextScene = cenaProxima.rootNode as? HouseScene02{
-                            nextScene.entities = cenaProxima.entities
-                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
-                            dialoge?.caixa = caixaDeTrocaDeCena(personagem: trigger!, dialogavel: dialoge!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
-                        }
-                    }
-                }
-            }
             
             if (listaPermissoesCidade.contains(novoNome)){
-                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-                lista[novoNome]?.funcaoEntrada!(dialoge!.caixa!)
                 
+                if novoNome == "bakeryDoor"{
+                    
+                    print("BAKERY DOOR")
+                    
+                    let cenaProxima:GKScene = GKScene(fileNamed: "BakeryScene01")!
+                    if let nextScene = cenaProxima.rootNode as? BakeryScene01{
+                        nextScene.entities = cenaProxima.entities
+                        let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                        
+                        ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                        
+                    }
+                    
+                }
+                
+                if finishedBakery{
+                    if(novoNome == "busStop"){
+                        // Rola a animação do bus e depois vai para a sala de aula
+                        
+                        // Go to Classroom
+                        if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
+                            if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
+                                nextScene.entities = cenaProxima.entities
+                                let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                                
+                                ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
+                                    self.busAnimate(nextScene)
+                                })
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                    if(novoNome == "houseDoor"){
+                        // Go to House 02
+                        if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
+                            if let nextScene = cenaProxima.rootNode as? HouseScene02{
+                                nextScene.entities = cenaProxima.entities
+                                let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                                
+                                ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                            }
+                        }
+                    }
+                }
+                
+                
+                ballon?.setup()
             }
         }
     }
@@ -128,7 +133,7 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
                 }
             }
             if (listaPermissoesCidade.contains(novoNome)){
-                lista[novoNome]?.funcaoSaida!(dialoge!.caixa!)
+                ballon?.dismiss()
             }
         }
     }
