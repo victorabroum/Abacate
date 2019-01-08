@@ -21,8 +21,14 @@ var terceiraTalk = Node(withText: "Well... I'm hungry", withChoices: [])
 //D4
 var quartaTalk = Node(withText: "I better come \ndownstairs and eat..", withChoices: [])
 
+
+
+
+
+
 // Construindo o fluxo
 func makeTreeOfRoom() -> (){
+    
     rootNode.add(child: secondTalk)
     secondTalk.add(child: terceiraTalk)
     terceiraTalk.add(child: quartaTalk)

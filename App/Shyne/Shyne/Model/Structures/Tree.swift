@@ -51,6 +51,7 @@ extension Answer: CustomStringConvertible{
 }
 
 class Node {
+    var typeBallon: TypeBallon = .speak
     var text: String
     var choices: [Answer]
     var childrens: [Node] = []

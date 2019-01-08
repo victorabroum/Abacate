@@ -15,7 +15,8 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
 
     var playerNode: PlayerNode?
     var entities = [GKEntity]()
-    var dialogavel1: Dialogavel?
+    
+    var ballon: Ballon?
     
     // To control BG Audios
     var bgAudios: SKNode?
@@ -23,7 +24,7 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
     override func sceneDidLoad() {
         self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
         physicsWorld.contactDelegate = self
-        self.dialogavel1 = Dialogavel(cena: self)
+        
     }
     
     override func didMove(to view: SKView) {
@@ -60,14 +61,13 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
             if novoNome == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene03")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene03{
+                    
                     nextScene.entities = cenaProxima.entities
-                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.childNode(withName: "porta")!, dialogavel: self.dialogavel1!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
+                    self.ballon = DoorBallon(referenceNode: self.childNode(withName: "porta")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                 }
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+            self.ballon?.setup()
             
         }
     }
@@ -81,7 +81,7 @@ class CityScene02: SKScene,SKPhysicsContactDelegate {
                 }
             }
             
-            lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+            self.ballon?.dismiss()
         }
     }
     

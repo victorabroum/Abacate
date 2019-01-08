@@ -14,7 +14,7 @@ class ClassroomScene01: SKScene {
 
     
     var playerNode: PlayerNode?
-    var dialogBox01: Dialogavel?
+    var ballon: Ballon?
     
     var entities = [GKEntity]()
     
@@ -24,18 +24,13 @@ class ClassroomScene01: SKScene {
     override func sceneDidLoad() {
         self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
-        // Dizendo que a scene comanda o delegate
-        // Criando a box do diálogo
-        self.dialogBox01 = Dialogavel(cena: self)
+        
         //Preparando a tree story dessa scene
         classRoomRootmakeTree()
-        // Indicando a raiz da story
-        self.dialogBox01!.indexNode = classRoomRoot
-        carregarFalas()
+        prepareDialog()
     }
     
-    func carregarFalas(){
-        
+    func prepareDialog(){
         //func b1
         let cenaProxima1: GKScene = GKScene(fileNamed: "CityScene02")!
         
@@ -49,13 +44,13 @@ class ClassroomScene01: SKScene {
             }
         }
         
+        ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "professora")! as! SKSpriteNode, referenceScene: self, action: {
+            let newBallon = DialogBallon.init(rootNode: classRoomRoot, referenceScene: self)
+            newBallon.setup()
+        })
+        ballon?.setup()
         
-        self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "professora")!, texto: (lista["professora"]?.mensagem)!, dialogavel: self.dialogBox01!)
-        lista["professora"]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-        lista["professora"]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-        lista["professora"]?.funcaoEntrada!(self.dialogBox01!.caixa!)
     }
-    
     
     override func didMove(to view: SKView) {
         // Prepare BG Music

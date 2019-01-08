@@ -29,6 +29,9 @@ func makeTreeOfRoomPadaria() -> (){
     
     rootNodePadaria.add(child: secondTalkPadaria)
     secondTalkPadaria.add(child: thirdTalkPadaria)
-    thirdTalkPadaria.add(child: bakery01D3)
+    
+    rVcErrou.child = [bakery01D3]
+    rVcErrouDeNovo.child = [bakery01D3]
+    
     bakery01D3.add(child: bakery01D4)
 }

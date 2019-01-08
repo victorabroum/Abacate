@@ -11,10 +11,12 @@ import SpriteKit
 import GameplayKit
 
 class HouseScene02: SKScene,SKPhysicsContactDelegate {
-    var playerNode: PlayerNode?
-    var dialogBox01: Dialogavel?
     
+    var playerNode: PlayerNode?
     var entities = [GKEntity]()
+    
+    var house02Root: Node = Node(withText: "", withChoices: [])
+    var ballon: Ballon?
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -27,16 +29,18 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
         // Criando a box do diálogo
-        self.dialogBox01 = Dialogavel(cena: self)
         //Preparando a tree story dessa scene
         house02makeTree()
         // Indicando a raiz da story
+        
         switch escolhaFeita{
             case 0:
-            self.dialogBox01!.indexNode = house02Root1
+            self.house02Root = house02Root1
         default:
-            self.dialogBox01!.indexNode = house02Root2
+            self.house02Root = house02Root2
         }
+        
+        self.prepareDialog()
 
     }
     override func didMove(to view: SKView) {
@@ -58,13 +62,6 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode!.makePlayerWalk()
-        if(dialogBox01?.indexNode == nil){
-            listaPermissoesCidade.remove("bakeryDoor")
-            listaPermissoesHouse02.insert("porta")
-            listaPermissoesHouse02.remove("dady")
-            listaPermissoesCidade.remove("houseDoor")
-            listaPermissoesCidade.insert("busStop")
-        }
     }
     func didBegin(_ contact: SKPhysicsContact) {
         if let nome=contact.bodyA.node?.name!{
@@ -75,50 +72,40 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
             }
             
             
-            if novoNome == "dady"{
-                self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "dady")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: dialogBox01!)
-            }else if(novoNome == "goUp"){
-                if let upPos = self.childNode(withName: "goDown"){
-                    
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!,texture: "Icone_Upstairs", function: {
-                        
-                        if (self.playerNode?.xScale)! >= 0{
-                            self.playerNode?.xScale *= -1
-                        }
-                        
-                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: upPos.position.x, y: upPos.position.y), withDuration: stairDuration)
-                        self.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
-                    })
-                }
-            }else if(novoNome == "goDown"){
-                if let downPos = self.childNode(withName: "goUp"){
-                    self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!,texture: "Icone_Downstairs", function: {
-                        if (self.playerNode?.xScale)! <= 0{
-                            self.playerNode?.xScale *= -1
-                        }
-                        self.playerNode?.makeMove(fromPosition: (self.childNode(withName: novoNome)?.position)!, toPosition: CGPoint(x: downPos.position.x, y: downPos.position.y), withDuration: stairDuration)
-                        self.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
-                    })
-                }
-            }else if novoNome == "porta"{
-                let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
-                if let nextScene = cenaProxima.rootNode as? CityScene01{
-                    nextScene.entities = cenaProxima.entities
-                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
-                }
-            }else if(novoNome == "dadDoor"){
-                self.dialogBox01?.caixa = caixaDeEscada(personagem: self.childNode(withName: novoNome)!, dialogavel: self.dialogBox01!, texture: "Icone_Locker", function: {
-                    self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
-                })
-            }
-            
-            
-            
             if (listaPermissoesHouse02.contains(novoNome)){
-                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-                lista[novoNome]?.funcaoEntrada!(dialogBox01!.caixa!)
+                
+                if novoNome == "dady"{
+                    
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dady")! as! SKSpriteNode, referenceScene: self, action: {
+                        let newBallon = DialogBallon.init(rootNode: self.house02Root, referenceScene: self)
+                        newBallon.setup()
+                    })
+                    
+                }else if(novoNome == "goUp"){
+                    
+                    ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    
+                }else if(novoNome == "goDown"){
+                    
+                    ballon = StairBallon(direction: "goDown", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    
+                }else if novoNome == "porta"{
+                    let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
+                    if let nextScene = cenaProxima.rootNode as? CityScene01{
+                        
+                        nextScene.entities = cenaProxima.entities
+                        self.ballon = DoorBallon(referenceNode: self.childNode(withName: "popupDoor")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                        
+                    }
+                }else if(novoNome == "dadDoor"){
+                    ballon = InteractionBallon(iconName: "Icone_Locker", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
+                        self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
+                    })
+                }
+                
             }
+            
+            self.ballon?.setup()
             
         }
     }
@@ -133,8 +120,22 @@ class HouseScene02: SKScene,SKPhysicsContactDelegate {
             }
             
             if (listaPermissoesHouse02.contains(novoNome)){
-                lista[novoNome]?.funcaoSaida!(dialogBox01!.caixa!)
+                self.ballon?.dismiss()
             }
         }
+    }
+    
+    func prepareDialog() {
+    
+        dHouse02Player3.action = {
+            listaPermissoesCidade.remove("bakeryDoor")
+            listaPermissoesHouse02.insert("porta")
+            listaPermissoesHouse02.remove("dady")
+            listaPermissoesCidade.remove("houseDoor")
+            listaPermissoesCidade.insert("busStop")
+            
+            self.ballon?.dismiss()
+        }
+        
     }
 }

@@ -63,6 +63,7 @@
 		76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BA9024218B3B5D00A37F32 /* MusicHelper.swift */; };
 		76BA902D218B472C00A37F32 /* Foot_Step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA902C218B472C00A37F32 /* Foot_Step.wav */; };
 		76BA902F218B47DF00A37F32 /* stair_step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA902E218B47DF00A37F32 /* stair_step.wav */; };
+		76D3F4DA21E39E5700FAC0E0 /* BallonStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */; };
 		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
 		C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DA4DF218A3B3F003470AC /* EndGame.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
@@ -130,6 +131,7 @@
 		76BA9024218B3B5D00A37F32 /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
 		76BA902C218B472C00A37F32 /* Foot_Step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Foot_Step.wav; path = ../../../../../Desing/Musics/Foot_Step.wav; sourceTree = "<group>"; };
 		76BA902E218B47DF00A37F32 /* stair_step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = stair_step.wav; path = ../../../../../Desing/Musics/stair_step.wav; sourceTree = "<group>"; };
+		76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallonStructures.swift; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
 		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				C41DCF8C2177C50800F53FEC /* DialogComponente.swift */,
 				76064EC62189E4E000E1D776 /* MusicPanHelper.swift */,
 				76BA9024218B3B5D00A37F32 /* MusicHelper.swift */,
+				76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				765B3DE22178B552004AA4E3 /* RoomScene.swift in Sources */,
 				760CBD59217E6B0500640A5C /* PlayerIdle.swift in Sources */,
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
+				76D3F4DA21E39E5700FAC0E0 /* BallonStructures.swift in Sources */,
 				765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */,
 				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
@@ -735,7 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -753,7 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
