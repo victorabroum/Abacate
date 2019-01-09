@@ -12,6 +12,7 @@ import GameplayKit
 class ButtonComponent: GKComponent{
     
     static let doneActionNotificationName = Notification.Name(rawValue: "com.abacates.hoddy.doneActionNotificationName")
+    static let continueGameNotificationName = Notification.Name("com.abacates.hoddy.continueGameNotificationName")
     
     override init() {
         super.init()
@@ -36,6 +37,14 @@ class StartGameComponent: ButtonComponent{
     override func action() {
         super.action()
         print("IZTARTA UM NEW JAME!")
+        
+        // TODO: POP-UP confirm new game
+        
+        // if ele confirma
+        // Delte all things
+        PlayerDAO.deleteEverything()
+        // else faz nada
+        
     }
     
 }
@@ -43,6 +52,7 @@ class StartGameComponent: ButtonComponent{
 class ContinueGameComponent: ButtonComponent{
     override func action() {
         super.action()
+        NotificationCenter.default.post(name: ButtonComponent.continueGameNotificationName, object: nil)
         print("DA COntinue ai meu chegado!")
     }
     

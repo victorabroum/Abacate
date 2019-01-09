@@ -10,12 +10,9 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class HouseScene01: SKScene, SKPhysicsContactDelegate {
+class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var playerNode: PlayerNode?
     var ballon: Ballon?
-    
-    var entities = [GKEntity]()
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -23,7 +20,6 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     var bgAudios: SKNode?
     
     override func sceneDidLoad() {
-        self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
@@ -34,6 +30,9 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
+        super.didMove(to: view)
+        
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
         
         // Prepare BG Music
@@ -41,6 +40,10 @@ class HouseScene01: SKScene, SKPhysicsContactDelegate {
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
+        
+        PlayerModel.addKeys(k: "SALVEI")
+        PlayerModel.savePlayer()
+        
     }
     
     override func update(_ currentTime: TimeInterval) {

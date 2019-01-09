@@ -12,7 +12,6 @@ import GameKit
 
 class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
-    var playerNode:PlayerNode?
     var ballon: Ballon?
     
     // To control BG Audios
@@ -20,7 +19,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         print("Room didLoad")
-        playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
+        
         
         physicsWorld.contactDelegate = self
         
@@ -29,6 +28,9 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         // AddObserver for dismiss HomeScreen
         NotificationCenter.default.addObserver(self, selector: #selector(dismissHomeScreen), name: ButtonComponent.doneActionNotificationName, object: nil)
+        
+        // AddObserver for continue clicked
+        NotificationCenter.default.addObserver(self, selector: #selector(contiueGame), name: ButtonComponent.continueGameNotificationName, object: nil)
     }
     
     override func didMove(to view: SKView) {
@@ -87,10 +89,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
                 }
             }
             
-//            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-//            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-//            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
-            
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
@@ -106,9 +104,29 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
     }
     
+    
+    
+}
+
+// MARK: Relationade to HomeScreen
+extension RoomScene {
     @objc func dismissHomeScreen(){
         if let homeNode = self.childNode(withName: "homeScreen"){
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
+        }
+    }
+    
+    
+    @objc func contiueGame() {
+        // TODO: Use NameScene of PlayerModel
+//        let nameScene = PlayerModel.getInstance().sceneName
+//        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
+        let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
+        if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
+            nextScene.entities = cenaProxima.entities
+            let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+            nextScene.scaleMode = SKSceneScaleMode.aspectFill
+            self.view?.presentScene(nextScene, transition: transition)
         }
     }
     

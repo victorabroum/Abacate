@@ -42,7 +42,7 @@ class PlayerModel{
     }
     static func savePlayer(){
         //salvar status
-        PlayerDAO.updateStatus(status: self.getInstance().status!)
+//        PlayerDAO.updateStatus(status: self.getInstance().status!)
         for a in getInstance().achviement{
             if !PlayerDAO.getAchviements().contains(a){
                 PlayerDAO.addAchviement(key: a)
@@ -53,7 +53,7 @@ class PlayerModel{
                 PlayerDAO.addKey(key: k)
             }
         }
-        PlayerDAO.updateStatus(status: getInstance().status!)
+//        PlayerDAO.updateStatus(status: getInstance().status!)
     }
 
 }

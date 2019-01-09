@@ -48,7 +48,6 @@ class ButtonLayoutComponent: GKComponent {
         }
         
         if(node.entity?.component(ofType: ContinueGameComponent.self) != nil){
-            print("é o continuew")
             self.disable()
             NotificationCenter.default.addObserver(self, selector: #selector(enable), name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
             
@@ -65,6 +64,7 @@ class ButtonLayoutComponent: GKComponent {
     }
     
     @objc func enable(){
+        print("ENABLE")
         if(self.node != nil){
             self.node!.alpha = 1
             self.node!.isUserInteractionEnabled = true
