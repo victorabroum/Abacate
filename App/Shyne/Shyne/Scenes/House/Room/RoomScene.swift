@@ -55,14 +55,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
     }
     
-    override func willMove(from view: SKView) {
-        
-        if self.bgAudios != nil{
-           MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
-        
-    }
-    
     func didBegin(_ contact: SKPhysicsContact) {
         
         if let nome=contact.bodyA.node?.name!{
