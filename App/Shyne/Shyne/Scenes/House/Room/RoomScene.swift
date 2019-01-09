@@ -55,20 +55,20 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
             
           
-            if novoNome == "porta"{
+            if newName == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
-                    ballon = DoorBallon(referenceNode: self.childNode(withName: novoNome) as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                    ballon = DoorBallon(referenceNode: self.childNode(withName: newName) as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                     ballon!.setup()
                 }
             }
@@ -76,11 +76,11 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             

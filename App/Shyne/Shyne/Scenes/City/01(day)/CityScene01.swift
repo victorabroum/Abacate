@@ -29,6 +29,8 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.animatePeople(inNodes: people.children)
         }
         
+        // Auto-save
+        PlayerModel.savePlayer()
     }
     
     override func didMove(to view: SKView) {
@@ -54,25 +56,21 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            
-            
-            if (listaPermissoesCidade.contains(novoNome)){
+            if(PlayerModel.getInstance().keys.contains(newName)){
                 
-                if novoNome == "bakeryDoor"{
-                    
-                    print("BAKERY DOOR")
+                if newName == "bakeryDoor"{
                     
                     let cenaProxima:GKScene = GKScene(fileNamed: "BakeryScene01")!
                     if let nextScene = cenaProxima.rootNode as? BakeryScene01{
                         nextScene.entities = cenaProxima.entities
-                        let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                        let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                         
                         ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                         
@@ -80,14 +78,14 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     
                 }
                 
-                if(novoNome == "busStop"){
+                if(newName == "busStop"){
                     // Rola a animação do bus e depois vai para a sala de aula
                     
                     // Go to Classroom
                     if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
                         if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
                             nextScene.entities = cenaProxima.entities
-                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                             
                             ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
                                 self.busAnimate(nextScene)
@@ -98,32 +96,33 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     
                 }
                 
-                if(novoNome == "houseDoor"){
+                if(newName == "houseDoor"){
                     // Go to House 02
                     if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
                         if let nextScene = cenaProxima.rootNode as? HouseScene02{
                             nextScene.entities = cenaProxima.entities
-                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: novoNome)!
+                            let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                             
                             ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                         }
                     }
                 }
                 
-                
                 ballon?.setup()
+                
             }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            if (listaPermissoesCidade.contains(novoNome)){
+            
+            if(PlayerModel.getInstance().keys.contains(newName)){
                 ballon?.dismiss()
             }
         }

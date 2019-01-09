@@ -28,6 +28,12 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
         
         // Ajustando dialog
         prepareDialog()
+        
+        // Insert Keys on DAO
+        PlayerModel.addKeys(k: "goUp")
+        PlayerModel.addKeys(k: "goDown")
+        PlayerModel.addKeys(k: "dadDoor")
+        PlayerModel.addKeys(k: "triggerDad")
     }
     
     override func didMove(to view: SKView) {
@@ -42,39 +48,37 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            
-            
-            if(listaPermissoesHouse03.contains(novoNome)){
-                
-                if novoNome == "porta"{
+            // TODO: Use DAO
+            if(PlayerModel.getInstance().keys.contains(newName)){
+                if newName == "porta"{
                     let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene02")!
                     if let nextScene = cenaProxima.rootNode as? RoomScene02{
                         
                         nextScene.entities = cenaProxima.entities
                         ballon = DoorBallon(referenceNode: self.childNode(withName: "porta")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                     }
-                }else if(novoNome == "goUp"){
+                }else if(newName == "goUp"){
                     
-                    ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self)
                     
-                }else if(novoNome == "goDown"){
+                }else if(newName == "goDown"){
                     
-                    ballon = StairBallon(direction: "goDown", playerNode: self.playerNode!, referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self)
+                    ballon = StairBallon(direction: "goDown", playerNode: self.playerNode!, referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self)
                     
-                }else if(novoNome == "dadDoor"){
+                }else if(newName == "dadDoor"){
                     
-                    ballon = InteractionBallon(iconName: "Icone_Locker", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
+                    ballon = InteractionBallon(iconName: "Icone_Locker", referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self, action: {
                         self.run(SKAction.playSoundFileNamed("door_locked", waitForCompletion: true))
                     })
                     
-                }else if novoNome == "triggerDad"{
+                }else if newName == "triggerDad"{
                     
                     self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "Dad")! as! SKSpriteNode, referenceScene: self, action: {
                         let newBallon = DialogBallon.init(rootNode: house03Root, referenceScene: self)
@@ -89,25 +93,28 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
 
             }
-            if(listaPermissoesHouse03.contains(novoNome)){
+            
+            if(PlayerModel.getInstance().keys.contains(newName)){
                 self.ballon?.dismiss()
             }
+            
         }
     }
     
     
     func prepareDialog() {
         house03_D5.action = {
-            listaPermissoesHouse03.remove("triggerDad")
-            listaPermissoesHouse03.insert("porta")
+            
+            PlayerModel.addKeys(k: "porta")
+            // TODO: Remove key from DAO
             self.ballon?.dismiss()
         }
     }
