@@ -17,9 +17,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     
-    // To control BG Audios
-    var bgAudios: SKNode?
-    
     override func sceneDidLoad() {
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         

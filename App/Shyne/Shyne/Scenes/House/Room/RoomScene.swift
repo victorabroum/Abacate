@@ -14,9 +14,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
     var ballon: Ballon?
     
-    // To control BG Audios
-    var bgAudios: SKNode?
-    
     override func sceneDidLoad() {
         print("Room didLoad")
         

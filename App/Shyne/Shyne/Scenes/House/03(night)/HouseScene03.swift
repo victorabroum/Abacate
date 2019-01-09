@@ -16,9 +16,6 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     
-    // To control BG Audios
-    var bgAudios: SKNode?
-    
     override func sceneDidLoad() {
         
         // Dizendo que a scene comanda o delegate

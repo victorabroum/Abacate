@@ -18,6 +18,9 @@ class CustomSKSCene: SKScene{
     var entities = [GKEntity]()
     var playerNode: PlayerNode?
     
+    // To control BG Audios
+    var bgAudios: SKNode?
+    
     override func didMove(to view: SKView) {
         
         // Get PlayerNode reference
