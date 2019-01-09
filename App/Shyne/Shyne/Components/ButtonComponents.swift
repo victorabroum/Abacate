@@ -11,6 +11,8 @@ import GameplayKit
 
 class ButtonComponent: GKComponent{
     
+    static let doneActionNotificationName = Notification.Name(rawValue: "com.abacates.hoddy.doneActionNotificationName")
+    
     override init() {
         super.init()
     }
@@ -20,7 +22,7 @@ class ButtonComponent: GKComponent{
     }
     
     func action(){
-        print("DO SOMENTHING WOW!")
+        NotificationCenter.default.post(name: ButtonComponent.doneActionNotificationName, object: nil)
     }
     
     func setup() {
@@ -32,6 +34,7 @@ class ButtonComponent: GKComponent{
 class StartGameComponent: ButtonComponent{
     
     override func action() {
+        super.action()
         print("IZTARTA UM NEW JAME!")
     }
     
@@ -39,6 +42,7 @@ class StartGameComponent: ButtonComponent{
 
 class ContinueGameComponent: ButtonComponent{
     override func action() {
+        super.action()
         print("DA COntinue ai meu chegado!")
     }
     

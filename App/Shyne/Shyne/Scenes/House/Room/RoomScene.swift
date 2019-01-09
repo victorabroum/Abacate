@@ -26,6 +26,9 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         //Preparando a tree story dessa scene
         makeTreeOfRoom()
+        
+        // AddObserver for dismiss HomeScreen
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissHomeScreen), name: ButtonComponent.doneActionNotificationName, object: nil)
     }
     
     override func didMove(to view: SKView) {
@@ -35,7 +38,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
-            print("VAMO READY")
             self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
             self.ballon!.setup()
         }
@@ -101,6 +103,12 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             }
             
             ballon?.dismiss()
+        }
+    }
+    
+    @objc func dismissHomeScreen(){
+        if let homeNode = self.childNode(withName: "homeScreen"){
+            homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
     }
     
