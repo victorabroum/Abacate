@@ -10,20 +10,13 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class ClassroomScene01: SKScene {
+class ClassroomScene01: CustomSKSCene {
 
-    
-    var playerNode: PlayerNode?
     var ballon: Ballon?
     
-    var entities = [GKEntity]()
-    
-    // To control BG Audios
-    var bgAudios: SKNode?
-    
     override func sceneDidLoad() {
-        self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         
+        super.sceneDidLoad()
         
         //Preparando a tree story dessa scene
         classRoomRootmakeTree()
@@ -31,6 +24,7 @@ class ClassroomScene01: SKScene {
     }
     
     func prepareDialog(){
+        
         //func b1
         let cenaProxima1: GKScene = GKScene(fileNamed: "CityScene02")!
         
@@ -53,21 +47,14 @@ class ClassroomScene01: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        super.didMove(to: view)
+        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             print("BG AUDIOS")
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
         }
-    }
-    
-    override func willMove(from view: SKView) {
-        if self.bgAudios != nil{
-            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        
     }
 }

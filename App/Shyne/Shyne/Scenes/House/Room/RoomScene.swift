@@ -10,36 +10,38 @@ import UIKit
 import SpriteKit
 import GameKit
 
-class RoomScene: SKScene,SKPhysicsContactDelegate {
+class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
-    var playerNode:PlayerNode?
     var ballon: Ballon?
-    
-    // To control BG Audios
-    var bgAudios: SKNode?
     
     override func sceneDidLoad() {
         print("Room didLoad")
-        playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
+        super.sceneDidLoad()
         
         physicsWorld.contactDelegate = self
         
         //Preparando a tree story dessa scene
         makeTreeOfRoom()
+        
+        // AddObserver for dismiss HomeScreen
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissHomeScreen), name: ButtonComponent.doneActionNotificationName, object: nil)
+        
+        // AddObserver for continue clicked
+        NotificationCenter.default.addObserver(self, selector: #selector(contiueGame), name: ButtonComponent.continueGameNotificationName, object: nil)
     }
     
     override func didMove(to view: SKView) {
         print("ROOM didMove")
-        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        super.didMove(to: view)
+        
+        self.playerNode?.canWalk = false
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
-            print("VAMO READY")
             self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
             self.ballon!.setup()
         }
         startBallon.setup()
         
-        self.playerNode?.canWalk = false
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
@@ -48,18 +50,6 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
         
-        
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        self.playerNode?.makePlayerWalk()
-    }
-    
-    override func willMove(from view: SKView) {
-        
-        if self.bgAudios != nil{
-           MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
         
     }
     
@@ -83,10 +73,6 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
                 }
             }
             
-//            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-//            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-//            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
-            
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
@@ -99,6 +85,32 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
             }
             
             ballon?.dismiss()
+        }
+    }
+    
+    
+    
+}
+
+// MARK: Relationade to HomeScreen
+extension RoomScene {
+    @objc func dismissHomeScreen(){
+        if let homeNode = self.childNode(withName: "homeScreen"){
+            homeNode.run(SKAction.fadeOut(withDuration: 0.3))
+        }
+    }
+    
+    
+    @objc func contiueGame() {
+        // TODO: Use NameScene of PlayerModel
+//        let nameScene = PlayerModel.getInstance().sceneName
+//        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
+        let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
+        if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
+            nextScene.entities = cenaProxima.entities
+            let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+            nextScene.scaleMode = SKSceneScaleMode.aspectFill
+            self.view?.presentScene(nextScene, transition: transition)
         }
     }
     

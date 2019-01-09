@@ -68,6 +68,7 @@ class PlayerNode: SKSpriteNode{
         // Add camera reference to follow
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
+        self.cameraReference.removeFromParent()
         self.addChild(self.cameraReference)
         
         // Setup statemachine
@@ -95,8 +96,6 @@ class PlayerNode: SKSpriteNode{
     
     // Func to make player moves
     func makePlayerWalk(){
-        
-        print("WALK \(self.canWalk)")
         
         if self.canWalk{
             

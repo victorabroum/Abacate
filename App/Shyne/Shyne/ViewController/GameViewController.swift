@@ -15,26 +15,18 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //
-        print(PlayerDAO.getStatus())
-        PlayerModel.incrementStatusBom(increment: -12)
-        PlayerModel.incrementStatusMedio(increment: -10)
-        PlayerModel.incrementStatusRuim(increment: -30)
-        PlayerModel.savePlayer()
-        print(PlayerDAO.getStatus())
-        //
-        
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
             // Get the SKScene from the loaded GKScene
-        if let scene = GKScene(fileNamed: "RoomScene") {
+        if let scene = GKScene(fileNamed: "ClassroomScene01") {
             
             // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! RoomScene? {
+            if let sceneNode = scene.rootNode as! CustomSKSCene? {
                 
                 // Copy gameplay related content over to the scene
-                // sceneNode.entities = scene.entities
+                
+                 sceneNode.entities = scene.entities
                 // sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window

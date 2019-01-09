@@ -10,20 +10,15 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class CityScene01: SKScene, SKPhysicsContactDelegate{
+class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     
-    var playerNode: PlayerNode?
     var musicsNode: SKNode?
     var ballon: Ballon?
     
-    
-    var entities = [GKEntity]()
-    
-    // To control BG Audios
-    var bgAudios: SKNode?
-    
     override func sceneDidLoad() {
-        self.playerNode = self.childNode(withName: "playerNode") as? PlayerNode
+        
+        super.sceneDidLoad()
+        
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
         }
@@ -37,7 +32,11 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
     }
     
     override func didMove(to view: SKView) {
+        
+        super.didMove(to: view)
+        
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
+        
         MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
         
         // Prepare BG Music
@@ -48,16 +47,10 @@ class CityScene01: SKScene, SKPhysicsContactDelegate{
     }
     
     override func update(_ currentTime: TimeInterval) {
-        self.playerNode?.makePlayerWalk()
+        super.update(currentTime)
         
         MusicPanHelper.updateMusicPan(inSpace: self.frame.size, forThisListner: self.playerNode!, fromThisMusicNodes: (self.musicsNode?.children)!)
         
-    }
-    
-    override func willMove(from view: SKView) {
-        if self.bgAudios != nil{
-            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
