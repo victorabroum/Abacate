@@ -178,10 +178,25 @@ class PlayerDAO{
         deleteAllStatus()
         deleteAllAchviements()
     }
-//    static func updateStatus(status:PlayerStatus){
-//        if(getStatus().count>0){
-//            
-//        }
-//    }
+    static func updateStatus(status:PlayerStatus){
+        if(getStatus().count>0){
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Status")
+            //request.predicate = NSPredicate(format: "age = %@", "12")
+            request.returnsObjectsAsFaults = false
+            do {
+                let result = try getInstanceContext().fetch(request)
+                let data = result as! [NSManagedObject]
+                let s = data[0]
+                s.setValue(status.bom, forKey: "bom")
+                s.setValue(status.medio, forKey: "medio")
+                s.setValue(status.ruim, forKey: "ruim")
+                do{
+                    try getInstanceContext().save()
+                }
+            } catch {
+                print("Failed")
+            }
+        }
+    }
 }
 
