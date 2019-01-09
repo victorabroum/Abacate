@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameKit
 
-class RoomScene: SKScene,SKPhysicsContactDelegate {
+class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
     var playerNode:PlayerNode?
     var ballon: Ballon?
@@ -30,6 +30,8 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         print("ROOM didMove")
+        super.didMove(to: view)
+        
         playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {

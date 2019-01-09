@@ -96,8 +96,6 @@ class PlayerNode: SKSpriteNode{
     // Func to make player moves
     func makePlayerWalk(){
         
-        print("WALK \(self.canWalk)")
-        
         if self.canWalk{
             
             switch self.actualDirection {
