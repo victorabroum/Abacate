@@ -42,4 +42,10 @@ class CustomSKSCene: SKScene{
         self.playerNode?.makePlayerWalk()
     }
     
+    override func willMove(from view: SKView) {
+        if self.bgAudios != nil{
+            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
+        }
+    }
+    
 }
