@@ -23,21 +23,6 @@ class HomeButtonSpriteNode: SKSpriteNode{
         
         self.isUserInteractionEnabled = true
         
-//        // Setup label
-//        let text = self.userData?.value(forKey: "text")
-//        let labelNode = SKLabelNode(text: "\(text ?? "NO TEXT")")
-//        labelNode.fontSize = 22
-//        labelNode.fontName = "Futura"
-//        labelNode.position = CGPoint.zero
-//        labelNode.horizontalAlignmentMode = .center
-//        labelNode.verticalAlignmentMode = .center
-//        labelNode.fontColor = .black
-//        labelNode.zPosition = self.zPosition + 50
-//        self.addChild(labelNode)
-//
-//        // Ajust ballon size
-//        self.size.width = (1.5 * labelNode.frame.size.width)
-        
         if(self.entity != nil){
             let text = self.userData?.value(forKey: "text")
             self.entity?.addComponent(ButtonLayoutComponent(withText: "\(text ?? "NO NAME")", onNode: self))
