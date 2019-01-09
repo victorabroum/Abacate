@@ -15,6 +15,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //
+        print(PlayerDAO.getStatus())
+        PlayerModel.incrementStatusBom(increment: -12)
+        PlayerModel.incrementStatusMedio(increment: -10)
+        PlayerModel.incrementStatusRuim(increment: -30)
+        PlayerModel.savePlayer()
+        print(PlayerDAO.getStatus())
+        //
+        
+        
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
             // Get the SKScene from the loaded GKScene
