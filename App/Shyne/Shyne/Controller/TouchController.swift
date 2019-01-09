@@ -52,6 +52,14 @@ class TouchController: SKSpriteNode {
 
     }
     
+    func stop() {
+        self.isUserInteractionEnabled = false
+    }
+    
+    func start() {
+        self.isUserInteractionEnabled = true
+    }
+    
     func addButton(button: SKSpriteNode,
                    position: CGPoint,
                    name: String,

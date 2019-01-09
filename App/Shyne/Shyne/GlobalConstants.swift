@@ -36,9 +36,6 @@ var cameraUpper: CGFloat = 7.0
 // Stairs animation duration
 var stairDuration: TimeInterval = 2
 
-// Flags important para o game
-var finishedBakery: Bool = true
-
 
 var escolhaFeita = 1
 var falouComPaiNaCasa01 = false
@@ -49,5 +46,5 @@ var listaPermissoesHouse01:Set = ["goDown","goUp","triggerDad", "dadDoor"]
 var listaPermissoesCidade:Set = ["bakeryDoor"]
 var listaPermissoesPadaria:Set = ["padeiro"]
 var listaPermissoesHouse02:Set = ["goDown","goUp","dady", "dadDoor"]
-var listaPermissoesHouse03:Set = ["goDown","goUp","triggerDad","porta", "dadDoor"]
+var listaPermissoesHouse03:Set = ["goDown","goUp","triggerDad", "dadDoor"]
 var listaPermissoesRoom02:Set = ["cama"]

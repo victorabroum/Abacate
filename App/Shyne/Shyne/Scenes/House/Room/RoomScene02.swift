@@ -13,7 +13,9 @@ import GameKit
 class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     var playerNode:PlayerNode?
-    var dialogavel1: Dialogavel?
+    
+    var ballon: Ballon?
+    
     var entities = [GKEntity]()
     
     // To control BG Audios
@@ -23,18 +25,9 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
         physicsWorld.contactDelegate = self
-        self.dialogavel1 = Dialogavel(cena: self)
-        // Indicando a raiz da story
-        self.dialogavel1!.indexNode = room02Root
         
-        room02Root.action = {
-            let cenaProxima = SKScene(fileNamed: "EndGame")
-            
-            let transition:SKTransition = SKTransition.fade(withDuration: 1)
-            cenaProxima!.scaleMode = SKSceneScaleMode.aspectFill
-            self.view?.presentScene(cenaProxima!, transition: transition)
-            
-        }
+        // Prepare Dialog
+        prepareDialog()
         
     }
     
@@ -50,9 +43,6 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode?.makePlayerWalk()
-        if(dialogavel1?.indexNode == nil){
-            listaPermissoesRoom02.remove("cama")
-        }
     }
     
     override func willMove(from view: SKView) {
@@ -70,13 +60,20 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
             }
             
             
-            if novoNome == "cama"{
-                dialogavel1!.caixa = caixaDeDialogo(personagem: self.childNode(withName: novoNome)!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogavel1!)
-            }
+            
             if(listaPermissoesRoom02.contains(novoNome)){
-                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-                lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+                
+                if novoNome == "cama"{
+                    
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
+                        let newBallon = DialogBallon.init(rootNode: room02Root, referenceScene: self)
+                        newBallon.setup()
+                    })
+                   
+                }
+                
+                self.ballon?.setup()
+                
             }
         }
     }
@@ -89,8 +86,24 @@ class RoomScene02: SKScene,SKPhysicsContactDelegate {
                 }
             }
             if(listaPermissoesRoom02.contains(novoNome)){
-                lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+                self.ballon?.dismiss()
             }
         }
+    }
+    
+    func prepareDialog(){
+        
+        room02Root.action = {
+            
+            listaPermissoesRoom02.remove("cama")
+            
+            let cenaProxima = SKScene(fileNamed: "EndGame")
+            
+            let transition:SKTransition = SKTransition.fade(withDuration: 1)
+            cenaProxima!.scaleMode = SKSceneScaleMode.aspectFill
+            self.view?.presentScene(cenaProxima!, transition: transition)
+            
+        }
+        
     }
 }

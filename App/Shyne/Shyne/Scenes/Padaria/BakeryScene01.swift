@@ -13,7 +13,7 @@ import GameplayKit
 class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     var playerNode: PlayerNode?
-    var dialogBox01: Dialogavel?
+    var ballon: Ballon?
     var padeiroNode: SKSpriteNode?
     
     var entities = [GKEntity]()
@@ -29,12 +29,8 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
-        // Criando a box do diálogo
-        self.dialogBox01 = Dialogavel(cena: self)
         //Preparando a tree story dessa scene
         makeTreeOfRoomPadaria()
-        // Indicando a raiz da story
-        self.dialogBox01!.indexNode = rootNodePadaria
         self.prepareDialoge()
         
     }
@@ -57,12 +53,6 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerNode!.makePlayerWalk()
-        if(dialogBox01?.indexNode == nil){
-            listaPermissoesPadaria.insert("porta")
-            listaPermissoesCidade.remove("bakeryDoor")
-            listaPermissoesCidade.insert("houseDoor")
-            listaPermissoesPadaria.remove("padeiro")
-        }
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
@@ -75,21 +65,34 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             
-            if novoNome == "padeiro"{
-                print("Padeiro")
-                self.dialogBox01!.caixa = caixaDeDialogo(personagem: self.childNode(withName: "padeiroCaixa")!, texto: (lista[novoNome]?.mensagem)!, dialogavel: self.dialogBox01!)
-            }else if novoNome == "porta"{
-                let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
-                if let nextScene = cenaProxima.rootNode as? CityScene01{
-                    nextScene.playerNode!.position = CGPoint(x: -748.625, y: -126.709)
-                    nextScene.entities = cenaProxima.entities
-                    self.dialogBox01!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogBox01!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
-                }
-            }
+            
             if (listaPermissoesPadaria.contains(novoNome)){
-                lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-                lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-                lista[novoNome]?.funcaoEntrada!(dialogBox01!.caixa!)
+                
+                if novoNome == "padeiro"{
+                    
+                    ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
+                        let auxBallon = DialogBallon.init(rootNode: rootNodePadaria, referenceNode: self.playerNode!, referenceScene: self)
+                        auxBallon.setup()
+//                        self.prepareDialoge()
+                    })
+                    
+                    
+                    
+                }else if novoNome == "porta"{
+                    let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
+                    if let nextScene = cenaProxima.rootNode as? CityScene01{
+                        
+                        nextScene.playerNode!.position = (nextScene.childNode(withName: "initPosition")?.childNode(withName: "bakery")?.position)!
+                        nextScene.entities = cenaProxima.entities
+                        
+                        ballon = DoorBallon(referenceNode: self.playerNode!, referenceScene: self, nextScene: nextScene)
+                        
+                        
+                        
+                    }
+                }
+                
+                ballon?.setup()
                 
             }
         }
@@ -105,7 +108,7 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
             }
             
             if (listaPermissoesPadaria.contains(novoNome)){
-                lista[novoNome]?.funcaoSaida!(dialogBox01!.caixa!)
+                ballon!.dismiss()
             }
         }
     }
@@ -114,20 +117,30 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     func prepareDialoge() {
         rootNodePadaria.action = {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
-                self.dialogBox01?.drawnDialog()
+                self.ballon = DialogBallon.init(rootNode: secondTalkPadaria, referenceNode: self.padeiroNode!, referenceScene: self)
+                self.ballon?.setup()
+//                self.dialogBox01?.drawnDialog()
             })
             
         }
         
         bakery01D4.action = {
-            self.dialogBox01?.drawnDialog()
+            
+            listaPermissoesPadaria.insert("porta")
+            listaPermissoesCidade.remove("bakeryDoor")
+            listaPermissoesCidade.insert("houseDoor")
+            listaPermissoesPadaria.remove("padeiro")
+            
+            self.ballon?.dismiss()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
         func justSair() {
-            self.dialogBox01?.escolhas?.sair()
+            self.ballon?.removeFromParent()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
-                self.dialogBox01?.drawnDialog()
+                
+                self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: self.padeiroNode!, referenceScene: self)
+                self.ballon?.setup()
             })
         }
         
@@ -142,13 +155,17 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
         }
         
         rObrigado.function = {
+            
+            listaPermissoesPadaria.insert("porta")
+            listaPermissoesCidade.remove("bakeryDoor")
+            listaPermissoesCidade.insert("houseDoor")
+            listaPermissoesPadaria.remove("padeiro")
+            
             // Sumi textura do pão
             // Ele vai levar o pão errado mesmo
             escolhaFeita = 0
-            self.dialogBox01?.escolhas?.sair()
-            self.dialogBox01?.indexNode = nil
+            self.ballon?.dismiss()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
-            self.dialogBox01?.drawnDialog()
         }
         
     }

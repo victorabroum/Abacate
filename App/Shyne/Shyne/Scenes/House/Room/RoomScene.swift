@@ -13,7 +13,7 @@ import GameKit
 class RoomScene: SKScene,SKPhysicsContactDelegate {
     
     var playerNode:PlayerNode?
-    var dialogavel1: Dialogavel?
+    var ballon: Ballon?
     
     // To control BG Audios
     var bgAudios: SKNode?
@@ -23,19 +23,22 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
         physicsWorld.contactDelegate = self
-        self.dialogavel1 = Dialogavel(cena: self)
         
         //Preparando a tree story dessa scene
         makeTreeOfRoom()
-        // Indicando a raiz da story
-        self.dialogavel1!.indexNode = rootNode
     }
     
     override func didMove(to view: SKView) {
         print("ROOM didMove")
         playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
-        self.dialogavel1!.caixa = caixaDeDialogo(personagem: self.playerNode!, texto: "...", dialogavel: self.dialogavel1!)
-        self.dialogavel1!.caixa!.entrar()
+        
+        let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
+            print("VAMO READY")
+            self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
+            self.ballon!.setup()
+        }
+        startBallon.setup()
+        
         self.playerNode?.canWalk = false
         
         // Prepare BG Music
@@ -75,13 +78,14 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
-                    self.dialogavel1!.caixa = caixaDeTrocaDeCena(personagem: self.playerNode!, dialogavel: self.dialogavel1!, texture: "Icone_Door", cenaAtual: self, cenaProxima: nextScene)
+                    ballon = DoorBallon(referenceNode: self.childNode(withName: novoNome) as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                    ballon!.setup()
                 }
             }
             
-            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
-            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
-            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
+//            lista[novoNome]?.funcaoEntrada = {(n:caixa)->Void in n.entrar()}
+//            lista[novoNome]?.funcaoSaida = {(n:caixa)->Void in n.sair()}
+//            lista[novoNome]?.funcaoEntrada!(dialogavel1!.caixa!)
             
         }
     }
@@ -94,7 +98,7 @@ class RoomScene: SKScene,SKPhysicsContactDelegate {
                 }
             }
             
-            lista[novoNome]?.funcaoSaida!(dialogavel1!.caixa!)
+            ballon?.dismiss()
         }
     }
     
