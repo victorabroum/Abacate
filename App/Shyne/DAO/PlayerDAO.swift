@@ -131,6 +131,9 @@ class PlayerDAO{
         } catch {
             print("Failed")
         }
+        if(lista.isEmpty){
+            lista.append(PlayerStatus(bom:0,medio:0,ruim:0))
+        }
         return lista
     }
     //MARK:DELETES
