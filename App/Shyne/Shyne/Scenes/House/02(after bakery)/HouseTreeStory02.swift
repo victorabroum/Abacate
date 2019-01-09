@@ -8,6 +8,8 @@
 
 import Foundation
 
+var house02Root3 = Node(withText: NSLocalizedString("French brad, kiddo!", comment: ""), withChoices: [], inNodeNamed: "dad")
+
 
 /////////Caminho 1
  var house02Root1: Node = Node(withText: NSLocalizedString("Why didn't you\n get the french bread?", comment: ""), withChoices: [], inNodeNamed: "dad")

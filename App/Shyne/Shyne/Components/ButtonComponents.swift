@@ -36,13 +36,14 @@ class StartGameComponent: ButtonComponent{
     
     override func action() {
         super.action()
-        print("IZTARTA UM NEW JAME!")
         
         // TODO: POP-UP confirm new game
         
         // if ele confirma
         // Delte all things
-        PlayerDAO.deleteEverything()
+//        PlayerModel.delete()
+        
+        print("CHAVEs \(PlayerModel.getInstance().keys)")
         // else faz nada
         
     }

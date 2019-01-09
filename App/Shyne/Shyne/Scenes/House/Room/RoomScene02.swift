@@ -21,6 +21,11 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         // Prepare Dialog
         prepareDialog()
         
+        // Auto-save
+        PlayerModel.savePlayer()
+        
+        PlayerModel.addKeys(k: "cama")
+        
     }
     
     override func didMove(to view: SKView) {
@@ -35,40 +40,36 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            
-            
-            if(listaPermissoesRoom02.contains(novoNome)){
-                
-                if novoNome == "cama"{
+            if(PlayerModel.getInstance().keys.contains(newName)){
+                if newName == "cama"{
                     
-                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: novoNome)! as! SKSpriteNode, referenceScene: self, action: {
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self, action: {
                         let newBallon = DialogBallon.init(rootNode: room02Root, referenceScene: self)
                         newBallon.setup()
                     })
-                   
+                    
                 }
                 
                 self.ballon?.setup()
-                
             }
         }
     }
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            if(listaPermissoesRoom02.contains(novoNome)){
+            if(PlayerModel.getInstance().keys.contains(newName)){
                 self.ballon?.dismiss()
             }
         }

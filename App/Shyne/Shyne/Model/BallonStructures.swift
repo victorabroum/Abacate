@@ -50,10 +50,8 @@ class Ballon : SKSpriteNode{
         self.referenceScene = referenceScene
         
         if let node = referenceScene.childNode(withName: rootNode.nodeToTalk) as? SKSpriteNode{
-            print("ENCONTROU")
             self.referenceNode = node
         }else{
-            print("NAO ENCONTROU ")
           self.referenceNode = SKSpriteNode()
         }
         
@@ -353,7 +351,6 @@ class StairBallon: InteractionBallon{
 class DialogBallon: Ballon{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("CLICOU NO MALUCO")
         nextBallon()
     }
     

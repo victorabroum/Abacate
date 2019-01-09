@@ -29,6 +29,11 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         makeTreeOfRoomPadaria()
         self.prepareDialoge()
         
+        // Auto-Save
+        PlayerModel.savePlayer()
+        
+        PlayerModel.addKeys(k: "padeiro")
+        
     }
     
     override func didMove(to view: SKView) {
@@ -44,28 +49,24 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
 
     func didBegin(_ contact: SKPhysicsContact) {
         print("deu colisao")
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            
-            
-            if (listaPermissoesPadaria.contains(novoNome)){
-                
-                if novoNome == "padeiro"{
+            if (PlayerModel.getInstance().keys.contains(newName)){
+                if newName == "padeiro"{
                     
                     ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
                         let auxBallon = DialogBallon.init(rootNode: rootNodePadaria, referenceNode: self.playerNode!, referenceScene: self)
                         auxBallon.setup()
-//                        self.prepareDialoge()
                     })
                     
                     
                     
-                }else if novoNome == "porta"{
+                }else if newName == "porta"{
                     let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
                     if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                         
@@ -73,29 +74,25 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                         nextScene.entities = cenaProxima.entities
                         
                         ballon = DoorBallon(referenceNode: self.playerNode!, referenceScene: self, nextScene: nextScene)
-                        
-                        
-                        
                     }
                 }
                 
                 ballon?.setup()
-                
             }
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            if (listaPermissoesPadaria.contains(novoNome)){
-                ballon!.dismiss()
+            if (PlayerModel.getInstance().keys.contains(newName)){
+                ballon?.dismiss()
             }
         }
     }
@@ -106,17 +103,16 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
                 self.ballon = DialogBallon.init(rootNode: secondTalkPadaria, referenceNode: self.padeiroNode!, referenceScene: self)
                 self.ballon?.setup()
-//                self.dialogBox01?.drawnDialog()
             })
             
         }
         
         bakery01D4.action = {
             
-            listaPermissoesPadaria.insert("porta")
-            listaPermissoesCidade.remove("bakeryDoor")
-            listaPermissoesCidade.insert("houseDoor")
-            listaPermissoesPadaria.remove("padeiro")
+            PlayerModel.addKeys(k: "porta")
+            PlayerModel.addKeys(k: "houseDoor")
+            
+            // TODO: Remove padeiro keys from DAO
             
             self.ballon?.dismiss()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
@@ -129,6 +125,8 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                 self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: self.padeiroNode!, referenceScene: self)
                 self.ballon?.setup()
             })
+            
+            PlayerModel.addKeys(k: "frenchBrad")
         }
         
         rVcErrou.function = {
@@ -143,15 +141,15 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         
         rObrigado.function = {
             
-            listaPermissoesPadaria.insert("porta")
-            listaPermissoesCidade.remove("bakeryDoor")
-            listaPermissoesCidade.insert("houseDoor")
-            listaPermissoesPadaria.remove("padeiro")
+            PlayerModel.addKeys(k: "porta")
+            PlayerModel.addKeys(k: "houseDoor")
+            PlayerModel.addKeys(k: "sweetBrad")
+            
+            // TODO: Remove padeiro keys from DAO
+            
+            self.ballon?.dismiss()
             
             // Sumi textura do pão
-            // Ele vai levar o pão errado mesmo
-            escolhaFeita = 0
-            self.ballon?.dismiss()
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
