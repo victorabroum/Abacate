@@ -17,6 +17,8 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
+    
+        super.sceneDidLoad()
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
@@ -29,6 +31,8 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
+        super.didMove(to: view)
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {

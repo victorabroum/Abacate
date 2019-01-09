@@ -17,6 +17,8 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     
     override func sceneDidLoad() {
         
+        super.sceneDidLoad()
+        
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
         }

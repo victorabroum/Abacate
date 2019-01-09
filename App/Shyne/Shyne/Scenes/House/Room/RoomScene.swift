@@ -16,6 +16,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         print("Room didLoad")
+        super.sceneDidLoad()
         
         physicsWorld.contactDelegate = self
         

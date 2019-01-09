@@ -21,13 +21,22 @@ class CustomSKSCene: SKScene{
     // To control BG Audios
     var bgAudios: SKNode?
     
+    override func sceneDidLoad() {
+        // Get PlayerNode reference
+        
+        if let node = self.childNode(withName: "playerNode") as? PlayerNode{
+            playerNode = node
+        }
+        
+    }
+    
     override func didMove(to view: SKView) {
         
-        // Get PlayerNode reference
-        playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
-        
         // Prepare Player for walk
-        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        if(playerNode != nil){
+            playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        }
+        
         
         NotificationCenter.default.post(name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
@@ -42,7 +51,9 @@ class CustomSKSCene: SKScene{
     }
     
     override func update(_ currentTime: TimeInterval) {
-        self.playerNode?.makePlayerWalk()
+        if(playerNode != nil){
+            self.playerNode?.makePlayerWalk()
+        }
     }
     
     override func willMove(from view: SKView) {

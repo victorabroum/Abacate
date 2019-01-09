@@ -68,6 +68,7 @@ class PlayerNode: SKSpriteNode{
         // Add camera reference to follow
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
+        self.cameraReference.removeFromParent()
         self.addChild(self.cameraReference)
         
         // Setup statemachine

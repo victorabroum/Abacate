@@ -15,6 +15,9 @@ class ClassroomScene01: CustomSKSCene {
     var ballon: Ballon?
     
     override func sceneDidLoad() {
+        
+        super.sceneDidLoad()
+        
         //Preparando a tree story dessa scene
         classRoomRootmakeTree()
         prepareDialog()

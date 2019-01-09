@@ -16,6 +16,9 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
     var ballon: Ballon?
     
     override func sceneDidLoad() {
+        
+        super.sceneDidLoad()
+        
         physicsWorld.contactDelegate = self
         
     }
@@ -23,6 +26,8 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
+        
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {

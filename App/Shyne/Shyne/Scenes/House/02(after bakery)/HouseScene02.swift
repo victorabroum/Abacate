@@ -18,6 +18,7 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
+        super.sceneDidLoad()
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self

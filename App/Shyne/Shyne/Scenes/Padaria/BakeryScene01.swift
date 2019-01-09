@@ -18,6 +18,9 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
+        
+        super.sceneDidLoad()
+        
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         
         // Dizendo que a scene comanda o delegate
@@ -64,7 +67,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                     
                 }else if novoNome == "porta"{
                     let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
-                    if let nextScene = cenaProxima.rootNode as? CityScene01{
+                    if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                         
                         nextScene.playerNode!.position = (nextScene.childNode(withName: "initPosition")?.childNode(withName: "bakery")?.position)!
                         nextScene.entities = cenaProxima.entities
