@@ -33,27 +33,16 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
         
         super.didMove(to: view)
         
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
-        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
         
+        // TODO: Auto-Save
         PlayerModel.addKeys(k: "SALVEI")
         PlayerModel.savePlayer()
         
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        self.playerNode!.makePlayerWalk()
-    }
-    
-    override func willMove(from view: SKView) {
-        if self.bgAudios != nil{
-            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -63,9 +52,6 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
                     return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
-            
-            print(novoNome)
-            
             
             if (listaPermissoesHouse01.contains(novoNome)){
                 
