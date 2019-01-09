@@ -10,13 +10,10 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class BakeryScene01: SKScene, SKPhysicsContactDelegate {
+class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var playerNode: PlayerNode?
     var ballon: Ballon?
     var padeiroNode: SKSpriteNode?
-    
-    var entities = [GKEntity]()
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -24,7 +21,6 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     var bgAudios: SKNode?
     
     override func sceneDidLoad() {
-        self.playerNode = childNode(withName: "playerNode") as? PlayerNode
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         
         // Dizendo que a scene comanda o delegate
@@ -36,23 +32,14 @@ class BakeryScene01: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset:-1)
+       
+        super.didMove(to: view)
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
         }
-    }
-    
-    override func willMove(from view: SKView) {
-        if self.bgAudios != nil{
-            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        self.playerNode!.makePlayerWalk()
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
