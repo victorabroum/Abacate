@@ -41,6 +41,7 @@ class PlayerModel{
         getInstance().keys.insert(k)
     }
     static func savePlayer(){
+        print("AUTO SAVE - \(self.getInstance().keys)")
         //salvar status
 //        PlayerDAO.updateStatus(status: self.getInstance().status!)
         for a in getInstance().achviement{

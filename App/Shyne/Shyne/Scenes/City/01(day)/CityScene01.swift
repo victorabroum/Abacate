@@ -46,6 +46,8 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
         }
+        
+        self.correctPlayerNodePosition()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -157,6 +159,15 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         for node in nodes{
             print("name \(node.name!)")
             node.run(SKAction.init(named: node.name!)!)
+        }
+    }
+    
+    func correctPlayerNodePosition() {
+        
+        if(PlayerModel.getInstance().keys.contains("breakfastAte")){
+            self.playerNode?.position = (self.childNode(withName: "initPosition")?.childNode(withName: "house")?.position)!
+        }else if(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad")){
+            self.playerNode!.position = (self.childNode(withName: "initPosition")!.childNode(withName: "bakery")?.position)!
         }
     }
     

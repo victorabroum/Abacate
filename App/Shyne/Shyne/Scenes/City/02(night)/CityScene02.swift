@@ -36,41 +36,49 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         }
         
         self.animateBus()
+        
+        // Auto-Save
+        PlayerModel.savePlayer()
+        
+        PlayerModel.addKeys(k: "porta")
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
-            var novoNome:String {
+        if let name=contact.bodyA.node?.name!{
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            
-            if novoNome == "porta"{
-                let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene03")!
-                if let nextScene = cenaProxima.rootNode as? HouseScene03{
-                    
-                    nextScene.entities = cenaProxima.entities
-                    self.ballon = DoorBallon(referenceNode: self.childNode(withName: "porta")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+            if(PlayerModel.getInstance().keys.contains(newName)){
+                if newName == "porta"{
+                    let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene03")!
+                    if let nextScene = cenaProxima.rootNode as? HouseScene03{
+                        
+                        nextScene.entities = cenaProxima.entities
+                        self.ballon = DoorBallon(referenceNode: self.childNode(withName: "porta")! as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                    }
                 }
+                
+                self.ballon?.setup()
             }
-            
-            self.ballon?.setup()
             
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        if let nome=contact.bodyA.node?.name!{
+        if let name=contact.bodyA.node?.name!{
             
-            var novoNome:String {
+            var newName:String {
                 get {
-                    return (nome == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
+                    return (name == "playerNode" ? contact.bodyB.node?.name : contact.bodyA.node?.name)!
                 }
             }
             
-            self.ballon?.dismiss()
+            if(PlayerModel.getInstance().keys.contains(newName)){
+                ballon?.dismiss()
+            }
         }
     }
     

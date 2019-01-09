@@ -125,6 +125,8 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                 self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: self.padeiroNode!, referenceScene: self)
                 self.ballon?.setup()
             })
+            
+            PlayerModel.addKeys(k: "frenchBrad")
         }
         
         rVcErrou.function = {
@@ -141,13 +143,13 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "houseDoor")
+            PlayerModel.addKeys(k: "sweetBrad")
             
             // TODO: Remove padeiro keys from DAO
             
-            // Sumi textura do pão
-            // Ele vai levar o pão errado mesmo
-            escolhaFeita = 0
             self.ballon?.dismiss()
+            
+            // Sumi textura do pão
             self.padeiroNode?.texture = SKTexture(imageNamed: "idle_baker")
         }
         
