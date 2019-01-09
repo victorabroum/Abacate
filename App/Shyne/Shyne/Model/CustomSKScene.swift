@@ -23,6 +23,9 @@ class CustomSKSCene: SKScene{
         // Get PlayerNode reference
         playerNode = self.childNode(withName: "playerNode" ) as? PlayerNode
         
+        // Prepare Player for walk
+        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        
         NotificationCenter.default.post(name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
         // TODO: Load Game here
@@ -33,6 +36,10 @@ class CustomSKSCene: SKScene{
             print("tem alguem")
             NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
         }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        self.playerNode?.makePlayerWalk()
     }
     
 }

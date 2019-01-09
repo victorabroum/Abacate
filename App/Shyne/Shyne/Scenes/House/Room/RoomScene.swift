@@ -20,7 +20,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     override func sceneDidLoad() {
         print("Room didLoad")
         
-        
         physicsWorld.contactDelegate = self
         
         //Preparando a tree story dessa scene
@@ -37,7 +36,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         print("ROOM didMove")
         super.didMove(to: view)
         
-        playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: -1)
+        self.playerNode?.canWalk = false
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
             self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
@@ -45,7 +44,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
         startBallon.setup()
         
-        self.playerNode?.canWalk = false
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
@@ -55,10 +53,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
         
         
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        self.playerNode?.makePlayerWalk()
     }
     
     override func willMove(from view: SKView) {
