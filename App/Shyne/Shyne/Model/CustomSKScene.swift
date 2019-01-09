@@ -12,13 +12,13 @@ import SpriteKit
 
 class CustomSKSCene: SKScene{
     
-    static let didLoadCompleteNotificationName = Notification.Name("com.abacates.hoddy.didLoadCompleteNotificationName")
+    static let didMoveCompleteNotificationName = Notification.Name("com.abacates.hoddy.didMoveCompleteNotificationName")
     static let loadSaveGamecompleteNotificationName = Notification.Name("com.abacates.hoddy.loadSaveGamecompleteNotificationName")
     
     var entities = [GKEntity]()
     
     override func didMove(to view: SKView) {
-        NotificationCenter.default.post(name: CustomSKSCene.didLoadCompleteNotificationName, object: nil)
+        NotificationCenter.default.post(name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
         // TODO: Load Game here
         // Only call this notification if load return a valid valor

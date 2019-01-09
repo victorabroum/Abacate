@@ -15,7 +15,7 @@ class HomeButtonSpriteNode: SKSpriteNode{
         super.init(coder: aDecoder)
         print("name \(self.name ?? "Não tem nome")")
         self.texture = SKTexture(imageNamed: "dialogue_box_dir")
-        NotificationCenter.default.addObserver(self, selector: #selector(setup), name: CustomSKSCene.didLoadCompleteNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setup), name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
     }
     
