@@ -6,14 +6,19 @@
     <entity name="Keys" representedClassName="Keys" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Scenario" representedClassName="Scenario" syncable="YES" codeGenerationType="class">
+        <attribute name="actualscenario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousscenario" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Status" representedClassName="Status" syncable="YES" codeGenerationType="class">
         <attribute name="bom" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="medio" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ruim" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Keys" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Achviement" positionX="-27" positionY="27" width="128" height="60"/>
+        <element name="Keys" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Status" positionX="0" positionY="54" width="128" height="90"/>
+        <element name="Scenario" positionX="27" positionY="99" width="128" height="75"/>
     </elements>
 </model>

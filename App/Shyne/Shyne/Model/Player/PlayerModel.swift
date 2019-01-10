@@ -13,17 +13,31 @@ class PlayerModel{
     var achviement:Set<String>
     var keys:Set<String>
     var status:PlayerStatus?
+    var sceneName:String?
+    var previousSceneModel:String?
     private static var player:PlayerModel?
     private init(){
         achviement = Set<String>(PlayerDAO.getAchviements())
         keys = Set<String>(PlayerDAO.getKeys())
         status = PlayerDAO.getStatus()[0]
+        
+        
     }
+    
+    
     static func getInstance() -> PlayerModel{
         if(player == nil){
             player = PlayerModel()
         }
         return player!
+    }
+    
+    static func getStatus() -> PlayerStatus{
+        return getInstance().status!
+    }
+    
+    static func getKeys()->Set<String>{
+        return getInstance().keys
     }
     static func incrementStatusBom(increment:Float){
         getInstance().status?.bom+=increment
@@ -40,8 +54,13 @@ class PlayerModel{
     static func addKeys(k:String){
         getInstance().keys.insert(k)
     }
+    static func removeKey(k:String){
+        getInstance().keys.remove(k)
+    }
     static func savePlayer(){
         print("AUTO SAVE - \(self.getInstance().keys)")
+        PlayerDAO.deleteAllKeys()
+        PlayerDAO.deleteAllAchviements()
         //salvar status
 //        PlayerDAO.updateStatus(status: self.getInstance().status!)
         for a in getInstance().achviement{
@@ -56,7 +75,9 @@ class PlayerModel{
         }
 //        PlayerDAO.updateStatus(status: getInstance().status!)
     }
-
+    static func DeleteAll(){
+        PlayerDAO.deleteEverything()
+    }
 }
 
 struct PlayerStatus{

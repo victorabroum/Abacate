@@ -16,6 +16,7 @@ class PlayerDAO{
     private static var entityKeys:NSEntityDescription?
     private static var entityAchviements:NSEntityDescription?
     private static var entityStatus:NSEntityDescription?
+    private static var entityScenario:NSEntityDescription?
     
     private static func getInstanceContext() -> NSManagedObjectContext{
         if(appDelegate == nil){
@@ -40,8 +41,14 @@ class PlayerDAO{
     }
 
     private static func getInstanceEntityStatus() -> NSEntityDescription{
-        if(entityAchviements == nil){
+        if(entityStatus == nil){
             entityStatus = NSEntityDescription.entity(forEntityName: "Status", in: getInstanceContext())
+        }
+        return entityStatus!
+    }
+    private static func getInstanceEntityScenario() -> NSEntityDescription{
+        if(entityScenario == nil){
+            entityScenario = NSEntityDescription.entity(forEntityName: "Scenario", in: getInstanceContext())
         }
         return entityStatus!
     }
@@ -80,6 +87,7 @@ class PlayerDAO{
             }
         }
     }
+    
     
     //MARK:GETS
     
