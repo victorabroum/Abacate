@@ -63,8 +63,39 @@ class EndGame: SKScene {
         self.addChild(felipeNode)
         self.addChild(annaNode)
         
-        felipeNode.run(SKAction(named: "felipe_standUp")!)
-        annaNode.run(SKAction(named: "anna_standUp")!)
+        // Eles levantam
+        felipeNode.run(SKAction(named: "felipe_standUp")!) {
+            // Ele andam
+            let felipeWalk = SKAction(named: "playerWalk")!
+            let goToPos = SKAction.moveTo(x: 228, duration: 2)
+            let groupFelipe = SKAction.group([felipeWalk, goToPos])
+            felipeNode.run(groupFelipe)
+        }
+        
+        annaNode.run(SKAction(named: "anna_standUp")!) {
+            annaNode.position.y = -57.615
+            annaNode.size = CGSize(width: 108.7, height: 238)
+            // Ela anda
+            let annaWalk = SKAction(named: "anna_walk")!
+            let goToPos = SKAction.moveTo(x: 228, duration: 1.5)
+            let groupAnna = SKAction.group([annaWalk, goToPos])
+            annaNode.run(groupAnna)
+        }
+        
+        self.backgroundNode?.run(SKAction.wait(forDuration: 1)) {
+            self.backgroundNode?.run(SKAction.fadeOut(withDuration: 2))
+            annaNode.run(SKAction.fadeOut(withDuration: 2))
+            felipeNode.run(SKAction.fadeOut(withDuration: 2))
+            
+            self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
+            self.labelNode?.text = NSLocalizedString("E NO DIA\nDA APRESENTAÇÃO\nESSE FOI O RESULTADO!", comment: "")
+            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
+                self.labelNode?.alpha = 0
+                self.backgroundNode?.texture = SKTexture(imageNamed: "Good_ending")
+            }
+        }
+        
+        
         
     }
 
