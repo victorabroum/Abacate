@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Foundation
 import SpriteKit
 
 class EndGame: SKScene {
 
+    var labelNode: SKLabelNode?
+    
     override func sceneDidLoad() {
+        
+        
+        if let node = self.childNode(withName: "text") as? SKLabelNode {
+            labelNode = node
+            labelNode?.text = NSLocalizedString("SUAS ESCOLHAS TE TROUXERAM ATÉ AQUI!", comment: "")
+        }
         
         let back = self.childNode(withName: "background") as! SKSpriteNode
         if( happyStatus>normalStatus && happyStatus>shyStatus ){
