@@ -58,7 +58,9 @@ class EndGame: SKScene {
         
         let annaNode = SKSpriteNode(texture: SKTexture(imageNamed: "anna_standing_01"), color: .clear
             , size: CGSize(width: 155.27, height: 285))
-        annaNode.position = CGPoint(x: 23.506, y: -34.5)
+        annaNode.xScale = 0.9
+        annaNode.yScale = 0.9
+        annaNode.position = CGPoint(x: 17.969, y: -48.329)
         
         self.addChild(felipeNode)
         self.addChild(annaNode)
@@ -66,6 +68,7 @@ class EndGame: SKScene {
         // Eles levantam
         felipeNode.run(SKAction(named: "felipe_standUp")!) {
             // Ele andam
+            felipeNode.position = CGPoint(x: -72.422, y: -49.422)
             let felipeWalk = SKAction(named: "playerWalk")!
             let goToPos = SKAction.moveTo(x: 228, duration: 2)
             let groupFelipe = SKAction.group([felipeWalk, goToPos])
@@ -73,7 +76,7 @@ class EndGame: SKScene {
         }
         
         annaNode.run(SKAction(named: "anna_standUp")!) {
-            annaNode.position.y = -57.615
+            annaNode.position = CGPoint(x: 54.35, y: -57.579)
             annaNode.size = CGSize(width: 108.7, height: 238)
             // Ela anda
             let annaWalk = SKAction(named: "anna_walk")!
@@ -85,8 +88,8 @@ class EndGame: SKScene {
         self.backgroundNode?.run(SKAction.wait(forDuration: 2)) {
             
             self.backgroundNode?.run(SKAction.fadeOut(withDuration: 2))
-            annaNode.run(SKAction.fadeOut(withDuration: 2))
-            felipeNode.run(SKAction.fadeOut(withDuration: 2))
+            annaNode.run(SKAction.fadeOut(withDuration: 1.5))
+            felipeNode.run(SKAction.fadeOut(withDuration: 1.5))
 
             self.labelNode?.xScale = 1
             self.labelNode?.yScale = 1
@@ -96,7 +99,95 @@ class EndGame: SKScene {
                 self.labelNode?.text = NSLocalizedString("E NO DIA\nDA APRESENTAÇÃO\nESSE FOI O RESULTADO!", comment: "")
                 self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
                     self.labelNode?.alpha = 0
-                    self.backgroundNode?.texture = SKTexture(imageNamed: "Good_ending")
+                    
+                    self.backgroundNode?.alpha = 1
+                    
+                    
+                    // Ajeita os Node
+                    felipeNode.alpha = 1
+                    felipeNode.position = CGPoint(x: 174.518, y: -50.422)
+                    felipeNode.size = CGSize(width: 82, height: 246)
+                    
+                    annaNode.alpha = 1
+                    annaNode.xScale = -1
+                    annaNode.yScale = 1
+                    annaNode.size = CGSize(width: 57.92, height: 236)
+                    annaNode.position = CGPoint(x: 275, y: -56.579)
+                    
+                    // Remove walk animation
+                    felipeNode.removeAllActions()
+                    annaNode.removeAllActions()
+                    
+                    // Felipe apresenta
+                    felipeNode.run(SKAction(named: "felipe_presentation")!)
+                    // Anna fica no idle
+                    annaNode.run(SKAction(named: "anna_idle")!)
+                    
+                    // Botando o balao de fala
+                    let ballonNode = SKSpriteNode(imageNamed: "balao_fala")
+                    ballonNode.xScale = 0.7
+                    ballonNode.yScale = 0.7
+                    ballonNode.position = CGPoint(x: 121.5, y: 30.686)
+                    let goUp = SKAction.moveBy(x: 5, y: 5, duration: 0.5)
+                    let goDown = SKAction.moveBy(x: -5, y: -5, duration: 0.5)
+                    let sequenceBallon = SKAction.sequence([goUp, goDown])
+                    ballonNode.run(SKAction.repeatForever(sequenceBallon))
+                    
+                    self.addChild(ballonNode)
+                    
+                    // Botando alunos
+                    let greenGuy = SKSpriteNode(imageNamed: "good_green_01")
+                    greenGuy.size = CGSize(width: 155.27, height: 285)
+                    greenGuy.position = CGPoint(x: 14.559, y: -62.922)
+                    greenGuy.run(SKAction(named: "greenGuy_clap")!)
+                    
+                    self.addChild(greenGuy)
+                    
+                    let redGuy = SKSpriteNode(imageNamed: "good_red_01")
+                    redGuy.size = CGSize(width: 155.27, height: 285)
+                    redGuy.position = CGPoint(x: -115.135, y: -61.922)
+                    redGuy.run(SKAction(named: "redGuy_clap")!)
+                    self.addChild(redGuy)
+                    
+                    // Botando o clap
+                    let clapNode = SKSpriteNode(imageNamed: "clap")
+                    clapNode.position = CGPoint(x: 31, y: 1)
+                    clapNode.run(SKAction.repeatForever(sequenceBallon))
+                    self.addChild(clapNode)
+                    
+                    let clapNodeB = SKSpriteNode(imageNamed: "clap")
+                    clapNodeB.position = CGPoint(x: -80, y: 1)
+                    clapNodeB.run(SKAction.repeatForever(sequenceBallon))
+                    self.addChild(clapNodeB)
+                    
+                    let clapNodeC = SKSpriteNode(imageNamed: "clap")
+                    clapNodeC.position = CGPoint(x: -229, y: 83.578)
+                    clapNodeC.run(SKAction.repeatForever(sequenceBallon))
+                    self.addChild(clapNodeC)
+                    
+                    self.backgroundNode?.run(SKAction.wait(forDuration: 3)){
+                        
+                        self.backgroundNode?.run(SKAction.fadeOut(withDuration: 2))
+                        
+                        annaNode.run(SKAction.fadeOut(withDuration: 1.5))
+                        felipeNode.run(SKAction.fadeOut(withDuration: 1.5))
+                        clapNode.run(SKAction.fadeOut(withDuration: 1.5))
+                        clapNodeB.run(SKAction.fadeOut(withDuration: 1.5))
+                        clapNodeC.run(SKAction.fadeOut(withDuration: 1.5))
+                        ballonNode.run(SKAction.fadeOut(withDuration: 1.5))
+                        redGuy.run(SKAction.fadeOut(withDuration: 1.5))
+                        greenGuy.run(SKAction.fadeOut(withDuration: 1.5))
+                        
+                        self.labelNode?.xScale = 1
+                        self.labelNode?.yScale = 1
+                        
+                        self.labelNode?.run(SKAction.wait(forDuration: 2)){
+                            self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
+                            self.labelNode?.text = NSLocalizedString("TEXTO GENÉRICO\nQUE FALTA", comment: "")
+                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5))
+                        }
+                    }
+                    
                 }
             }
         }
