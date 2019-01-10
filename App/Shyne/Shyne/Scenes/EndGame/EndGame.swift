@@ -82,16 +82,22 @@ class EndGame: SKScene {
             annaNode.run(groupAnna)
         }
         
-        self.backgroundNode?.run(SKAction.wait(forDuration: 1)) {
+        self.backgroundNode?.run(SKAction.wait(forDuration: 2)) {
+            
             self.backgroundNode?.run(SKAction.fadeOut(withDuration: 2))
             annaNode.run(SKAction.fadeOut(withDuration: 2))
             felipeNode.run(SKAction.fadeOut(withDuration: 2))
+
+            self.labelNode?.xScale = 1
+            self.labelNode?.yScale = 1
             
-            self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
-            self.labelNode?.text = NSLocalizedString("E NO DIA\nDA APRESENTAÇÃO\nESSE FOI O RESULTADO!", comment: "")
-            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
-                self.labelNode?.alpha = 0
-                self.backgroundNode?.texture = SKTexture(imageNamed: "Good_ending")
+            self.labelNode?.run(SKAction.wait(forDuration: 2)){
+                self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
+                self.labelNode?.text = NSLocalizedString("E NO DIA\nDA APRESENTAÇÃO\nESSE FOI O RESULTADO!", comment: "")
+                self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
+                    self.labelNode?.alpha = 0
+                    self.backgroundNode?.texture = SKTexture(imageNamed: "Good_ending")
+                }
             }
         }
         
