@@ -29,13 +29,14 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.animatePeople(inNodes: people.children)
         }
         
-        // Auto-save
-        PlayerModel.savePlayer()
     }
     
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
+        
+        // Auto-save
+        PlayerModel.savePlayer()
         
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
         

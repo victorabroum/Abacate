@@ -21,16 +21,18 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         // Prepare Dialog
         prepareDialog()
         
-        // Auto-save
-        PlayerModel.savePlayer()
         
-        PlayerModel.addKeys(k: "cama")
         
     }
     
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
+        
+        // Auto-save
+        PlayerModel.savePlayer()
+        
+        PlayerModel.addKeys(k: "cama")
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {

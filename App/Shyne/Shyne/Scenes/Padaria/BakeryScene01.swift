@@ -29,9 +29,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         makeTreeOfRoomPadaria()
         self.prepareDialoge()
         
-        // Auto-Save
-        PlayerModel.savePlayer()
-        
         PlayerModel.addKeys(k: "padeiro")
         
     }
@@ -39,6 +36,9 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
        
         super.didMove(to: view)
+        
+        // Auto-Save
+        PlayerModel.savePlayer()
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {

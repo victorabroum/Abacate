@@ -36,6 +36,10 @@ class Ballon : SKSpriteNode{
         self.referenceScene = referenceScene
         self.referenceNode = referenceNode
         
+        if(rootNode.action != nil){
+            self.action = rootNode.action
+        }
+        
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 100, height: 100))
         
         // For is possible to click
@@ -48,6 +52,9 @@ class Ballon : SKSpriteNode{
     init(rootNode: Node, referenceScene: SKScene, action: (()->Void)? = nil){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
+        if(rootNode.action != nil){
+            self.action = rootNode.action
+        }
         
         if let node = referenceScene.childNode(withName: rootNode.nodeToTalk) as? SKSpriteNode{
             self.referenceNode = node
@@ -71,6 +78,10 @@ class Ballon : SKSpriteNode{
         // Resposta háptica
         let notification = UINotificationFeedbackGenerator()
         notification.notificationOccurred(.success)
+        
+        if(self.action != nil){
+            self.action!()
+        }
     }
     
     func nextBallon() {
@@ -262,7 +273,6 @@ class InteractionBallon: Ballon{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Execute Action
         super.touchesBegan(touches, with: event)
-        self.action!()
         self.removeFromParent()
     }
     
