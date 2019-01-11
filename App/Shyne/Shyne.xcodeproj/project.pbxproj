@@ -69,6 +69,7 @@
 		76C093EA21E53FC80038D5C0 /* ButtonComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C093E921E53FC80038D5C0 /* ButtonComponents.swift */; };
 		76C093EC21E542F50038D5C0 /* CustomSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C093EB21E542F50038D5C0 /* CustomSKScene.swift */; };
 		76C093EE21E621830038D5C0 /* ButtonLayoutComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C093ED21E621830038D5C0 /* ButtonLayoutComponent.swift */; };
+		76C093F021E7C98A0038D5C0 /* AnnaAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */; };
 		76D3F4DA21E39E5700FAC0E0 /* BallonStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */; };
 		76D3F4DF21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */; };
 		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
@@ -145,6 +146,7 @@
 		76C093E921E53FC80038D5C0 /* ButtonComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponents.swift; sourceTree = "<group>"; };
 		76C093EB21E542F50038D5C0 /* CustomSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSKScene.swift; sourceTree = "<group>"; };
 		76C093ED21E621830038D5C0 /* ButtonLayoutComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLayoutComponent.swift; sourceTree = "<group>"; };
+		76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnnaAction.sks; sourceTree = "<group>"; };
 		76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallonStructures.swift; sourceTree = "<group>"; };
 		76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonSpriteNode.swift; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				760CBD50217E45A900640A5C /* Player */,
 				765B3DB52177A72A004AA4E3 /* Actions.sks */,
 				76064EC42188E44D00E1D776 /* Baker.sks */,
+				76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				76BA902D218B472C00A37F32 /* Foot_Step.wav in Resources */,
 				765B3DFE217D76B5004AA4E3 /* RoomScene02.sks in Resources */,
 				765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */,
+				76C093F021E7C98A0038D5C0 /* AnnaAction.sks in Resources */,
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
 				76BA9021218B39EE00A37F32 /* bakery.wav in Resources */,
 				76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */,
@@ -790,7 +794,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,7 +813,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,8 +11,6 @@ import SpriteKit
 import GameplayKit
 
 class ClassroomScene01: CustomSKSCene {
-
-    var ballon: Ballon?
     
     override func sceneDidLoad() {
         
@@ -21,6 +19,7 @@ class ClassroomScene01: CustomSKSCene {
         //Preparando a tree story dessa scene
         classRoomRootmakeTree()
         prepareDialog()
+        
     }
     
     func prepareDialog(){

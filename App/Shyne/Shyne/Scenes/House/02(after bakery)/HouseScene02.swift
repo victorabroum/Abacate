@@ -13,8 +13,6 @@ import GameplayKit
 class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     
     var house02Root: Node = Node(withText: "", withChoices: [])
-    var ballon: Ballon?
-    
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
@@ -41,14 +39,10 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        // Auto-Save
-        PlayerModel.savePlayer()
-        
         PlayerModel.addKeys(k: "dady")
         PlayerModel.addKeys(k: "goUp")
         PlayerModel.addKeys(k: "goDown")
         PlayerModel.addKeys(k: "dadDoor")
-        PlayerModel.addKeys(k: "breakfastAte")
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
@@ -127,11 +121,7 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "busStop")
-            
-            // Se a gente quiser dar mais liberdade nem precisa tirar
-            // TODO: Remove Dady from DAO
-            // TODO: Remove houseDoor from DAO
-            // TODO: Remove bakeryDoor from DAO
+            PlayerModel.addKeys(k: "breakfastAte")
             
             self.ballon?.dismiss()
         }

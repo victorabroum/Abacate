@@ -12,8 +12,6 @@ import GameplayKit
 
 class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
-    
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {

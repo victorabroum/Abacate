@@ -13,8 +13,6 @@ import GameplayKit
 
 class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
 
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         
         super.sceneDidLoad()
@@ -36,9 +34,6 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         }
         
         self.animateBus()
-        
-        // Auto-Save
-        PlayerModel.savePlayer()
         
         PlayerModel.addKeys(k: "porta")
     }

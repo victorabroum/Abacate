@@ -12,8 +12,6 @@ import GameKit
 
 class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         print("Room didLoad")
         super.sceneDidLoad()
@@ -105,7 +103,9 @@ extension RoomScene {
         // TODO: Use NameScene of PlayerModel
 //        let nameScene = PlayerModel.getInstance().sceneName
 //        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
-        let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
+        let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
+        print("NAME SCENE \(nameScene)")
+        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
             nextScene.entities = cenaProxima.entities
             let transition:SKTransition = SKTransition.fade(withDuration: 0.5)

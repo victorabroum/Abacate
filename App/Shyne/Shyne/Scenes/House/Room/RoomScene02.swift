@@ -12,8 +12,6 @@ import GameKit
 
 class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         physicsWorld.contactDelegate = self
@@ -28,9 +26,6 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
-        
-        // Auto-save
-        PlayerModel.savePlayer()
         
         PlayerModel.addKeys(k: "cama")
         

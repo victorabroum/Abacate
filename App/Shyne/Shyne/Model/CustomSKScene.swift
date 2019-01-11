@@ -21,6 +21,9 @@ class CustomSKSCene: SKScene{
     // To control BG Audios
     var bgAudios: SKNode?
     
+    // Ballon Structures
+    var ballon: Ballon?
+    
     override func sceneDidLoad() {
         // Get PlayerNode reference
         
@@ -42,7 +45,7 @@ class CustomSKSCene: SKScene{
         
         // TODO: Test if sceneName has somethig
         // Only call this notification if load return a valid valor
-        if (PlayerModel.getInstance().keys.count <= 0){
+        if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
             print("Não tem ninguém")
         }else{
             print("tem alguem")

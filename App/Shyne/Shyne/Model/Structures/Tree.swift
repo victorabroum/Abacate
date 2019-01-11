@@ -87,6 +87,7 @@ class Node {
         self.typeBallon = typeBallon
     }
     
+    
     func add(child: Node){
         childrens.append(child)
         child.parent = self
@@ -97,18 +98,5 @@ class Node {
             return node
         }
         return nil
-    }
-}
-
-extension Node: CustomStringConvertible {
-    
-    var description: String{
-        get{
-            if !childrens.isEmpty {
-                text += " {" + childrens.map { $0.description }.joined(separator: ", ") + "} "
-            }
-            return text
-        }
-        
     }
 }
