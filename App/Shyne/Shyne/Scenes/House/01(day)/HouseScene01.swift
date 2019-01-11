@@ -105,25 +105,25 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     func prepareDialog(){
-        d3_1.action = {
+        house01d04.action = {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "bakeryDoor")
             self.ballon?.dismiss()
         }
         
-        d3_2.action = {
-            
-            PlayerModel.addKeys(k: "porta")
-            PlayerModel.addKeys(k: "bakeryDoor")
-            self.ballon?.dismiss()
-        }
-        
-        d3_3.action = {
-            
-            PlayerModel.addKeys(k: "porta")
-            PlayerModel.addKeys(k: "bakeryDoor")
-            self.ballon?.dismiss()
-        }
+//        d3_2.action = {
+//            
+//            PlayerModel.addKeys(k: "porta")
+//            PlayerModel.addKeys(k: "bakeryDoor")
+//            self.ballon?.dismiss()
+//        }
+//        
+//        d3_3.action = {
+//            
+//            PlayerModel.addKeys(k: "porta")
+//            PlayerModel.addKeys(k: "bakeryDoor")
+//            self.ballon?.dismiss()
+//        }
     }
 }
