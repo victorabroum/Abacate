@@ -12,7 +12,9 @@ import SpriteKit
 enum TypeBallon {
     case speak
     case thought
-    case choices
+    case choice1
+    case choice2
+    case choice3
     case interaction
 }
 
@@ -167,6 +169,12 @@ class Ballon : SKSpriteNode{
             backgroundName = "dialogueBox"
         case .thought:
             backgroundName = "thinkBox"
+        case .choice1:
+            backgroundName = "choiceBox1"
+        case .choice2:
+            backgroundName = "choiceBox2"
+        case .choice3:
+            backgroundName = "choiceBox3"
         default:
             backgroundName = "dialogueBox"
         }
@@ -259,6 +267,7 @@ class ChoicesBallon : SKSpriteNode{
             
             var auxBallon = ballons[0]
             // Setup BallonA
+            auxBallon.rootNode.typeBallon = .choice1
             auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: -1 * (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
@@ -270,6 +279,7 @@ class ChoicesBallon : SKSpriteNode{
             
             // Setup BallonB
             auxBallon = ballons[1]
+            auxBallon.rootNode.typeBallon = .choice2
             auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
@@ -279,6 +289,7 @@ class ChoicesBallon : SKSpriteNode{
             
             if ballons.count == 3 {
                 auxBallon = ballons[2]
+                auxBallon.rootNode.typeBallon = .choice3
                 auxBallon.name = "choiceBallon"
                 auxBallon.setup()
                 auxBallon.position = CGPoint(x: 0, y: (playerNode.size.height/2 + auxBallon.size.height/2))
