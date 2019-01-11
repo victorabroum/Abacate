@@ -59,8 +59,8 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                 if newName == "padeiro"{
                     
                     ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
-                        let auxBallon = DialogBallon.init(rootNode: rootNodePadaria, referenceNode: self.playerNode!, referenceScene: self)
-                        auxBallon.setup()
+                        self.ballon = DialogBallon.init(rootNode: rootNodePadaria, referenceNode: self.playerNode!, referenceScene: self)
+                        self.ballon?.setup()
                     })
                     
                     
@@ -100,8 +100,9 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     func prepareDialoge() {
         rootNodePadaria.action = {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
-                self.ballon = DialogBallon.init(rootNode: secondTalkPadaria, referenceNode: self.padeiroNode!, referenceScene: self)
-                self.ballon?.setup()
+//                self.ballon = DialogBallon.init(rootNode: secondTalkPadaria, referenceNode: self.padeiroNode!, referenceScene: self)
+//                self.ballon?.setup()
+                self.ballon?.nextBallon()
             })
             
         }
