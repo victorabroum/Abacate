@@ -12,19 +12,50 @@ class PlayerModel{
     
     var achviement:Set<String>
     var keys:Set<String>
-    var status:PlayerStatus?
-    var sceneName:String?
-    var previousSceneModel:String?
+    var status:PlayerStatus
+    var sceneInformation:SceneInformation
+
     private static var player:PlayerModel?
+    
+    
     private init(){
         achviement = Set<String>(PlayerDAO.getAchviements())
         keys = Set<String>(PlayerDAO.getKeys())
-        status = PlayerDAO.getStatus()[0]
         
+        if(PlayerDAO.getStatus().count==0){
+            status = PlayerStatus(bom: 0.0, medio: 0.0, ruim: 0.0)
+        }
+        else{
+            status = PlayerDAO.getStatus()[0]
+        }
         
+        if(PlayerDAO.getScene().count==0){
+            sceneInformation = SceneInformation(previousScenario: "", actualScenario: "")
+        }
+        else{
+            sceneInformation = PlayerDAO.getScene()[0]
+        }
     }
     
-    
+    private func restartGame(){
+        achviement = Set<String>(PlayerDAO.getAchviements())
+        keys = Set<String>(PlayerDAO.getKeys())
+        
+        if(PlayerDAO.getStatus().count==0){
+            status = PlayerStatus(bom: 0.0, medio: 0.0, ruim: 0.0)
+        }
+        else{
+            status = PlayerDAO.getStatus()[0]
+        }
+        
+        if(PlayerDAO.getScene().count==0){
+            sceneInformation = SceneInformation(previousScenario: "", actualScenario: "")
+        }
+        else{
+            sceneInformation = PlayerDAO.getScene()[0]
+        }
+    }
+    //MARK:GETS
     static func getInstance() -> PlayerModel{
         if(player == nil){
             player = PlayerModel()
@@ -33,21 +64,32 @@ class PlayerModel{
     }
     
     static func getStatus() -> PlayerStatus{
-        return getInstance().status!
+        return getInstance().status
     }
     
     static func getKeys()->Set<String>{
         return getInstance().keys
     }
-    static func incrementStatusBom(increment:Float){
-        getInstance().status?.bom+=increment
+    
+    static func getScene()->SceneInformation{
+        return getInstance().sceneInformation
     }
-    static func incrementStatusMedio(increment:Float){
-        getInstance().status?.medio+=increment
+    
+    //Functions auxiliar
+    static func incrementStatusBom(_ increment:Float){
+        getInstance().status.bom+=increment
     }
-    static func incrementStatusRuim(increment:Float){
-        getInstance().status?.ruim+=increment
+    static func incrementStatusMedio(_ increment:Float){
+        getInstance().status.medio+=increment
     }
+    static func incrementStatusRuim(_ increment:Float){
+        getInstance().status.ruim+=increment
+    }
+    static func changeScene(scene:SceneInformation){
+        getInstance().sceneInformation = scene
+    }
+    
+    //MARK: ADD Functions
     static func addAchviement(ach:String){
         getInstance().achviement.insert(ach)
     }
@@ -59,10 +101,8 @@ class PlayerModel{
     }
     static func savePlayer(){
         print("AUTO SAVE - \(self.getInstance().keys)")
-        PlayerDAO.deleteAllKeys()
-        PlayerDAO.deleteAllAchviements()
-        //salvar status
-//        PlayerDAO.updateStatus(status: self.getInstance().status!)
+        PlayerDAO.deleteEverything()
+        
         for a in getInstance().achviement{
             if !PlayerDAO.getAchviements().contains(a){
                 PlayerDAO.addAchviement(key: a)
@@ -73,15 +113,24 @@ class PlayerModel{
                 PlayerDAO.addKey(key: k)
             }
         }
-//        PlayerDAO.updateStatus(status: getInstance().status!)
+        PlayerDAO.addStatus(status:getInstance().status)
+        PlayerDAO.addScene(s:getInstance().sceneInformation)
     }
     static func DeleteAll(){
         PlayerDAO.deleteEverything()
+        getInstance().achviement = Set<String>()
+        getInstance().keys = Set<String>()
+        getInstance().status = PlayerStatus(bom: 0.0, medio: 0.0, ruim: 0.0)
+        getInstance().sceneInformation = SceneInformation(previousScenario: "", actualScenario: "")
     }
 }
 
 struct PlayerStatus{
-    var bom:Float
-    var medio:Float
-    var ruim:Float
+    var bom                :Float
+    var medio              :Float
+    var ruim               :Float
+}
+struct SceneInformation{
+    var previousScenario   :String
+    var actualScenario     :String
 }

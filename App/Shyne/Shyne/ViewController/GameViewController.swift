@@ -16,6 +16,23 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //
+        print("Antes da alteracao")
+        print(PlayerDAO.getStatus())
+        print(PlayerModel.getStatus())
+
+        print("depois da alteracao e antes de salvar")
+        PlayerModel.incrementStatusBom(99)
+        PlayerModel.incrementStatusMedio(55)
+        PlayerModel.incrementStatusRuim(33)
+        print(PlayerDAO.getStatus())
+        print(PlayerModel.getStatus())
+
+        print("depois da alteracao e depois de salvar")
+        PlayerModel.savePlayer()
+        print(PlayerDAO.getStatus())
+        print(PlayerModel.getStatus())
+        
+        
         //
         
         
