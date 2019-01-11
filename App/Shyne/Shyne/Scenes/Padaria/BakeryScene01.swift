@@ -36,9 +36,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
        
         super.didMove(to: view)
         
-        // Auto-Save
-        PlayerModel.savePlayer()
-        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga
@@ -70,6 +67,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                     if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                         
                         nextScene.playerNode!.position = (nextScene.childNode(withName: "initPosition")?.childNode(withName: "bakery")?.position)!
+                        
                         nextScene.entities = cenaProxima.entities
                         
                         ballon = DoorBallon(referenceNode: self.playerNode!, referenceScene: self, nextScene: nextScene)
@@ -100,8 +98,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     func prepareDialoge() {
         rootNodePadaria.action = {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
-//                self.ballon = DialogBallon.init(rootNode: secondTalkPadaria, referenceNode: self.padeiroNode!, referenceScene: self)
-//                self.ballon?.setup()
                 self.ballon?.nextBallon()
             })
             
@@ -144,8 +140,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "houseDoor")
             PlayerModel.addKeys(k: "sweetBrad")
-            
-            // TODO: Remove padeiro keys from DAO
             
             self.ballon?.dismiss()
             

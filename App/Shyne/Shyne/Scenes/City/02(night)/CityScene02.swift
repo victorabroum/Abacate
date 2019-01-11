@@ -35,9 +35,6 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         self.animateBus()
         
-        // Auto-Save
-        PlayerModel.savePlayer()
-        
         PlayerModel.addKeys(k: "porta")
     }
     

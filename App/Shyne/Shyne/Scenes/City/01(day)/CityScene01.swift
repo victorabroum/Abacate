@@ -33,9 +33,6 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         super.didMove(to: view)
         
-        // Auto-save
-        PlayerModel.savePlayer()
-        
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
         
         MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
@@ -70,10 +67,13 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     
                     let cenaProxima:GKScene = GKScene(fileNamed: "BakeryScene01")!
                     if let nextScene = cenaProxima.rootNode as? BakeryScene01{
+                        
+                        
+                        
                         nextScene.entities = cenaProxima.entities
                         let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                         
-                        ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
+                        ballon = DoorBallon(referenceNode: trigger as! SKSpriteNode, referenceScene: self, nextScene: nextScene) 
                         
                     }
                     
@@ -85,6 +85,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     // Go to Classroom
                     if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
                         if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
+                            
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                             
@@ -101,6 +102,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     // Go to House 02
                     if let cenaProxima: GKScene = GKScene(fileNamed: "HouseScene02"){
                         if let nextScene = cenaProxima.rootNode as? HouseScene02{
+                            
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                             
@@ -147,6 +149,11 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             // Troca de cena
             self.playerNode?.alpha = 0
             busNode.run(goWay, completion: {
+                
+                let sceneInfo = SceneInformation.init(previousScenario: "CityScene01", actualScenario: "ClassroomScene01")
+                PlayerModel.changeScene(scene: sceneInfo)
+                PlayerModel.savePlayer()
+                
                 let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
                 nextScene.scaleMode = SKSceneScaleMode.aspectFill
                 self.view?.presentScene(nextScene, transition: transition)
@@ -163,10 +170,10 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     
     func correctPlayerNodePosition() {
         
-        if(PlayerModel.getInstance().keys.contains("breakfastAte")){
-            self.playerNode?.position = (self.childNode(withName: "initPosition")?.childNode(withName: "house")?.position)!
-        }else if(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad")){
+        if(PlayerModel.getInstance().sceneInformation.previousScenario == "BakeryScene01"){
             self.playerNode!.position = (self.childNode(withName: "initPosition")!.childNode(withName: "bakery")?.position)!
+        }else if (PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene01" || PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene02"){
+            self.playerNode?.position = (self.childNode(withName: "initPosition")?.childNode(withName: "house")?.position)!
         }
     }
     

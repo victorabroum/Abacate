@@ -26,7 +26,7 @@ enum PlayerMovement {
 
 // Status of choices
 var happyStatus: Float = 0.0
-var normalStatus: Float = 0.0
+var normalStatus: Float = 10.0
 var shyStatus: Float = 0.0
 
 // Camera pos in house

@@ -42,7 +42,8 @@ class StartGameComponent: ButtonComponent{
         // if ele confirma
         // Delte all things
 //        PlayerModel.delete()
-        
+        PlayerModel.DeleteAll()
+        PlayerModel.savePlayer()
         print("CHAVEs \(PlayerModel.getInstance().keys)")
         // else faz nada
         
