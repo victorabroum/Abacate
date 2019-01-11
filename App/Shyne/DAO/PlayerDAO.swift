@@ -162,7 +162,7 @@ class PlayerDAO{
         do {
             let result = try getInstanceContext().fetch(request)
             for data in result as! [NSManagedObject] {
-                let s = SceneInformation(previousScenario:data.value(forKey: "previousscenario") as! String,actualScenario:data.value(forKey: "actualscenario") as! String)
+                let s = SceneInformation(previousScenario:data.value(forKey: "previousscene") as! String,actualScenario:data.value(forKey: "actualscene") as! String)
                 lista.append(s)
             }
         } catch {
