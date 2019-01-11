@@ -35,7 +35,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         self.playerNode?.canWalk = false
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
-            self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
+            self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
             self.ballon!.setup()
         }
         startBallon.setup()

@@ -29,21 +29,21 @@ import Foundation
 //var d3_3: Node = Node(withText: NSLocalizedString("Don't be shy!\nJust go, please!", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 
 var house01PlayerNameNode = "playerNode"
-var house01DadNameNode = "dadNode"
+var house01DadNameNode = "dad"
 
-var house01Root = Node(withText: NSLocalizedString("Bom dia, pai", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice04", function: {})
-var house01d02 = Node(withText: NSLocalizedString("Bom dia, filho", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice01", function: {})
-var house01d03 = Node(withText: NSLocalizedString("Já fiz o café, mas não tem pão. Você pode ir comprar", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_voice02", function: {})
+var house01Root = Node(withText: NSLocalizedString("Bom dia, pai", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice04")
+var house01d02 = Node(withText: NSLocalizedString("Bom dia, filho", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice01")
+var house01d03 = Node(withText: NSLocalizedString("Já fiz o café, mas não tem pão. Você pode ir comprar", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_voice02")
 
 var house01c01d03 = Answer(withText: NSLocalizedString("Claro", comment: "Concerteza. no sentido de 'sim'"), withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "felipe_voice02")
 var house01c02d03 = Answer(withText: NSLocalizedString("Eu não estou com fome. O senhor quer mesmo pão?", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 1), audioName: "felipe_Voice01")
 
-var house01d01c02d03 = Node(withText: NSLocalizedString("Eu quero, filho", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice03", function: {})
-var house01d02c02d03 = Node(withText: NSLocalizedString("Ok. Já estou indo", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice05", function: {})
+var house01d01c02d03 = Node(withText: NSLocalizedString("Eu quero, filho", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice03")
+var house01d02c02d03 = Node(withText: NSLocalizedString("Ok. Já estou indo", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice05")
 
 var house01c03d03 = Answer(withText: NSLocalizedString("Acena com a cabeça", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
 
-var house01d04 = Node(withText: NSLocalizedString("Ok. Trás pão francês", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice02", function: {})
+var house01d04 = Node(withText: NSLocalizedString("Ok. Trás pão francês", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice02")
 
 func house01makeTree() -> (){
 //    c1.child.append(d3_1)

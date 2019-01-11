@@ -78,7 +78,7 @@ class Node {
         self.audioName = ""
     }
     
-    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String, audioName: String = "", typeBallon: TypeBallon = .speak, function: @escaping () -> Void = {}) {
+    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String, audioName: String = "", typeBallon: TypeBallon = .speak, function: (() -> Void)? = nil) {
         self.text = text
         self.choices = choices
         self.nodeToTalk = node

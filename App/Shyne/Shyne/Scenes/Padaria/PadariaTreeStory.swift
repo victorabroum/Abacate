@@ -26,26 +26,27 @@ import Foundation
 //var bakery01D4 = Node(withText: "That's ok,\n thank you!", withChoices: [], inNodeNamed: "playerNode")
 
 var bakery01PlayerNameNode = "playerNode"
-var bakery01BakerNameNode = "bakerNode"
+var bakery01BakerNameNode = "padeiroCaixa"
 
-var bakery01Root = Node(withText: NSLocalizedString("Opa!", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Snoring01", function: {})
+var bakery01Root = Node(withText: NSLocalizedString("Opa!", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Snoring01")
 
-var bakery01d02 = Node(withText: NSLocalizedString("Desculpe. O que você deseja", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice03", function: {})
-var bakery01d03 = Node(withText: NSLocalizedString("Me veja um real de pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice05", function: {})//Acao de trazer o pao
-var bakery01d04 = Node(withText: NSLocalizedString("Aqui está o seu um real de pão doce ", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01", function: {})
+var bakery01d02 = Node(withText: NSLocalizedString("Desculpe. O que você deseja", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice03")
+var bakery01d03 = Node(withText: NSLocalizedString("Me veja um real de pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice05")//Acao de trazer o pao
+var bakery01d04 = Node(withText: NSLocalizedString("Aqui está o seu um real de pão doce ", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")
 
     var bakery01c01d04 = Answer(withText: NSLocalizedString("Ficar olhando até ele trocar", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0))
+        var bakery01d01c01d04 = Node(withText: "...", withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Sigh01")
     var bakery01c02d04 = Answer(withText: NSLocalizedString("Pedir para ele trocar o pão", comment: ""), withAmount: Feel(happy: 1, normal: 0, shy: 0))
 
-        var bakery01d01c02d04 = Node(withText: NSLocalizedString("Moço eu pedi pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice01", function: {})
+        var bakery01d01c02d04 = Node(withText: NSLocalizedString("Moço eu pedi pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice01")
 
     var bakery01c03d04 = Answer(withText: NSLocalizedString("Levar o pão doce", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))//chave do pao doce idle padeiro
 
-var bakery01d05 = Node(withText: NSLocalizedString("Desculpe. Vou trazer o certo", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "bakery_Voice02", function: {})//acao de trazer outro
+var bakery01d05 = Node(withText: NSLocalizedString("Desculpe. Vou trazer o certo", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "bakery_Voice02")//acao de trazer outro
 
-var bakery01d06 = Node(withText: NSLocalizedString("Aqui está! Perdão pelo erro", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01", function: {})//idle
+var bakery01d06 = Node(withText: NSLocalizedString("Aqui está! Perdão pelo erro", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")//idle
 
-var bakery01d07 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice03", function: {})//chave do pao frances
+var bakery01d07 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice03")//chave do pao frances
 
 func makeTreeOfRoomPadaria() -> (){
     
@@ -63,7 +64,8 @@ func makeTreeOfRoomPadaria() -> (){
     
     bakery01d04.choices = [bakery01c01d04, bakery01c02d04,bakery01c03d04]
     
-    bakery01c01d04.child = [bakery01d05]
+    bakery01c01d04.child = [bakery01d01c01d04]
+    bakery01d01c01d04.add(child: bakery01d05)
     
     bakery01c02d04.child = [bakery01d01c02d04]
     bakery01d01c02d04.add(child: bakery01d05)

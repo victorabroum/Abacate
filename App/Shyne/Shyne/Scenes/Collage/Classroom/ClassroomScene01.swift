@@ -32,13 +32,21 @@ class ClassroomScene01: CustomSKSCene {
             var t1 : Transicao
             t1 = Transicao(cenaAtual: self, cenaProxima: nextScene1)
             
-            class01Player02.action = {
+            classRoom01c03d06.function = {
+                t1.troca()
+            }
+            
+            classRoom01d07c01d06.action = {
+                t1.troca()
+            }
+            
+            classRoom01d02c02d06.action = {
                 t1.troca()
             }
         }
         
         ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "professora")! as! SKSpriteNode, referenceScene: self, action: {
-            let newBallon = DialogBallon.init(rootNode: classRoomRoot, referenceScene: self)
+            let newBallon = DialogBallon.init(rootNode: classRoom01Root, referenceScene: self)
             newBallon.setup()
         })
         ballon?.setup()
