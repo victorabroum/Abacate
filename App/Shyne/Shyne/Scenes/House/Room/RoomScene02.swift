@@ -27,9 +27,6 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         super.didMove(to: view)
         
-        // Auto-save
-        PlayerModel.savePlayer()
-        
         PlayerModel.addKeys(k: "cama")
         
         // Prepare BG Music

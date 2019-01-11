@@ -82,6 +82,7 @@ class Node {
         self.audioName = audioName
     }
     
+    
     func add(child: Node){
         childrens.append(child)
         child.parent = self
