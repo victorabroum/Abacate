@@ -26,6 +26,12 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
         //Preparando a tree story dessa scene
         house03makeTree()
         
+    }
+    
+    override func didMove(to view: SKView) {
+        
+        super.didMove(to: view)
+        
         // Ajustando dialog
         prepareDialog()
         
@@ -34,11 +40,6 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
         PlayerModel.addKeys(k: "goDown")
         PlayerModel.addKeys(k: "dadDoor")
         PlayerModel.addKeys(k: "triggerDad")
-    }
-    
-    override func didMove(to view: SKView) {
-        
-        super.didMove(to: view)
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {

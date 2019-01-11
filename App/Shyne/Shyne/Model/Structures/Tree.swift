@@ -58,24 +58,28 @@ class Node {
     var nodeToTalk: String
     weak var parent: Node? // this is parent
     var action: (()->Void)?
+    var audioName: String
     
     init(withText text: String, withChoices choices: [Answer]) {
         self.text = text
         self.choices = choices
         self.nodeToTalk = "playerNode"
+        self.audioName = "general_voice01"
     }
     
     init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String) {
         self.text = text
         self.choices = choices
         self.nodeToTalk = node
+        self.audioName = "general_voice01"
     }
     
-    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String, function: @escaping () -> Void) {
+    init(withText text: String, withChoices choices: [Answer], inNodeNamed node: String, audioName: String = "general_voice01", function: @escaping () -> Void = {}) {
         self.text = text
         self.choices = choices
         self.nodeToTalk = node
         self.action = function
+        self.audioName = audioName
     }
     
     func add(child: Node){

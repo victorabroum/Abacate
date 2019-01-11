@@ -36,16 +36,19 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         }
         
         self.prepareDialog()
+       
+    }
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        
+        // Auto-Save
+        PlayerModel.savePlayer()
         
         PlayerModel.addKeys(k: "dady")
         PlayerModel.addKeys(k: "goUp")
         PlayerModel.addKeys(k: "goDown")
         PlayerModel.addKeys(k: "dadDoor")
         PlayerModel.addKeys(k: "breakfastAte")
-        
-    }
-    override func didMove(to view: SKView) {
-        super.didMove(to: view)
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
