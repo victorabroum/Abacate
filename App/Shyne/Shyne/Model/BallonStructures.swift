@@ -104,7 +104,6 @@ class Ballon : SKSpriteNode{
     }
     
     func nextBallon() {
-        print("Toca raul")
         self.removeFromParent()
         self.referenceNode.removeAllChildren()
         
