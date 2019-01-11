@@ -399,7 +399,7 @@ class EndGame: SKScene {
                     felipeNode.size = texture.size()
                     felipeNode.xScale = -0.3
                     felipeNode.yScale = 0.3
-                    felipeNode.position = CGPoint(x: 245.788, y: -62.505)
+                    felipeNode.position = CGPoint(x: 245.788, y: -61.505)
                     
                     annaNode.alpha = 1
                     annaNode.xScale = -1
