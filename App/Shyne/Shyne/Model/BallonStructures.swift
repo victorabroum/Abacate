@@ -104,12 +104,11 @@ class Ballon : SKSpriteNode{
     }
     
     func nextBallon() {
-        
+        print("Toca raul")
         self.removeFromParent()
         self.referenceNode.removeAllChildren()
         
         if(self.rootNode.childrens.count != 0){
-            
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
             newDialogBallon.setup()
             
