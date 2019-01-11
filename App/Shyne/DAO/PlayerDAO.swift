@@ -48,9 +48,9 @@ class PlayerDAO{
     }
     private static func getInstanceEntityScenario() -> NSEntityDescription{
         if(entityScenario == nil){
-            entityScenario = NSEntityDescription.entity(forEntityName: "Scenario", in: getInstanceContext())
+            entityScenario = NSEntityDescription.entity(forEntityName: "Scene", in: getInstanceContext())
         }
-        return entityStatus!
+        return entityScenario!
     }
     //MARK:ADDS
     
@@ -87,7 +87,19 @@ class PlayerDAO{
             }
         }
     }
-    
+
+    static func addScene(s:SceneInformation){
+        if(getScene().count==0){
+            let newUser = NSManagedObject(entity: getInstanceEntityScenario(), insertInto: getInstanceContext())
+            newUser.setValue(s.actualScenario, forKey: "actualscene")
+            newUser.setValue(s.previousScenario, forKey: "previousscene")
+            do {
+                try getInstanceContext().save()
+            } catch {
+                print("Failed saving")
+            }
+        }
+    }
     
     //MARK:GETS
     
@@ -139,11 +151,26 @@ class PlayerDAO{
         } catch {
             print("Failed")
         }
-        if(lista.isEmpty){
-            lista.append(PlayerStatus(bom:0,medio:0,ruim:0))
+        return lista
+    }
+
+    static func getScene() -> [SceneInformation]{
+        var lista = Array<SceneInformation>()
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scene")
+        //request.predicate = NSPredicate(format: "age = %@", "12")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try getInstanceContext().fetch(request)
+            for data in result as! [NSManagedObject] {
+                let s = SceneInformation(previousScenario:data.value(forKey: "previousscenario") as! String,actualScenario:data.value(forKey: "actualscenario") as! String)
+                lista.append(s)
+            }
+        } catch {
+            print("Failed")
         }
         return lista
     }
+    
     //MARK:DELETES
     static func deleteAllKeys(){
         
@@ -186,31 +213,26 @@ class PlayerDAO{
             print("Failed")
         }
     }
-    static func deleteEverything(){
-        deleteAllKeys()
-        deleteAllStatus()
-        deleteAllAchviements()
-    }
-    static func updateStatus(status:PlayerStatus){
-        if(getStatus().count==0){
-            addStatus(status: PlayerStatus(bom:0,medio:0,ruim:0))
-        }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Status")
+
+    static func deleteAllScenes(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scene")
         //request.predicate = NSPredicate(format: "age = %@", "12")
         request.returnsObjectsAsFaults = false
         do {
             let result = try getInstanceContext().fetch(request)
-            let data = result as! [NSManagedObject]
-            let s = data[0]
-            s.setValue(status.bom, forKey: "bom")
-            s.setValue(status.medio, forKey: "medio")
-            s.setValue(status.ruim, forKey: "ruim")
-            do{
-                try getInstanceContext().save()
+            for data in result as! [NSManagedObject] {
+                getInstanceContext().delete(data)
             }
         } catch {
             print("Failed")
         }
+    }
+
+    static func deleteEverything(){
+        deleteAllKeys()
+        deleteAllStatus()
+        deleteAllAchviements()
+        deleteAllScenes()
     }
 }
 
