@@ -30,6 +30,7 @@ var quartaTalk = Node(withText: "I better come \ndownstairs and eat..", withChoi
 func makeTreeOfRoom() -> (){
     
     rootNode.add(child: secondTalk)
+    rootNode.typeBallon = .thought
     secondTalk.add(child: terceiraTalk)
     terceiraTalk.add(child: quartaTalk)
 }

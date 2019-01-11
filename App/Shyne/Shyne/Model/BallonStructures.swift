@@ -12,7 +12,9 @@ import SpriteKit
 enum TypeBallon {
     case speak
     case thought
-    case choices
+    case choice1
+    case choice2
+    case choice3
     case interaction
 }
 
@@ -22,6 +24,8 @@ class Ballon : SKSpriteNode{
     var action: (()->Void)?
     var rootNode: Node
     var referenceScene: SKScene
+    
+    var tailNode: SKSpriteNode?
     
     required init?(coder aDecoder: NSCoder) {
         self.referenceNode = SKSpriteNode(coder: aDecoder)!
@@ -139,7 +143,7 @@ class Ballon : SKSpriteNode{
         
         // Setup Ballon
         self.position = CGPoint(x: 0, y: 0)
-        self.position.y += (self.size.height/2 - 30) + (referenceNode.size.height / 2)
+        self.position.y += (self.size.height/2 - 15) + (referenceNode.size.height / 2)
         
         // Setup Label
         
@@ -159,20 +163,25 @@ class Ballon : SKSpriteNode{
         self.addChild(labelNode)
         
         // Setup Bakcground
-        // TODO: Mudar a textura
         var backgroundName = ""
         switch rootNode.typeBallon {
         case .speak:
-            backgroundName = "dialogue_box_top"
+            backgroundName = "dialogueBox"
         case .thought:
-            backgroundName = "tought_box"
+            backgroundName = "thinkBox"
+        case .choice1:
+            backgroundName = "choiceBox1"
+        case .choice2:
+            backgroundName = "choiceBox2"
+        case .choice3:
+            backgroundName = "choiceBox3"
         default:
-            backgroundName = "dialogue_box_top"
+            backgroundName = "dialogueBox"
         }
+        
         let backgroundNode = SKSpriteNode(imageNamed: backgroundName)
-            
-        backgroundNode.size.width = labelNode.frame.size.width + 20
-        backgroundNode.size.height = labelNode.frame.size.height + 20
+        backgroundNode.size.width = labelNode.frame.size.width + 40
+        backgroundNode.size.height = labelNode.frame.size.height + 40
         backgroundNode.position = CGPoint.zero
         backgroundNode.zPosition = self.zPosition + 25
         
@@ -181,18 +190,32 @@ class Ballon : SKSpriteNode{
         
             
         // Setup point of ballon
-        // TODO: Mudar a textura
-//        let pointBallon = SKSpriteNode(imageNamed: "pointBallon")
-//        backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
-//        pointBallon.position = CGPoint.zero
-//        pointBallon.zPosition = backgroundNode.zPosition - 3
-//        backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-//        self.addChild(pointBallon)
+        let pointBallon = SKSpriteNode(imageNamed: "\(backgroundName)_tail")
+        pointBallon.zPosition = backgroundNode.zPosition - 300
+        self.tailNode = pointBallon
+        self.addChild(pointBallon)
+        pointBallon.position = CGPoint.zero
+        pointBallon.position.x += backgroundNode.size.width / 4
+        
+        if(iconName != nil && iconName != ""){
+            print("ICON NAME \(iconName!)")
+            if let node = self.childNode(withName: "\(iconName!)") as? SKSpriteNode{
+                pointBallon.position.y -= node.size.height / 2
+                pointBallon.size = CGSize(width: node.size.width/4, height: node.size.height/3)
+            }
+        }else{
+            pointBallon.position.y -= backgroundNode.size.height / 2
+            pointBallon.size = CGSize(width: backgroundNode.size.width/4, height: backgroundNode.size.height/3)
+        }
+        
+        
         
         if(self.referenceNode.xScale < 0){
             labelNode.xScale *= -1
             backgroundNode.xScale *= -1
-//            pointBallon.xScale *= -1
+            pointBallon.xScale *= -1
+        }else{
+            pointBallon.xScale *= -1
         }
     }
 }
@@ -244,21 +267,29 @@ class ChoicesBallon : SKSpriteNode{
             
             var auxBallon = ballons[0]
             // Setup BallonA
+            auxBallon.rootNode.typeBallon = .choice1
             auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: -1 * (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
+            if(auxBallon.tailNode != nil){
+                auxBallon.tailNode?.xScale *= -1
+            }
+            
             
             
             // Setup BallonB
             auxBallon = ballons[1]
+            auxBallon.rootNode.typeBallon = .choice2
             auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
             
             
             
+            
             if ballons.count == 3 {
                 auxBallon = ballons[2]
+                auxBallon.rootNode.typeBallon = .choice3
                 auxBallon.name = "choiceBallon"
                 auxBallon.setup()
                 auxBallon.position = CGPoint(x: 0, y: (playerNode.size.height/2 + auxBallon.size.height/2))
@@ -284,15 +315,15 @@ class InteractionBallon: Ballon{
     }
     
     override func setup() {
-        super.setup()
-        
         if (iconName != ""){
             let iconNode = SKSpriteNode(imageNamed: iconName!)
+            iconNode.name = iconName
             iconNode.zPosition = super.zPosition + 50
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
         }
+        super.setup()
         
     }
 }
