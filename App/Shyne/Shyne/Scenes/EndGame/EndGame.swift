@@ -15,8 +15,8 @@ class EndGame: SKScene {
     var labelNode: SKLabelNode?
     var backgroundNode: SKSpriteNode?
     
-    let firstText = NSLocalizedString("SUAS ESCOLHAS\n TE TROUXERAM\n      ATÉ AQUI!", comment: "")
-    let secondText = NSLocalizedString("            E NO DIA\n    DA APRESENTAÇÃO\nESSE FOI O RESULTADO!", comment: "")
+    let firstText = NSLocalizedString("SUAS ESCOLHAS\n TE TROUXERAM\n      ATÉ AQUI", comment: "")
+    let secondText = NSLocalizedString("            E NO DIA\n    DA APRESENTAÇÃO\nESSE FOI O RESULTADO", comment: "")
     let thirdText = NSLocalizedString("TEXTO GENÉRICO\nQUE FALTA", comment: "")
     
     

@@ -19,6 +19,7 @@ class ClassroomScene01: CustomSKSCene {
         //Preparando a tree story dessa scene
         classRoomRootmakeTree()
         prepareDialog()
+        
     }
     
     func prepareDialog(){

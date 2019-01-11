@@ -35,8 +35,6 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
         
-        // TODO: Auto-Save
-        PlayerModel.savePlayer()
         
         PlayerModel.addKeys(k: "triggerDad")
         PlayerModel.addKeys(k: "goUp")
@@ -111,7 +109,6 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "bakeryDoor")
-            // TODO: remove triggerDad from DAO
             self.ballon?.dismiss()
         }
         
@@ -119,7 +116,6 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "bakeryDoor")
-            // TODO: remove triggerDad from DAO
             self.ballon?.dismiss()
         }
         
@@ -127,7 +123,6 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "bakeryDoor")
-            // TODO: remove triggerDad from DAO
             self.ballon?.dismiss()
         }
     }

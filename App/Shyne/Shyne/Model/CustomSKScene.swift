@@ -45,7 +45,7 @@ class CustomSKSCene: SKScene{
         
         // TODO: Test if sceneName has somethig
         // Only call this notification if load return a valid valor
-        if (PlayerModel.getInstance().keys.count <= 0){
+        if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
             print("Não tem ninguém")
         }else{
             print("tem alguem")

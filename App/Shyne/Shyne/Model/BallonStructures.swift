@@ -83,8 +83,20 @@ class Ballon : SKSpriteNode{
             self.action!()
         }
         
+        if(self.name != nil && self.name! == "choiceBallon"){
+            print("REMOVE ALL")
+            self.referenceNode.removeAllChildren()
+        }
+//
+//        if(self.name == "choiceBallon"){
+//            print("REMOVE ALL")
+//            self.referenceNode.removeAllChildren()
+//        }
+        
         self.removeFromParent()
-        self.referenceNode.removeAllChildren()
+        
+        
+        
     }
     
     func nextBallon() {
@@ -92,24 +104,18 @@ class Ballon : SKSpriteNode{
         self.removeFromParent()
         self.referenceNode.removeAllChildren()
         
-        print("NODE \(self.rootNode.childrens.count)")
-        
         if(self.rootNode.childrens.count != 0){
-            
-            print("DIALOG \(self.rootNode.childrens.first!)")
             
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
             newDialogBallon.setup()
             
         }else if(self.rootNode.choices.count != 0){
             
-            print("CHOICES")
             
             let choicesBallon = ChoicesBallon(choices: self.rootNode.choices, referenceScene: self.referenceScene)
             choicesBallon.setup()
         }else{
             
-            print("DISSMIS")
             
             self.dismiss()
         }
@@ -206,15 +212,6 @@ class ChoicesBallon : SKSpriteNode{
             
             auxNode.action = choice.function
             
-//            if choice.function != nil {
-//                ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, action: choice.function))
-//            }else {
-//                ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene))
-//            }
-            
-            
-//            ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, action: choice.function))
-            
             ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene))
             
             
@@ -247,12 +244,14 @@ class ChoicesBallon : SKSpriteNode{
             
             var auxBallon = ballons[0]
             // Setup BallonA
+            auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: -1 * (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
             
             
             // Setup BallonB
             auxBallon = ballons[1]
+            auxBallon.name = "choiceBallon"
             auxBallon.setup()
             auxBallon.position = CGPoint(x: (playerNode.size.width/2 + auxBallon.size.width/2), y: 0)
             
@@ -260,6 +259,7 @@ class ChoicesBallon : SKSpriteNode{
             
             if ballons.count == 3 {
                 auxBallon = ballons[2]
+                auxBallon.name = "choiceBallon"
                 auxBallon.setup()
                 auxBallon.position = CGPoint(x: 0, y: (playerNode.size.height/2 + auxBallon.size.height/2))
                 
@@ -300,9 +300,22 @@ class InteractionBallon: Ballon{
 class DoorBallon : InteractionBallon{
     init(referenceNode: SKSpriteNode, referenceScene: SKScene, nextScene: SKScene){
         super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene) {
+            
+            //Auto-save
+            
+            print("NAME \(referenceScene.name)")
+            print("NAME \(nextScene.name)")
+            
+            let sceneInfo = SceneInformation.init(previousScenario: "\(referenceScene.name!)", actualScenario: "\(nextScene.name!)")
+            PlayerModel.changeScene(scene: sceneInfo)
+            PlayerModel.savePlayer()
+            
             let transition:SKTransition = SKTransition.fade(withDuration: 1)
             nextScene.scaleMode = SKSceneScaleMode.aspectFill
             referenceScene.view?.presentScene(nextScene, transition: transition)
+
+            
+            
         }
         self.xScale = 1.2
         self.yScale = 1.2
