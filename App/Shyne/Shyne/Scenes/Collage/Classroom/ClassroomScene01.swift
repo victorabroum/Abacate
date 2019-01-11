@@ -11,8 +11,6 @@ import SpriteKit
 import GameplayKit
 
 class ClassroomScene01: CustomSKSCene {
-
-    var ballon: Ballon?
     
     override func sceneDidLoad() {
         

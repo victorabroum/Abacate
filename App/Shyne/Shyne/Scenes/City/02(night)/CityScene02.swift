@@ -13,8 +13,6 @@ import GameplayKit
 
 class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
 
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         
         super.sceneDidLoad()

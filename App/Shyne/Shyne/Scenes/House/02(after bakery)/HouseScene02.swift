@@ -13,8 +13,6 @@ import GameplayKit
 class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     
     var house02Root: Node = Node(withText: "", withChoices: [])
-    var ballon: Ballon?
-    
     private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {

@@ -82,6 +82,9 @@ class Ballon : SKSpriteNode{
         if(self.action != nil){
             self.action!()
         }
+        
+        self.removeFromParent()
+        self.referenceNode.removeAllChildren()
     }
     
     func nextBallon() {
@@ -89,18 +92,25 @@ class Ballon : SKSpriteNode{
         self.removeFromParent()
         self.referenceNode.removeAllChildren()
         
-        if(self.rootNode.action != nil){
-            print("FUNCAO")
-            self.rootNode.action!()
-        }else if(self.rootNode.childrens.count != 0){
+        print("NODE \(self.rootNode.childrens.count)")
+        
+        if(self.rootNode.childrens.count != 0){
+            
+            print("DIALOG \(self.rootNode.childrens.first!)")
             
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
             newDialogBallon.setup()
             
         }else if(self.rootNode.choices.count != 0){
+            
+            print("CHOICES")
+            
             let choicesBallon = ChoicesBallon(choices: self.rootNode.choices, referenceScene: self.referenceScene)
             choicesBallon.setup()
         }else{
+            
+            print("DISSMIS")
+            
             self.dismiss()
         }
         
@@ -126,6 +136,9 @@ class Ballon : SKSpriteNode{
         self.position.y += (self.size.height/2 - 30) + (referenceNode.size.height / 2)
         
         // Setup Label
+        
+        print("NODE TEXT \(rootNode.text)")
+        
         let labelNode = SKLabelNode(text: rootNode.text)
         labelNode.numberOfLines = 4
         labelNode.fontSize = 18
@@ -270,12 +283,6 @@ class InteractionBallon: Ballon{
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Execute Action
-        super.touchesBegan(touches, with: event)
-        self.removeFromParent()
-    }
-    
     override func setup() {
         super.setup()
         
@@ -361,7 +368,13 @@ class StairBallon: InteractionBallon{
 class DialogBallon: Ballon{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        nextBallon()
+        
+        if (self.action != nil){
+            super.touchesBegan(touches, with: event)
+        }else{
+            nextBallon()
+        }
+        
     }
     
     override func setup() {

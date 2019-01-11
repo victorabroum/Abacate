@@ -12,8 +12,6 @@ import GameKit
 
 class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         print("Room didLoad")
         super.sceneDidLoad()
