@@ -302,10 +302,6 @@ class DoorBallon : InteractionBallon{
         super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene) {
             
             //Auto-save
-            
-            print("NAME \(referenceScene.name)")
-            print("NAME \(nextScene.name)")
-            
             let sceneInfo = SceneInformation.init(previousScenario: "\(referenceScene.name!)", actualScenario: "\(nextScene.name!)")
             PlayerModel.changeScene(scene: sceneInfo)
             PlayerModel.savePlayer()
