@@ -21,6 +21,9 @@ class CustomSKSCene: SKScene{
     // To control BG Audios
     var bgAudios: SKNode?
     
+    // Ballon Structures
+    var ballon: Ballon?
+    
     override func sceneDidLoad() {
         // Get PlayerNode reference
         

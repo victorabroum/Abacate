@@ -12,8 +12,6 @@ import GameKit
 
 class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
-    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         physicsWorld.contactDelegate = self
