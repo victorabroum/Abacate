@@ -12,7 +12,6 @@ import GameplayKit
 
 class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     
-    var ballon: Ballon?
     var padeiroNode: SKSpriteNode?
     
     private var lastUpdateTime : TimeInterval = 0
