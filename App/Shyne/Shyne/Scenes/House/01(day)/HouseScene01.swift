@@ -29,6 +29,8 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
         
         super.didMove(to: view)
         
+        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 10)
+        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga

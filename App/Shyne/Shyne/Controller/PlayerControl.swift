@@ -35,7 +35,7 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Just if needed
         if !(offset == -1) {
             if self.playerNode != nil{
-                self.set(cameraConstraints: camera, onplayerNode: self.playerNode!.cameraReference, withOffset: 55)
+                self.set(cameraConstraints: camera, onplayerNode: self.playerNode!.cameraReference, withOffset: offset)
             }
         }
         
@@ -54,16 +54,17 @@ class PlayerControl : GKComponent, TouchControlDelegate{
     }
     
     func set(cameraConstraints camera: SKCameraNode, onplayerNode player: SKSpriteNode, withOffset offset: CGFloat){
-        let zeroRange = SKRange(constantValue: 0)
-        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, to: player)
-
-//        // get the frame of the entire level contents
-        let boardNode:SKSpriteNode = scene!.childNode(withName: "background")! as! SKSpriteNode
-        let bounds: CGFloat = (boardNode.size.width / 2) - (boardNode.size.width / 5) + offset
-        let middleRange = SKRange(lowerLimit: -bounds, upperLimit: bounds)
-        let levelEdgeConstraint = SKConstraint.distance(middleRange, to: boardNode)
-
-        camera.constraints = [playerBotLocationConstraint, levelEdgeConstraint]
+//        let zeroRange = SKRange(constantValue: 0)
+//        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, to: player)
+//
+////        // get the frame of the entire level contents
+//        let boardNode:SKSpriteNode = scene!.childNode(withName: "background")! as! SKSpriteNode
+//        let bounds: CGFloat = (boardNode.size.width / 2) - (boardNode.size.width / 5)
+//        let middleRange = SKRange(lowerLimit: -bounds, upperLimit: bounds)
+//        let levelEdgeConstraint = SKConstraint.distance(middleRange, to: boardNode)
+//
+//        camera.constraints = [playerBotLocationConstraint, levelEdgeConstraint]
+        
     }
     
     // Caso precise remover as constrains da camera seguir o player

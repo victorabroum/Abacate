@@ -36,6 +36,8 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
        
         super.didMove(to: view)
         
+        self.offsetCamera = -1
+        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga

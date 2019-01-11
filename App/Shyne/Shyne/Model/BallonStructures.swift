@@ -89,24 +89,28 @@ class Ballon : SKSpriteNode{
         
         if(self.name != nil && self.name! == "choiceBallon"){
             print("REMOVE ALL")
-            self.referenceNode.removeAllChildren()
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
         }
-//
-//        if(self.name == "choiceBallon"){
-//            print("REMOVE ALL")
-//            self.referenceNode.removeAllChildren()
-//        }
         
         self.removeFromParent()
-        
-        
         
     }
     
     func nextBallon() {
         
         self.removeFromParent()
-        self.referenceNode.removeAllChildren()
+        if(self.name != nil && self.name! == "choiceBallon"){
+            print("REMOVE ALL")
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
+        }
         
         if(self.rootNode.childrens.count != 0){
             
@@ -129,7 +133,14 @@ class Ballon : SKSpriteNode{
     
     func dismiss(){
         self.removeFromParent()
-        self.referenceNode.removeAllChildren()
+        if(self.name != nil && self.name! == "choiceBallon"){
+            print("REMOVE ALL")
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
+        }
         
         if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
             playerNode.playerCanWalk(true)
@@ -354,7 +365,7 @@ class DoorBallon : InteractionBallon{
 }
 
 class StairBallon: InteractionBallon{
-    init(direction: String, playerNode: PlayerNode, referenceNode: SKSpriteNode, referenceScene: SKScene){
+    init(direction: String, playerNode: PlayerNode, referenceNode: SKSpriteNode, referenceScene: CustomSKSCene){
         
         super.init(iconName: "", referenceNode: referenceNode, referenceScene: referenceScene, action: {})
         
@@ -362,15 +373,15 @@ class StairBallon: InteractionBallon{
             super.iconName = "iconDownstairs"
             super.action = {
                 
-                
-                
                 if (playerNode.xScale) <= 0{
                     playerNode.xScale *= -1
                 }
                 
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceUp")?.position)!, withDuration: stairDuration)
                 
-                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration)){
+                    referenceScene.offsetCamera = 80
+                }
             }
         }else{
             
@@ -386,7 +397,9 @@ class StairBallon: InteractionBallon{
                 
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceUp")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceDown")?.position)!, withDuration: stairDuration)
                 
-                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration)){
+                    referenceScene.offsetCamera = 35
+                }
             }
             
         }

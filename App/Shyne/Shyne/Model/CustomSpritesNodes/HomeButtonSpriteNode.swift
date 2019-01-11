@@ -14,7 +14,6 @@ class HomeButtonSpriteNode: SKSpriteNode{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         print("name \(self.name ?? "Não tem nome")")
-        self.texture = SKTexture(imageNamed: "dialogue_box_dir")
         NotificationCenter.default.addObserver(self, selector: #selector(setup), name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
     }
@@ -23,12 +22,12 @@ class HomeButtonSpriteNode: SKSpriteNode{
         
         self.isUserInteractionEnabled = true
         
-        if(self.entity != nil){
-            let text = self.userData?.value(forKey: "text")
-            self.entity?.addComponent(ButtonLayoutComponent(withText: "\(text ?? "NO NAME")", onNode: self))
-        }
-        
-        
+//        if(self.entity != nil){
+//            let text = self.userData?.value(forKey: "text")
+//            self.entity?.addComponent(ButtonLayoutComponent(withText: "\(text ?? "NO NAME")", onNode: self))
+//        }
+//        
+//        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

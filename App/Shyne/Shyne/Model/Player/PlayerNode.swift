@@ -65,7 +65,14 @@ class PlayerNode: SKSpriteNode{
         
         self.isUserInteractionEnabled = false
         
+        for child in self.children{
+            if(child.name == "cameraReference"){
+                child.removeFromParent()
+            }
+        }
+        
         // Add camera reference to follow
+        self.cameraReference.name = "cameraReference"
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
         self.cameraReference.removeFromParent()

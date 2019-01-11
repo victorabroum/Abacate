@@ -16,6 +16,8 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         print("Room didLoad")
         super.sceneDidLoad()
         
+        self.offsetCamera = -1
+        
         physicsWorld.contactDelegate = self
         
         //Preparando a tree story dessa scene
@@ -31,6 +33,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         print("ROOM didMove")
         super.didMove(to: view)
+        
         
         self.playerNode?.canWalk = false
         
@@ -96,13 +99,11 @@ extension RoomScene {
         if let homeNode = self.childNode(withName: "homeScreen"){
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
+        self.offsetCamera = 35
     }
     
     
     @objc func contiueGame() {
-        // TODO: Use NameScene of PlayerModel
-//        let nameScene = PlayerModel.getInstance().sceneName
-//        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
         print("NAME SCENE \(nameScene)")
         let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!

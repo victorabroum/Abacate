@@ -30,8 +30,8 @@ var normalStatus: Float = 10.0
 var shyStatus: Float = 0.0
 
 // Camera pos in house
-var cameraDown: CGFloat = -7.0
-var cameraUpper: CGFloat = 7.0
+var cameraDown: CGFloat = -100
+var cameraUpper: CGFloat = 100
 
 // Stairs animation duration
 var stairDuration: TimeInterval = 2

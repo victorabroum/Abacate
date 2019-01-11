@@ -24,6 +24,8 @@ class CustomSKSCene: SKScene{
     // Ballon Structures
     var ballon: Ballon?
     
+    var offsetCamera: CGFloat = 30
+    
     override func sceneDidLoad() {
         // Get PlayerNode reference
         
@@ -51,11 +53,19 @@ class CustomSKSCene: SKScene{
             print("tem alguem")
             NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
         }
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
         if(playerNode != nil){
             self.playerNode?.makePlayerWalk()
+            
+            if !(offsetCamera == -1){
+                let positionCamera = CGPoint(x: (self.playerNode?.position.x)!, y: (self.playerNode?.position.y)! + offsetCamera)
+                self.camera?.run(SKAction.move(to: positionCamera, duration: 0.6))
+            }
         }
     }
     
