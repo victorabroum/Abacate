@@ -45,7 +45,6 @@ class MusicPanHelper {
             
             switch distance{
             case 0 ... minimumDistance:
-                print("MAX")
                 musicNode.run(SKAction.changeVolume(to: 0.6, duration: 0.5))
             case (minimumDistance + 1) ... (minimumDistance * 2):
                 musicNode.run(SKAction.changeVolume(to: 0.25, duration: 0.5))

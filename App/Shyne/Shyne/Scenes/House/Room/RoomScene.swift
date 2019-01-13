@@ -36,6 +36,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         
         self.playerNode?.canWalk = false
+        self.playerNode?.enterSitState()
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
             self.ballon = DialogBallon.init(rootNode: rootNode, referenceScene: self)
@@ -49,6 +50,15 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             print("BG AUDIOS")
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+        }
+        
+        quartaTalk.action = {
+            
+            self.playerNode?.run(SKAction(named: "felipe_standUp")!){
+                self.playerNode?.actualDirection = .idle
+                self.playerNode?.position.x += 10
+                self.ballon?.dismiss()
+            }
         }
         
         
@@ -88,8 +98,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             ballon?.dismiss()
         }
     }
-    
-    
     
 }
 

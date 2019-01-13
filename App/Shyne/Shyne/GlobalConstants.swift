@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-var zPositionToButton: CGFloat = 150
+var zPositionToButton: CGFloat = 9999
 
 // For The Player
 var playerVelocity: CGFloat = 2.5
@@ -22,6 +22,7 @@ enum PlayerMovement {
     case idle
     case up
     case down
+    case sit
 }
 
 // Status of choices

@@ -191,8 +191,8 @@ class Ballon : SKSpriteNode{
         }
         
         let backgroundNode = SKSpriteNode(imageNamed: backgroundName)
-        backgroundNode.size.width = labelNode.frame.size.width + 40
-        backgroundNode.size.height = labelNode.frame.size.height + 40
+        backgroundNode.size.width = labelNode.frame.size.width + 30
+        backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
         backgroundNode.zPosition = self.zPosition + 25
         
@@ -380,7 +380,7 @@ class StairBallon: InteractionBallon{
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceUp")?.position)!, withDuration: stairDuration)
                 
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration)){
-                    referenceScene.offsetCamera = 80
+                    referenceScene.offsetCamera = 75
                 }
             }
         }else{

@@ -1,5 +1,5 @@
 //
-//  sitState.swift
+//  SitState.swift
 //  Shyne
 //
 //  Created by Victor Vasconcelos on 11/01/19.
@@ -36,7 +36,7 @@ class SitState: GKState {
             self.nodeToIdle.entity?.removeComponent(ofType: Walkable.self)
         }
         
-        let idle: PlayerIdle = PlayerIdle()
+        let idle = SitComponent()
         idle.node = self.nodeToIdle
         idle.startIdle()
         self.nodeToIdle.entity?.addComponent(idle)

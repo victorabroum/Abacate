@@ -33,7 +33,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         super.didMove(to: view)
         
-        self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
+        self.offsetCamera = 120
         
         MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
         

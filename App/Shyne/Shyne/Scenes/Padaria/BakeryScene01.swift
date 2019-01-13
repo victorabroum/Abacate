@@ -120,7 +120,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             self.ballon?.removeFromParent()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 
-                self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: self.padeiroNode!, referenceScene: self)
+                self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: (self.childNode(withName: "padeiroCaixa") as? SKSpriteNode)!, referenceScene: self)
                 self.ballon?.setup()
             })
             

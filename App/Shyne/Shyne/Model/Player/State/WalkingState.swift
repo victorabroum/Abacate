@@ -23,6 +23,8 @@ class WalkingState: GKState {
         case is IdleState.Type:
             // Pode ir pro idle
             return true
+        case is SitState.Type:
+            return true
         default:
             return false
         }
