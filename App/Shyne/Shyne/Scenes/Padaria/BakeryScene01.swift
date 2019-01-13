@@ -58,7 +58,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                 if newName == "padeiro"{
                     
                     ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
-                        self.ballon = DialogBallon.init(rootNode: rootNodePadaria, referenceNode: self.playerNode!, referenceScene: self)
+                        self.ballon = DialogBallon.init(rootNode: bakery01Root, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode , referenceScene: self)
                         self.ballon?.setup()
                     })
                     
@@ -98,14 +98,15 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     
     
     func prepareDialoge() {
-        rootNodePadaria.action = {
+        bakery01d03.action = {
             self.padeiroNode?.run(SKAction(named: "sweet_brad")!, completion: {
-                self.ballon?.nextBallon()
+                self.ballon = DialogBallon.init(rootNode: bakery01d04, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode , referenceScene: self)
+                self.ballon?.setup()
             })
             
         }
         
-        bakery01D4.action = {
+        bakery01d07.action = {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "houseDoor")
@@ -120,24 +121,24 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             self.ballon?.removeFromParent()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 
-                self.ballon = DialogBallon.init(rootNode: bakery01D3, referenceNode: (self.childNode(withName: "padeiroCaixa") as? SKSpriteNode)!, referenceScene: self)
+                self.ballon = DialogBallon.init(rootNode: bakery01d06, referenceNode: self.padeiroNode!, referenceScene: self)
                 self.ballon?.setup()
             })
             
             PlayerModel.addKeys(k: "frenchBrad")
         }
         
-        rVcErrou.function = {
+        bakery01d01c01d04.action = {
             // Ele volta para pegar o pão francês
             justSair()
         }
         
-        rVcErrouDeNovo.function = {
+        bakery01c02d04.function = {
             // Ele volta para pegar o pão francês
             justSair()
         }
         
-        rObrigado.function = {
+        bakery01c03d04.function = {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "houseDoor")

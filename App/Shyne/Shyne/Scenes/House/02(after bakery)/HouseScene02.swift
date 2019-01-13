@@ -26,9 +26,9 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         // Indicando a raiz da story
         
         if(PlayerModel.getInstance().keys.contains("sweetBrad")){
-            self.house02Root = house02Root1
+            self.house02Root = house02RootDoce
         }else if (PlayerModel.getInstance().keys.contains("frenchBrad")){
-            self.house02Root = house02Root2
+            self.house02Root = house02RootNormal
         }else{
             self.house02Root = house02Root3
         }
@@ -119,7 +119,7 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     
     func prepareDialog() {
     
-        dHouse02Player3.action = {
+        house02d06.action = {
             
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "busStop")
