@@ -78,6 +78,16 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             }
         
         }
+        room01c01PC.function = {
+            PlayerModel.addKeys(k: "Desligar")
+            self.ballon = DialogBallon.init(rootNode: room01d01c01PC, referenceScene: self)
+            self.ballon!.setup()
+        }
+        room01c02PC.function = {
+            PlayerModel.addKeys(k: "Email")
+            self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceScene: self)
+            self.ballon!.setup()
+        }
         
     }
     

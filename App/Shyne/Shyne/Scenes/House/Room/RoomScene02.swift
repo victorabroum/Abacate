@@ -18,6 +18,7 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         // Prepare Dialog
         prepareDialog()
+        room02MakeTree()
         
         
         

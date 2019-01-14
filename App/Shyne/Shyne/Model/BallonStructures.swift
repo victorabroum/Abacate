@@ -24,6 +24,7 @@ class Ballon : SKSpriteNode{
     var action: (()->Void)?
     var rootNode: Node
     var referenceScene: CustomSKSCene
+    var feel: Feel?
     
     var tailNode: SKSpriteNode?
     
@@ -53,9 +54,10 @@ class Ballon : SKSpriteNode{
         self.referenceNode.addChild(self)
     }
     
-    init(rootNode: Node, referenceScene: CustomSKSCene, action: (()->Void)? = nil){
+    init(rootNode: Node, referenceScene: CustomSKSCene,feel: Feel = Feel(happy: 0, normal: 0, shy: 0), action: (()->Void)? = nil){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
+        self.feel = feel
         if(rootNode.action != nil){
             self.action = rootNode.action
         }
@@ -248,7 +250,7 @@ class ChoicesBallon : SKSpriteNode{
             
             auxNode.action = choice.function
             
-            ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene))
+            ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, feel: choice.amount))
             
             
         }
@@ -437,6 +439,15 @@ class StairBallon: InteractionBallon{
 class DialogBallon: Ballon{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
+        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
+        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
+        print("-------------------------------------------------")
+        print("Bom:\(PlayerModel.getInstance().status.bom)\n")
+        print("Medio:\(PlayerModel.getInstance().status.medio)\n")
+        print("Ruim:\(PlayerModel.getInstance().status.ruim)\n")
+        print("-------------------------------------------------")
         
         if (self.action != nil){
             super.touchesBegan(touches, with: event)

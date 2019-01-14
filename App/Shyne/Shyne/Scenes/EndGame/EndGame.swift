@@ -45,10 +45,20 @@ class EndGame: SKScene {
 //            self.badEnd()
             
             
-            if( happyStatus>normalStatus && happyStatus>shyStatus ){
+//            if( happyStatus>normalStatus && happyStatus>shyStatus ){
+//                self.goodEnd()
+//            }
+//            else if( normalStatus>happyStatus && normalStatus>shyStatus ){
+//                self.mediumEnd()
+//            }
+//            else{
+//                self.badEnd()
+//            }
+            
+            if( PlayerModel.getInstance().status.bom>PlayerModel.getInstance().status.medio && PlayerModel.getInstance().status.bom>PlayerModel.getInstance().status.ruim ){
                 self.goodEnd()
             }
-            else if( normalStatus>happyStatus && normalStatus>shyStatus ){
+            else if( PlayerModel.getInstance().status.medio>PlayerModel.getInstance().status.bom && PlayerModel.getInstance().status.medio>PlayerModel.getInstance().status.ruim ){
                 self.mediumEnd()
             }
             else{
