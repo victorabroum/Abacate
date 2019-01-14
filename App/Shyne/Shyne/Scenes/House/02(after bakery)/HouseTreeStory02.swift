@@ -67,7 +67,7 @@ var house02RootNormal = Node(withText: NSLocalizedString("Senta ai e vamos comer
 var house02d02 = Node(withText: NSLocalizedString("Como tá a faculdade?", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice02")
 
 var house02c01d02 = Answer(withText: NSLocalizedString("Normal", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice02")//paga a key normal
-var house02c02d02 = Answer(withText: "Tá difícil, mas estou levando", withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "felipe_Voice01")
+var house02c02d02 = Answer(withText: "Tá difícil,\nmas estou levando", withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "felipe_Voice01")
 
 var house02d01c02d02 = Node(withText: NSLocalizedString("Eu não sei como ajudar", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice01")
 var house02d02c02d02 = Node(withText: NSLocalizedString("Mas então... Tá gostando de alguém?", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice03")
@@ -81,7 +81,7 @@ var house02d02c03d02 = Node(withText: NSLocalizedString("Se o senhor não rega-l
 var house02d03c03d02 = Node(withText: NSLocalizedString("Ele vai esquecer", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "")
 
 var house02d03 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
-var house02d04 = Node(withText: NSLocalizedString("Tenho ue ir para a faculdade, pai", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice01")
+var house02d04 = Node(withText: NSLocalizedString("Tenho que ir para a faculdade, pai", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice01")
 var house02d05 = Node(withText: NSLocalizedString("Tchau, quando chegar lá me avisa", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice01")
 var house02d06 = Node(withText: NSLocalizedString("Ta, pai", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
 
@@ -126,12 +126,14 @@ func house02makeTree(){
     house02d01c02d02.add(child: house02d02c02d02)
     house02d02c02d02.add(child: house02d03c02d02)
     house02d03c02d02.add(child: house02d04c02d02)
+    house02d03c02d02.typeBallon = .thought
     house02d04c02d02.add(child: house02d03)
     
     house02c03d02.child = [house02d01c03d02]
     house02d01c03d02.add(child: house02d02c03d02)
     house02d02c03d02.add(child: house02d03c03d02)
     house02d03c03d02.add(child: house02d03)
+    house02d03c03d02.typeBallon = .thought
     
     house02d03.add(child: house02d04)
     house02d04.add(child: house02d05)
