@@ -197,7 +197,6 @@ class Ballon : SKSpriteNode{
         backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
         backgroundNode.zPosition = self.zPosition + 25
-        
         self.addChild(backgroundNode)
         
         
@@ -229,6 +228,8 @@ class Ballon : SKSpriteNode{
         }else{
             pointBallon.xScale *= -1
         }
+        
+        self.run(SKAction.repeatForever(SKAction(named: "ballon_move")!))
     }
 }
 
