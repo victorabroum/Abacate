@@ -49,15 +49,6 @@ class CustomSKSCene: SKScene{
         
         NotificationCenter.default.post(name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
-        // TODO: Test if sceneName has somethig
-        // Only call this notification if load return a valid valor
-        if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
-            print("Não tem ninguém")
-        }else{
-            print("tem alguem")
-            NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
-        }
-        
         
         
     }
