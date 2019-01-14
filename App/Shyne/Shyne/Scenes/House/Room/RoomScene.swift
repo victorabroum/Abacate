@@ -48,8 +48,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
             print("Não tem ninguém")
             if let continueButtonNode = self.childNode(withName: "homeScreen")!.childNode(withName: "continueButton") as? SKSpriteNode{
-                print("EITA NUM TEM NGM")
-                continueButtonNode.texture = SKTexture(imageNamed: "")
+                continueButtonNode.texture = SKTexture(imageNamed: "continueGameButton_cinza")
                 continueButtonNode.isUserInteractionEnabled = false
             }
         }else{
