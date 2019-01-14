@@ -42,11 +42,20 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         self.playerNode?.canWalk = false
         self.playerNode?.enterSitState()
         
-        let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
-            self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
-            self.ballon!.setup()
+        
+        // TODO: Test if sceneName has somethig
+        // Only call this notification if load return a valid valor
+        if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
+            print("Não tem ninguém")
+            if let continueButtonNode = self.childNode(withName: "homeScreen")!.childNode(withName: "continueButton") as? SKSpriteNode{
+                print("EITA NUM TEM NGM")
+                continueButtonNode.texture = SKTexture(imageNamed: "")
+                continueButtonNode.isUserInteractionEnabled = false
+            }
+        }else{
+            print("tem alguem")
+            NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
         }
-        startBallon.setup()
         
         
         // Prepare BG Music
@@ -162,6 +171,12 @@ extension RoomScene {
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
         self.offsetCamera = 45
+        
+        let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
+            self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
+            self.ballon!.setup()
+        }
+        startBallon.setup()
         
     }
     

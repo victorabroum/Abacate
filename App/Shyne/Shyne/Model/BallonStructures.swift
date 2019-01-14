@@ -334,6 +334,13 @@ class InteractionBallon: Ballon{
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
+        }else{
+            let iconNode = SKSpriteNode(imageNamed: "Icon_Dialogue")
+            iconNode.name = iconName
+            iconNode.zPosition = super.zPosition + 50
+            iconNode.position = CGPoint.zero
+            
+            super.addChild(iconNode)
         }
         super.setup()
         
