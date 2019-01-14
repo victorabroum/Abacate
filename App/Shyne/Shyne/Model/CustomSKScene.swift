@@ -124,7 +124,6 @@ class CustomSKSCene: SKScene{
         
         // Add icon of Pause
         let pauseNode = ActionSpriteNode(imageNamed: "pauseButton") {
-            print("ACNTION POR FPUASE")
             
             
             if(self.playerNode!.canWalk){
