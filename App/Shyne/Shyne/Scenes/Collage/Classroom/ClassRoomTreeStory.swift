@@ -36,7 +36,7 @@ var classroom01AnaNameNode = "annaTalk"
 //var class01Player04 = Node(withText: NSLocalizedString("Alright, I'll\n do it by myself.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
 var classRoom01Root = Node(withText: NSLocalizedString("Então esse é o\nultimo assunto do período", comment: "Período da faculdade"), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice01")
-var classRoom01d02 = Node(withText: NSLocalizedString("A nota final será\num trabalho em equipe de 2", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice02")
+var classRoom01d02 = Node(withText: NSLocalizedString("A nota final será um trabalho\nem equipe de 2", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice02")
 var classRoom01d03 = Node(withText: NSLocalizedString("Que bom não vou ter que apresentar", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 var classRoom01d04 = Node(withText: NSLocalizedString("Todos os membros\ntem que apresentar", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
 var classRoom01d05 = Node(withText: NSLocalizedString("E a apresentação\nserá amanha", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
