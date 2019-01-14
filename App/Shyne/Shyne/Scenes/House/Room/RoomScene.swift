@@ -34,6 +34,8 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         print("ROOM didMove")
         super.didMove(to: view)
         
+        self.dismissPause()
+        
         
         self.playerNode?.canWalk = false
         self.playerNode?.enterSitState()
@@ -66,7 +68,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             }
         
         }
-        
         
     }
     
@@ -114,7 +115,7 @@ extension RoomScene {
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
         self.offsetCamera = 45
-        self.preparePause()
+        
     }
     
     

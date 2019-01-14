@@ -39,7 +39,7 @@ class CustomSKSCene: SKScene{
     
     override func didMove(to view: SKView) {
         
-        
+        self.preparePause()
         
         // Prepare Player for walk
         if(playerNode != nil){
@@ -81,6 +81,8 @@ class CustomSKSCene: SKScene{
     
     func preparePause() {
         
+        print("PREAPRE PAUSE")
+        
         // Subir HUD de Pause
         let backgroundSize = self.size
         let backgroundPause = SKSpriteNode(imageNamed: "Pause")
@@ -95,9 +97,7 @@ class CustomSKSCene: SKScene{
         let btContinueNode = ActionSpriteNode(imageNamed: "continueButton") {
             self.playerNode!.playerCanWalk(true)
             self.playerNode!.exitPauseState()
-            backgroundPause.run(SKAction.wait(forDuration: 0.8)){
-                backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
-            }
+            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
         }
         btContinueNode.isUserInteractionEnabled = true
         btContinueNode.zPosition = backgroundPause.zPosition + 100
@@ -137,9 +137,7 @@ class CustomSKSCene: SKScene{
             }else{
                 self.playerNode!.playerCanWalk(true)
                 self.playerNode!.exitPauseState()
-                backgroundPause.run(SKAction.wait(forDuration: 0.8)){
-                    backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
-                }
+                backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
             }
             
             
@@ -154,19 +152,20 @@ class CustomSKSCene: SKScene{
         pauseNode.position = CGPoint(x: backgroundSize.width / 2.5, y: backgroundSize.height / 2.8)
         self.camera?.addChild(pauseNode)
         
-        
     }
     
     func dismissPause() {
         var pauseIconNode: SKSpriteNode?
+        
         for child in self.camera!.children{
-            if(child.name! == "pauseNode"){
+            
+            if(child.name != nil && child.name! == "pauseNode"){
                 pauseIconNode = child as? SKSpriteNode
             }
         }
         
         if(pauseIconNode != nil){
-            pauseIconNode!.run(SKAction.fadeOut(withDuration: 0.7))
+            pauseIconNode!.run(SKAction.fadeOut(withDuration: 0.3))
         }
         
     }
@@ -174,12 +173,12 @@ class CustomSKSCene: SKScene{
     func showPause(){
         var pauseIconNode: SKSpriteNode?
         for child in self.camera!.children{
-            if(child.name! == "pauseNode"){
+            if(child.name != nil && child.name! == "pauseNode"){
                 pauseIconNode = child as? SKSpriteNode
             }
         }
         if(pauseIconNode != nil){
-            pauseIconNode!.run(SKAction.fadeIn(withDuration: 0.7))
+            pauseIconNode!.run(SKAction.fadeIn(withDuration: 0.3))
         }
     }
     
