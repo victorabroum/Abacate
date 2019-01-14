@@ -20,12 +20,20 @@ class PlayerNode: SKSpriteNode{
     
     func prepareStateMachine(){
         self.stateMachine = GKStateMachine(states: [IdleState(withPlayerNode: self),
-                                                    WalkingState(withPlayerNode: self)])
+                                                    WalkingState(withPlayerNode: self),
+                                                    SitState(withPlayerNode: self)])
     }
     
     func enterIdleState(){
         if self.stateMachine != nil{
             self.stateMachine?.enter(IdleState.self)
+        }
+    }
+    
+    func enterSitState(){
+        self.actualDirection = .sit
+        if self.stateMachine != nil {
+            self.stateMachine?.enter(SitState.self)
         }
     }
     
@@ -65,7 +73,14 @@ class PlayerNode: SKSpriteNode{
         
         self.isUserInteractionEnabled = false
         
+        for child in self.children{
+            if(child.name == "cameraReference"){
+                child.removeFromParent()
+            }
+        }
+        
         // Add camera reference to follow
+        self.cameraReference.name = "cameraReference"
         self.cameraReference.alpha = 0
         self.cameraReference.position.y += cameraOffset
         self.cameraReference.removeFromParent()
@@ -91,6 +106,13 @@ class PlayerNode: SKSpriteNode{
         self.canWalk = flag
         if !flag {
             self.enterIdleState()
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.stop()
+            }
+        }else{
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.start()
+            }
         }
     }
     
@@ -112,6 +134,10 @@ class PlayerNode: SKSpriteNode{
                 }
                 self.position.x -= playerVelocity
                 self.enterWalkingState()
+                
+            case .sit:
+                self.isWalking = false
+                self.enterSitState()
             default:
                 // Idle
                 self.isWalking = false
@@ -119,7 +145,14 @@ class PlayerNode: SKSpriteNode{
             }
         }else{
             
-            self.enterIdleState()
+            switch self.actualDirection{
+                case .idle:
+                    self.enterIdleState()
+                case .sit:
+                    self.enterSitState()
+            default:
+                break
+            }
             
         }
     }

@@ -30,6 +30,8 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
         
         super.didMove(to: view)
         
+        self.offsetCamera = 85
+        
         // Ajustando dialog
         prepareDialog()
         
@@ -110,7 +112,7 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     
     
     func prepareDialog() {
-        house03_D5.action = {
+        house03d05.action = {
             
             PlayerModel.addKeys(k: "porta")
             // TODO: Remove key from DAO

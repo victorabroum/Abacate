@@ -88,24 +88,27 @@ class Ballon : SKSpriteNode{
         }
         
         if(self.name != nil && self.name! == "choiceBallon"){
-            print("REMOVE ALL")
-            self.referenceNode.removeAllChildren()
+            
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
         }
-//
-//        if(self.name == "choiceBallon"){
-//            print("REMOVE ALL")
-//            self.referenceNode.removeAllChildren()
-//        }
         
         self.removeFromParent()
-        
-        
         
     }
     
     func nextBallon() {
         self.removeFromParent()
-        self.referenceNode.removeAllChildren()
+        if(self.name != nil && self.name! == "choiceBallon"){
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
+        }
         
         if(self.rootNode.childrens.count != 0){
             let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
@@ -127,7 +130,13 @@ class Ballon : SKSpriteNode{
     
     func dismiss(){
         self.removeFromParent()
-        self.referenceNode.removeAllChildren()
+        if(self.name != nil && self.name! == "choiceBallon"){
+            for child in self.referenceNode.children{
+                if(child.name == "choiceBallon"){
+                    child.removeFromParent()
+                }
+            }
+        }
         
         if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
             playerNode.playerCanWalk(true)
@@ -144,8 +153,6 @@ class Ballon : SKSpriteNode{
         self.position.y += (self.size.height/2 - 15) + (referenceNode.size.height / 2)
         
         // Setup Label
-        
-        print("NODE TEXT \(rootNode.text)")
         
         let labelNode = SKLabelNode(text: rootNode.text)
         labelNode.numberOfLines = 4
@@ -178,8 +185,8 @@ class Ballon : SKSpriteNode{
         }
         
         let backgroundNode = SKSpriteNode(imageNamed: backgroundName)
-        backgroundNode.size.width = labelNode.frame.size.width + 40
-        backgroundNode.size.height = labelNode.frame.size.height + 40
+        backgroundNode.size.width = labelNode.frame.size.width + 30
+        backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
         backgroundNode.zPosition = self.zPosition + 25
         
@@ -196,7 +203,6 @@ class Ballon : SKSpriteNode{
         pointBallon.position.x += backgroundNode.size.width / 4
         
         if(iconName != nil && iconName != ""){
-            print("ICON NAME \(iconName!)")
             if let node = self.childNode(withName: "\(iconName!)") as? SKSpriteNode{
                 pointBallon.position.y -= node.size.height / 2
                 pointBallon.size = CGSize(width: node.size.width/4, height: node.size.height/3)
@@ -352,7 +358,7 @@ class DoorBallon : InteractionBallon{
 }
 
 class StairBallon: InteractionBallon{
-    init(direction: String, playerNode: PlayerNode, referenceNode: SKSpriteNode, referenceScene: SKScene){
+    init(direction: String, playerNode: PlayerNode, referenceNode: SKSpriteNode, referenceScene: CustomSKSCene){
         
         super.init(iconName: "", referenceNode: referenceNode, referenceScene: referenceScene, action: {})
         
@@ -360,15 +366,15 @@ class StairBallon: InteractionBallon{
             super.iconName = "iconDownstairs"
             super.action = {
                 
-                
-                
                 if (playerNode.xScale) <= 0{
                     playerNode.xScale *= -1
                 }
                 
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceUp")?.position)!, withDuration: stairDuration)
                 
-                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration))
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration)){
+                    referenceScene.offsetCamera = 80
+                }
             }
         }else{
             
@@ -384,7 +390,9 @@ class StairBallon: InteractionBallon{
                 
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceUp")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceDown")?.position)!, withDuration: stairDuration)
                 
-                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration))
+                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration)){
+                    referenceScene.offsetCamera = 35
+                }
             }
             
         }

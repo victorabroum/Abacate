@@ -36,6 +36,8 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
        
         super.didMove(to: view)
         
+        self.offsetCamera = -1
+        
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga
@@ -119,7 +121,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             self.ballon?.removeFromParent()
             self.padeiroNode?.run(SKAction(named: "french_brad")!, completion: {
                 
-                self.ballon = DialogBallon.init(rootNode: bakery01d06, referenceNode: self.padeiroNode!, referenceScene: self)
+                self.ballon = DialogBallon.init(rootNode: bakery01d06, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self)
                 self.ballon?.setup()
             })
             

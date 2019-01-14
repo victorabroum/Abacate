@@ -30,7 +30,7 @@ import Foundation
 //var house03_D5 = Node(withText: "Good night dad, \nsee you tomorrow.", withChoices: [])
 
 var house03PlayerNameNode = "playerNode"
-var house03DadNameNode = "dad"
+var house03DadNameNode = "Dad"
 
 var house03Root = Node(withText: NSLocalizedString("Boa noite, Filho", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
 var house03d02 = Node(withText: NSLocalizedString("Boa noite, pai", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice02")

@@ -39,6 +39,8 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
+        self.offsetCamera = 75
+        
         PlayerModel.addKeys(k: "dady")
         PlayerModel.addKeys(k: "goUp")
         PlayerModel.addKeys(k: "goDown")

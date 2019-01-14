@@ -16,6 +16,8 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         print("Room didLoad")
         super.sceneDidLoad()
         
+        self.offsetCamera = -1
+        
         physicsWorld.contactDelegate = self
         
         //Preparando a tree story dessa scene
@@ -32,7 +34,9 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         print("ROOM didMove")
         super.didMove(to: view)
         
+        
         self.playerNode?.canWalk = false
+        self.playerNode?.enterSitState()
         
         let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
             self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
@@ -46,6 +50,21 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             print("BG AUDIOS")
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+        }
+        
+        room01d04.action = {
+            
+            if(self.playerNode?.actualDirection == .sit){
+                self.playerNode?.run(SKAction(named: "felipe_standUp")!){
+                    self.playerNode?.actualDirection = .idle
+                    self.playerNode?.position.x += 10
+                    self.ballon?.dismiss()
+                }
+            }else{
+                self.playerNode?.actualDirection = .idle
+                self.ballon?.dismiss()
+            }
+        
         }
         
         
@@ -86,8 +105,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
     }
     
-    
-    
 }
 
 // MARK: Relationade to HomeScreen
@@ -96,15 +113,12 @@ extension RoomScene {
         if let homeNode = self.childNode(withName: "homeScreen"){
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
+        self.offsetCamera = 45
     }
     
     
     @objc func contiueGame() {
-        // TODO: Use NameScene of PlayerModel
-//        let nameScene = PlayerModel.getInstance().sceneName
-//        let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
-        print("NAME SCENE \(nameScene)")
         let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
             nextScene.entities = cenaProxima.entities

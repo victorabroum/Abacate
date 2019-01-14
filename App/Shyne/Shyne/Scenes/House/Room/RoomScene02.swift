@@ -27,6 +27,8 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         super.didMove(to: view)
         
+        self.offsetCamera = 55
+        
         PlayerModel.addKeys(k: "cama")
         
         // Prepare BG Music
@@ -47,7 +49,7 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
             if(PlayerModel.getInstance().keys.contains(newName)){
                 if newName == "cama"{
                     
-                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self, action: {
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.playerNode!, referenceScene: self, action: {
                         let newBallon = DialogBallon.init(rootNode: room02Root, referenceScene: self)
                         newBallon.setup()
                     })
