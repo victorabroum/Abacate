@@ -23,7 +23,7 @@ class Ballon : SKSpriteNode{
     var iconName: String?
     var action: (()->Void)?
     var rootNode: Node
-    var referenceScene: SKScene
+    var referenceScene: CustomSKSCene
     
     var tailNode: SKSpriteNode?
     
@@ -31,11 +31,11 @@ class Ballon : SKSpriteNode{
         self.referenceNode = SKSpriteNode(coder: aDecoder)!
         self.iconName = ""
         self.rootNode = Node(withText: "VAZIO", withChoices: [])
-        self.referenceScene = SKScene(coder: aDecoder)!
+        self.referenceScene = SKScene(coder: aDecoder)! as! CustomSKSCene
         super.init(coder: aDecoder)
     }
     
-    init(rootNode: Node, referenceNode: SKSpriteNode, referenceScene: SKScene){
+    init(rootNode: Node, referenceNode: SKSpriteNode, referenceScene: CustomSKSCene){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
         self.referenceNode = referenceNode
@@ -53,7 +53,7 @@ class Ballon : SKSpriteNode{
         self.referenceNode.addChild(self)
     }
     
-    init(rootNode: Node, referenceScene: SKScene, action: (()->Void)? = nil){
+    init(rootNode: Node, referenceScene: CustomSKSCene, action: (()->Void)? = nil){
         self.rootNode = rootNode
         self.referenceScene = referenceScene
         if(rootNode.action != nil){
@@ -142,11 +142,19 @@ class Ballon : SKSpriteNode{
             playerNode.playerCanWalk(true)
         }
         
+        self.referenceScene.showPause()
+        
     }
     
     func setup(){
         
         //TODO: Animate this setup
+        
+        // Dismiss Pause
+        if !(self is InteractionBallon){
+            self.referenceScene.dismissPause()
+        }
+        
         
         // Setup Ballon
         self.position = CGPoint(x: 0, y: 0)
@@ -227,9 +235,9 @@ class Ballon : SKSpriteNode{
 
 class ChoicesBallon : SKSpriteNode{
     var ballons: [Ballon] = []
-    var referenceScene: SKScene
+    var referenceScene: CustomSKSCene
     
-    init(choices: [Answer], referenceScene: SKScene){
+    init(choices: [Answer], referenceScene: CustomSKSCene){
         self.referenceScene = referenceScene
         for choice in choices{
             let auxNode = Node(withText: choice.text, withChoices: [])
@@ -251,7 +259,7 @@ class ChoicesBallon : SKSpriteNode{
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.referenceScene = SKScene(coder: aDecoder)!
+        self.referenceScene = SKScene(coder: aDecoder)! as! CustomSKSCene
         super.init(coder: aDecoder)
     }
     
@@ -306,7 +314,7 @@ class ChoicesBallon : SKSpriteNode{
 }
 
 class InteractionBallon: Ballon{
-    init(iconName: String, referenceNode: SKSpriteNode, referenceScene: SKScene, action: @escaping (() -> Void)){
+    init(iconName: String, referenceNode: SKSpriteNode, referenceScene: CustomSKSCene, action: @escaping (() -> Void)){
         let auxNode = Node(withText: "", withChoices: [])
         super.init(rootNode: auxNode, referenceNode: referenceNode, referenceScene: referenceScene)
         self.iconName = iconName
@@ -334,7 +342,7 @@ class InteractionBallon: Ballon{
 
 class DoorBallon : InteractionBallon{
     init(referenceNode: SKSpriteNode, referenceScene: SKScene, nextScene: SKScene){
-        super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene) {
+        super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene as! CustomSKSCene) {
             
             //Auto-save
             let sceneInfo = SceneInformation.init(previousScenario: "\(referenceScene.name!)", actualScenario: "\(nextScene.name!)")
@@ -374,6 +382,7 @@ class StairBallon: InteractionBallon{
                 
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration)){
                     referenceScene.offsetCamera = 80
+                    self.referenceScene.showPause()
                 }
             }
         }else{
@@ -392,6 +401,7 @@ class StairBallon: InteractionBallon{
                 
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration)){
                     referenceScene.offsetCamera = 35
+                    self.referenceScene.showPause()
                 }
             }
             
@@ -408,6 +418,11 @@ class StairBallon: InteractionBallon{
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.referenceScene.dismissPause()
     }
 }
 

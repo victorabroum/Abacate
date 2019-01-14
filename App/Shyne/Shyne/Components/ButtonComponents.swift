@@ -23,7 +23,9 @@ class ButtonComponent: GKComponent{
     }
     
     func action(){
-        NotificationCenter.default.post(name: ButtonComponent.doneActionNotificationName, object: nil)
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
     }
     
     func setup() {
@@ -36,6 +38,8 @@ class StartGameComponent: ButtonComponent{
     
     override func action() {
         super.action()
+        
+        NotificationCenter.default.post(name: ButtonComponent.doneActionNotificationName, object: nil)
         
         // TODO: POP-UP confirm new game
         
@@ -54,11 +58,28 @@ class StartGameComponent: ButtonComponent{
 class ContinueGameComponent: ButtonComponent{
     override func action() {
         super.action()
+        
+        NotificationCenter.default.post(name: ButtonComponent.doneActionNotificationName, object: nil)
+        
         NotificationCenter.default.post(name: ButtonComponent.continueGameNotificationName, object: nil)
         print("DA COntinue ai meu chegado!")
     }
     
     override func setup() {
         print("NOW LOAD Thing, if has something show Continue button")
+    }
+}
+
+class PauseGameComponent: ButtonComponent{
+    let function: (() -> Void)? = nil
+    
+    override func action() {
+        print("PPUASEE")
+        super.action()
+        
+        if(function != nil){
+            
+            function!()
+        }
     }
 }

@@ -11,6 +11,12 @@ import SpriteKit
 
 class HomeButtonSpriteNode: SKSpriteNode{
     
+    init(imageNamed name: String){
+        let texture = SKTexture(imageNamed: name)
+        super.init(texture: texture, color: .clear
+            , size: texture.size())
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         print("name \(self.name ?? "Não tem nome")")
