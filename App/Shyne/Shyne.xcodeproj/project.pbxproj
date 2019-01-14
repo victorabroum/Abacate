@@ -59,6 +59,8 @@
 		765B3E19217D7971004AA4E3 /* HouseScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3E18217D7971004AA4E3 /* HouseScene01.swift */; };
 		76AEF00021ECAB7C006B251C /* HallScene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEEFFF21ECAB7C006B251C /* HallScene01.swift */; };
 		76AEF00221ECAB9F006B251C /* HallScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00121ECAB9F006B251C /* HallScene01.sks */; };
+		76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00521ECBE5F006B251C /* HallScene02.swift */; };
+		76AEF00821ECBEB0006B251C /* HallScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00721ECBEB0006B251C /* HallScene02.sks */; };
 		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900B218A1CF600A37F32 /* guitarMan01.wav */; };
 		76BA900E218A493800A37F32 /* city_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900D218A493800A37F32 /* city_noise.wav */; };
@@ -140,6 +142,8 @@
 		765B3E18217D7971004AA4E3 /* HouseScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene01.swift; sourceTree = "<group>"; };
 		76AEEFFF21ECAB7C006B251C /* HallScene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallScene01.swift; sourceTree = "<group>"; };
 		76AEF00121ECAB9F006B251C /* HallScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene01.sks; sourceTree = "<group>"; };
+		76AEF00521ECBE5F006B251C /* HallScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallScene02.swift; sourceTree = "<group>"; };
+		76AEF00721ECBEB0006B251C /* HallScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene02.sks; sourceTree = "<group>"; };
 		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
 		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 		76AEF00421ECBE44006B251C /* 02 */ = {
 			isa = PBXGroup;
 			children = (
+				76AEF00521ECBE5F006B251C /* HallScene02.swift */,
+				76AEF00721ECBEB0006B251C /* HallScene02.sks */,
 			);
 			path = 02;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */,
 				C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */,
 				76BA9023218B3A3B00A37F32 /* classroom.wav in Resources */,
+				76AEF00821ECBEB0006B251C /* HallScene02.sks in Resources */,
 				765B3DF9217D7665004AA4E3 /* HouseScene01.sks in Resources */,
 				76AEF00221ECAB9F006B251C /* HallScene01.sks in Resources */,
 				765B3DE02178B4F1004AA4E3 /* RoomScene.sks in Resources */,
@@ -668,6 +675,7 @@
 				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
+				76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
 				76D3F4DF21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift in Sources */,
