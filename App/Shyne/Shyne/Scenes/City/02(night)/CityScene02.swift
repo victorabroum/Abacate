@@ -33,6 +33,8 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
         }
         
+        self.offsetCamera = 120
+        
         self.animateBus()
         
         PlayerModel.addKeys(k: "porta")
@@ -83,12 +85,13 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         
         let busNode = SKSpriteNode(imageNamed: "bus_flipped")
-        busNode.position.x = self.frame.size.width + 100
+        // 2825,5
+        busNode.position.x = (self.childNode(withName: "background") as! SKSpriteNode).size.width + 100
         busNode.position.y = -83
         busNode.zPosition = playerZPosition + 100
         self.addChild(busNode)
         
-        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! - 20, duration: 2)
+        let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! - 20, duration: 3)
         let wait = SKAction.wait(forDuration: 0.5)
         let goWay = SKAction.move(by: CGVector(dx: -1000, dy: 0), duration: 2)
         let sequence = SKAction.sequence([arrive, wait])

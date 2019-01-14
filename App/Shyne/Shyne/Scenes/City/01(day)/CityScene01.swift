@@ -141,7 +141,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         let arrive = SKAction.moveTo(x: (self.playerNode?.position.x)! - 20, duration: 3)
         let wait = SKAction.wait(forDuration: 0.5)
-        let goWay = SKAction.move(by: CGVector(dx: 500, dy: 0), duration: 2)
+        let goWay = SKAction.move(by: CGVector(dx: 700, dy: 0), duration: 2)
         let sequence = SKAction.sequence([arrive, wait])
         
         
@@ -158,7 +158,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                 nextScene.scaleMode = SKSceneScaleMode.aspectFill
                 self.view?.presentScene(nextScene, transition: transition)
             })
-            })
+        })
     }
     
     func animatePeople(inNodes nodes:[SKNode]){

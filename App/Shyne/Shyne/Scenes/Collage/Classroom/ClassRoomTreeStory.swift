@@ -11,7 +11,7 @@ import GameplayKit
 
 var classroom01PlayerNameNode = "playerNode"
 var classroom01ProfessoraNameNode = "professora"
-var classroom01AnaNameNode = "Ana"
+var classroom01AnaNameNode = "annaTalk"
 
 
 //var classRoomRoot: Node = Node(withText: NSLocalizedString("So with this, we \n finish another subject.", comment: ""), withChoices: [],inNodeNamed:"professora")
