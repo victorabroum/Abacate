@@ -114,6 +114,13 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             self.ballon?.dismiss()
         }
         
+        house01d04.action = {
+            PlayerModel.removeKey(k: "triggerDad")
+            self.ballon?.nextBallon()
+        }
+        
+        
+        
 //        d3_2.action = {
 //            
 //            PlayerModel.addKeys(k: "porta")
