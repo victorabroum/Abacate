@@ -23,6 +23,7 @@ enum PlayerMovement {
     case up
     case down
     case sit
+    case paused
 }
 
 // Status of choices

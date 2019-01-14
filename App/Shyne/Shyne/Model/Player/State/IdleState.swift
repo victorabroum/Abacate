@@ -25,6 +25,8 @@ class IdleState: GKState {
             return true
         case is SitState.Type:
             return true
+        case is PausedState.Type:
+            return true
         default:
             return false
         }
