@@ -34,7 +34,7 @@ var room01d03 = Node(withText: NSLocalizedString("Ei Felipe,\nAcorda", comment: 
 
 var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
 var room01c02d03 = Answer(withText: NSLocalizedString("Já estou acordado!", comment: "Grito"), withAmount: Feel(happy: 1, normal: 1, shy: 0), audioName: "felipe_Voice02")
-var room01c03d03 = Answer(withText: NSLocalizedString("ok", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 1, shy: 1), audioName: "felipe_Voice03")
+var room01c03d03 = Answer(withText: NSLocalizedString("Ok...", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 1, shy: 1), audioName: "felipe_Voice03")
 
 var room01d04 = Node(withText: NSLocalizedString("Tô é com fome", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
 
@@ -75,10 +75,9 @@ func makeTreeOfRoom() -> (){
     
     room01PC.choices = [room01c01PC, room01c02PC, room01c03PC]
     room01c01PC.child = [room01d01c01PC]
+    
     room01c02PC.child = [room01d01c02PC]
-    room01c02PC.function = {
-        PlayerModel.addKeys(k: "Email")
-    }
+    
     room01d01c02PC.typeBallon = .thought
     
 }
