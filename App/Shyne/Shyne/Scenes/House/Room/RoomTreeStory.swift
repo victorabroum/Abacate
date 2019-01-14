@@ -76,6 +76,9 @@ func makeTreeOfRoom() -> (){
     room01PC.choices = [room01c01PC, room01c02PC, room01c03PC]
     room01c01PC.child = [room01d01c01PC]
     room01c02PC.child = [room01d01c02PC]
+    room01c02PC.function = {
+        PlayerModel.addKeys(k: "Email")
+    }
     room01d01c02PC.typeBallon = .thought
     
 }
