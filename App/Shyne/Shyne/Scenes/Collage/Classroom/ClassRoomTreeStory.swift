@@ -90,9 +90,6 @@ func classRoomRootmakeTree(){
     classRoom01d04c01d06.add(child: classRoom01d05c01d06)
     classRoom01d05c01d06.add(child: classRoom01d06c01d06)
     classRoom01d06c01d06.add(child: classRoom01d07c01d06)
-    classRoom01d07c01d06.action = {
-        PlayerModel.addKeys(k: "Iniciativa")
-    }
     
     classRoom01c02d06.child = [classRoom01d01c02d06]
     classRoom01d01c02d06.add(child: classRoom01d02c02d06)

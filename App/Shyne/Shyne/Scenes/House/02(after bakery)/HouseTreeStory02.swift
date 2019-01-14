@@ -121,9 +121,7 @@ func house02makeTree(){
     house02d02.choices = [house02c01d02,house02c02d02,house02c03d02]
     
     house02c01d02.child = [house02d02c02d02]
-    house02c01d02.function = {
-        PlayerModel.addKeys(k: "Normal")
-    }
+    
     
     house02c02d02.child = [house02d01c02d02]
     house02d01c02d02.add(child: house02d02c02d02)
