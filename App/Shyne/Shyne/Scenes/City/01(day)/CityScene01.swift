@@ -83,8 +83,8 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     // Rola a animação do bus e depois vai para a sala de aula
                     
                     // Go to Classroom
-                    if let cenaProxima: GKScene = GKScene(fileNamed: "ClassroomScene01"){
-                        if let nextScene = cenaProxima.rootNode as? ClassroomScene01{
+                    if let cenaProxima: GKScene = GKScene(fileNamed: "HallScene01"){
+                        if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                             
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
