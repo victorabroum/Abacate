@@ -88,7 +88,7 @@ class Ballon : SKSpriteNode{
         }
         
         if(self.name != nil && self.name! == "choiceBallon"){
-            print("REMOVE ALL")
+            
             for child in self.referenceNode.children{
                 if(child.name == "choiceBallon"){
                     child.removeFromParent()
@@ -103,7 +103,6 @@ class Ballon : SKSpriteNode{
     func nextBallon() {
         self.removeFromParent()
         if(self.name != nil && self.name! == "choiceBallon"){
-            print("REMOVE ALL")
             for child in self.referenceNode.children{
                 if(child.name == "choiceBallon"){
                     child.removeFromParent()
@@ -132,7 +131,6 @@ class Ballon : SKSpriteNode{
     func dismiss(){
         self.removeFromParent()
         if(self.name != nil && self.name! == "choiceBallon"){
-            print("REMOVE ALL")
             for child in self.referenceNode.children{
                 if(child.name == "choiceBallon"){
                     child.removeFromParent()
@@ -155,8 +153,6 @@ class Ballon : SKSpriteNode{
         self.position.y += (self.size.height/2 - 15) + (referenceNode.size.height / 2)
         
         // Setup Label
-        
-        print("NODE TEXT \(rootNode.text)")
         
         let labelNode = SKLabelNode(text: rootNode.text)
         labelNode.numberOfLines = 4
@@ -207,7 +203,6 @@ class Ballon : SKSpriteNode{
         pointBallon.position.x += backgroundNode.size.width / 4
         
         if(iconName != nil && iconName != ""){
-            print("ICON NAME \(iconName!)")
             if let node = self.childNode(withName: "\(iconName!)") as? SKSpriteNode{
                 pointBallon.position.y -= node.size.height / 2
                 pointBallon.size = CGSize(width: node.size.width/4, height: node.size.height/3)

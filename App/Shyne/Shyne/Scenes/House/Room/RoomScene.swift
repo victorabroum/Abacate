@@ -52,13 +52,19 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
         
-        quartaTalk.action = {
+        room01d04.action = {
             
-            self.playerNode?.run(SKAction(named: "felipe_standUp")!){
+            if(self.playerNode?.actualDirection == .sit){
+                self.playerNode?.run(SKAction(named: "felipe_standUp")!){
+                    self.playerNode?.actualDirection = .idle
+                    self.playerNode?.position.x += 10
+                    self.ballon?.dismiss()
+                }
+            }else{
                 self.playerNode?.actualDirection = .idle
-                self.playerNode?.position.x += 10
                 self.ballon?.dismiss()
             }
+        
         }
         
         
@@ -107,13 +113,12 @@ extension RoomScene {
         if let homeNode = self.childNode(withName: "homeScreen"){
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
-        self.offsetCamera = 35
+        self.offsetCamera = 45
     }
     
     
     @objc func contiueGame() {
         let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
-        print("NAME SCENE \(nameScene)")
         let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
             nextScene.entities = cenaProxima.entities

@@ -23,7 +23,7 @@ import Foundation
 ///////////////////
 
 var room01PlayerNameNode = "playerNode"
-var room01DoorNameNode = "porta"
+var room01DoorNameNode = "portaTalk"
 
 var room01Root = Node(withText: NSLocalizedString("...", comment: "sigh"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh01")
 
@@ -36,7 +36,7 @@ var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", com
 var room01c02d03 = Answer(withText: NSLocalizedString("Já estou acordado!", comment: "Grito"), withAmount: Feel(happy: 1, normal: 1, shy: 0), audioName: "felipe_Voice02")
 var room01c03d03 = Answer(withText: NSLocalizedString("ok", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 0, shy: 1), audioName: "felipe_Voice03")
 
-var room01d04 = Node(withText: NSLocalizedString("To com fome", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
+var room01d04 = Node(withText: NSLocalizedString("Tô é com fome", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
 
 var room01PC = Node(withText: NSLocalizedString("Não dá tempo de mexer agora", comment: "mexer no computador"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 

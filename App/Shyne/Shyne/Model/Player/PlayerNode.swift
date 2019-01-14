@@ -106,6 +106,13 @@ class PlayerNode: SKSpriteNode{
         self.canWalk = flag
         if !flag {
             self.enterIdleState()
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.stop()
+            }
+        }else{
+            if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
+                pcComponent.touchControlNode?.start()
+            }
         }
     }
     
