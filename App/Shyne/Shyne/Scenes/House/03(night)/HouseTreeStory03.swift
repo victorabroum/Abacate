@@ -50,7 +50,7 @@ var house03NTd04SBFc02d03 = Node(withText: NSLocalizedString("kkk", comment: "")
 var house03NTd05SBFc02d03 = Node(withText: NSLocalizedString("E a faculdade?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
 var house03NTd06SBFc02d03 = Node(withText: NSLocalizedString("Tenho um trabalho muito importante ", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 
-var house03SBFc03d03 = Answer(withText: "Tenho um trabalho muito importante para fazer", withAmount: Feel(happy: 1, normal: 0, shy: 1), audioName: "Felipe_Voice04")
+var house03SBFc03d03 = Answer(withText: "Tenho um trabalho\nmuito importante", withAmount: Feel(happy: 1, normal: 0, shy: 1), audioName: "Felipe_Voice04")
 
 var house03d04 = Node(withText: NSLocalizedString("Mas esse trabalho é grande?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
 var house03d05 = Node(withText: NSLocalizedString("É, mas a ana vai me ajudar", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
@@ -76,7 +76,7 @@ func house03makeTree()->(){
         house03d03.choices = [house03SBTc01d03,house03SBFc02d03,house03SBFc03d03]
     }
     else{
-        house03d03.choices = [house03SBFc02d03,house03SBFc03d03]
+        house03d03.choices = [house03SBFc03d03,house03SBFc02d03]
     }
     
     house03SBTc01d03.child = [house03d01SBTc01d03]
