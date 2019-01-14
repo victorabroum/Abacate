@@ -28,6 +28,8 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         // AddObserver for continue clicked
         NotificationCenter.default.addObserver(self, selector: #selector(contiueGame), name: ButtonComponent.continueGameNotificationName, object: nil)
+        
+        loadActionsOnDialog()
     }
     
     override func didMove(to view: SKView) {
@@ -80,16 +82,24 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
                 }
             }
             
-            
+            print("COLIDIU \(newName)")
           
             if newName == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
                     nextScene.entities = cenaProxima.entities
                     ballon = DoorBallon(referenceNode: self.childNode(withName: newName) as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
-                    ballon!.setup()
                 }
+            }else if(newName == "computer"){
+                let node = self.childNode(withName: "trigger")?.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
+                
+                ballon = InteractionBallon(iconName: "icon_computer", referenceNode: node, referenceScene: self, action: {
+                    self.ballon = DialogBallon.init(rootNode: room01PC, referenceNode: node, referenceScene: self)
+                    self.ballon?.setup()
+                })
+                
             }
+            self.ballon?.setup()
             
         }
     }
@@ -106,6 +116,43 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         }
     }
     
+}
+
+// MARK: Actions For dialogs
+extension RoomScene {
+    func loadActionsOnDialog() {
+        room01c02PC.function = {
+            
+            // Chama a Scene dele no pc
+            let onComputerNode = SKSpriteNode(imageNamed: "Email_Avocad")
+            let constScale: CGFloat = 3
+            onComputerNode.xScale = constScale
+            onComputerNode.yScale = constScale
+            onComputerNode.zPosition = 900
+            
+            onComputerNode.run(SKAction.fadeIn(withDuration: 0.5))
+            
+            self.camera!.addChild(onComputerNode)
+            
+            
+            // MARK: Talk on Computer
+//            let ballonNodeRef = SKSpriteNode(texture: nil, color: .red, size: CGSize(width: 10, height: 10))
+//            ballonNodeRef.zPosition = onComputerNode.zPosition + 10
+//            ballonNodeRef.position.x += 400
+//            ballonNodeRef.position.y += 100
+//            self.camera!.addChild(ballonNodeRef)
+//
+//            let ballonOnComputer = DialogBallon.init(rootNode: room01Root, referenceNode: ballonNodeRef, referenceScene: self)
+//            ballonOnComputer.setup()
+            
+            onComputerNode.run(SKAction.wait(forDuration: 2)){
+                onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
+                self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: self.playerNode!, referenceScene: self)
+                self.ballon?.setup()
+                
+            }
+        }
+    }
 }
 
 // MARK: Relationade to HomeScreen
