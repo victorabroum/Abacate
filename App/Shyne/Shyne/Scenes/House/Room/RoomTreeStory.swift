@@ -32,9 +32,9 @@ var room01d01 = Node(withText: NSLocalizedString("Por que hoje\nnão é Domingo?
 var room01d02 = Node(withText: NSLocalizedString("Não quero\nir para aula", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 var room01d03 = Node(withText: NSLocalizedString("Ei Felipe,\nAcorda", comment: ""), withChoices: [], inNodeNamed: room01DoorNameNode, audioName: "")
 
-var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 1))
+var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
 var room01c02d03 = Answer(withText: NSLocalizedString("Já estou acordado!", comment: "Grito"), withAmount: Feel(happy: 1, normal: 1, shy: 0), audioName: "felipe_Voice02")
-var room01c03d03 = Answer(withText: NSLocalizedString("ok", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 0, shy: 1), audioName: "felipe_Voice03")
+var room01c03d03 = Answer(withText: NSLocalizedString("ok", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 1, shy: 1), audioName: "felipe_Voice03")
 
 var room01d04 = Node(withText: NSLocalizedString("Tô é com fome", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
 
