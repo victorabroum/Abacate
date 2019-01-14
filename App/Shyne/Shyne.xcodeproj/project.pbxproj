@@ -79,6 +79,8 @@
 		C4548AEC2188D4FE0025461B /* HouseTreeStory03.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */; };
 		C491370A2188EDFD009176B9 /* Room02TreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49137092188EDFD009176B9 /* Room02TreeStory.swift */; };
 		C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */; };
+		C4BAB6C621EC269D0091A454 /* Hall01TreeStrory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BAB6C521EC269D0091A454 /* Hall01TreeStrory.swift */; };
+		C4C6391721ECC0590095CB0E /* Hall02TreeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6391621ECC0590095CB0E /* Hall02TreeStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +158,8 @@
 		C4548AEB2188D4FE0025461B /* HouseTreeStory03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTreeStory03.swift; sourceTree = "<group>"; };
 		C49137092188EDFD009176B9 /* Room02TreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room02TreeStory.swift; sourceTree = "<group>"; };
 		C4B5D774217914AB00181DE7 /* PadariaTreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadariaTreeStory.swift; sourceTree = "<group>"; };
+		C4BAB6C521EC269D0091A454 /* Hall01TreeStrory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall01TreeStrory.swift; sourceTree = "<group>"; };
+		C4C6391621ECC0590095CB0E /* Hall02TreeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall02TreeStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,7 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C4BAB6C421EC26670091A454 /* DialogosSemCena */,
 				C40DA4DC218A3AD9003470AC /* EndGame */,
 				765B3E06217D7752004AA4E3 /* Collage */,
 				765B3DFF217D76E2004AA4E3 /* City */,
@@ -506,6 +511,15 @@
 			path = Padaria;
 			sourceTree = "<group>";
 		};
+		C4BAB6C421EC26670091A454 /* DialogosSemCena */ = {
+			isa = PBXGroup;
+			children = (
+				C4BAB6C521EC269D0091A454 /* Hall01TreeStrory.swift */,
+				C4C6391621ECC0590095CB0E /* Hall02TreeStory.swift */,
+			);
+			path = DialogosSemCena;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -620,12 +634,14 @@
 				765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */,
 				765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */,
 				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
+				C4C6391721ECC0590095CB0E /* Hall02TreeStory.swift in Sources */,
 				765B3DF1217A5A01004AA4E3 /* HouseTreeStory01.swift in Sources */,
 				765B3DDD2177D0EE004AA4E3 /* PlayerControl.swift in Sources */,
 				765B3E15217D78FA004AA4E3 /* HouseScene02.swift in Sources */,
 				760CBD4F217E259200640A5C /* PlayerNode.swift in Sources */,
 				C44AC51D21E7D28C007D6DC0 /* CityScene01TreeStory.swift in Sources */,
 				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
+				C4BAB6C621EC269D0091A454 /* Hall01TreeStrory.swift in Sources */,
 				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
@@ -792,7 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -811,7 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

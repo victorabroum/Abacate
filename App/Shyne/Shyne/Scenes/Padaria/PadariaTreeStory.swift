@@ -32,11 +32,11 @@ var bakery01Root = Node(withText: NSLocalizedString("Opa!", comment: ""), withCh
 
 var bakery01d02 = Node(withText: NSLocalizedString("Desculpe. O que você deseja", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice03")
 var bakery01d03 = Node(withText: NSLocalizedString("Me veja um real de pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice05")//Acao de trazer o pao
-var bakery01d04 = Node(withText: NSLocalizedString("Aqui está o seu um real de pão doce ", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")
+var bakery01d04 = Node(withText: NSLocalizedString("Aqui está o seu um\nreal de pão doce ", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")
 
-    var bakery01c01d04 = Answer(withText: NSLocalizedString("Ficar olhando até ele trocar", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0))
+    var bakery01c01d04 = Answer(withText: NSLocalizedString("Ficar olhando\naté ele trocar", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0))
         var bakery01d01c01d04 = Node(withText: "...", withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Sigh01")
-    var bakery01c02d04 = Answer(withText: NSLocalizedString("Pedir para ele trocar o pão", comment: ""), withAmount: Feel(happy: 1, normal: 0, shy: 0))
+    var bakery01c02d04 = Answer(withText: NSLocalizedString("Pedir para ele\ntrocar o pão", comment: ""), withAmount: Feel(happy: 1, normal: 0, shy: 0))
 
         var bakery01d01c02d04 = Node(withText: NSLocalizedString("Moço eu pedi pão francês", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice01")
 
@@ -44,7 +44,7 @@ var bakery01d04 = Node(withText: NSLocalizedString("Aqui está o seu um real de 
 
 var bakery01d05 = Node(withText: NSLocalizedString("Desculpe. Vou trazer o certo", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "bakery_Voice02")//acao de trazer outro
 
-var bakery01d06 = Node(withText: NSLocalizedString("Aqui está! Perdão pelo erro", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")//idle
+var bakery01d06 = Node(withText: NSLocalizedString("Aqui está!\nPerdão pelo erro", comment: ""), withChoices: [], inNodeNamed: bakery01BakerNameNode, audioName: "bakery_Voice01")//idle
 
 var bakery01d07 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: bakery01PlayerNameNode, audioName: "felipe_Voice03")//chave do pao frances
 

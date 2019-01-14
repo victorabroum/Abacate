@@ -110,7 +110,7 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
     
     
     func prepareDialog() {
-        house03_D5.action = {
+        house03d10.action = {
             
             PlayerModel.addKeys(k: "porta")
             // TODO: Remove key from DAO

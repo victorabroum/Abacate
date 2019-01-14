@@ -47,7 +47,7 @@ var house03NTd01SBFc02d03 = Node(withText: NSLocalizedString("Fala alguma coisa 
 var house03NTd02SBFc02d03 = Node(withText: NSLocalizedString("Desculpa", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 var house03NTd03SBFc02d03 = Node(withText: NSLocalizedString("Você fala tanto que podia ser radialista", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Laught02")//Se nao tiver chave normal o dialogo inicia aqui
 var house03NTd04SBFc02d03 = Node(withText: NSLocalizedString("kkk", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Laught01")
-var house03NTd05SBFc02d03 = Node(withText: NSLocalizedString("E a faculdade?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")//
+var house03NTd05SBFc02d03 = Node(withText: NSLocalizedString("E a faculdade?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
 var house03NTd06SBFc02d03 = Node(withText: NSLocalizedString("Tenho um trabalho muito importante ", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 
 var house03SBFc03d03 = Answer(withText: "Tenho um trabalho muito importante para fazer", withAmount: Feel(happy: 1, normal: 0, shy: 1), audioName: "Felipe_Voice04")
@@ -68,4 +68,28 @@ func house03makeTree()->(){
 //    house03_D2.add(child: house03_D3)
 //    house03_D4_2.add(child: house03_D4_1)
 //    house03_D4_1.add(child: house03_D5)
+    house03Root.add(child: house03d02)
+    house03d02.add(child: house03d03)
+    //TODO: Colocar as choices do house03d03
+    house03SBTc01d03.child = [house03d01SBTc01d03]
+    house03d01SBTc01d03.add(child: house03d02SBTc01d03)
+    house03d02SBTc01d03.add(child: house03NTd05SBFc02d03)
+    
+    //TODO: colocar o filho certo do house03SBFc02d03
+    house03NTd01SBFc02d03.add(child: house03NTd02SBFc02d03)
+    house03NTd02SBFc02d03.add(child: house03NTd03SBFc02d03)
+    house03NTd03SBFc02d03.add(child: house03NTd04SBFc02d03)
+    house03NTd04SBFc02d03.add(child: house03NTd05SBFc02d03)
+    house03NTd05SBFc02d03.add(child: house03NTd06SBFc02d03)
+    house03NTd06SBFc02d03.add(child: house03d04)
+    
+    house03SBFc03d03.child = [house03d04]
+    
+    house03d04.add(child: house03d05)
+    house03d05.add(child: house03d06)
+    house03d06.add(child: house03d07)
+    house03d07.add(child: house03d08)
+    house03d08.add(child: house03d09)
+    house03d09.add(child: house03d10)
+    
 }
