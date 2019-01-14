@@ -8,4 +8,17 @@
 
 import Foundation
 
-var room02Root = Node(withText: "I better sleep.", withChoices: [])
+var room02Root = Node(withText: NSLocalizedString("Eu tinha que Ensaiar para o trabalho", comment: ""), withChoices: [])
+
+var room02c01 = Answer(withText: NSLocalizedString("Ligar o pc para estudar para a apresentação", comment: ""), withAmount: Feel(happy: 3, normal: 2, shy: 0))
+var room02c02 = Answer(withText: NSLocalizedString("Ir dormir", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 4))
+var room02c03 = Answer(withText: NSLocalizedString("Ensaiar para a apresenção", comment: ""), withAmount: Feel(happy: 3, normal: 2, shy: 0))
+
+func room02MakeTree(){
+    if(PlayerModel.getInstance().keys.contains("Desligado")){
+        room02Root.choices = [room02c01,room02c02]
+    }
+    else{
+        room02Root.choices = [room02c02,room02c03]
+    }
+}
