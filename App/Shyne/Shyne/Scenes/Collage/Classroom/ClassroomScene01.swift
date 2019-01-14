@@ -37,6 +37,7 @@ class ClassroomScene01: CustomSKSCene {
             }
             
             classRoom01d07c01d06.action = {
+                PlayerModel.addKeys(k: "Iniciativa")
                 t1.troca()
             }
             

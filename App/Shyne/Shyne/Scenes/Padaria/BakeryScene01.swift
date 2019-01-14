@@ -57,10 +57,17 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             if (PlayerModel.getInstance().keys.contains(newName)){
                 if newName == "padeiro"{
                     
-                    ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
-                        self.ballon = DialogBallon.init(rootNode: bakery01Root, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode , referenceScene: self)
-                        self.ballon?.setup()
-                    })
+                    if(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad")){
+                        
+                    }
+                    else{
+                        ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
+                            self.ballon = DialogBallon.init(rootNode: bakery01Root, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode , referenceScene: self)
+                            self.ballon?.setup()
+                        })
+                    }
+                    
+                    
                     
                     
                     

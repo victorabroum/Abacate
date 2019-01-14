@@ -11,6 +11,8 @@ import Foundation
 var hall02PlayerNameNode = "playerNode"
 var hall02AnaNameNode = "Ana"
 
+var hall02Root = Node(withText: "", withChoices: [])
+
 var hall02TRoot = Node(withText: NSLocalizedString("Eu vi que você ficou sem equipe", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 
 var hall02Td02 = Node(withText: NSLocalizedString("É", comment: ""), withChoices: [], inNodeNamed: hall02PlayerNameNode, audioName: "felipe_Voice03")
@@ -27,3 +29,11 @@ var hall02Fd06 = Node(withText: NSLocalizedString("Sim, Sim, Mas queria que voc�
 var hall02Fd07 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice01")
 var hall02Fd08 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 
+func hall02MakeTree(){
+    if(PlayerModel.getInstance().keys.contains("Iniciativa")){
+        hall02Root = hall02FRoot
+    }
+    else{
+        hall02Root = hall02TRoot
+    }
+}

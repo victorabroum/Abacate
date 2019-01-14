@@ -272,7 +272,6 @@
 		765B3DC92177A950004AA4E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C4BAB6C421EC26670091A454 /* DialogosSemCena */,
 				C40DA4DC218A3AD9003470AC /* EndGame */,
 				765B3E06217D7752004AA4E3 /* Collage */,
 				765B3DFF217D76E2004AA4E3 /* City */,
@@ -479,6 +478,7 @@
 		76AEF00321ECBE39006B251C /* 01 */ = {
 			isa = PBXGroup;
 			children = (
+				C4BAB6C521EC269D0091A454 /* Hall01TreeStrory.swift */,
 				76AEEFFF21ECAB7C006B251C /* HallScene01.swift */,
 				76AEF00121ECAB9F006B251C /* HallScene01.sks */,
 			);
@@ -488,6 +488,7 @@
 		76AEF00421ECBE44006B251C /* 02 */ = {
 			isa = PBXGroup;
 			children = (
+				C4C6391621ECC0590095CB0E /* Hall02TreeStory.swift */,
 				76AEF00521ECBE5F006B251C /* HallScene02.swift */,
 				76AEF00721ECBEB0006B251C /* HallScene02.sks */,
 			);
@@ -560,15 +561,6 @@
 				765B3E16217D7950004AA4E3 /* BakeryScene01.swift */,
 			);
 			path = Padaria;
-			sourceTree = "<group>";
-		};
-		C4BAB6C421EC26670091A454 /* DialogosSemCena */ = {
-			isa = PBXGroup;
-			children = (
-				C4BAB6C521EC269D0091A454 /* Hall01TreeStrory.swift */,
-				C4C6391621ECC0590095CB0E /* Hall02TreeStory.swift */,
-			);
-			path = DialogosSemCena;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -868,7 +860,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
+				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -887,7 +879,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
+				DEVELOPMENT_TEAM = 3D55XU73LF;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
