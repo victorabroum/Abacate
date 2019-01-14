@@ -114,6 +114,7 @@ extension RoomScene {
             homeNode.run(SKAction.fadeOut(withDuration: 0.3))
         }
         self.offsetCamera = 45
+        self.preparePause()
     }
     
     

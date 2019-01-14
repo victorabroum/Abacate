@@ -21,10 +21,12 @@ class PlayerNode: SKSpriteNode{
     func prepareStateMachine(){
         self.stateMachine = GKStateMachine(states: [IdleState(withPlayerNode: self),
                                                     WalkingState(withPlayerNode: self),
-                                                    SitState(withPlayerNode: self)])
+                                                    SitState(withPlayerNode: self),
+                                                    PausedState(withPlayerNode: self)])
     }
     
     func enterIdleState(){
+        self.actualDirection = .idle
         if self.stateMachine != nil{
             self.stateMachine?.enter(IdleState.self)
         }
@@ -34,6 +36,20 @@ class PlayerNode: SKSpriteNode{
         self.actualDirection = .sit
         if self.stateMachine != nil {
             self.stateMachine?.enter(SitState.self)
+        }
+    }
+    
+    func enterPausedState(){
+        self.actualDirection = .paused
+        if self.stateMachine != nil {
+            self.stateMachine?.enter(PausedState.self)
+        }
+    }
+    
+    func exitPauseState(){
+        
+        if self.stateMachine != nil{
+            (self.entity?.component(ofType: PausedComponent.self))!.exitPauseAnimate()
         }
     }
     
@@ -105,7 +121,7 @@ class PlayerNode: SKSpriteNode{
     func playerCanWalk(_ flag: Bool){
         self.canWalk = flag
         if !flag {
-            self.enterIdleState()
+            
             if let pcComponent = self.entity?.component(ofType: PlayerControl.self){
                 pcComponent.touchControlNode?.stop()
             }
@@ -138,6 +154,9 @@ class PlayerNode: SKSpriteNode{
             case .sit:
                 self.isWalking = false
                 self.enterSitState()
+            case .paused:
+                self.isWalking = false
+                self.enterPausedState()
             default:
                 // Idle
                 self.isWalking = false
@@ -150,6 +169,8 @@ class PlayerNode: SKSpriteNode{
                     self.enterIdleState()
                 case .sit:
                     self.enterSitState()
+                case .paused:
+                    self.enterPausedState()
             default:
                 break
             }
