@@ -9,11 +9,15 @@
 import Foundation
 import SpriteKit
 
+// Z Posiiton
+var playerZPosition: CGFloat = 50
 var zPositionToButton: CGFloat = 9999
+let zPositionBallon: CGFloat = playerZPosition + 50
+let zPositionBannerTutorial: CGFloat = zPositionBallon + 200
 
 // For The Player
 var playerVelocity: CGFloat = 2.5
-var playerZPosition: CGFloat = 50
+
 
 // Possibles direction for player moves
 enum PlayerMovement {

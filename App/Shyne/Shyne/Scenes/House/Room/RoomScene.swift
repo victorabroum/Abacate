@@ -12,6 +12,8 @@ import GameKit
 
 class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     
+    var pauseShowed = false
+    
     override func sceneDidLoad() {
         print("Room didLoad")
         super.sceneDidLoad()
@@ -39,7 +41,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         self.dismissPause()
         
         
-        self.playerNode?.canWalk = false
+        self.playerNode!.playerCanWalk(false)
         self.playerNode?.enterSitState()
         
         
@@ -64,20 +66,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
         }
         
-        room01d04.action = {
-            
-            if(self.playerNode?.actualDirection == .sit){
-                self.playerNode?.run(SKAction(named: "felipe_standUp")!){
-                    self.playerNode?.actualDirection = .idle
-                    self.playerNode?.position.x += 10
-                    self.ballon?.dismiss()
-                }
-            }else{
-                self.playerNode?.actualDirection = .idle
-                self.ballon?.dismiss()
-            }
-        
-        }
         room01c01PC.function = {
             PlayerModel.addKeys(k: "Desligar")
             self.ballon = DialogBallon.init(rootNode: room01d01c01PC, referenceScene: self)
@@ -88,6 +76,22 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
             self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceScene: self)
             self.ballon!.setup()
         }
+        
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
+        
+        if !(pauseShowed){
+            if(playerNode!.actualDirection == .left || playerNode!.actualDirection == .right){
+                self.camera!.childNode(withName: "tutorial")?.run(SKAction.fadeOut(withDuration: 2)){
+                    self.showPause()
+                }
+                
+                pauseShowed = true
+            }
+        }
+        
         
     }
     
@@ -181,11 +185,13 @@ extension RoomScene {
         }
         self.offsetCamera = 45
         
-        let startBallon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
+        self.ballon = InteractionBallon(iconName: "", referenceNode: playerNode!, referenceScene: self) {
             self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
             self.ballon!.setup()
         }
-        startBallon.setup()
+        self.ballon!.setup()
+        
+        self.preapreTutorial()
         
     }
     
@@ -201,4 +207,126 @@ extension RoomScene {
         }
     }
     
+}
+
+// MARK: Extesion to Tutorial
+extension RoomScene{
+    func preapreTutorial(){
+        
+        // Folder tutorial
+        let tutorialNode = SKNode()
+        tutorialNode.name = "tutorial"
+        tutorialNode.position = .zero
+        self.camera!.addChild(tutorialNode)
+        
+        // Black banner
+        let bannerNode = SKSpriteNode(texture: nil, color: .black, size: self.size)
+        tutorialNode.addChild(bannerNode)
+        tutorialNode.zPosition = zPositionBannerTutorial
+        tutorialNode.alpha = 0.7
+        
+        // Bring to front ballon
+        self.ballon?.zPosition = tutorialNode.zPosition + 10
+        
+        // Explaning text
+        let labelNode = SKLabelNode(text: NSLocalizedString("Este é um balão de interação\n\n  Clique nele para interagir", comment: ""))
+        labelNode.numberOfLines = 4
+        labelNode.fontSize = 80
+        labelNode.fontName = "Futura"
+        labelNode.position = CGPoint.zero
+        labelNode.horizontalAlignmentMode = .center
+        labelNode.verticalAlignmentMode = .center
+        labelNode.zPosition = bannerNode.zPosition + 10
+        tutorialNode.addChild(labelNode)
+        
+        // Action for ballon
+        self.ballon!.action = {
+            self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
+            self.ballon!.zPosition = tutorialNode.zPosition + 10
+            self.ballon!.setup()
+            
+            labelNode.text = NSLocalizedString("    Este é um balão de diálogo\n\nClique nele para passar adiante", comment: "")
+            
+            self.ballon!.action = {
+                
+                self.ballon = DialogBallon.init(rootNode: room01d01, referenceScene: self)
+                self.ballon!.setup()
+                
+                tutorialNode.alpha = 0
+            }
+        }
+        
+        room01d03.action = {
+            tutorialNode.alpha = 0.7
+            
+            self.camera?.xScale = 0.35
+            self.camera?.yScale = 0.35
+            
+            let choiceNodes = ChoicesBallon(choices: room01d03.choices, referenceScene: self)
+            choiceNodes.setup()
+            for ballon in choiceNodes.ballons{
+                ballon.zPosition = tutorialNode.zPosition + 10
+                
+                ballon.action = {
+                    self.ballon = DialogBallon(rootNode: room01d04, referenceScene: self)
+                    self.ballon!.setup()
+                    tutorialNode.alpha = 0
+                }
+               
+                ballon.alpha = 0
+            }
+            
+            choiceNodes.ballons[2].run(SKAction.wait(forDuration: 0.2)){
+                choiceNodes.ballons[2].alpha = 1
+            }
+            choiceNodes.ballons[0].run(SKAction.wait(forDuration: 0.4)){
+                choiceNodes.ballons[0].alpha = 1
+            }
+            choiceNodes.ballons[1].run(SKAction.wait(forDuration: 0.6)){
+                choiceNodes.ballons[1].run(SKAction.fadeIn(withDuration: 0)){
+                    labelNode.run(SKAction.fadeIn(withDuration: 0.5))
+                }
+            }
+            
+            labelNode.alpha = 0
+            labelNode.text = NSLocalizedString("Estes são balões de escolha", comment: "")
+            let auxTextNode = SKLabelNode(text: NSLocalizedString(" Lembre-se suas decisões\nafetam o rumo da estória", comment: ""))
+            auxTextNode.numberOfLines = 4
+            auxTextNode.fontSize = 65
+            auxTextNode.fontName = "Futura"
+            auxTextNode.position = CGPoint.zero
+            auxTextNode.position.y -= (labelNode.frame.height + 50)
+            auxTextNode.horizontalAlignmentMode = .center
+            auxTextNode.verticalAlignmentMode = .center
+            auxTextNode.zPosition = bannerNode.zPosition + 10
+            labelNode.addChild(auxTextNode)
+            labelNode.position.y += 250
+        }
+        
+        room01d04.action = {
+            
+            if(self.playerNode?.actualDirection == .sit){
+                self.playerNode?.run(SKAction(named: "felipe_standUp")!){
+                    self.playerNode?.actualDirection = .idle
+                    self.playerNode?.position.x += 10
+                }
+            }else{
+                self.playerNode?.actualDirection = .idle
+            }
+            
+            tutorialNode.run(SKAction.wait(forDuration: 0.5)){
+                bannerNode.alpha = 0
+                tutorialNode.run(SKAction.fadeAlpha(to: 0.7, duration: 0.5))
+                labelNode.removeAllChildren()
+            }
+            
+            labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
+            labelNode.position = .zero
+            self.playerNode?.playerCanWalk(true)
+            
+            
+            
+        }
+        
+    }
 }
