@@ -104,8 +104,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
                 }
             }
             
-            print("COLIDIU \(newName)")
-          
             if newName == "porta"{
                 let cenaProxima:GKScene = GKScene(fileNamed: "HouseScene01")!
                 if let nextScene = cenaProxima.rootNode as? HouseScene01{
@@ -245,7 +243,7 @@ extension RoomScene{
             self.ballon!.zPosition = tutorialNode.zPosition + 10
             self.ballon!.setup()
             
-            labelNode.text = NSLocalizedString("    Este é um balão de diálogo\n\nClique nele para passar adiante", comment: "")
+            labelNode.text = NSLocalizedString("Este é um balão de diálogo\n\n   Clique em qualquer lugar\n da tela para passar adiante", comment: "")
             
             self.ballon!.action = {
                 
@@ -323,6 +321,7 @@ extension RoomScene{
             labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
             labelNode.position = .zero
             self.playerNode?.playerCanWalk(true)
+            self.ballon?.removeFromParent()
             
             
             

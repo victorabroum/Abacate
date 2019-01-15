@@ -79,10 +79,23 @@ class CustomSKSCene: SKScene{
         let backgroundPause = SKSpriteNode(imageNamed: "Pause")
         backgroundPause.position = CGPoint(x: 0, y: -(backgroundSize.height * 2))
         let constScaleBg: CGFloat = 3.1
-        backgroundPause.zPosition = 600
+        backgroundPause.zPosition = zPositionImagePause
         backgroundPause.xScale = constScaleBg
         backgroundPause.yScale = constScaleBg
         self.camera!.addChild(backgroundPause)
+        
+        // Area clicavel
+        let areaClickedNode = ActionSpriteNode(texture: nil, color: .clear, size: self.size)
+        areaClickedNode.xScale = 0.5
+        areaClickedNode.yScale = 0.5
+        backgroundPause.addChild(areaClickedNode)
+        areaClickedNode.zPosition =  backgroundPause.zPosition + 10
+        areaClickedNode.isUserInteractionEnabled = true
+        areaClickedNode.action = {
+            self.playerNode!.playerCanWalk(true)
+            self.playerNode!.exitPauseState()
+            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
+        }
         
         // Button Continuar
         let btContinueNode = ActionSpriteNode(imageNamed: "continueButton") {
@@ -114,24 +127,25 @@ class CustomSKSCene: SKScene{
         
         
         // Add icon of Pause
-        let pauseNode = ActionSpriteNode(imageNamed: "pauseButton") {
-            
-            
+        let pauseNode = ActionSpriteNode(imageNamed: "pauseButton")
+        
+        pauseNode.action = {
             if(self.playerNode!.canWalk){
                 self.playerNode!.playerCanWalk(false)
                 self.playerNode?.actualDirection = .paused
                 self.playerNode?.enterPausedState()
-                backgroundPause.run(SKAction.wait(forDuration: 0.8)){
-                    backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 1))
+                pauseNode.isUserInteractionEnabled = false
+                backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 1)){
+                    pauseNode.isUserInteractionEnabled = true
                 }
             }else{
                 self.playerNode!.playerCanWalk(true)
                 self.playerNode!.exitPauseState()
-                backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
+                pauseNode.isUserInteractionEnabled = false
+                backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1)){
+                    pauseNode.isUserInteractionEnabled = true
+                }
             }
-            
-            
-            
         }
         pauseNode.name = "pauseNode"
         pauseNode.isUserInteractionEnabled = true
@@ -155,7 +169,7 @@ class CustomSKSCene: SKScene{
         }
         
         if(pauseIconNode != nil){
-            pauseIconNode!.run(SKAction.fadeOut(withDuration: 0.3))
+            pauseIconNode?.alpha = 0
         }
         
     }
