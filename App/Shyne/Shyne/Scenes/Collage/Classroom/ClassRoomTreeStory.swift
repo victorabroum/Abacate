@@ -55,7 +55,7 @@ var classRoom01d07c01d06 = Node(withText: NSLocalizedString("kkkk", comment: "")
 var classRoom01c02d06 = Answer(withText: "Esperar me\nescolherem", withAmount: Feel(happy: 0, normal: 2, shy: 0))//chave naoTomouIniciativa
 
 var classRoom01d01c02d06 = Node(withText: NSLocalizedString("Espero que a Ana me escolha", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)//Sala vazia
-var classRoom01d02c02d06 = Node(withText: NSLocalizedString("É. Ninguém me escolheu", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
+var classRoom01d02c02d06 = Node(withText: NSLocalizedString("E Ninguém me escolheu", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 
 var classRoom01c03d06 = Answer(withText: "Fazer sozinho", withAmount: Feel(happy: 0, normal: 0, shy: 5))//chave naoTomouIniciativa
 

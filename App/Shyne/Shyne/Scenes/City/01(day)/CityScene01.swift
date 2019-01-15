@@ -150,7 +150,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.playerNode?.alpha = 0
             busNode.run(goWay, completion: {
                 
-                let sceneInfo = SceneInformation.init(previousScenario: "CityScene01", actualScenario: "ClassroomScene01")
+                let sceneInfo = SceneInformation.init(previousScenario: "CityScene01", actualScenario: "HallScene01")
                 PlayerModel.changeScene(scene: sceneInfo)
                 PlayerModel.savePlayer()
                 
