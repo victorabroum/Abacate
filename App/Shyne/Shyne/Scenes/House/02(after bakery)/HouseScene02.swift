@@ -128,11 +128,10 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         }
         
         house02d02c02d02.action = {
-            self.ballon = InteractionBallon(iconName: "icone_ana", referenceNode: self.childNode(withName: "playerNode")! as! SKSpriteNode, referenceScene: self, action: {
-                let newBallon = DialogBallon.init(rootNode: house02d04c02d02, referenceScene: self)
-                newBallon.setup()
-            })
-            self.ballon!.rootNode.text = "aaaa\naaaa"
+            
+            self.ballon?.removeFromParent()
+            
+            self.ballon = DialogBallon(iconName: "icone_ana", rootNode: house02d03c02d02, referenceNode: self.playerNode!, referenceScene: self)
             self.ballon?.setup()
         }
         

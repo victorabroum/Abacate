@@ -57,7 +57,7 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             if(PlayerModel.getInstance().keys.contains(newName)){
                 if newName == "triggerDad"{
                     ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dad")! as! SKSpriteNode, referenceScene: self, action: {
-                        let newBallon = DialogBallon.init(rootNode: house01Root, referenceScene: self)
+                        let newBallon = DialogBallon(rootNode: house01Root, referenceScene: self)
                         newBallon.setup()
                     })
                 }else if newName == "porta"{
