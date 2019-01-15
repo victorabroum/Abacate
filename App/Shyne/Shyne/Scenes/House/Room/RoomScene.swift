@@ -108,16 +108,19 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
                     nextScene.entities = cenaProxima.entities
                     ballon = DoorBallon(referenceNode: self.childNode(withName: newName) as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                 }
+                self.ballon?.setup()
             }else if(newName == "computer"){
-                let node = self.childNode(withName: "trigger")?.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
-                
-                ballon = InteractionBallon(iconName: "icon_computer", referenceNode: node, referenceScene: self, action: {
-                    self.ballon = DialogBallon.init(rootNode: room01PC, referenceNode: node, referenceScene: self)
+                if(!(PlayerModel.getInstance().keys.contains("Email") || PlayerModel.getInstance().keys.contains("Desligar"))){
+                    let node = self.childNode(withName: "trigger")?.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
+                    
+                    ballon = InteractionBallon(iconName: "icon_computer", referenceNode: node, referenceScene: self, action: {
+                        self.ballon = DialogBallon.init(rootNode: room01PC, referenceNode: node, referenceScene: self)
+                        self.ballon?.setup()
+                    })
                     self.ballon?.setup()
-                })
-                
+                }
             }
-            self.ballon?.setup()
+            
             
         }
     }
