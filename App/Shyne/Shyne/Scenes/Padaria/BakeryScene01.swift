@@ -55,21 +55,16 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             }
             
             if (PlayerModel.getInstance().keys.contains(newName)){
+                print("Entrou")
                 if newName == "padeiro"{
                     
-                    if(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad")){
-                        
-                    }
-                    else{
+                    if(!(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad"))){
                         ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode, referenceScene: self, action: {
                             self.ballon = DialogBallon.init(rootNode: bakery01Root, referenceNode: self.childNode(withName: "padeiroCaixa")! as! SKSpriteNode , referenceScene: self)
                             self.ballon?.setup()
                         })
+                        ballon?.setup()
                     }
-                    
-                    
-                    
-                    
                     
                 }else if newName == "porta"{
                     let cenaProxima:GKScene = GKScene(fileNamed: "CityScene01")!
@@ -81,11 +76,12 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                         
                         ballon = DoorBallon(referenceNode: self.playerNode!, referenceScene: self, nextScene: nextScene)
                     }
+                    ballon?.setup()
                 }
                 
-                ballon?.setup()
             }
         }
+        print(playerNode?.canWalk)
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
