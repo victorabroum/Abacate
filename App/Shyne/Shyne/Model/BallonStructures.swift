@@ -395,9 +395,11 @@ class StairBallon: InteractionBallon{
                     playerNode.xScale *= -1
                 }
                 
+                referenceScene.offsetCamera = -10
+                
                 playerNode.makeMove(fromPosition:(self.referenceScene.childNode(withName:"referenceDown")?.position)!, toPosition: (self.referenceScene.childNode(withName: "referenceUp")?.position)!, withDuration: stairDuration)
                 
-                self.referenceScene.camera?.run(SKAction.moveTo(y: cameraDown, duration: stairDuration)){
+                self.referenceScene.camera?.run(SKAction.wait(forDuration: stairDuration)){
                     referenceScene.offsetCamera = 80
                     self.referenceScene.showPause()
                 }
@@ -420,6 +422,7 @@ class StairBallon: InteractionBallon{
                     referenceScene.offsetCamera = 35
                     self.referenceScene.showPause()
                 }
+                
             }
             
         }
