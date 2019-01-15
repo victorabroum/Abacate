@@ -135,6 +135,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     func busAnimate(_ nextScene: SKScene) {
         self.playerNode?.playerCanWalk(false)
         let busNode = SKSpriteNode(imageNamed: "bus")
+        busNode.position.x = self.playerNode!.position.x - 800
         busNode.position.y = -83
         busNode.zPosition = playerZPosition + 100
         self.addChild(busNode)
