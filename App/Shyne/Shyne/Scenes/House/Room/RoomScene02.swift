@@ -77,7 +77,7 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
     
     func prepareDialog(){
         
-        room02Root.action = {
+        room02c01.function = {
             
             listaPermissoesRoom02.remove("cama")
             
@@ -88,6 +88,9 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
             self.view?.presentScene(cenaProxima!, transition: transition)
             
         }
+        
+        room02c02.function = room02c01.function
+        room02c03.function = room02c01.function
         
     }
 }
