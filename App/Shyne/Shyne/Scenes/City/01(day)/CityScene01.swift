@@ -33,7 +33,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         super.didMove(to: view)
         
-        self.offsetCamera = 120
+        self.offsetCamera = 100
         
         MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
         
@@ -172,8 +172,10 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         if(PlayerModel.getInstance().sceneInformation.previousScenario == "BakeryScene01"){
             self.playerNode!.position = (self.childNode(withName: "initPosition")!.childNode(withName: "bakery")?.position)!
+            self.camera?.position.x = -1979.577
         }else if (PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene01" || PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene02"){
             self.playerNode?.position = (self.childNode(withName: "initPosition")?.childNode(withName: "house")?.position)!
+            self.camera?.position.x = -273.8
         }
     }
     
