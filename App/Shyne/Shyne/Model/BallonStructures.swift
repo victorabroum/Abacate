@@ -27,6 +27,7 @@ class Ballon : SKSpriteNode{
     var feel: Feel?
     
     var tailNode: SKSpriteNode?
+    var backrgound: SKSpriteNode?
     
     required init?(coder aDecoder: NSCoder) {
         self.referenceNode = SKSpriteNode(coder: aDecoder)!
@@ -119,7 +120,7 @@ class Ballon : SKSpriteNode{
         }
         
         if(self.rootNode.childrens.count != 0){
-            let newDialogBallon = DialogBallon(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
+            let newDialogBallon = DialogBallon.init(rootNode: self.rootNode.childrens.first!, referenceScene: self.referenceScene)
             newDialogBallon.setup()
             
         }else if(self.rootNode.choices.count != 0){
@@ -163,7 +164,6 @@ class Ballon : SKSpriteNode{
             self.referenceScene.dismissPause()
         }
         
-        
         // Setup Ballon
         self.position = CGPoint(x: 0, y: 0)
         self.position.y += (self.size.height/2 - 15) + (referenceNode.size.height / 2)
@@ -205,6 +205,7 @@ class Ballon : SKSpriteNode{
         backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
         backgroundNode.zPosition = self.zPosition + 5
+        self.backrgound = backgroundNode
         self.addChild(backgroundNode)
         
         
@@ -444,6 +445,20 @@ class StairBallon: InteractionBallon{
 
 class DialogBallon: Ballon{
     
+    init(iconName:String="", rootNode: Node, referenceNode: SKSpriteNode, referenceScene: CustomSKSCene) {
+        super.init(rootNode: rootNode, referenceNode: referenceNode, referenceScene: referenceScene)
+        self.iconName = iconName
+    }
+    
+    init(iconName:String="", rootNode: Node, referenceScene: CustomSKSCene) {
+        super.init(rootNode: rootNode, referenceScene: referenceScene)
+        self.iconName = iconName
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if (self.action != nil){
@@ -458,7 +473,29 @@ class DialogBallon: Ballon{
         if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? PlayerNode{
             playerNode.playerCanWalk(false)
         }
-        super.setup()
+        
+        
+        if (iconName != ""){
+            let iconNode = SKSpriteNode(imageNamed: iconName!)
+            iconNode.name = iconName
+            let scale:CGFloat = 0.8
+            iconNode.xScale = scale
+            iconNode.yScale = scale
+            iconNode.zPosition = super.zPosition + 10
+            iconNode.position = CGPoint.zero
+            
+            super.addChild(iconNode)
+            
+            super.setup()
+            
+            let texture = SKTexture(imageNamed: iconName!)
+            
+            self.backrgound?.size = texture.size()
+            self.backrgound?.xScale = 1.3
+            self.backrgound?.yScale = 1.3
+        }else{
+            super.setup()
+        }
         
         let areaClickNode = SKSpriteNode(texture: nil, color: .clear, size: self.referenceScene.size)
         areaClickNode.zPosition = zPositionBallon + 300
