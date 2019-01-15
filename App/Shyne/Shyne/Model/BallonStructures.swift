@@ -49,7 +49,7 @@ class Ballon : SKSpriteNode{
         
         // For is possible to click
         self.isUserInteractionEnabled = true
-        self.zPosition = 500
+        self.zPosition = zPositionBallon
         
         self.referenceNode.addChild(self)
     }
@@ -75,7 +75,7 @@ class Ballon : SKSpriteNode{
         
         // For is possible to click
         self.isUserInteractionEnabled = true
-        self.zPosition = 500
+        self.zPosition = zPositionBallon
         
         self.referenceNode.addChild(self)
     }
@@ -84,6 +84,10 @@ class Ballon : SKSpriteNode{
         // Resposta háptica
         let notification = UINotificationFeedbackGenerator()
         notification.notificationOccurred(.success)
+        
+        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
+        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
+        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
         
         if(self.action != nil){
             self.action!()
@@ -96,6 +100,8 @@ class Ballon : SKSpriteNode{
                     child.removeFromParent()
                 }
             }
+            
+            self.nextBallon()
         }
         
         self.removeFromParent()
@@ -198,7 +204,7 @@ class Ballon : SKSpriteNode{
         backgroundNode.size.width = labelNode.frame.size.width + 30
         backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
-        backgroundNode.zPosition = self.zPosition + 25
+        backgroundNode.zPosition = self.zPosition + 5
         self.addChild(backgroundNode)
         
         
@@ -250,7 +256,7 @@ class ChoicesBallon : SKSpriteNode{
             
             auxNode.action = choice.function
             
-            ballons.append(DialogBallon(rootNode: auxNode, referenceScene: self.referenceScene, feel: choice.amount))
+            ballons.append(Ballon(rootNode: auxNode, referenceScene: self.referenceScene, feel: choice.amount))
             
             
         }
@@ -333,14 +339,14 @@ class InteractionBallon: Ballon{
         if (iconName != ""){
             let iconNode = SKSpriteNode(imageNamed: iconName!)
             iconNode.name = iconName
-            iconNode.zPosition = super.zPosition + 50
+            iconNode.zPosition = super.zPosition + 10
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
         }else{
             let iconNode = SKSpriteNode(imageNamed: "Icon_Dialogue")
             iconNode.name = iconName
-            iconNode.zPosition = super.zPosition + 50
+            iconNode.zPosition = super.zPosition + 10
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
@@ -440,10 +446,6 @@ class DialogBallon: Ballon{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
-        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
-        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
-        
         if (self.action != nil){
             super.touchesBegan(touches, with: event)
         }else{
@@ -457,5 +459,9 @@ class DialogBallon: Ballon{
             playerNode.playerCanWalk(false)
         }
         super.setup()
+        
+        let areaClickNode = SKSpriteNode(texture: nil, color: .clear, size: self.referenceScene.size)
+        areaClickNode.zPosition = zPositionBallon + 300
+        self.addChild(areaClickNode)
     }
 }
