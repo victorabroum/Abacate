@@ -81,7 +81,6 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
                 
             }
         }
-        print(playerNode?.canWalk)
     }
     
     func didEnd(_ contact: SKPhysicsContact) {

@@ -64,13 +64,14 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             }
             
             if(PlayerModel.getInstance().keys.contains(newName)){
-                
+                print(newName)
                     if newName == "dady"{
-                        
-                        self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dady")! as! SKSpriteNode, referenceScene: self, action: {
-                            let newBallon = DialogBallon.init(rootNode: self.house02Root, referenceScene: self)
-                            newBallon.setup()
-                        })
+                        if(!(PlayerModel.getInstance().keys.contains("breakfastAte"))){
+                            self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dady")! as! SKSpriteNode, referenceScene: self, action: {
+                                let newBallon = DialogBallon.init(rootNode: self.house02Root, referenceScene: self)
+                                newBallon.setup()
+                            })
+                        }
                         
                     }else if(newName == "goUp"){
                         

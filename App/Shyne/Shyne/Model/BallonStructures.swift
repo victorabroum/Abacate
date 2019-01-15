@@ -442,11 +442,6 @@ class DialogBallon: Ballon{
         PlayerModel.incrementStatusBom(feel?.happy ?? 0)
         PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
         PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
-        print("-------------------------------------------------")
-        print("Bom:\(PlayerModel.getInstance().status.bom)\n")
-        print("Medio:\(PlayerModel.getInstance().status.medio)\n")
-        print("Ruim:\(PlayerModel.getInstance().status.ruim)\n")
-        print("-------------------------------------------------")
         
         if (self.action != nil){
             super.touchesBegan(touches, with: event)
