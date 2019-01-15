@@ -115,6 +115,7 @@ class HouseScene03: CustomSKSCene, SKPhysicsContactDelegate {
         house03d10.action = {
             
             PlayerModel.addKeys(k: "porta")
+            PlayerModel.removeKey(k: "triggerDad")
             // TODO: Remove key from DAO
             self.ballon?.dismiss()
         }

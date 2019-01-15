@@ -66,13 +66,10 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             if(PlayerModel.getInstance().keys.contains(newName)){
                 print(newName)
                     if newName == "dady"{
-                        if(!(PlayerModel.getInstance().keys.contains("breakfastAte"))){
-                            self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dady")! as! SKSpriteNode, referenceScene: self, action: {
-                                let newBallon = DialogBallon.init(rootNode: self.house02Root, referenceScene: self)
-                                newBallon.setup()
-                            })
-                        }
-                        
+                        self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "dady")! as! SKSpriteNode, referenceScene: self, action: {
+                            let newBallon = DialogBallon.init(rootNode: self.house02Root, referenceScene: self)
+                            newBallon.setup()
+                        })
                     }else if(newName == "goUp"){
                         
                         ballon = StairBallon(direction: "goUp", playerNode: self.playerNode!, referenceNode: self.childNode(withName: newName)! as! SKSpriteNode, referenceScene: self)
@@ -125,6 +122,7 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "busStop")
             PlayerModel.addKeys(k: "breakfastAte")
+            PlayerModel.removeKey(k: "dady")
             
             self.ballon?.dismiss()
         }
