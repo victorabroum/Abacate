@@ -50,7 +50,7 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
             if(PlayerModel.getInstance().keys.contains(newName)){
                 if newName == "cama"{
                     
-                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.playerNode!, referenceScene: self, action: {
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: self.childNode(withName: "cama") as! SKSpriteNode, referenceScene: self, action: {
                         let newBallon = DialogBallon.init(rootNode: room02Root, referenceScene: self)
                         newBallon.setup()
                     })

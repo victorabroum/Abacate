@@ -127,6 +127,15 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             self.ballon?.dismiss()
         }
         
+        house02d02c02d02.action = {
+            self.ballon = InteractionBallon(iconName: "icone_ana", referenceNode: self.childNode(withName: "playerNode")! as! SKSpriteNode, referenceScene: self, action: {
+                let newBallon = DialogBallon.init(rootNode: house02d04c02d02, referenceScene: self)
+                newBallon.setup()
+            })
+            self.ballon!.rootNode.text = "aaaa\naaaa"
+            self.ballon?.setup()
+        }
+        
         house02c01d02.function = {
             PlayerModel.addKeys(k: "Normal")
             self.ballon = DialogBallon.init(rootNode: house02d02c02d02, referenceNode: self.childNode(withName: "\(house02d02c02d02.nodeToTalk)")! as! SKSpriteNode, referenceScene: self)
