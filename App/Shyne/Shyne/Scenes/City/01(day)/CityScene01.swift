@@ -30,6 +30,16 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.ballon?.dismiss()
         }
         
+        old01d15.action = {
+            PlayerModel.removeKey(k: "velha")
+            self.ballon?.dismiss()
+        }
+        
+        violeiro01d10.action = {
+            PlayerModel.removeKey(k: "xandy")
+            self.ballon?.dismiss()
+        }
+        
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
         }
