@@ -30,25 +30,25 @@ var room01Root = Node(withText: NSLocalizedString(" . . . ", comment: "sigh"), w
 
 var room01d01 = Node(withText: NSLocalizedString(" Por que hoje\nnão é domingo?!", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
 var room01d02 = Node(withText: NSLocalizedString(" Não quero\nir para aula.", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
-var room01d03 = Node(withText: NSLocalizedString("Ei Felipe,\nAcorda", comment: ""), withChoices: [], inNodeNamed: room01DoorNameNode, audioName: "")
+var room01d03 = Node(withText: NSLocalizedString("Ei Felipe,\nAcorda.", comment: ""), withChoices: [], inNodeNamed: room01DoorNameNode, audioName: "")
 
-var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
+var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada.", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
 var room01c02d03 = Answer(withText: NSLocalizedString("Já estou acordado!", comment: "Grito"), withAmount: Feel(happy: 1, normal: 1, shy: 0), audioName: "felipe_Voice02")
 var room01c03d03 = Answer(withText: NSLocalizedString("Ok...", comment: "falou baixinho"), withAmount: Feel(happy: 0, normal: 1, shy: 1), audioName: "felipe_Voice03")
 
 var room01d04 = Node(withText: NSLocalizedString("Tô é com fome.", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
 
-var room01PC = Node(withText: NSLocalizedString("Não dá tempo de mexer agora", comment: "mexer no computador"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
+var room01PC = Node(withText: NSLocalizedString("Não dá tempo de mexer agora.", comment: "mexer no computador"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 
-var room01c01PC = Answer(withText: NSLocalizedString("Desligar PC", comment: "pc personal Computer"), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave pc desligado apaga a tela do pc
+var room01c01PC = Answer(withText: NSLocalizedString("Desligar PC.", comment: "pc personal Computer"), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave pc desligado apaga a tela do pc
 
-var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade de ficar ligado", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
+var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade de ficar ligado.", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 
-var room01c02PC = Answer(withText: NSLocalizedString("Ler emails", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
+var room01c02PC = Answer(withText: NSLocalizedString("Ler emails.", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
 
 var room01d01c02PC = Node(withText: NSLocalizedString(" Será que a Ana\n recebeu esse\n email também?", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
 
-var room01c03PC = Answer(withText: NSLocalizedString("Apenas ignorar", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
+var room01c03PC = Answer(withText: NSLocalizedString("Apenas ignorar.", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
 
 
 
