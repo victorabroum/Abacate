@@ -35,27 +35,27 @@ var classroom01AnaNameNode = "annaTalk"
 //
 //var class01Player04 = Node(withText: NSLocalizedString("Alright, I'll\n do it by myself.", comment: ""), withChoices: [], inNodeNamed: "playerNode")
 
-var classRoom01Root = Node(withText: NSLocalizedString("Então esse é o ultimo\nassunto do período", comment: "Período da faculdade"), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice01")
-var classRoom01d02 = Node(withText: NSLocalizedString("A nota final será um\ntrabalho em dupla", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice02")
-var classRoom01d03 = Node(withText: NSLocalizedString("Que bom não vou\nter que apresentar", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
-var classRoom01d04 = Node(withText: NSLocalizedString("Todos os membros\ntem que apresentar", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
-var classRoom01d05 = Node(withText: NSLocalizedString("E a apresentação\nserá amanha", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
-var classRoom01d06 = Node(withText: NSLocalizedString("Sério", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
+var classRoom01Root = Node(withText: NSLocalizedString("Então esse é o ultimo\nassunto do período.", comment: "Período da faculdade"), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice01")
+var classRoom01d02 = Node(withText: NSLocalizedString("A nota final será um\ntrabalho em dupla.", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice02")
+var classRoom01d03 = Node(withText: NSLocalizedString("Que bom não vou\nter que apresentar.", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
+var classRoom01d04 = Node(withText: NSLocalizedString("Todos os membros\ntem que apresentar.", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
+var classRoom01d05 = Node(withText: NSLocalizedString("E a apresentação\nserá amanhã.", comment: ""), withChoices: [], inNodeNamed: classroom01ProfessoraNameNode, audioName: "teacher_Voice03")
+var classRoom01d06 = Node(withText: NSLocalizedString("Sério.", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 
 var classRoom01c01d06 = Answer(withText: "Chamar a Ana para\nfazer equipe", withAmount: Feel(happy: 5, normal: 0, shy: 0))// indo a ana
 
 var classRoom01d01c01d06 = Node(withText: NSLocalizedString("Então...", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
-var classRoom01d02c01d06 = Node(withText: NSLocalizedString("Ééééé", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
+var classRoom01d02c01d06 = Node(withText: NSLocalizedString("Ééééé.", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 var classRoom01d03c01d06 = Node(withText: NSLocalizedString("Que foi??", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode)
 var classRoom01d04c01d06 = Node(withText: NSLocalizedString("Que fazer o trabalho comigo?", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 var classRoom01d05c01d06 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode)
-var classRoom01d06c01d06 = Node(withText: NSLocalizedString("Claro", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode)
-var classRoom01d07c01d06 = Node(withText: NSLocalizedString("kkkk", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode, audioName: "ana_Laught01")//key tomou a iniciativa
+var classRoom01d06c01d06 = Node(withText: NSLocalizedString("Claro.", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode)
+var classRoom01d07c01d06 = Node(withText: NSLocalizedString("Ha ha ha.", comment: ""), withChoices: [], inNodeNamed: classroom01AnaNameNode, audioName: "ana_Laught01")//key tomou a iniciativa
 
 var classRoom01c02d06 = Answer(withText: "Esperar me\nescolherem", withAmount: Feel(happy: 0, normal: 2, shy: 0))//chave naoTomouIniciativa
 
-var classRoom01d01c02d06 = Node(withText: NSLocalizedString("Espero que a Ana me escolha", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)//Sala vazia
-var classRoom01d02c02d06 = Node(withText: NSLocalizedString("E Ninguém me escolheu", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
+var classRoom01d01c02d06 = Node(withText: NSLocalizedString("Espero que a Ana me escolha.", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)//Sala vazia
+var classRoom01d02c02d06 = Node(withText: NSLocalizedString("E Ninguém me escolheu.", comment: ""), withChoices: [], inNodeNamed: classroom01PlayerNameNode)
 
 var classRoom01c03d06 = Answer(withText: "Fazer sozinho", withAmount: Feel(happy: 0, normal: 0, shy: 5))//chave naoTomouIniciativa
 
