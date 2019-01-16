@@ -208,39 +208,34 @@ extension RoomScene {
 extension RoomScene{
     func preapreTutorial(){
         
+        
+        
         // Folder tutorial
         let tutorialNode = SKNode()
         tutorialNode.name = "tutorial"
         tutorialNode.position = .zero
         self.camera!.addChild(tutorialNode)
         
-        // Black banner
-        let bannerNode = SKSpriteNode(texture: nil, color: .black, size: self.size)
-        tutorialNode.addChild(bannerNode)
-        tutorialNode.zPosition = zPositionBannerTutorial
-        tutorialNode.alpha = 0.7
+        self.playerNode?.zPosition = tutorialNode.zPosition - 10
+        
+        tutorialNode.alpha = 1
         
         // Bring to front ballon
         self.ballon?.zPosition = tutorialNode.zPosition + 10
         
-        // Explaning text
-        let labelNode = SKLabelNode(text: NSLocalizedString("Este é um balão de interação\n\n  Clique nele para interagir", comment: ""))
-        labelNode.numberOfLines = 4
-        labelNode.fontSize = 80
-        labelNode.fontName = "Futura"
-        labelNode.position = CGPoint.zero
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        labelNode.zPosition = bannerNode.zPosition + 10
-        tutorialNode.addChild(labelNode)
+        let textNode = SKSpriteNode(imageNamed: "tutorial01")
+        textNode.xScale = 1.5
+        textNode.yScale = 1.5
+        textNode.zPosition = 10
+        tutorialNode.addChild(textNode)
         
         // Action for ballon
         self.ballon!.action = {
             self.ballon = DialogBallon.init(rootNode: room01Root, referenceScene: self)
-            self.ballon!.zPosition = tutorialNode.zPosition + 10
+            self.ballon!.zPosition = tutorialNode.zPosition + 100
             self.ballon!.setup()
             
-            labelNode.text = NSLocalizedString("Este é um balão de diálogo\n\n   Clique em qualquer lugar\n da tela para passar adiante", comment: "")
+            textNode.texture = SKTexture(imageNamed: "tutorial02")
             
             self.ballon!.action = {
                 
@@ -252,15 +247,12 @@ extension RoomScene{
         }
         
         room01d03.action = {
-            tutorialNode.alpha = 0.7
-            
-            self.camera?.xScale = 0.35
-            self.camera?.yScale = 0.35
+            tutorialNode.alpha = 1
             
             let choiceNodes = ChoicesBallon(choices: room01d03.choices, referenceScene: self)
             choiceNodes.setup()
             for ballon in choiceNodes.ballons{
-                ballon.zPosition = tutorialNode.zPosition + 10
+                ballon.zPosition = tutorialNode.zPosition + 100
                 
                 ballon.action = {
                     self.ballon = DialogBallon(rootNode: room01d04, referenceScene: self)
@@ -278,36 +270,25 @@ extension RoomScene{
             }
             choiceNodes.ballons[1].run(SKAction.wait(forDuration: 0.6)){
                 choiceNodes.ballons[1].run(SKAction.fadeIn(withDuration: 0)){
-                    labelNode.run(SKAction.fadeIn(withDuration: 0.5))
+                    textNode.run(SKAction.fadeIn(withDuration: 0.5))
                 }
             }
             
-            labelNode.alpha = 0
-            labelNode.text = NSLocalizedString("Estes são balões de escolha", comment: "")
-            let auxTextNode = SKLabelNode(text: NSLocalizedString(" Lembre-se suas decisões\nafetam o rumo da estória", comment: ""))
-            auxTextNode.numberOfLines = 4
-            auxTextNode.fontSize = 65
-            auxTextNode.fontName = "Futura"
-            auxTextNode.position = CGPoint.zero
-            auxTextNode.position.y -= (labelNode.frame.height + 50)
-            auxTextNode.horizontalAlignmentMode = .center
-            auxTextNode.verticalAlignmentMode = .center
-            auxTextNode.zPosition = bannerNode.zPosition + 10
-            labelNode.addChild(auxTextNode)
-            labelNode.position.y += 250
+            textNode.alpha = 0
+            textNode.texture = SKTexture(imageNamed: "tutorial03")
+            
         }
         
         room01d04.action = {
         
-            labelNode.alpha = 0
+            textNode.alpha = 0
             
             if(self.playerNode?.actualDirection == .sit){
                 self.playerNode?.run(SKAction(named: "felipe_standUp")!){
                     self.playerNode?.actualDirection = .idle
                     self.playerNode?.position.x += 10
-                    labelNode.alpha = 1
-                    labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
-                    labelNode.position = .zero
+                    textNode.alpha = 1
+                    textNode.texture = SKTexture(imageNamed: "tutorial04")
                     
                     self.playerNode?.playerCanWalk(true)
                 }
@@ -316,14 +297,10 @@ extension RoomScene{
             }
             
             tutorialNode.run(SKAction.wait(forDuration: 0.5)){
-                bannerNode.alpha = 0
-                tutorialNode.run(SKAction.fadeAlpha(to: 0.7, duration: 0.5))
-                labelNode.removeAllChildren()
+                tutorialNode.run(SKAction.fadeAlpha(to: 1, duration: 0.5))
             }
             
             self.ballon?.removeFromParent()
-            
-            
             
         }
         
