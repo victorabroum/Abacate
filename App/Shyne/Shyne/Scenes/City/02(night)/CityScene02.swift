@@ -33,7 +33,7 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
         }
         
-        self.offsetCamera = 120
+        self.offsetCamera = -1
         
         self.animateBus()
         
@@ -80,6 +80,7 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
     }
     
     func animateBus(){
+        self.dismissPause()
         self.playerNode?.playerCanWalk(false)
         self.playerNode?.alpha = 0
         
@@ -101,7 +102,9 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
             self.playerNode?.alpha = 1
             busNode.run(goWay){
                 busNode.alpha = 0
+                self.offsetCamera = 120
                 self.playerNode?.playerCanWalk(true)
+                self.showPause()
             }
         }
     }
