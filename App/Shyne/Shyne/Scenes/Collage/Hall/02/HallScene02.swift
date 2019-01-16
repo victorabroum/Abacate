@@ -60,7 +60,7 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
                 if newName == "collegeBusStop"{
                     
                     let node = self.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
-                    self.ballon = InteractionBallon(iconName: "", referenceNode: node, referenceScene: self, action: {
+                    self.ballon = InteractionBallon(iconName: "Icon_Bus", referenceNode: node, referenceScene: self, action: {
                         self.animateBus()
                     })
                     

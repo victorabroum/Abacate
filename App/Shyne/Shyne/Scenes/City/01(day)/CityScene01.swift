@@ -135,7 +135,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                             nextScene.entities = cenaProxima.entities
                             let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                             
-                            ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
+                            ballon = InteractionBallon(iconName: "Icon_Bus", referenceNode: trigger as! SKSpriteNode, referenceScene: self, action: {
                                 self.busAnimate(nextScene)
                             })
                             
