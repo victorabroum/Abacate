@@ -29,9 +29,11 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             self.house02Root = house02RootDoce
         }else if (PlayerModel.getInstance().keys.contains("frenchBrad")){
             self.house02Root = house02RootNormal
-        }else{
-            self.house02Root = house02Root3
         }
+        
+//        else{
+//            self.house02Root = house02Root3
+//        }
         
         self.prepareDialog()
        

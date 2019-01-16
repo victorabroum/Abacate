@@ -14,7 +14,7 @@ var playerZPosition: CGFloat = 50
 var zPositionToButton: CGFloat = 9999
 let zPositionBallon: CGFloat = playerZPosition + 200
 let zPositionBannerTutorial: CGFloat = zPositionBallon + 200
-let zPositionImagePause: CGFloat = playerZPosition + 200
+let zPositionImagePause: CGFloat = zPositionBallon + 200
 
 // For The Player
 var playerVelocity: CGFloat = 2.5

@@ -20,6 +20,10 @@ class ClassroomScene01: CustomSKSCene {
         classRoomRootmakeTree()
         prepareDialog()
         
+        self.offsetCamera = -1
+        self.playerNode?.enterIdleState()
+        self.playerNode?.playerCanWalk(false)
+        
     }
     
     func prepareDialog(){
@@ -44,6 +48,12 @@ class ClassroomScene01: CustomSKSCene {
             classRoom01d02c02d06.action = {
                 t1.troca()
             }
+        }
+        
+        classRoom01d06.action = {
+            let newBallon = ChoicesBallon(choices: classRoom01d06.choices, referenceNode: self.childNode(withName: "playerNodeTalk") as! SKSpriteNode, referenceScene: self)
+            newBallon.setup(onNodeNamed: "playerNodeTalk")
+            
         }
         
         classRoom01d01c02d06.action = {
