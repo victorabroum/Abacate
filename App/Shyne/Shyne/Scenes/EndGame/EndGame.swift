@@ -18,7 +18,7 @@ class EndGame: SKScene {
     
     let firstText = NSLocalizedString("SUAS ESCOLHAS\n TE TROUXERAM\n      ATÉ AQUI", comment: "")
     let secondText = NSLocalizedString("            E NO DIA\n    DA APRESENTAÇÃO\nESSE FOI O RESULTADO", comment: "")
-    let thirdText = NSLocalizedString("TEXTO GENÉRICO\nQUE FALTA", comment: "")
+    let thirdText = NSLocalizedString("FIM?!", comment: "")
     
     
     override func sceneDidLoad() {
