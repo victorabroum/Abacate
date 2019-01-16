@@ -79,7 +79,7 @@ class CustomSKSCene: SKScene{
         let backgroundPause = SKSpriteNode(imageNamed: "Pause")
         backgroundPause.position = CGPoint(x: 0, y: -(backgroundSize.height * 2))
         let constScaleBg: CGFloat = 3.1
-        backgroundPause.zPosition = zPositionImagePause
+        backgroundPause.zPosition = zPositionBannerTutorial
         backgroundPause.xScale = constScaleBg
         backgroundPause.yScale = constScaleBg
         self.camera!.addChild(backgroundPause)

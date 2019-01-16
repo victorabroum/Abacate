@@ -49,7 +49,12 @@ class PlayerNode: SKSpriteNode{
     func exitPauseState(){
         
         if self.stateMachine != nil{
-            (self.entity?.component(ofType: PausedComponent.self))!.exitPauseAnimate()
+            if let comp = self.entity!.component(ofType: PausedComponent.self){
+                comp.exitPauseAnimate()
+            }else{
+                self.enterIdleState()
+            }
+//            (self.entity?.component(ofType: PausedComponent.self))!.exitPauseAnimate()
         }
     }
     

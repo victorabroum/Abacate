@@ -41,7 +41,6 @@ class HallScene01: CustomSKSCene, SKPhysicsContactDelegate{
                         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                             
                             nextScene.entities = cenaProxima.entities
-                            
                             ballon = DoorBallon.init(referenceNode: self.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                         }
                     }

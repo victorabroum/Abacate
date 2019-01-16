@@ -21,6 +21,8 @@ class PausedState: GKState{
         switch stateClass {
         case is IdleState.Type:
             return true
+        case is WalkingState.Type:
+            return true
         default:
             return false
         }
