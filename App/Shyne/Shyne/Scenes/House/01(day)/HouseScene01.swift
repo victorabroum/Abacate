@@ -112,6 +112,7 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "bakeryDoor")
             PlayerModel.removeKey(k: "triggerDad")
+            PlayerModel.addKeys(k: "xandy")
             self.ballon?.dismiss()
         }
         

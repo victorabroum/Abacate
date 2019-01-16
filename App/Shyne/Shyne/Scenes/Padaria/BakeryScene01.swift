@@ -136,7 +136,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             justSair()
         }
         
-        bakery01c02d04.function = {
+        bakery01d01c02d04.action = {
             // Ele volta para pegar o pão francês
             justSair()
         }

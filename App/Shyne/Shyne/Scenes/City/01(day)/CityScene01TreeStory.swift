@@ -9,7 +9,7 @@
 import Foundation
 
 var city01PlayerNameNode = "playerNode"
-var city01VioleiroNameNode = "violeiroNode"
+var city01VioleiroNameNode = "xandyTalk"
 var city01DoorTalkNameNode = "doorTalkNode"
 var city01GrandMotherNameNode = "grandMotherNode"
 
