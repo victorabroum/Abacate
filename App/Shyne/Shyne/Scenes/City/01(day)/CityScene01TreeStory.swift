@@ -26,15 +26,15 @@ var violeiro01d05 = Node(withText: NSLocalizedString("...", comment: "Movimento 
 var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 
     var violeiro01c01d06 = Answer(withText: NSLocalizedString("Música legal", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice04")
-        var violeiro01d01c01d06 = Node(withText: NSLocalizedString("Muito obrigado. Fui eu quem compus", comment: "Compor de música"), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
+        var violeiro01d01c01d06 = Node(withText: NSLocalizedString("Muito obrigado.\nFui eu quem compus", comment: "Compor de música"), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
         var violeiro01d02c01d06 = Node(withText: NSLocalizedString("Qual o nome da música", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice02")
         var violeiro01d03c01d06 = Node(withText: NSLocalizedString("O Brilho Do Sol", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
     var violeiro01c02d06 = Answer(withText: "Você toca bem", withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice04")
 
-var violeiro01d07 = Node(withText: NSLocalizedString("Se você quiser aprender alguma coisa sobre música.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
+var violeiro01d07 = Node(withText: NSLocalizedString("Se você quiser aprender\nalguma coisa sobre música.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 
-var violeiro01d08 = Node(withText: NSLocalizedString("Vou voltar para tocar aqui alguns dias.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
+var violeiro01d08 = Node(withText: NSLocalizedString("Vou voltar para tocar\naqui alguns dias.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
 
 var violeiro01d09 = Node(withText: NSLocalizedString("Poxa, valeu. Já tenho que ir", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice05")
 
