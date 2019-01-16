@@ -19,6 +19,30 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         // Add Keys for Player
         PlayerModel.addKeys(k: "collegeBusStop")
+        PlayerModel.addKeys(k: "anaCollider")
+        
+        
+        
+        // Start idle for Ana
+        if let node = self.childNode(withName: "anaNode") {
+            node.run(SKAction(named: "anna_idle")!)
+        }
+        
+        hall02Fd09.action = {
+            PlayerModel.removeKey(k: "anaCollider")
+            self.anaAnimate()
+        }
+        
+        hall02Td06.action = {
+            PlayerModel.removeKey(k: "anaCollider")
+            self.anaAnimate()
+        }
+    }
+    
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        // Make tree for scene
+        hall02MakeTree()
     }
     
     
@@ -34,8 +58,6 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
             if(PlayerModel.getInstance().keys.contains(newName)){
                 
                 if newName == "collegeBusStop"{
-                    
-                    
                     if let cenaProxima: GKScene = GKScene(fileNamed: "CityScene02"){
                         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                             
@@ -44,9 +66,8 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
                             ballon = DoorBallon.init(referenceNode: self.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode, referenceScene: self, nextScene: nextScene)
                         }
                     }
-                    
-                    
-                    
+                }else if(newName == "anaCollider"){
+                    self.ballon = DialogBallon(rootNode: hall02Root, referenceScene: self)
                 }
                 
                 ballon?.setup()
@@ -70,4 +91,20 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
         }
     }
     
+}
+
+// MARK: Ana animation exiting
+extension HallScene02{
+    func anaAnimate(){
+        let anaNode = self.childNode(withName: "anaNode") as! SKSpriteNode
+        anaNode.xScale *= -1
+        
+        anaNode.size = CGSize(width: 87.4, height: 191.59)
+        anaNode.run(SKAction(named: "anna_walk")!)
+        
+        anaNode.run(SKAction.moveBy(x: -200, y: 0, duration: 1.5)){
+            self.ballon?.dismiss()
+            anaNode.removeFromParent()
+        }
+    }
 }
