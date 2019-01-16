@@ -94,9 +94,12 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
                         })
                     }
                 
+                self.ballon?.setup()
+                
+                
                 }
             
-                self.ballon?.setup()
+            
                 
             }
         
