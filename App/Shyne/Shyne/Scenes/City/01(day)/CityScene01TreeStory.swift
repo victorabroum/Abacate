@@ -28,7 +28,7 @@ var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: "")
     var violeiro01c01d06 = Answer(withText: NSLocalizedString("Música legal!", comment: ""), withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice04")
         var violeiro01d01c01d06 = Node(withText: NSLocalizedString("Muito obrigado. Fui eu quem compus.", comment: "Compor de música"), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
         var violeiro01d02c01d06 = Node(withText: NSLocalizedString("Qual o nome da música?", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice02")
-        var violeiro01d03c01d06 = Node(withText: NSLocalizedString("O Brilho Do Sol", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
+        var violeiro01d03c01d06 = Node(withText: NSLocalizedString("O Brilho Do Sol.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
     var violeiro01c02d06 = Answer(withText: "Você toca bem!", withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice04")
 
@@ -38,7 +38,7 @@ var violeiro01d08 = Node(withText: NSLocalizedString("vou voltar para tocar aqui
 
 var violeiro01d09 = Node(withText: NSLocalizedString("Poxa, valeu. Já tenho que ir.", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice05")
 
-var violeiro01d10 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
+var violeiro01d10 = Node(withText: NSLocalizedString("Ok.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
 /////////////////////////////////////////////////
 
@@ -50,8 +50,8 @@ var porta01Root : Node = Node(withText: "", withChoices: [])
 
 //////////////////////////////////////////////////////
 
-var old01Root = Node(withText: NSLocalizedString("Bom dia, José", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
-var old01d02 = Node(withText: NSLocalizedString("Eu sou o Felipe, dona Maria. Bom dia", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
+var old01Root = Node(withText: NSLocalizedString("Bom dia, José.", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
+var old01d02 = Node(withText: NSLocalizedString("Eu sou o Felipe, dona Maria. Bom dia.", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
 var old01d03 = Node(withText: NSLocalizedString("Felipe??", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice02")
 var old01d04 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice03")
 var old01d05 = Node(withText: NSLocalizedString("Meu Deus, meu filho você cresceu muito!!", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice02")
@@ -64,7 +64,7 @@ var old01d11 = Node(withText: NSLocalizedString("Está bem, meu filho.", comment
 var old01d12 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
 var old01d13 = Node(withText: NSLocalizedString("Estou vendo que você está ocupado.", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
 var old01d14 = Node(withText: NSLocalizedString("Tchau!!", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
-var old01d15 = Node(withText: NSLocalizedString("Tchau, dona Maria", comment:""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
+var old01d15 = Node(withText: NSLocalizedString("Tchau, dona Maria.", comment:""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
 
 
 
