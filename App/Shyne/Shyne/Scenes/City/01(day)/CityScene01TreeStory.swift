@@ -13,15 +13,15 @@ var city01VioleiroNameNode = "xandyTalk"
 var city01DoorTalkNameNode = "caraChato"
 var city01GrandMotherNameNode = "velhaTalk"
 
-var violeiro01Root = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Sigh03")
+var violeiro01Root = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Sigh03")
 
 var violeiro01d02 = Node(withText: NSLocalizedString("Tudo bem?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
-var violeiro01d03 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d03 = Node(withText: NSLocalizedString(" . . . ", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var viloeiro01d04 = Node(withText: NSLocalizedString("Você gostou da música?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
 
-var violeiro01d05 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmação com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d05 = Node(withText: NSLocalizedString(" . . . ", comment: "Movimento de afirmação com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 
@@ -53,16 +53,16 @@ var porta01Root : Node = Node(withText: "", withChoices: [])
 var old01Root = Node(withText: NSLocalizedString("Bom dia, José", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
 var old01d02 = Node(withText: NSLocalizedString("Eu sou o Felipe, dona Maria. Bom dia", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
 var old01d03 = Node(withText: NSLocalizedString("Felipe??", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice02")
-var old01d04 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice03")
+var old01d04 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice03")
 var old01d05 = Node(withText: NSLocalizedString("Meu Deus, meu filho você cresceu muito!!", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice02")
 var old01d06 = Node(withText: NSLocalizedString("Eu lembro de carregar você no colo!", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice02")
-var old01d07 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
-var old01d08 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice03")
+var old01d07 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
+var old01d08 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice03")
 var old01d09 = Node(withText: NSLocalizedString("Você ainda não fala muito, né?", comment: ""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
 var old01d10 = Node(withText: NSLocalizedString("Como está seu gatinho?", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice02")
-var old01d11 = Node(withText: NSLocalizedString("Está bem, meu filho", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
-var old01d12 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
-var old01d13 = Node(withText: NSLocalizedString("Estou vendo que você está ocupado", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
+var old01d11 = Node(withText: NSLocalizedString("Está bem, meu filho.", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
+var old01d12 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
+var old01d13 = Node(withText: NSLocalizedString("Estou vendo que você está ocupado.", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
 var old01d14 = Node(withText: NSLocalizedString("Tchau!!", comment:""), withChoices: [], inNodeNamed: city01GrandMotherNameNode, audioName: "grandMother_Voice01")
 var old01d15 = Node(withText: NSLocalizedString("Tchau, dona Maria", comment:""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Voice01")
 

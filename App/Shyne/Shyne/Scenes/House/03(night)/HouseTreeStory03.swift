@@ -32,8 +32,8 @@ import Foundation
 var house03PlayerNameNode = "playerNode"
 var house03DadNameNode = "Dad"
 
-var house03Root = Node(withText: NSLocalizedString("Boa noite, filho", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
-var house03d02 = Node(withText: NSLocalizedString("Boa noite, pai", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice02")
+var house03Root = Node(withText: NSLocalizedString("Boa noite, filho.", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
+var house03d02 = Node(withText: NSLocalizedString("Boa noite, pai.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice02")
 var house03d03 = Node(withText: NSLocalizedString("Como foi seu dia?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice02")
 
 var house03SBTc01d03 = Answer(withText: "Lembrar do pão", withAmount: Feel(happy: 0, normal: 1, shy: 0))
@@ -43,22 +43,22 @@ var house03d02SBTc01d03 = Node(withText: NSLocalizedString("Esquece isso filho!"
 
 var house03SBFc02d03 = Answer(withText: "Normal", withAmount: Feel(happy: 0, normal: 0, shy: 1), audioName: "felipe_Voice01")
 
-var house03NTd01SBFc02d03 = Node(withText: NSLocalizedString("Fale alguma coisa além de 'normal'", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_voice02")
-var house03NTd02SBFc02d03 = Node(withText: NSLocalizedString("Desculpa?", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
+var house03NTd01SBFc02d03 = Node(withText: NSLocalizedString("Fale alguma coisa além de 'normal'!", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_voice02")
+var house03NTd02SBFc02d03 = Node(withText: NSLocalizedString("Desculpa.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 var house03NTd03SBFc02d03 = Node(withText: NSLocalizedString("Você fala tanto que podia ser radialista...", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Laught02")//Se nao tiver chave normal o dialogo inicia aqui
 var house03NTd04SBFc02d03 = Node(withText: NSLocalizedString("Hahaha", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Laught01")
 var house03NTd05SBFc02d03 = Node(withText: NSLocalizedString("E a faculdade?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice01")
-var house03NTd06SBFc02d03 = Node(withText: NSLocalizedString("Tenho um trabalho muito\n importante", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
+var house03NTd06SBFc02d03 = Node(withText: NSLocalizedString("Tenho um trabalho muito\n importante.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 
-var house03SBFc03d03 = Answer(withText: "Tenho um trabalho\nmuito importante", withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "Felipe_Voice04")
+var house03SBFc03d03 = Answer(withText: "Tenho um trabalho\nmuito importante.", withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "Felipe_Voice04")
 
 var house03d04 = Node(withText: NSLocalizedString("Mas esse trabalho é grande?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
-var house03d05 = Node(withText: NSLocalizedString("É, mas a Ana vai me ajudar", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
+var house03d05 = Node(withText: NSLocalizedString("É, mas a Ana vai me ajudar.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
 var house03d06 = Node(withText: NSLocalizedString("Sempre ela né?!", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice02")
-var house03d07 = Node(withText: NSLocalizedString("Ok, eu tenho que ir para o quarto", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
+var house03d07 = Node(withText: NSLocalizedString("Ok, eu tenho que ir para o quarto.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
 var house03d08 = Node(withText: NSLocalizedString("OK filho", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
-var house03d09 = Node(withText: NSLocalizedString("Boa noite, pai", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
-var house03d10 = Node(withText: NSLocalizedString("Boa noite, Felipe", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
+var house03d09 = Node(withText: NSLocalizedString("Boa noite, pai.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
+var house03d10 = Node(withText: NSLocalizedString("Boa noite, Felipe.", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
 
 
 
