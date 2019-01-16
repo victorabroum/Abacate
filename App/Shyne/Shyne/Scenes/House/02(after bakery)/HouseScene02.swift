@@ -62,6 +62,11 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
                 self.offsetCamera = 85
                 self.ballon?.dismiss()
                 self.playerNode!.enterIdleState()
+                
+                PlayerModel.addKeys(k: "porta")
+                PlayerModel.addKeys(k: "busStop")
+                PlayerModel.addKeys(k: "breakfastAte")
+                PlayerModel.removeKey(k: "dady")
             }
         }
         
@@ -149,16 +154,6 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
     }
     
     func prepareDialog() {
-    
-        house02d06.action = {
-            
-            PlayerModel.addKeys(k: "porta")
-            PlayerModel.addKeys(k: "busStop")
-            PlayerModel.addKeys(k: "breakfastAte")
-            PlayerModel.removeKey(k: "dady")
-            
-            self.ballon?.dismiss()
-        }
         
         house02d02c02d02.action = {
             
