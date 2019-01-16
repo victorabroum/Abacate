@@ -48,6 +48,10 @@ class ClassroomScene01: CustomSKSCene {
             classRoom01d02c02d06.action = {
                 t1.troca()
             }
+            
+            let sceneInfo = SceneInformation.init(previousScenario: "ClassroomScene01", actualScenario: "HallScene02")
+            PlayerModel.changeScene(scene: sceneInfo)
+            PlayerModel.savePlayer()
         }
         
         classRoom01d06.action = {

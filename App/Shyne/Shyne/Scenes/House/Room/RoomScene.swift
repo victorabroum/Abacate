@@ -68,13 +68,6 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         room01c01PC.function = {
             PlayerModel.addKeys(k: "Desligar")
-            self.ballon = DialogBallon.init(rootNode: room01d01c01PC, referenceScene: self)
-            self.ballon!.setup()
-        }
-        room01c02PC.function = {
-            PlayerModel.addKeys(k: "Email")
-            self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceScene: self)
-            self.ballon!.setup()
         }
         
     }
@@ -146,6 +139,8 @@ extension RoomScene {
     func loadActionsOnDialog() {
         room01c02PC.function = {
             
+            PlayerModel.addKeys(k: "Email")
+            
             // Chama a Scene dele no pc
             let onComputerNode = SKSpriteNode(imageNamed: "Email_Avocad")
             let constScale: CGFloat = 3
@@ -171,7 +166,6 @@ extension RoomScene {
             onComputerNode.run(SKAction.wait(forDuration: 2)){
                 onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
                 self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: self.playerNode!, referenceScene: self)
-                self.ballon?.setup()
                 
             }
         }
@@ -270,7 +264,6 @@ extension RoomScene{
                 
                 ballon.action = {
                     self.ballon = DialogBallon(rootNode: room01d04, referenceScene: self)
-                    self.ballon!.setup()
                     tutorialNode.alpha = 0
                 }
                
@@ -305,14 +298,13 @@ extension RoomScene{
         }
         
         room01d04.action = {
-            
+        
             labelNode.alpha = 0
             
             if(self.playerNode?.actualDirection == .sit){
                 self.playerNode?.run(SKAction(named: "felipe_standUp")!){
                     self.playerNode?.actualDirection = .idle
                     self.playerNode?.position.x += 10
-                    
                     labelNode.alpha = 1
                     labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
                     labelNode.position = .zero
@@ -329,8 +321,8 @@ extension RoomScene{
                 labelNode.removeAllChildren()
             }
             
-            
             self.ballon?.removeFromParent()
+            
             
             
         }

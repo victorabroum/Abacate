@@ -22,6 +22,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         self.padeiroNode?.isUserInteractionEnabled = false
+        print("zPOs padeiro \(self.padeiroNode!.zPosition)")
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self

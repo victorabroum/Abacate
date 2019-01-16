@@ -34,7 +34,6 @@ class CustomSKSCene: SKScene{
         }
         
         
-        
     }
     
     override func didMove(to view: SKView) {
@@ -158,7 +157,7 @@ class CustomSKSCene: SKScene{
         let constScale: CGFloat = 2.5
         pauseNode.xScale = constScale
         pauseNode.yScale = constScale
-        pauseNode.position = CGPoint(x: backgroundSize.width / 2.5, y: backgroundSize.height / 2.8)
+        pauseNode.position = CGPoint(x: -(backgroundSize.width / 2.5), y: backgroundSize.height / 2.8)
         self.camera?.addChild(pauseNode)
         
     }
