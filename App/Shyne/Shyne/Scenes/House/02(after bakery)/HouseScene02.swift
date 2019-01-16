@@ -31,12 +31,40 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             self.house02Root = house02RootNormal
         }
         
-//        else{
-//            self.house02Root = house02Root3
-//        }
-        
         self.prepareDialog()
        
+        house02RootNormal.action = {
+            // w = 78,2 | h = 137,36
+            // x = 56,627 | y = -233,879
+            
+            self.run(SKAction.fadeOut(withDuration: 0.5)){
+                self.offsetCamera = -1
+                self.playerNode!.position = CGPoint(x: 56.627, y: -231.879)
+                self.playerNode!.playerCanWalk(false)
+                self.playerNode!.enterSitState()
+                self.playerNode!.removeAllActions()
+                self.playerNode!.texture = SKTexture(imageNamed: "player_eating")
+                self.playerNode!.xScale *= -1
+                
+                self.run(SKAction.fadeIn(withDuration: 0.5)){
+                    self.ballon = DialogBallon(rootNode: house02d02, referenceScene: self)
+                    self.ballon?.setup()
+                }
+                
+                
+            }
+            
+        }
+        
+        house02d06.action = {
+            self.playerNode!.xScale *= -1
+            self.playerNode!.run(SKAction(named: "felipe_standUp")!){
+                self.offsetCamera = 85
+                self.ballon?.dismiss()
+                self.playerNode!.enterIdleState()
+            }
+        }
+        
     }
     override func didMove(to view: SKView) {
         super.didMove(to: view)
