@@ -55,8 +55,8 @@ var house03SBFc03d03 = Answer(withText: "Tenho um trabalho\nmuito importante", w
 var house03d04 = Node(withText: NSLocalizedString("Mas esse trabalho é grande?", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
 var house03d05 = Node(withText: NSLocalizedString("É, mas a Ana vai me ajudar.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
 var house03d06 = Node(withText: NSLocalizedString("Sempre ela né?!", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice02")
-var house03d07 = Node(withText: NSLocalizedString("Ok, eu tenho que ir para o quarto.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
-var house03d08 = Node(withText: NSLocalizedString("OK filho.", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
+var house03d07 = Node(withText: NSLocalizedString("Ok, eu tenho que\nir para o quarto.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice01")
+var house03d08 = Node(withText: NSLocalizedString("Ok filho.", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
 var house03d09 = Node(withText: NSLocalizedString("Boa noite, pai.", comment: ""), withChoices: [], inNodeNamed: house03PlayerNameNode, audioName: "felipe_Voice03")
 var house03d10 = Node(withText: NSLocalizedString("Boa noite, Felipe.", comment: ""), withChoices: [], inNodeNamed: house03DadNameNode, audioName: "father_Voice03")
 
