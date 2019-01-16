@@ -9,7 +9,7 @@
 import Foundation
 import GameplayKit
 
-var classroom01PlayerNameNode = "playerNode"
+var classroom01PlayerNameNode = "playerNodeTalk"
 var classroom01ProfessoraNameNode = "professora"
 var classroom01AnaNameNode = "annaTalk"
 

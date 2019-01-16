@@ -9,7 +9,7 @@
 import Foundation
 
 var hall01PlayerNameNode = "playerNode"
-var hall01AnaNameNode = "Ana"
+var hall01AnaNameNode = "anaNode"
 
 var hall01Root = Node(withText: NSLocalizedString("Você viu o concurso?", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice01")
 
@@ -18,12 +18,12 @@ var hall01ETd02 = Node(withText: NSLocalizedString("Legal né?", comment: ""), w
 var hall01ETd03 = Node(withText: NSLocalizedString("É", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice02")
 var hall01ETd04 = Node(withText: NSLocalizedString("Vai, reage de alguma forma", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice03")
 var hall01ETd05 = Node(withText: NSLocalizedString("É a empresa que você mais gosta e você só diz 'é'", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice01")
-var hall01ETd06 = Node(withText: NSLocalizedString("Animo e se inscreva!", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice02")
+var hall01ETd06 = Node(withText: NSLocalizedString("Ânimo e se inscreva!", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice02")
 var hall01ETd07 = Node(withText: NSLocalizedString("Eu me inscrever?", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice03")
 var hall01ETd08 = Node(withText: NSLocalizedString("Claro, você é a pessoa que mais ama essa empresa, depois de mim é claro", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice03")
 var hall01ETd09 = Node(withText: NSLocalizedString("kkk", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Laught03")
 var hall01ETd10 = Node(withText: NSLocalizedString("Mas tem que fazer um vídeo e eu não gosto nem de bater foto", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice02")
-var hall01ETd11 = Node(withText: NSLocalizedString("Deixa disso. É para conhecer a Avocado games", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice01")
+var hall01ETd11 = Node(withText: NSLocalizedString("Deixa disso. É para conhecer a Avocado Games", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice01")
 var hall01ETd12 = Node(withText: NSLocalizedString("Se você se inscrever eu até te ajudo a fazer o vídeo", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice02")
 var hall01ETd13 = Node(withText: NSLocalizedString("Você não quer ir também", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice01")
 var hall01ETd14 = Node(withText: NSLocalizedString("Claro que quero. Mas prefiro que você vá é seu sonho a muito tempo", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice03")
@@ -47,6 +47,8 @@ var hall01EFd14 = Node(withText: NSLocalizedString("Quando você chegar em casa 
 var hall01EFd15 = Node(withText: NSLocalizedString("Ok", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice02")
 var hall01EFd16 = Node(withText: NSLocalizedString("Vê se nao esquece.", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice01")
 
+var hall01d01 = Node(withText: NSLocalizedString("Te vejo lá na sala", comment: ""), withChoices: [], inNodeNamed: hall01AnaNameNode, audioName: "ana_voice02")
+
 var hall01SBTRoot = Node(withText: NSLocalizedString("Vou tentar puxar conversa", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode)
 var hall01SBTd02 = Node(withText: NSLocalizedString("Já aconteceu de alguém mandar você comprar algo?", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice01")
 var hall01SBTd03 = Node(withText: NSLocalizedString("E você comprar o errado?", comment: ""), withChoices: [], inNodeNamed: hall01PlayerNameNode, audioName: "felipe_Voice03")
@@ -68,6 +70,10 @@ func hall01MakeTree(){
     if(PlayerModel.getInstance().keys.contains("sweetBrad")){
         hall01ETd16.add(child: hall01SBTRoot)
         hall01EFd16.add(child: hall01SBTRoot)
+        hall01SBTd07.add(child: hall01d01)
+    }else{
+        hall01EFd16.add(child: hall01d01)
+        hall01ETd16.add(child: hall01d01)
     }
     
     hall01ETRoot.add(child: hall01ETd02)

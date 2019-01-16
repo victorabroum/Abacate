@@ -18,6 +18,11 @@ enum TypeBallon {
     case interaction
 }
 
+let zPositionBackgroundBallon: CGFloat = 5
+let zPositionTailBallon: CGFloat = zPositionBackgroundBallon - 10
+let zPositionLabelBallon: CGFloat = zPositionBackgroundBallon + 5
+let zPositionIconBallon: CGFloat = zPositionBackgroundBallon + 10
+
 class Ballon : SKSpriteNode{
     var referenceNode: SKSpriteNode
     var iconName: String?
@@ -69,30 +74,15 @@ class Ballon : SKSpriteNode{
           self.referenceNode = SKSpriteNode()
         }
         
-        
-        
-        
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 100, height: 100))
         
         // For is possible to click
         self.isUserInteractionEnabled = true
         self.zPosition = zPositionBallon
-        
         self.referenceNode.addChild(self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
-        
-        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
-        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
-        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
-        
-        if(self.action != nil){
-            self.action!()
-        }
         
         if(self.name != nil && self.name! == "choiceBallon"){
             
@@ -106,6 +96,18 @@ class Ballon : SKSpriteNode{
         }
         
         self.removeFromParent()
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
+        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
+        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
+        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
+        
+        if(self.action != nil){
+            self.action!()
+        }
         
     }
     
@@ -124,7 +126,6 @@ class Ballon : SKSpriteNode{
             newDialogBallon.setup()
             
         }else if(self.rootNode.choices.count != 0){
-            
             
             let choicesBallon = ChoicesBallon(choices: self.rootNode.choices, referenceScene: self.referenceScene)
             choicesBallon.setup()
@@ -178,7 +179,7 @@ class Ballon : SKSpriteNode{
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontColor = .black
-        labelNode.zPosition = self.zPosition + 50
+        labelNode.zPosition = zPositionLabelBallon
         
         
         self.addChild(labelNode)
@@ -204,7 +205,7 @@ class Ballon : SKSpriteNode{
         backgroundNode.size.width = labelNode.frame.size.width + 30
         backgroundNode.size.height = labelNode.frame.size.height + 35
         backgroundNode.position = CGPoint.zero
-        backgroundNode.zPosition = self.zPosition + 5
+        backgroundNode.zPosition = zPositionBackgroundBallon
         self.backrgound = backgroundNode
         self.addChild(backgroundNode)
         
@@ -212,7 +213,7 @@ class Ballon : SKSpriteNode{
             
         // Setup point of ballon
         let pointBallon = SKSpriteNode(imageNamed: "\(backgroundName)_tail")
-        pointBallon.zPosition = backgroundNode.zPosition - 300
+        pointBallon.zPosition = zPositionTailBallon
         self.tailNode = pointBallon
         self.addChild(pointBallon)
         pointBallon.position = CGPoint.zero
@@ -246,6 +247,7 @@ class Ballon : SKSpriteNode{
 class ChoicesBallon : SKSpriteNode{
     var ballons: [Ballon] = []
     var referenceScene: CustomSKSCene
+    var referenceNode: SKSpriteNode?
     
     init(choices: [Answer], referenceScene: CustomSKSCene){
         self.referenceScene = referenceScene
@@ -268,6 +270,30 @@ class ChoicesBallon : SKSpriteNode{
         self.referenceScene.addChild(self)
     }
     
+    init(choices: [Answer], referenceNode: SKSpriteNode, referenceScene: CustomSKSCene){
+        self.referenceScene = referenceScene
+        self.referenceNode = referenceNode
+        for choice in choices{
+            let auxNode = Node(withText: choice.text, withChoices: [])
+            if !choice.child.isEmpty {
+                auxNode.add(child: choice.child.first!)
+            }
+            
+            auxNode.action = choice.function
+            auxNode.nodeToTalk = self.referenceNode!.name!
+            
+            ballons.append(Ballon(rootNode: auxNode, referenceScene: self.referenceScene, feel: choice.amount))
+            
+            
+            
+            
+        }
+        
+        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 100, height: 100))
+        self.name = "choicesBallon"
+        self.referenceScene.addChild(self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         self.referenceScene = SKScene(coder: aDecoder)! as! CustomSKSCene
         super.init(coder: aDecoder)
@@ -280,12 +306,18 @@ class ChoicesBallon : SKSpriteNode{
     }
     
     
-    func setup(){
+    func setup(onNodeNamed nodeName: String = "playerNode"){
+        
+        if (referenceNode != nil){
+            for ballon in self.ballons{
+                ballon.referenceNode = self.referenceNode!
+            }
+        }
         
         // Get Player reference on Scene
-        if let playerNode = self.referenceScene.childNode(withName: "playerNode") as? SKSpriteNode{
+        if let playerNode = self.referenceScene.childNode(withName: nodeName) as? SKSpriteNode{
             
-            
+            print("EITA NO \(nodeName)")
             
             var auxBallon = ballons[0]
             // Setup BallonA
@@ -319,6 +351,10 @@ class ChoicesBallon : SKSpriteNode{
             }
         }
         
+        
+        
+        
+        
     }
     
 }
@@ -340,7 +376,9 @@ class InteractionBallon: Ballon{
         if (iconName != ""){
             let iconNode = SKSpriteNode(imageNamed: iconName!)
             iconNode.name = iconName
-            iconNode.zPosition = super.zPosition + 10
+            iconNode.zPosition = zPositionIconBallon
+            print("BANNER \(zPositionBannerTutorial)")
+            print("ZPOSITION \(iconNode.zPosition)")
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
@@ -360,7 +398,6 @@ class InteractionBallon: Ballon{
 class DoorBallon : InteractionBallon{
     init(referenceNode: SKSpriteNode, referenceScene: SKScene, nextScene: SKScene){
         super.init(iconName: "Icone_Door", referenceNode: referenceNode, referenceScene: referenceScene as! CustomSKSCene) {
-            
             //Auto-save
             let sceneInfo = SceneInformation.init(previousScenario: "\(referenceScene.name!)", actualScenario: "\(nextScene.name!)")
             PlayerModel.changeScene(scene: sceneInfo)

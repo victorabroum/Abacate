@@ -9,19 +9,19 @@
 import Foundation
 
 var city01PlayerNameNode = "playerNode"
-var city01VioleiroNameNode = "violeiroNode"
-var city01DoorTalkNameNode = "doorTalkNode"
-var city01GrandMotherNameNode = "grandMotherNode"
+var city01VioleiroNameNode = "xandyTalk"
+var city01DoorTalkNameNode = "caraChato"
+var city01GrandMotherNameNode = "velhaTalk"
 
 var violeiro01Root = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Sigh03")
 
 var violeiro01d02 = Node(withText: NSLocalizedString("Tudo bem?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
-var violeiro01d03 = Node(withText: NSLocalizedString("'acena com a cabeça'", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d03 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var viloeiro01d04 = Node(withText: NSLocalizedString("Você gostou da música?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
 
-var violeiro01d05 = Node(withText: NSLocalizedString("'acena com a cabeça'", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d05 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 
@@ -43,8 +43,8 @@ var violeiro01d10 = Node(withText: NSLocalizedString("OK", comment: ""), withCho
 /////////////////////////////////////////////////
 
 var porta01 = Node(withText: NSLocalizedString("NÃO QUERO BISCOITOS!!!", comment: ""), withChoices: [], inNodeNamed: city01DoorTalkNameNode, audioName: "angry_Voice01")
-var porta02 = Node(withText: NSLocalizedString("ESTOU OCUPADO", comment: ""), withChoices: [], inNodeNamed: city01DoorTalkNameNode, audioName: "angry_Voice02")
-var porta03 = Node(withText: NSLocalizedString("YO NO HABLO SU IDIOMA", comment: "deixar em espanhol"), withChoices: [], inNodeNamed: city01DoorTalkNameNode, audioName: "angry_Voice03")
+var porta02 = Node(withText: NSLocalizedString("ESTOU OCUPADO!!!", comment: ""), withChoices: [], inNodeNamed: city01DoorTalkNameNode, audioName: "angry_Voice02")
+var porta03 = Node(withText: NSLocalizedString("YO NO HABLO SU IDIOMA!!!", comment: "deixar em espanhol"), withChoices: [], inNodeNamed: city01DoorTalkNameNode, audioName: "angry_Voice03")
 
 var porta01Root : Node = Node(withText: "", withChoices: [])
 
@@ -71,9 +71,18 @@ var old01d15 = Node(withText: NSLocalizedString("Tchau, dona Maria", comment:"")
 
 func city01MakeTree(){
     porta01Root = porta01
-    porta01.action = {porta01Root = porta02}
-    porta02.action = {porta01Root = porta03}
-    porta03.action = {porta01Root = porta01}
+    porta01.action = {
+        porta01Root = porta02
+        
+    }
+    porta02.action = {
+        porta01Root = porta03
+        
+    }
+    porta03.action = {
+        porta01Root = porta01
+        
+    }
     
     violeiro01Root.add(child: violeiro01d02)
     violeiro01d02.add(child: violeiro01d03)

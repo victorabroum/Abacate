@@ -16,6 +16,29 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     override func sceneDidLoad() {
         
         super.sceneDidLoad()
+        city01MakeTree()
+        porta01.action = {
+            porta01Root = porta02
+            self.ballon?.dismiss()
+        }
+        porta02.action = {
+            porta01Root = porta03
+            self.ballon?.dismiss()
+        }
+        porta03.action = {
+            porta01Root = porta01
+            self.ballon?.dismiss()
+        }
+        
+        old01d15.action = {
+            PlayerModel.removeKey(k: "velha")
+            self.ballon?.dismiss()
+        }
+        
+        violeiro01d10.action = {
+            PlayerModel.removeKey(k: "xandy")
+            self.ballon?.dismiss()
+        }
         
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
@@ -79,6 +102,29 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     
                 }
                 
+                if newName == "xandy"{
+                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
+                        self.ballon = DialogBallon(rootNode: violeiro01Root, referenceNode: self.playerNode!, referenceScene: self)
+                        self.ballon?.setup()
+                    }
+                }
+                
+                if newName == "velha"{
+                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
+                        self.ballon = DialogBallon(rootNode: old01Root, referenceNode: self.childNode(withName: old01Root.nodeToTalk) as! SKSpriteNode, referenceScene: self)
+                        self.ballon?.setup()
+                    }
+                }
+                if newName == "caraChato"{
+                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
+                        self.ballon = DialogBallon(rootNode: porta01Root, referenceNode: self.childNode(withName: porta01Root.nodeToTalk) as! SKSpriteNode, referenceScene: self)
+                        self.ballon?.setup()
+                    }
+                }
+                
                 if(newName == "busStop"){
                     // Rola a animação do bus e depois vai para a sala de aula
                     
@@ -133,6 +179,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     
     
     func busAnimate(_ nextScene: SKScene) {
+        self.dismissPause()
         self.playerNode?.playerCanWalk(false)
         let busNode = SKSpriteNode(imageNamed: "bus")
         busNode.position.x = self.playerNode!.position.x - 800

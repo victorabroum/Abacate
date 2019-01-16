@@ -29,9 +29,11 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
             self.house02Root = house02RootDoce
         }else if (PlayerModel.getInstance().keys.contains("frenchBrad")){
             self.house02Root = house02RootNormal
-        }else{
-            self.house02Root = house02Root3
         }
+        
+//        else{
+//            self.house02Root = house02Root3
+//        }
         
         self.prepareDialog()
        
@@ -41,7 +43,7 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         
         self.offsetCamera = 75
         
-        PlayerModel.addKeys(k: "dady")
+        
         PlayerModel.addKeys(k: "goUp")
         PlayerModel.addKeys(k: "goDown")
         PlayerModel.addKeys(k: "dadDoor")
@@ -92,9 +94,12 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
                         })
                     }
                 
+                self.ballon?.setup()
+                
+                
                 }
             
-                self.ballon?.setup()
+            
                 
             }
         
@@ -137,8 +142,9 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         
         house02c01d02.function = {
             PlayerModel.addKeys(k: "Normal")
-            self.ballon = DialogBallon.init(rootNode: house02d02c02d02, referenceNode: self.childNode(withName: "\(house02d02c02d02.nodeToTalk)")! as! SKSpriteNode, referenceScene: self)
-            self.ballon?.setup()
+            self.ballon?.dismiss()
+//            self.ballon = DialogBallon.init(rootNode: house02d02c02d02, referenceNode: self.childNode(withName: "\(house02d02c02d02.nodeToTalk)")! as! SKSpriteNode, referenceScene: self)
+//            self.ballon?.setup()
         }
         
     }

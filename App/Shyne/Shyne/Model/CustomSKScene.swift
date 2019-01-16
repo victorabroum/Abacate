@@ -79,7 +79,7 @@ class CustomSKSCene: SKScene{
         let backgroundPause = SKSpriteNode(imageNamed: "Pause")
         backgroundPause.position = CGPoint(x: 0, y: -(backgroundSize.height * 2))
         let constScaleBg: CGFloat = 3.1
-        backgroundPause.zPosition = zPositionImagePause
+        backgroundPause.zPosition = zPositionBannerTutorial
         backgroundPause.xScale = constScaleBg
         backgroundPause.yScale = constScaleBg
         self.camera!.addChild(backgroundPause)
@@ -92,22 +92,27 @@ class CustomSKSCene: SKScene{
         areaClickedNode.zPosition =  backgroundPause.zPosition + 10
         areaClickedNode.isUserInteractionEnabled = true
         areaClickedNode.action = {
-            self.playerNode!.playerCanWalk(true)
             self.playerNode!.exitPauseState()
-            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
+            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1)){
+                self.playerNode!.playerCanWalk(true)
+                
+            }
         }
         
         // Button Continuar
         let btContinueNode = ActionSpriteNode(imageNamed: "continueButton") {
-            self.playerNode!.playerCanWalk(true)
             self.playerNode!.exitPauseState()
-            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1))
+            backgroundPause.run(SKAction.move(to: CGPoint(x: 0, y: -(backgroundSize.height * 2)), duration: 1)){
+                self.playerNode!.playerCanWalk(true)
+                
+            }
         }
         btContinueNode.isUserInteractionEnabled = true
         btContinueNode.zPosition = backgroundPause.zPosition + 100
         btContinueNode.position = CGPoint(x: 0, y: 50)
         backgroundPause.addChild(btContinueNode)
         
+        // Button Menu principal
         let btMenu = ActionSpriteNode(imageNamed: "menuButton"){
             
             let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene")!
