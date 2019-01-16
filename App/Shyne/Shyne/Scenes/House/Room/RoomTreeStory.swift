@@ -40,9 +40,9 @@ var room01d04 = Node(withText: NSLocalizedString("Tô é com fome", comment: "")
 
 var room01PC = Node(withText: NSLocalizedString("Não dá tempo de mexer agora", comment: "mexer no computador"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 
-var room01c01PC = Answer(withText: NSLocalizedString("Desligar pc", comment: "pc personal Computer"), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave pc desligado apaga a tela do pc
+var room01c01PC = Answer(withText: NSLocalizedString("Desligar PC", comment: "pc personal Computer"), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave pc desligado apaga a tela do pc
 
-var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade dele ficar ligado", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
+var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade de ficar ligado", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 
 var room01c02PC = Answer(withText: NSLocalizedString("Ler emails", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
 
