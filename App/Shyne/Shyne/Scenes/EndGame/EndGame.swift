@@ -23,7 +23,6 @@ class EndGame: SKScene {
     
     override func sceneDidLoad() {
         
-        
         if let node = self.childNode(withName: "text") as? SKLabelNode {
             print("TEXT")
             labelNode = node
@@ -87,7 +86,7 @@ class EndGame: SKScene {
         // Eles levantam
         felipeNode.run(SKAction(named: "felipe_standUp")!) {
             // Ele andam
-            felipeNode.position = CGPoint(x: -72.422, y: -49.422)
+            felipeNode.position = CGPoint(x: -72.422, y: -56.422)
             let felipeWalk = SKAction(named: "playerWalk")!
             let goToPos = SKAction.moveTo(x: 228, duration: 2)
             let groupFelipe = SKAction.group([felipeWalk, goToPos])
@@ -95,7 +94,7 @@ class EndGame: SKScene {
         }
         
         annaNode.run(SKAction(named: "anna_standUp")!) {
-            annaNode.position = CGPoint(x: 54.35, y: -57.579)
+            annaNode.position = CGPoint(x: 54.35, y: -62.305)
             annaNode.size = CGSize(width: 108.7, height: 238)
             // Ela anda
             let annaWalk = SKAction(named: "anna_walk")!
@@ -240,7 +239,7 @@ class EndGame: SKScene {
         // Eles levantam
         felipeNode.run(SKAction(named: "felipe_standUp")!) {
             // Ele andam
-            felipeNode.position = CGPoint(x: -72.422, y: -49.422)
+            felipeNode.position = CGPoint(x: -72.422, y: -56.422)
             let felipeWalk = SKAction(named: "playerWalk")!
             let goToPos = SKAction.moveTo(x: 228, duration: 2)
             let groupFelipe = SKAction.group([felipeWalk, goToPos])
@@ -248,7 +247,7 @@ class EndGame: SKScene {
         }
         
         annaNode.run(SKAction(named: "anna_standUp")!) {
-            annaNode.position = CGPoint(x: 54.35, y: -57.579)
+            annaNode.position = CGPoint(x: 54.35, y: -62.305)
             annaNode.size = CGSize(width: 108.7, height: 238)
             // Ela anda
             let annaWalk = SKAction(named: "anna_walk")!
@@ -370,7 +369,7 @@ class EndGame: SKScene {
         
         let felipeNode = SKSpriteNode(texture: SKTexture(imageNamed: "standing_01"), color: .clear
             , size: CGSize(width: 138.28, height: 248))
-        felipeNode.position = CGPoint(x: -94.365, y: -49.329)
+        felipeNode.position = CGPoint(x: -94.365, y: -54.914)
         
         let annaNode = SKSpriteNode(texture: SKTexture(imageNamed: "anna_standing_01"), color: .clear
             , size: CGSize(width: 155.27, height: 285))
@@ -384,7 +383,7 @@ class EndGame: SKScene {
         // Eles levantam
         felipeNode.run(SKAction(named: "felipe_standUp")!) {
             // Ele andam
-            felipeNode.position = CGPoint(x: -72.422, y: -49.422)
+            felipeNode.position = CGPoint(x: -72.422, y: -56.422)
             let felipeWalk = SKAction(named: "playerWalk")!
             let goToPos = SKAction.moveTo(x: 228, duration: 2)
             let groupFelipe = SKAction.group([felipeWalk, goToPos])
@@ -392,7 +391,7 @@ class EndGame: SKScene {
         }
         
         annaNode.run(SKAction(named: "anna_standUp")!) {
-            annaNode.position = CGPoint(x: 54.35, y: -57.579)
+            annaNode.position = CGPoint(x: 54.35, y: -62.305)
             annaNode.size = CGSize(width: 108.7, height: 238)
             // Ela anda
             let annaWalk = SKAction(named: "anna_walk")!
