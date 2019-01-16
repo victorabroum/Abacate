@@ -22,12 +22,12 @@ var hall02Td05 = Node(withText: NSLocalizedString("...Sim, obrigado.", comment: 
 var hall02Td06 = Node(withText: NSLocalizedString("Beleza, mais tarde nos falamos.", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "felipe_Voice01")
 
 var hall02FRoot = Node(withText: NSLocalizedString("Ei!!", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice01")
-var hall02Fd02 = Node(withText: NSLocalizedString("Legal você ter me chamado para sua equipe.", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
+var hall02Fd02 = Node(withText: NSLocalizedString("Legal você ter me\nchamado para sua equipe.", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 var hall02Fd03 = Node(withText: NSLocalizedString("Que isso,", comment: ""), withChoices: [], inNodeNamed: hall02PlayerNameNode, audioName: "felipe_Voice04")
 var hall02Fd04 = Node(withText: NSLocalizedString("você é minha amiga.", comment: ""), withChoices: [], inNodeNamed: hall02PlayerNameNode, audioName: "felipe_Voice05")
-var hall02Fd05 = Node(withText: NSLocalizedString("É você quem vai organizar o trabalho?", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice02")
-var hall02Fd06 = Node(withText: NSLocalizedString("Sim, sim, mas queria que você me ajudasse.", comment: ""), withChoices: [], inNodeNamed: hall02PlayerNameNode, audioName: "felipe_Voice01")
-var hall02Fd07 = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice01")
+var hall02Fd05 = Node(withText: NSLocalizedString("É você quem vai\norganizar o trabalho?", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice02")
+var hall02Fd06 = Node(withText: NSLocalizedString("Sim, sim, mas queria\nque você me ajudasse.", comment: ""), withChoices: [], inNodeNamed: hall02PlayerNameNode, audioName: "felipe_Voice01")
+var hall02Fd07 = Node(withText: NSLocalizedString(". . . ", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice01")
 var hall02Fd08 = Node(withText: NSLocalizedString("Ok.", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 var hall02Fd09 = Node(withText: NSLocalizedString("Nos vemos amanhã!", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 
