@@ -80,10 +80,10 @@ var house02d01c03d02 = Node(withText: NSLocalizedString("O senhor já regou suas
 var house02d02c03d02 = Node(withText: NSLocalizedString("Se o senhor não regá-las,\n elas vão morrer.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice01")
 var house02d03c03d02 = Node(withText: NSLocalizedString("Ele vai esquecer.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "")
 
-var house02d03 = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
-var house02d04 = Node(withText: NSLocalizedString("Tenho que ir para a faculdade, pai.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice01")
-var house02d05 = Node(withText: NSLocalizedString("Tchau! Quando chegar lá me avisa.", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice01")
-var house02d06 = Node(withText: NSLocalizedString("Ta, pai.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
+var house02d03 = Node(withText: NSLocalizedString(". . . ", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
+var house02d04 = Node(withText: NSLocalizedString("Tenho que ir para\na faculdade, pai.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice01")
+var house02d05 = Node(withText: NSLocalizedString("Tchau!\nQuando chegar lá me avisa.", comment: ""), withChoices: [], inNodeNamed: house02DadNameNode, audioName: "father_Voice01")
+var house02d06 = Node(withText: NSLocalizedString("Tá, pai.", comment: ""), withChoices: [], inNodeNamed: house02PlayerNameNode, audioName: "felipe_Voice02")
 
 func house02makeTree(){
 //    house02Root1.choices.append(house02Root1c1)
