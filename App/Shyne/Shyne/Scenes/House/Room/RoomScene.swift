@@ -163,7 +163,7 @@ extension RoomScene {
 //            let ballonOnComputer = DialogBallon.init(rootNode: room01Root, referenceNode: ballonNodeRef, referenceScene: self)
 //            ballonOnComputer.setup()
             
-            onComputerNode.run(SKAction.wait(forDuration: 2)){
+            onComputerNode.run(SKAction.wait(forDuration: 3)){
                 onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
                 self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: self.playerNode!, referenceScene: self)
                 

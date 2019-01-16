@@ -25,11 +25,11 @@ import Foundation
 var room01PlayerNameNode = "playerNode"
 var room01DoorNameNode = "portaTalk"
 
-var room01Root = Node(withText: NSLocalizedString("...", comment: "sigh"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh01")
+var room01Root = Node(withText: NSLocalizedString(" . . . ", comment: "sigh"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh01")
 
 
-var room01d01 = Node(withText: NSLocalizedString("Por que hoje\nnão é Domingo?!", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
-var room01d02 = Node(withText: NSLocalizedString("Não quero\nir para aula", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
+var room01d01 = Node(withText: NSLocalizedString(" Por que hoje\nnão é Domingo?!", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "")
+var room01d02 = Node(withText: NSLocalizedString(" Não quero\nir para aula", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Voice01")
 var room01d03 = Node(withText: NSLocalizedString("Ei Felipe,\nAcorda", comment: ""), withChoices: [], inNodeNamed: room01DoorNameNode, audioName: "")
 
 var room01c01d03 = Answer(withText: NSLocalizedString("Não responder nada", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 1))
@@ -46,7 +46,7 @@ var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade de f
 
 var room01c02PC = Answer(withText: NSLocalizedString("Ler emails", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
 
-var room01d01c02PC = Node(withText: NSLocalizedString("Será que a Ana\nrecebeu esse\nemail também??", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
+var room01d01c02PC = Node(withText: NSLocalizedString(" Será que a Ana\n recebeu esse\n email também??", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
 
 var room01c03PC = Answer(withText: NSLocalizedString("Apenas ignorar", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
 
