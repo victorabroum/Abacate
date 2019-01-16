@@ -11,17 +11,17 @@ import Foundation
 var city01PlayerNameNode = "playerNode"
 var city01VioleiroNameNode = "xandyTalk"
 var city01DoorTalkNameNode = "doorTalkNode"
-var city01GrandMotherNameNode = "grandMotherNode"
+var city01GrandMotherNameNode = "velhaTalk"
 
 var violeiro01Root = Node(withText: NSLocalizedString("...", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Sigh03")
 
 var violeiro01d02 = Node(withText: NSLocalizedString("Tudo bem?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice01")
 
-var violeiro01d03 = Node(withText: NSLocalizedString("'acena com a cabeça'", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d03 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var viloeiro01d04 = Node(withText: NSLocalizedString("Você gostou da música?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
 
-var violeiro01d05 = Node(withText: NSLocalizedString("'acena com a cabeça'", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
+var violeiro01d05 = Node(withText: NSLocalizedString("...", comment: "Movimento de afirmaçao com a cabeça"), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_sigh03")
 
 var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 

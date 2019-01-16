@@ -88,6 +88,14 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     }
                 }
                 
+                if newName == "velha"{
+                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
+                        self.ballon = DialogBallon(rootNode: old01Root, referenceNode: self.childNode(withName: old01Root.nodeToTalk) as! SKSpriteNode, referenceScene: self)
+                        self.ballon?.setup()
+                    }
+                }
+                
                 if(newName == "busStop"){
                     // Rola a animação do bus e depois vai para a sala de aula
                     
