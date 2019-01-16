@@ -39,6 +39,7 @@ class TouchController: SKSpriteNode {
         
         // Say the buttons now is avalible to touch
         isUserInteractionEnabled = true
+        self.zPosition = 11
     }
     
     required init?(coder aDecoder: NSCoder) {
