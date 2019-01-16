@@ -33,7 +33,7 @@ var house01DadNameNode = "dadDialog"
 
 var house01Root = Node(withText: NSLocalizedString("Bom dia, pai.", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice04")
 var house01d02 = Node(withText: NSLocalizedString("Bom dia, filho.", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice01")
-var house01d03 = Node(withText: NSLocalizedString("Já fiz o café,\nmas não tem pão.\nVocê pode ir comprar?", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_voice02")
+var house01d03 = Node(withText: NSLocalizedString("Já fiz o café,\nmas não tem pão.", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_voice02")
 var house01d04 = Node(withText: NSLocalizedString("Você pode ir comprar?", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_voice03")
 
 var house01c01d04 = Answer(withText: NSLocalizedString("Claro", comment: "Concerteza. no sentido de 'sim'"), withAmount: Feel(happy: 1, normal: 0, shy: 0), audioName: "felipe_voice02")
