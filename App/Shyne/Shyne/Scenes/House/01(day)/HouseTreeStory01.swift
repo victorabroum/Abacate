@@ -41,7 +41,7 @@ var house01c02d03 = Answer(withText: NSLocalizedString("Eu não estou com fome."
 var house01d01c02d03 = Node(withText: NSLocalizedString("Mas eu estou.", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice03")
 var house01d02c02d03 = Node(withText: NSLocalizedString("Ok. Já estou indo.", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice05")
 
-var house01c03d03 = Answer(withText: NSLocalizedString("Acena com\na cabeça", comment: ""), withAmount: Feel(happy: 0, normal: 2, shy: 0))
+var house01c03d03 = Answer(withText: NSLocalizedString("Acena com\na cabeça.", comment: ""), withAmount: Feel(happy: 0, normal: 2, shy: 0))
 
 var house01d04 = Node(withText: NSLocalizedString("Ok.\nTrás pão francês!", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice02")
 
