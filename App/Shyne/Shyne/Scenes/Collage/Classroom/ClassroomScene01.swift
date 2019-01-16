@@ -25,9 +25,9 @@ class ClassroomScene01: CustomSKSCene {
     func prepareDialog(){
         
         //func b1
-        let cenaProxima1: GKScene = GKScene(fileNamed: "CityScene02")!
+        let cenaProxima1: GKScene = GKScene(fileNamed: "HallScene02")!
         
-        if let nextScene1 = cenaProxima1.rootNode as? CityScene02{
+        if let nextScene1 = cenaProxima1.rootNode as? HallScene02{
             nextScene1.entities = cenaProxima1.entities
             var t1 : Transicao
             t1 = Transicao(cenaAtual: self, cenaProxima: nextScene1)
@@ -43,6 +43,21 @@ class ClassroomScene01: CustomSKSCene {
             
             classRoom01d02c02d06.action = {
                 t1.troca()
+            }
+        }
+        
+        classRoom01d01c02d06.action = {
+            let fadein = SKAction.fadeIn(withDuration: 0.5)
+            let fadeout = SKAction.fadeOut(withDuration: 1)
+            self.run(fadeout){
+                if let coiso = self.childNode(withName: "background") as? SKSpriteNode{
+                    coiso.texture = SKTexture(imageNamed: "Faloneculdade")
+                }
+                self.run(fadein){
+                    let newBallon = DialogBallon.init(rootNode: classRoom01d02c02d06, referenceScene: self)
+                    newBallon.setup()
+                }
+                
             }
         }
         

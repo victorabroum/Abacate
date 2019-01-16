@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import SpriteKit
+import GameKit
 
 class EndGame: SKScene {
 
@@ -202,7 +203,16 @@ class EndGame: SKScene {
                         self.labelNode?.run(SKAction.wait(forDuration: 2)){
                             self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
                             self.labelNode?.text = self.thirdText
-                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5))
+                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
+                                let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene")!
+                                if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
+                                    nextScene.entities = cenaProxima.entities
+                                    
+                                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                                    nextScene.scaleMode = SKSceneScaleMode.aspectFill
+                                    self.view?.presentScene(nextScene, transition: transition)
+                                }
+                            }
                         }
                     }
                     
@@ -337,7 +347,16 @@ class EndGame: SKScene {
                         self.labelNode?.run(SKAction.wait(forDuration: 2)){
                             self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
                             self.labelNode?.text = self.thirdText
-                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5))
+                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
+                                let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene")!
+                                if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
+                                    nextScene.entities = cenaProxima.entities
+                                    
+                                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                                    nextScene.scaleMode = SKSceneScaleMode.aspectFill
+                                    self.view?.presentScene(nextScene, transition: transition)
+                                }
+                            }
                         }
                     }
                     
@@ -491,7 +510,16 @@ class EndGame: SKScene {
                         self.labelNode?.run(SKAction.wait(forDuration: 2)){
                             self.labelNode?.run(SKAction.fadeIn(withDuration: 1))
                             self.labelNode?.text = self.thirdText
-                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5))
+                            self.labelNode?.run(SKAction.scale(by: 1.2, duration: 3.5)){
+                                let cenaProxima:GKScene = GKScene(fileNamed: "RoomScene")!
+                                if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
+                                    nextScene.entities = cenaProxima.entities
+                                    
+                                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                                    nextScene.scaleMode = SKSceneScaleMode.aspectFill
+                                    self.view?.presentScene(nextScene, transition: transition)
+                                }
+                            }
                         }
                     }
                     

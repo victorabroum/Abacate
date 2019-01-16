@@ -8,7 +8,7 @@
 
 import Foundation
 
-var room02Root = Node(withText: NSLocalizedString("Eu tinha que Ensaiar para o trabalho", comment: ""), withChoices: [])
+var room02Root = Node(withText: NSLocalizedString("Eu tinha que ensaiar para o trabalho", comment: ""), withChoices: [])
 
 var room02c01 = Answer(withText: NSLocalizedString("Ligar o pc para estudar\npara a apresentação", comment: ""), withAmount: Feel(happy: 3, normal: 2, shy: 0))
 var room02c02 = Answer(withText: NSLocalizedString("Ir dormir", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 4))

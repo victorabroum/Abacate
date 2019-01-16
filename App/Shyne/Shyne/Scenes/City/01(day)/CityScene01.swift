@@ -33,7 +33,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         super.didMove(to: view)
         
-        self.offsetCamera = 120
+        self.offsetCamera = 100
         
         MusicPanHelper.prepareForPan(thisScne: self, forThisListner: self.playerNode!, fromThisMusics: (self.musicsNode?.children)!)
         
@@ -135,6 +135,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     func busAnimate(_ nextScene: SKScene) {
         self.playerNode?.playerCanWalk(false)
         let busNode = SKSpriteNode(imageNamed: "bus")
+        busNode.position.x = self.playerNode!.position.x - 800
         busNode.position.y = -83
         busNode.zPosition = playerZPosition + 100
         self.addChild(busNode)
@@ -150,7 +151,7 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.playerNode?.alpha = 0
             busNode.run(goWay, completion: {
                 
-                let sceneInfo = SceneInformation.init(previousScenario: "CityScene01", actualScenario: "ClassroomScene01")
+                let sceneInfo = SceneInformation.init(previousScenario: "CityScene01", actualScenario: "HallScene01")
                 PlayerModel.changeScene(scene: sceneInfo)
                 PlayerModel.savePlayer()
                 
@@ -172,8 +173,10 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         if(PlayerModel.getInstance().sceneInformation.previousScenario == "BakeryScene01"){
             self.playerNode!.position = (self.childNode(withName: "initPosition")!.childNode(withName: "bakery")?.position)!
+            self.camera?.position.x = -1979.577
         }else if (PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene01" || PlayerModel.getInstance().sceneInformation.previousScenario == "HouseScene02"){
             self.playerNode?.position = (self.childNode(withName: "initPosition")?.childNode(withName: "house")?.position)!
+            self.camera?.position.x = -273.8
         }
     }
     

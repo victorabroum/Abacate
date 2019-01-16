@@ -11,7 +11,7 @@ import SpriteKit
 
 class ActionSpriteNode: SKSpriteNode{
     
-    let action: (()->Void)?
+    var action: (()->Void)?
     
     required init?(coder aDecoder: NSCoder) {
         action = nil
@@ -25,7 +25,7 @@ class ActionSpriteNode: SKSpriteNode{
         
     }
     
-    init(imageNamed name: String, action:@escaping (()->Void)){
+    init(imageNamed name: String, action:(()->Void)? = nil){
         let texture = SKTexture(imageNamed: name)
         self.action = action
         super.init(texture: texture, color: .clear, size: texture.size())

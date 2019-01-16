@@ -21,6 +21,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         super.sceneDidLoad()
         
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
+        self.padeiroNode?.isUserInteractionEnabled = false
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self

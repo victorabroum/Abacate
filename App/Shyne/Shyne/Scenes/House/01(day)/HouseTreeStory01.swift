@@ -29,7 +29,7 @@ import Foundation
 //var d3_3: Node = Node(withText: NSLocalizedString("Don't be shy!\nJust go, please!", comment: "Pai respondendo o filho"), withChoices: [], inNodeNamed: "dad")
 
 var house01PlayerNameNode = "playerNode"
-var house01DadNameNode = "dad"
+var house01DadNameNode = "dadDialog"
 
 var house01Root = Node(withText: NSLocalizedString("Bom dia, pai", comment: ""), withChoices: [], inNodeNamed: house01PlayerNameNode, audioName: "felipe_Voice04")
 var house01d02 = Node(withText: NSLocalizedString("Bom dia, filho", comment: ""), withChoices: [], inNodeNamed: house01DadNameNode, audioName: "father_Voice01")
