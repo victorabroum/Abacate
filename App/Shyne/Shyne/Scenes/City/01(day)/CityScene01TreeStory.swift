@@ -32,7 +32,7 @@ var violeiro01d06 = Node(withText: NSLocalizedString("Sabe falar?", comment: "")
 
     var violeiro01c02d06 = Answer(withText: "Você toca bem!", withAmount: Feel(happy: 0, normal: 1, shy: 0), audioName: "felipe_Voice04")
 
-var violeiro01d07 = Node(withText: NSLocalizedString("Se você quiser aprender alguma coisa sobre música,", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
+var violeiro01d07 = Node(withText: NSLocalizedString("Se você quiser aprender\nalguma coisa sobre música,", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice03")
 
 var violeiro01d08 = Node(withText: NSLocalizedString("vou voltar para tocar aqui alguns dias.", comment: ""), withChoices: [], inNodeNamed: city01VioleiroNameNode, audioName: "violeiro_Voice02")
 

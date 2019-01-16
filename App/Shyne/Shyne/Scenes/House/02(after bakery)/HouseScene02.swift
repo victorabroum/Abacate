@@ -142,7 +142,6 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         
         house02c01d02.function = {
             PlayerModel.addKeys(k: "Normal")
-            self.ballon?.dismiss()
 //            self.ballon = DialogBallon.init(rootNode: house02d02c02d02, referenceNode: self.childNode(withName: "\(house02d02c02d02.nodeToTalk)")! as! SKSpriteNode, referenceScene: self)
 //            self.ballon?.setup()
         }
