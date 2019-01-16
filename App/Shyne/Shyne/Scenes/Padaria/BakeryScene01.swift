@@ -129,6 +129,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             })
             
             PlayerModel.addKeys(k: "frenchBrad")
+            PlayerModel.addKeys(k: "dady")
         }
         
         bakery01d01c01d04.action = {
@@ -146,6 +147,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.addKeys(k: "porta")
             PlayerModel.addKeys(k: "houseDoor")
             PlayerModel.addKeys(k: "sweetBrad")
+            PlayerModel.addKeys(k: "dady")
             
             self.ballon?.dismiss()
             
