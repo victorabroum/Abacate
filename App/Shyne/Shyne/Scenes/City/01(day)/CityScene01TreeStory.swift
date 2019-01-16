@@ -10,7 +10,7 @@ import Foundation
 
 var city01PlayerNameNode = "playerNode"
 var city01VioleiroNameNode = "xandyTalk"
-var city01DoorTalkNameNode = "caraChato"
+var city01DoorTalkNameNode = "caraChatoTalk"
 var city01GrandMotherNameNode = "velhaTalk"
 
 var violeiro01Root = Node(withText: NSLocalizedString(" . . . ", comment: ""), withChoices: [], inNodeNamed: city01PlayerNameNode, audioName: "felipe_Sigh03")
