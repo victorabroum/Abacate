@@ -428,6 +428,9 @@ class StairBallon: InteractionBallon{
             super.iconName = "iconDownstairs"
             super.action = {
                 
+                PlayerModel.removeKey(k: "goDown")
+                PlayerModel.removeKey(k: "goUp")
+                
                 if (playerNode.xScale) <= 0{
                     playerNode.xScale *= -1
                 }
@@ -439,6 +442,8 @@ class StairBallon: InteractionBallon{
                 self.referenceScene.camera?.run(SKAction.wait(forDuration: stairDuration)){
                     referenceScene.offsetCamera = 80
                     self.referenceScene.showPause()
+                    PlayerModel.addKeys(k: "goDown")
+                    PlayerModel.addKeys(k: "goUp")
                 }
             }
         }else{
@@ -446,7 +451,8 @@ class StairBallon: InteractionBallon{
             super.iconName = "iconUpstairs"
             super.action = {
                 
-                
+                PlayerModel.removeKey(k: "goDown")
+                PlayerModel.removeKey(k: "goUp")
                 
                 if (playerNode.xScale) >= 0{
                     playerNode.xScale *= -1
@@ -458,6 +464,8 @@ class StairBallon: InteractionBallon{
                 self.referenceScene.camera?.run(SKAction.moveTo(y: cameraUpper, duration: stairDuration)){
                     referenceScene.offsetCamera = 35
                     self.referenceScene.showPause()
+                    PlayerModel.addKeys(k: "goDown")
+                    PlayerModel.addKeys(k: "goUp")
                 }
                 
             }

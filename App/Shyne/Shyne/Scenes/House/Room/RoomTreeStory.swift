@@ -46,7 +46,7 @@ var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade dele
 
 var room01c02PC = Answer(withText: NSLocalizedString("Ler emails", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
 
-var room01d01c02PC = Node(withText: NSLocalizedString("Será que a Ana recebeu esse email também??", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
+var room01d01c02PC = Node(withText: NSLocalizedString("Será que a Ana\nrecebeu esse\nemail também??", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
 
 var room01c03PC = Answer(withText: NSLocalizedString("Apenas ignorar", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
 
