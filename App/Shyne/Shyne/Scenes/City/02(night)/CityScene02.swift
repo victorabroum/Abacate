@@ -18,6 +18,7 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         super.sceneDidLoad()
         
         physicsWorld.contactDelegate = self
+        self.dismissPause()
         
     }
     
