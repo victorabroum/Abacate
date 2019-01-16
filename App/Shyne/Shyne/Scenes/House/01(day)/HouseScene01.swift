@@ -114,6 +114,7 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.removeKey(k: "triggerDad")
             PlayerModel.addKeys(k: "xandy")
             PlayerModel.addKeys(k: "velha")
+            PlayerModel.addKeys(k: "caraChato")
             self.ballon?.dismiss()
         }
         

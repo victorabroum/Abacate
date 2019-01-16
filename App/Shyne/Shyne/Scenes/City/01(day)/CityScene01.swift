@@ -17,6 +17,18 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         
         super.sceneDidLoad()
         city01MakeTree()
+        porta01.action = {
+            porta01Root = porta02
+            self.ballon?.dismiss()
+        }
+        porta02.action = {
+            porta01Root = porta03
+            self.ballon?.dismiss()
+        }
+        porta03.action = {
+            porta01Root = porta01
+            self.ballon?.dismiss()
+        }
         
         if let musicNode = self.childNode(withName: "musics") {
             self.musicsNode = musicNode
@@ -92,6 +104,13 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
                     let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
                     self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
                         self.ballon = DialogBallon(rootNode: old01Root, referenceNode: self.childNode(withName: old01Root.nodeToTalk) as! SKSpriteNode, referenceScene: self)
+                        self.ballon?.setup()
+                    }
+                }
+                if newName == "caraChato"{
+                    let trigger = self.childNode(withName: "trigger")?.childNode(withName: newName)!
+                    self.ballon = InteractionBallon(iconName: "", referenceNode: trigger as! SKSpriteNode, referenceScene: self){
+                        self.ballon = DialogBallon(rootNode: porta01Root, referenceNode: self.childNode(withName: porta01Root.nodeToTalk) as! SKSpriteNode, referenceScene: self)
                         self.ballon?.setup()
                     }
                 }
