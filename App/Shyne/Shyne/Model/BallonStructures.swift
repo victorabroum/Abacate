@@ -83,17 +83,6 @@ class Ballon : SKSpriteNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
-        
-        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
-        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
-        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
-        
-        if(self.action != nil){
-            self.action!()
-        }
         
         if(self.name != nil && self.name! == "choiceBallon"){
             
@@ -107,6 +96,18 @@ class Ballon : SKSpriteNode{
         }
         
         self.removeFromParent()
+        
+        // Resposta háptica
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        
+        PlayerModel.incrementStatusBom(feel?.happy ?? 0)
+        PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
+        PlayerModel.incrementStatusRuim(feel?.shy ?? 0)
+        
+        if(self.action != nil){
+            self.action!()
+        }
         
     }
     
