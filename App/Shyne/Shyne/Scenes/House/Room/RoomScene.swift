@@ -310,6 +310,10 @@ extension RoomScene{
                 self.playerNode?.run(SKAction(named: "felipe_standUp")!){
                     self.playerNode?.actualDirection = .idle
                     self.playerNode?.position.x += 10
+                    labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
+                    labelNode.position = .zero
+                    self.playerNode?.playerCanWalk(true)
+                    self.ballon?.removeFromParent()
                 }
             }else{
                 self.playerNode?.actualDirection = .idle
@@ -321,10 +325,7 @@ extension RoomScene{
                 labelNode.removeAllChildren()
             }
             
-            labelNode.text = NSLocalizedString("        Clique na tela\npara movimentar o Felipe\n\n ⟵                             ⟶", comment: "")
-            labelNode.position = .zero
-            self.playerNode?.playerCanWalk(true)
-            self.ballon?.removeFromParent()
+            
             
             
             
