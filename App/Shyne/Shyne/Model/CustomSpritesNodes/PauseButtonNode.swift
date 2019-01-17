@@ -34,8 +34,8 @@ class ActionSpriteNode: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         if(action != nil){
             action!()

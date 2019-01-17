@@ -152,8 +152,8 @@ class caixaDeTrocaDeCena: caixa{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         self.transicao = Transicao(cenaAtual: cenaAtual, cenaProxima: cenaProxima)
         self.transicao!.troca()
@@ -189,8 +189,8 @@ class caixaDeEscada: caixa{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         dialogavel1.caixa?.sair()
         self.function()
@@ -225,8 +225,8 @@ class caixaDeDialogo: caixa{
         sair()
         
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         
         if self.action != nil{
@@ -287,8 +287,8 @@ class Balao: SKSpriteNode{
     {
         
 //        // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         //adiciona o valor ao status da historia
         happyStatus += Resposta.amount.happy

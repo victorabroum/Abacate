@@ -50,6 +50,9 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.animatePeople(inNodes: people.children)
         }
         
+        print("TAMANHO CITYSCENE \(self.size)")
+        print("TAMANHO BACKGROUND CITY \(self.childNode(withName: "background")!.frame.size)")
+        
     }
     
     override func didMove(to view: SKView) {
@@ -67,6 +70,15 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         }
         
         self.correctPlayerNodePosition()
+        
+        let firulasController = FirulasController(scene: self)
+        firulasController.addCar()
+        firulasController.addCar()
+        firulasController.addPeople()
+        firulasController.addPeople()
+        firulasController.addPeople()
+        firulasController.addPeople()
+        firulasController.addPeople()
     }
     
     override func update(_ currentTime: TimeInterval) {

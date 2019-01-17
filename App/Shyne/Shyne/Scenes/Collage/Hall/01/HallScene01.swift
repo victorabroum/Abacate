@@ -26,6 +26,11 @@ class HallScene01: CustomSKSCene, SKPhysicsContactDelegate{
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.animteArrive()
+        
+        let firulasController = FirulasController(scene: self)
+        firulasController.addJennifer(withRandom: false, withScale: 0.2, yPosition: -127, withDuration: TimeInterval.random(in: 80...100))
+        firulasController.addFred(withRandom: false, withScale: 0.2, yPosition: -116, withDuration: TimeInterval.random(in: 80...100))
+        
     }
     
     
