@@ -26,6 +26,10 @@ class HallScene01: CustomSKSCene, SKPhysicsContactDelegate{
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.animteArrive()
+        
+        let firulasController = FirulasController(scene: self)
+        firulasController.addPeople(withRandom: false)
+        firulasController.addPeople(withRandom: false)
     }
     
     

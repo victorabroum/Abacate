@@ -41,8 +41,8 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         PlayerModel.addKeys(k: "porta")
         
         let firulasController = FirulasController(scene: self)
-        firulasController.addCar()
-        firulasController.addCar()
+        firulasController.addCar(withRandom: false)
+        firulasController.addCar(withRandom: false)
         firulasController.addPeople()
         
     }

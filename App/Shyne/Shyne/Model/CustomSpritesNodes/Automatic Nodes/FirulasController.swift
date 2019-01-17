@@ -18,10 +18,19 @@ class FirulasController {
         self.scene = scene
     }
     
-    func add(_ firula: SKSpriteNode, withDuration duration: TimeInterval = TimeInterval.random(in: 30...50), loop: Bool = true){
+    func add(_ firula: SKSpriteNode, withDuration duration: TimeInterval = TimeInterval.random(in: 30...50), random: Bool = true){
         listOfFirulas.append(firula)
         
         // Add Firula no Node Firulas em cena
+        var firulasNode = SKNode()
+        if let node = self.scene.childNode(withName: "firulas"){
+            firulasNode = node
+        }else{
+            firulasNode.name = "firulas"
+            firulasNode.zPosition = 100
+            self.scene.addChild(firulasNode)
+        }
+        
         self.scene.childNode(withName: "firulas")?.addChild(firula)
         
         if let backgroundNode = self.scene.childNode(withName: "background") as? SKSpriteNode{
@@ -38,12 +47,14 @@ class FirulasController {
             firula.run(SKAction.moveTo(x: (firula.position.x < 0) ? backgroundNode.size.width + 300 : -(backgroundNode.size.width + 300), duration: duration)){
                 firula.removeFromParent()
                 
-                if (loop){
+                if (random){
                     if (Int.random(in: 0...100) % 2 == 0){
                         self.addPeople()
                     }else{
                         self.addCar()
                     }
+                }else{
+                    self.add(firula)
                 }
             }
             
@@ -51,7 +62,7 @@ class FirulasController {
 
     }
     
-    func addPeople(withLoop loop: Bool = true){
+    func addPeople(withRandom random: Bool = true){
         let peopleName = Int.random(in: 0...100) % 2 == 0 ? "jennifer" : "fred"
         
         let frames = SKTexture.createTexture(peopleName)
@@ -63,11 +74,10 @@ class FirulasController {
         
         peopleNode.run(SKAction(named: "\(peopleName)_walk")!)
         
-        
-        self.add(peopleNode, withDuration: TimeInterval.random(in: 100...150))
+        self.add(peopleNode, withDuration: TimeInterval.random(in: 100...150), random: random)
     }
     
-    func addCar(withLoop loop: Bool = true){
+    func addCar(withRandom random: Bool = true){
         let carName = Int.random(in: 0...10) % 2 == 0 ? "redCar" : "blueCar"
         
         let frames = SKTexture.createTexture(carName)
@@ -79,7 +89,7 @@ class FirulasController {
         
         carNode.run(SKAction.repeatForever(SKAction.animate(with: frames, timePerFrame: 0.2)))
         
-        self.add(carNode)
+        self.add(carNode, random: random)
     }
 }
 

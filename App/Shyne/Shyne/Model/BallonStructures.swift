@@ -376,7 +376,7 @@ class InteractionBallon: Ballon{
         if (iconName != ""){
             let iconNode = SKSpriteNode(imageNamed: iconName!)
             iconNode.name = iconName
-            iconNode.zPosition = zPositionIconBallon
+            iconNode.zPosition = super.zPosition + 10
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)
