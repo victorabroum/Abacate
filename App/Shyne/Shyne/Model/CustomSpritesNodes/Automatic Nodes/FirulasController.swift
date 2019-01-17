@@ -62,19 +62,13 @@ class FirulasController {
 
     }
     
-    func addPeople(withRandom random: Bool = true){
-        let peopleName = Int.random(in: 0...100) % 2 == 0 ? "jennifer" : "fred"
+    func addPeople(withRandom random: Bool = true, withScale scale: CGFloat = 0.1){
         
-        let frames = SKTexture.createTexture(peopleName)
-        
-        let peopleNode = SKSpriteNode(texture: frames[0])
-        peopleNode.yScale = 0.1
-        peopleNode.xScale = 0.1
-        peopleNode.position.y = (peopleName == "fred") ? -126 : -132
-        
-        peopleNode.run(SKAction(named: "\(peopleName)_walk")!)
-        
-        self.add(peopleNode, withDuration: TimeInterval.random(in: 100...150), random: random)
+        if (Int.random(in: 0...100)%2==0){
+            self.addFred(withRandom: random, withScale: scale, yPosition: -126)
+        }else{
+            self.addJennifer(withRandom: random, withScale: scale, yPosition: -132)
+        }
     }
     
     func addCar(withRandom random: Bool = true){
@@ -84,12 +78,21 @@ class FirulasController {
         
         
         let carNode = SKSpriteNode(texture: frames[0])
+        carNode.name = carName
         carNode.position.y = -140
         carNode.zPosition = 10
         
         carNode.run(SKAction.repeatForever(SKAction.animate(with: frames, timePerFrame: 0.2)))
         
         self.add(carNode, random: random)
+    }
+    
+    func ajustYPosition(name: String, y: CGFloat){
+        for node in self.listOfFirulas{
+            if(node.name != nil && node.name! == name){
+                node.position.y = y
+            }
+        }
     }
 }
 
@@ -103,5 +106,39 @@ extension SKTexture {
             frames.append(textureAtlas.textureNamed(textureAtlas.textureNames[i]))
         }
         return frames
+    }
+}
+
+extension FirulasController{
+    func addFred(withRandom random: Bool = true, withScale scale: CGFloat = 0.1, yPosition y: CGFloat, withDuration duration: TimeInterval = TimeInterval.random(in: 100...150)){
+        let peopleName = "fred"
+        
+        let frames = SKTexture.createTexture(peopleName)
+        
+        let peopleNode = SKSpriteNode(texture: frames[0])
+        peopleNode.name = peopleName
+        peopleNode.yScale = scale
+        peopleNode.xScale = scale
+        peopleNode.position.y = y
+        
+        peopleNode.run(SKAction(named: "\(peopleName)_walk")!)
+        
+        self.add(peopleNode, withDuration: TimeInterval.random(in: 100...150), random: random)
+    }
+    
+    func addJennifer(withRandom random: Bool = true, withScale scale: CGFloat = 0.1, yPosition y: CGFloat, withDuration duration: TimeInterval = TimeInterval.random(in: 100...150)){
+        let peopleName = "jennifer"
+        
+        let frames = SKTexture.createTexture(peopleName)
+        
+        let peopleNode = SKSpriteNode(texture: frames[0])
+        peopleNode.name = peopleName
+        peopleNode.yScale = scale
+        peopleNode.xScale = scale
+        peopleNode.position.y = y
+        
+        peopleNode.run(SKAction(named: "\(peopleName)_walk")!)
+        
+        self.add(peopleNode, withDuration: duration, random: random)
     }
 }

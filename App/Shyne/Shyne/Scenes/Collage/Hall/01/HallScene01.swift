@@ -28,8 +28,9 @@ class HallScene01: CustomSKSCene, SKPhysicsContactDelegate{
         self.animteArrive()
         
         let firulasController = FirulasController(scene: self)
-        firulasController.addPeople(withRandom: false)
-        firulasController.addPeople(withRandom: false)
+        firulasController.addJennifer(withRandom: false, withScale: 0.2, yPosition: -127, withDuration: TimeInterval.random(in: 80...100))
+        firulasController.addFred(withRandom: false, withScale: 0.2, yPosition: -116, withDuration: TimeInterval.random(in: 80...100))
+        
     }
     
     
