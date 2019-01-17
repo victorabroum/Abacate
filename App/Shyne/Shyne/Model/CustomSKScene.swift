@@ -136,6 +136,7 @@ class CustomSKSCene: SKScene{
         pauseNode.action = {
             if(self.playerNode!.canWalk){
                 self.playerNode!.playerCanWalk(false)
+                self.playerNode!.enterIdleState()
                 self.playerNode?.actualDirection = .paused
                 self.playerNode?.enterPausedState()
                 pauseNode.isUserInteractionEnabled = false
