@@ -37,22 +37,22 @@ class PlayerModel{
         }
     }
     
-    private func restartGame(){
-        achviement = Set<String>(PlayerDAO.getAchviements())
-        keys = Set<String>(PlayerDAO.getKeys())
+    static func restartGame(){
+        getInstance().achviement = Set<String>(PlayerDAO.getAchviements())
+        getInstance().keys = Set<String>(PlayerDAO.getKeys())
         
         if(PlayerDAO.getStatus().count==0){
-            status = PlayerStatus(bom: 0.0, medio: 0.0, ruim: 0.0)
+            getInstance().status = PlayerStatus(bom: 0.0, medio: 0.0, ruim: 0.0)
         }
         else{
-            status = PlayerDAO.getStatus()[0]
+            getInstance().status = PlayerDAO.getStatus()[0]
         }
         
         if(PlayerDAO.getScene().count==0){
-            sceneInformation = SceneInformation(previousScenario: "", actualScenario: "")
+            getInstance().sceneInformation = SceneInformation(previousScenario: "", actualScenario: "")
         }
         else{
-            sceneInformation = PlayerDAO.getScene()[0]
+            getInstance().sceneInformation = PlayerDAO.getScene()[0]
         }
     }
     //MARK:GETS
