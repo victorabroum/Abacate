@@ -152,6 +152,7 @@ class Ballon : SKSpriteNode{
             playerNode.playerCanWalk(true)
         }
         
+        
         self.referenceScene.showPause()
         
     }

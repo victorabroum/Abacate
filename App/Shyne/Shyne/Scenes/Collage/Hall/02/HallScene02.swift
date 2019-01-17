@@ -116,6 +116,7 @@ extension HallScene02{
     func animateBus(){
         
         self.dismissPause()
+        PlayerModel.removeKey(k: "collegeBusStop")
         
         //Lock player
         self.playerNode!.playerCanWalk(false)
@@ -136,9 +137,10 @@ extension HallScene02{
             self.playerNode?.run(SKAction.moveTo(x: -1317.587, duration: 2)){
                 busNode.run(SKAction.moveTo(x: -1633.436, duration: 1)){
                     if let cenaProxima: GKScene = GKScene(fileNamed: "CityScene02"){
-                        if let nextScene = cenaProxima.rootNode as? CityScene02{
+                        if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
                             
                             self.dismissPause()
+                            nextScene.dismissPause()
                             
                             nextScene.entities = cenaProxima.entities
                             

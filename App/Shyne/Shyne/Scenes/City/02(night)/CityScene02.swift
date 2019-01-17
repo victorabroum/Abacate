@@ -18,13 +18,15 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         super.sceneDidLoad()
         
         physicsWorld.contactDelegate = self
-        self.dismissPause()
+        
         
     }
     
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
+        
+        self.dismissPause()
         
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
         
