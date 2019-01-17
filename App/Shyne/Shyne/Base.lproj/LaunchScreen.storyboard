@@ -17,7 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splasScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Hk3-bv-u5B">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hk3-bv-u5B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AKH-Le-HbS"/>
+                            <constraint firstItem="Hk3-bv-u5B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DHp-Mq-QjQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hk3-bv-u5B" secondAttribute="bottom" id="JyJ-fq-hRK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hk3-bv-u5B" secondAttribute="trailing" id="yJx-J2-gwR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -26,4 +37,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splasScreen" width="1334" height="750"/>
+    </resources>
 </document>
