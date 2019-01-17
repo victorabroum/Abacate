@@ -64,6 +64,8 @@
 		76AEF00A21ECC835006B251C /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00921ECC835006B251C /* PauseButtonNode.swift */; };
 		76AEF00C21ECCAFC006B251C /* PausedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00B21ECCAFC006B251C /* PausedState.swift */; };
 		76AEF00E21ECCB3A006B251C /* PausedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00D21ECCB3A006B251C /* PausedComponent.swift */; };
+		76AEF01121F0340E006B251C /* FirulasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF01021F0340E006B251C /* FirulasController.swift */; };
+		76AEF03521F0C62C006B251C /* Firulas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF03421F0C62C006B251C /* Firulas.sks */; };
 		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900B218A1CF600A37F32 /* guitarMan01.wav */; };
 		76BA900E218A493800A37F32 /* city_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900D218A493800A37F32 /* city_noise.wav */; };
@@ -152,6 +154,8 @@
 		76AEF00921ECC835006B251C /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
 		76AEF00B21ECCAFC006B251C /* PausedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedState.swift; sourceTree = "<group>"; };
 		76AEF00D21ECCB3A006B251C /* PausedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedComponent.swift; sourceTree = "<group>"; };
+		76AEF01021F0340E006B251C /* FirulasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirulasController.swift; sourceTree = "<group>"; };
+		76AEF03421F0C62C006B251C /* Firulas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Firulas.sks; sourceTree = "<group>"; };
 		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
 		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				765B3DB52177A72A004AA4E3 /* Actions.sks */,
 				76064EC42188E44D00E1D776 /* Baker.sks */,
 				76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */,
+				76AEF03421F0C62C006B251C /* Firulas.sks */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -495,6 +500,14 @@
 			path = 02;
 			sourceTree = "<group>";
 		};
+		76AEF00F21F033BF006B251C /* Automatic Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				76AEF01021F0340E006B251C /* FirulasController.swift */,
+			);
+			path = "Automatic Nodes";
+			sourceTree = "<group>";
+		};
 		76BA90012189EA1100A37F32 /* Audios */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +536,7 @@
 		76D3F4DD21E53AF100FAC0E0 /* CustomSpritesNodes */ = {
 			isa = PBXGroup;
 			children = (
+				76AEF00F21F033BF006B251C /* Automatic Nodes */,
 				76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */,
 				76AEF00921ECC835006B251C /* PauseButtonNode.swift */,
 			);
@@ -626,6 +640,7 @@
 				76BA902D218B472C00A37F32 /* Foot_Step.wav in Resources */,
 				765B3DFE217D76B5004AA4E3 /* RoomScene02.sks in Resources */,
 				765B3DF5217D7624004AA4E3 /* HouseScene02.sks in Resources */,
+				76AEF03521F0C62C006B251C /* Firulas.sks in Resources */,
 				76C093F021E7C98A0038D5C0 /* AnnaAction.sks in Resources */,
 				765B3DBD2177A72A004AA4E3 /* Main.storyboard in Resources */,
 				76BA9021218B39EE00A37F32 /* bakery.wav in Resources */,
@@ -710,6 +725,7 @@
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				76C093EE21E621830038D5C0 /* ButtonLayoutComponent.swift in Sources */,
 				760CBD57217E660300640A5C /* IdleState.swift in Sources */,
+				76AEF01121F0340E006B251C /* FirulasController.swift in Sources */,
 				76C093EA21E53FC80038D5C0 /* ButtonComponents.swift in Sources */,
 				76AEF00C21ECCAFC006B251C /* PausedState.swift in Sources */,
 				765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */,

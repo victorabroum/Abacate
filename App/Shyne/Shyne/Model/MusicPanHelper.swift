@@ -20,7 +20,6 @@ class MusicPanHelper {
         for m in musics{
             
             if let music: SKAudioNode = m as? SKAudioNode{
-                print("MUSIC NODE \(music)")
                 let initial = SKAction.changeVolume(to: 0, duration: 0)
                 let playInitial = SKAction.play()
                 let sequence = SKAction.sequence([initial, playInitial])

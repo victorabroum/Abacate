@@ -115,7 +115,10 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.addKeys(k: "xandy")
             PlayerModel.addKeys(k: "velha")
             PlayerModel.addKeys(k: "caraChato")
-            self.ballon?.dismiss()
+            
+            
+            let newBallon = ChoicesBallon(choices: house01d04.choices, referenceScene: self)
+            newBallon.setup()
         }
         
         

@@ -98,8 +98,8 @@ class Ballon : SKSpriteNode{
         self.removeFromParent()
         
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
         
         PlayerModel.incrementStatusBom(feel?.happy ?? 0)
         PlayerModel.incrementStatusMedio(feel?.normal ?? 0)
@@ -377,8 +377,6 @@ class InteractionBallon: Ballon{
             let iconNode = SKSpriteNode(imageNamed: iconName!)
             iconNode.name = iconName
             iconNode.zPosition = zPositionIconBallon
-            print("BANNER \(zPositionBannerTutorial)")
-            print("ZPOSITION \(iconNode.zPosition)")
             iconNode.position = CGPoint.zero
             
             super.addChild(iconNode)

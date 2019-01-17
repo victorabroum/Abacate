@@ -24,8 +24,8 @@ class ButtonComponent: GKComponent{
     
     func action(){
         // Resposta háptica
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let notification = UISelectionFeedbackGenerator()
+        notification.selectionChanged()
     }
     
     func setup() {
