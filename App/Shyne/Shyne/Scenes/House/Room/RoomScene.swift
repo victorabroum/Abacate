@@ -192,6 +192,7 @@ extension RoomScene {
     
     
     @objc func contiueGame() {
+        PlayerModel.restartGame()
         let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
         let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
