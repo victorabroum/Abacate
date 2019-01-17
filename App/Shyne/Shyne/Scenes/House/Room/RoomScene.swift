@@ -291,14 +291,16 @@ extension RoomScene{
                     textNode.alpha = 1
                     textNode.texture = SKTexture(imageNamed: "tutorial04")
                     
-                    self.playerNode?.playerCanWalk(true)
+                    
                 }
             }else{
                 self.playerNode?.actualDirection = .idle
             }
             
             tutorialNode.run(SKAction.wait(forDuration: 0.5)){
-                tutorialNode.run(SKAction.fadeAlpha(to: 1, duration: 0.5))
+                tutorialNode.run(SKAction.fadeAlpha(to: 1, duration: 0.5)){
+                    self.playerNode?.playerCanWalk(true)
+                }
             }
             
             self.ballon?.removeFromParent()
