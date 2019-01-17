@@ -37,6 +37,10 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
             PlayerModel.removeKey(k: "anaCollider")
             self.anaAnimate()
         }
+        
+        let firulasController = FirulasController(scene: self)
+        firulasController.addJennifer(withRandom: false, withScale: 0.2, yPosition: -127, withDuration: TimeInterval.random(in: 80...100))
+        firulasController.addFred(withRandom: false, withScale: 0.2, yPosition: -116, withDuration: TimeInterval.random(in: 80...100))
     }
     
     override func didMove(to view: SKView) {

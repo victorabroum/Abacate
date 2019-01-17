@@ -192,6 +192,7 @@ extension RoomScene {
     
     
     @objc func contiueGame() {
+        PlayerModel.restartGame()
         let nameScene = PlayerModel.getInstance().sceneInformation.actualScenario
         let cenaProxima:GKScene = GKScene(fileNamed: "\(nameScene)")!
         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{
@@ -252,7 +253,7 @@ extension RoomScene{
             let choiceNodes = ChoicesBallon(choices: room01d03.choices, referenceScene: self)
             choiceNodes.setup()
             for ballon in choiceNodes.ballons{
-                ballon.zPosition = tutorialNode.zPosition + 100
+                ballon.zPosition = zPositionBallon + 100
                 
                 ballon.action = {
                     self.ballon = DialogBallon(rootNode: room01d04, referenceScene: self)
