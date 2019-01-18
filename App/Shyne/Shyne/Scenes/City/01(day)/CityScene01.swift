@@ -50,8 +50,8 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
             self.animatePeople(inNodes: people.children)
         }
         
-        print("TAMANHO CITYSCENE \(self.size)")
-        print("TAMANHO BACKGROUND CITY \(self.childNode(withName: "background")!.frame.size)")
+
+
         
     }
     
@@ -226,7 +226,6 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
     
     func animatePeople(inNodes nodes:[SKNode]){
         for node in nodes{
-            print("name \(node.name!)")
             node.run(SKAction.init(named: node.name!)!)
         }
     }

@@ -64,7 +64,6 @@ class ButtonLayoutComponent: GKComponent {
     }
     
     @objc func enable(){
-        print("ENABLE")
         if(self.node != nil){
             self.node!.alpha = 1
             self.node!.isUserInteractionEnabled = true

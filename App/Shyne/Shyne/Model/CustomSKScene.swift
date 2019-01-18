@@ -71,8 +71,6 @@ class CustomSKSCene: SKScene{
     
     func preparePause() {
         
-        print("PREAPRE PAUSE")
-        
         // Subir HUD de Pause
         let backgroundSize = self.size
         let backgroundPause = SKSpriteNode(imageNamed: "Pause")

@@ -113,7 +113,6 @@ extension HallScene01{
         //Bus Arrive
         busNode.run(SKAction.moveTo(x: -1142.75, duration: 2)){
             self.playerNode!.alpha = 1
-            print("EITA")
             busNode.run(SKAction.wait(forDuration: 0.5)){
                 busNode.run(SKAction.moveTo(x: -1392.75, duration: 2))
                 self.playerNode!.run(SKAction(named: "playerWalk")!)
@@ -164,7 +163,6 @@ extension HallScene01{
             anaNode.run(SKAction(named: "anna_walk")!)
             
             anaNode.run(SKAction.moveTo(x: self.playerNode!.position.x + 400, duration: 1.5)){
-                print("CABOU")
                 anaNode.removeFromParent()
                 self.offsetCamera = 55
                 self.ballon?.dismiss()

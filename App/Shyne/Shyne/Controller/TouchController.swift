@@ -100,14 +100,12 @@ class TouchController: SKSpriteNode {
 
             for button in [right_button, left_button]{
                 if button.contains(previousLocation) && !button.contains(location){
-                    print("mudou")
                     let index = arrayOfButtons.contains(button)
                     if index{
                         arrayOfButtons.removeAll()
                         touchControlDelegate?.follow(command: "cancel \(button.name!)")
                     }
                 }else if !button.contains(previousLocation) && button.contains(location){
-                    print("botao add:\(button)")
                     arrayOfButtons.append(button)
                     if(touchControlDelegate != nil){
                         touchControlDelegate?.follow(command: button.name!)
@@ -123,7 +121,6 @@ class TouchController: SKSpriteNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("cabou")
         for t in touches{
             let location = t.location(in: parent!)
             let previousLocation = t.location(in: parent!)

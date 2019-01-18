@@ -230,7 +230,6 @@ class caixaDeDialogo: caixa{
         
         
         if self.action != nil{
-            print("FUNC")
             self.action!()
         }else{
             dialogavel1.drawnDialog()
