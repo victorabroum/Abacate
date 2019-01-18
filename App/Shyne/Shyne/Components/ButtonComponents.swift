@@ -29,7 +29,6 @@ class ButtonComponent: GKComponent{
     }
     
     func setup() {
-        print("Setup things")
     }
     
 }
@@ -48,7 +47,6 @@ class StartGameComponent: ButtonComponent{
 //        PlayerModel.delete()
         PlayerModel.DeleteAll()
         PlayerModel.savePlayer()
-        print("CHAVEs \(PlayerModel.getInstance().keys)")
         // else faz nada
         
     }
@@ -62,11 +60,9 @@ class ContinueGameComponent: ButtonComponent{
         NotificationCenter.default.post(name: ButtonComponent.doneActionNotificationName, object: nil)
         
         NotificationCenter.default.post(name: ButtonComponent.continueGameNotificationName, object: nil)
-        print("DA COntinue ai meu chegado!")
     }
     
     override func setup() {
-        print("NOW LOAD Thing, if has something show Continue button")
     }
 }
 
@@ -74,7 +70,6 @@ class PauseGameComponent: ButtonComponent{
     let function: (() -> Void)? = nil
     
     override func action() {
-        print("PPUASEE")
         super.action()
         
         if(function != nil){

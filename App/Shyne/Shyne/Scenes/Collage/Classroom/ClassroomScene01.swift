@@ -89,7 +89,6 @@ class ClassroomScene01: CustomSKSCene {
         
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
-            print("BG AUDIOS")
             self.bgAudios = bga
             MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
         }

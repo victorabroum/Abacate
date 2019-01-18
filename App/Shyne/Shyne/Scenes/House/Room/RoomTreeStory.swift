@@ -24,6 +24,8 @@ import Foundation
 
 var room01PlayerNameNode = "playerNode"
 var room01DoorNameNode = "portaTalk"
+var room01PCNameNode = "pcTalk"
+var pcIsOff = false
 
 var room01Root = Node(withText: NSLocalizedString(" . . . ", comment: "sigh"), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh01")
 
@@ -46,14 +48,18 @@ var room01d01c01PC = Node(withText: NSLocalizedString("Não tem necessidade de f
 
 var room01c02PC = Answer(withText: NSLocalizedString("Ler emails", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))//concede Chave leu email e chama a cena de ler
 
-var room01d01c02PC = Node(withText: NSLocalizedString(" Será que a Ana\n recebeu esse\n email também?", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
-
 var room01c03PC = Answer(withText: NSLocalizedString("Apenas ignorar", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
 
+var room01Onc01PC = Answer(withText: NSLocalizedString("Apenas ignorar", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
+var room01Onc02PC = Answer(withText: NSLocalizedString("Ligar PC", comment: ""), withAmount: Feel(happy: 0, normal: 0, shy: 0))
 
 
+var room01d01c02PC = Node(withText: NSLocalizedString(" Nossa, a Avocad Games\nabriu um concurso", comment: ""), withChoices: [], inNodeNamed: room01PCNameNode, audioName: "felipe_Sigh02")
+var room01d02c02PC = Node(withText: NSLocalizedString(" o ganhador vai poder\nconhcer a sede.", comment: ""), withChoices: [], inNodeNamed: room01PCNameNode, audioName: "felipe_Sigh02")
+var room01d03c02PC = Node(withText: NSLocalizedString(" Minha empresa de\njogos favorita.", comment: ""), withChoices: [], inNodeNamed: room01PCNameNode, audioName: "felipe_Sigh02")
+var room01d04c02PC = Node(withText: NSLocalizedString(" Pena que eu nunca\nconseguiria ganhar.", comment: ""), withChoices: [], inNodeNamed: room01PCNameNode, audioName: "felipe_Sigh02")
 
-
+var room01d05c02PC = Node(withText: NSLocalizedString(" Será que a Ana\n recebeu esse\n email também?", comment: ""), withChoices: [], inNodeNamed: room01PlayerNameNode, audioName: "felipe_Sigh02")
 
 // Construindo o fluxo
 func makeTreeOfRoom() -> (){
@@ -76,8 +82,17 @@ func makeTreeOfRoom() -> (){
     room01PC.choices = [room01c01PC, room01c02PC, room01c03PC]
     room01c01PC.child = [room01d01c01PC]
     
-    room01c02PC.child = [room01d01c02PC]
+//    room01c02PC.child = [room01d01c02PC]
+    room01d01c02PC.add(child: room01d02c02PC)
+    room01d02c02PC.add(child: room01d03c02PC)
+    room01d03c02PC.add(child: room01d04c02PC)
     
     room01d01c02PC.typeBallon = .thought
+    room01d02c02PC.typeBallon = .thought
+    room01d03c02PC.typeBallon = .thought
+    room01d04c02PC.typeBallon = .thought
+    room01d05c02PC.typeBallon = .thought
+    
+    room01Onc02PC.child = [room01PC]
     
 }

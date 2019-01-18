@@ -15,7 +15,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     var pauseShowed = false
     
     override func sceneDidLoad() {
-        print("Room didLoad")
+        
         super.sceneDidLoad()
         
         self.offsetCamera = -1
@@ -35,7 +35,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        print("ROOM didMove")
+
         super.didMove(to: view)
         
         self.dismissPause()
@@ -48,26 +48,19 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         // TODO: Test if sceneName has somethig
         // Only call this notification if load return a valid valor
         if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
-            print("Não tem ninguém")
+
             if let continueButtonNode = self.childNode(withName: "homeScreen")!.childNode(withName: "continueButton") as? SKSpriteNode{
                 continueButtonNode.texture = SKTexture(imageNamed: "continueGameButton_cinza")
                 continueButtonNode.isUserInteractionEnabled = false
             }
         }else{
-            print("tem alguem")
+
             NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
         }
         
-        
-        // Prepare BG Music
-//        if let bga = self.childNode(withName: "bgAudios") {
-//            print("BG AUDIOS")
-//            self.bgAudios = bga
-//            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-//        }
-        
         room01c01PC.function = {
             PlayerModel.addKeys(k: "Desligar")
+            pcIsOff = true
         }
         
     }
@@ -105,15 +98,24 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
                 }
                 self.ballon?.setup()
             }else if(newName == "computer"){
-                if(!(PlayerModel.getInstance().keys.contains("Email") || PlayerModel.getInstance().keys.contains("Desligar"))){
-                    let node = self.childNode(withName: "trigger")?.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
-                    
+                let node = self.childNode(withName: "trigger")?.childNode(withName: newName)?.childNode(withName: "\(newName)Talk") as! SKSpriteNode
+                
+                
+                if !(pcIsOff){
                     ballon = InteractionBallon(iconName: "icon_computer", referenceNode: node, referenceScene: self, action: {
                         self.ballon = DialogBallon.init(rootNode: room01PC, referenceNode: node, referenceScene: self)
                         self.ballon?.setup()
                     })
-                    self.ballon?.setup()
+                }else{
+                    
+                    ballon = InteractionBallon(iconName: "icon_computer", referenceNode: node, referenceScene: self, action: {
+                        let choices = ChoicesBallon(choices: [room01Onc01PC, room01Onc02PC], referenceScene: self)
+                        choices.setup()
+                    })
                 }
+                
+                
+                self.ballon?.setup()
             }
             
             
@@ -137,6 +139,16 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
 // MARK: Actions For dialogs
 extension RoomScene {
     func loadActionsOnDialog() {
+        
+        room01Onc02PC.function = {
+            PlayerModel.removeKey(k: "Desligar")
+            pcIsOff = false
+            
+            self.ballon = DialogBallon.init(rootNode: room01Onc02PC.child.first!, referenceNode: self.playerNode!, referenceScene: self)
+            
+        }
+        
+        
         room01c02PC.function = {
             
             PlayerModel.addKeys(k: "Email")
@@ -154,20 +166,25 @@ extension RoomScene {
             
             
             // MARK: Talk on Computer
-//            let ballonNodeRef = SKSpriteNode(texture: nil, color: .red, size: CGSize(width: 10, height: 10))
-//            ballonNodeRef.zPosition = onComputerNode.zPosition + 10
-//            ballonNodeRef.position.x += 400
-//            ballonNodeRef.position.y += 100
-//            self.camera!.addChild(ballonNodeRef)
-//
-//            let ballonOnComputer = DialogBallon.init(rootNode: room01Root, referenceNode: ballonNodeRef, referenceScene: self)
-//            ballonOnComputer.setup()
+            let ballonNodeRef = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 10, height: 10))
+            ballonNodeRef.name = "pcTalk"
+            ballonNodeRef.zPosition = onComputerNode.zPosition + 10
+            ballonNodeRef.position.x += 270
+            ballonNodeRef.position.y += 30
+//            ballonNodeRef.xScale = 3
+//            ballonNodeRef.yScale = 3
+            self.addChild(ballonNodeRef)
             
-            onComputerNode.run(SKAction.wait(forDuration: 5)){
-                onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
-                self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: self.playerNode!, referenceScene: self)
+            self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: ballonNodeRef, referenceScene: self)
+            self.ballon!.setup()
+            
+            room01d04c02PC.action = {
                 
+                onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
+                self.ballon = DialogBallon.init(rootNode: room01d05c02PC, referenceNode: self.playerNode!, referenceScene: self)
+                self.ballon?.setup()
             }
+            
         }
     }
 }
