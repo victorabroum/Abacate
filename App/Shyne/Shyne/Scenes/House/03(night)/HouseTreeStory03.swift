@@ -72,6 +72,8 @@ func house03makeTree()->(){
     house03d02.add(child: house03d03)
     //TODO: Colocar as choices do house03d03
     
+    house03d03.choices = []
+    
     if(PlayerModel.getInstance().keys.contains("sweetBrad")){
         house03d03.choices = [house03SBTc01d03,house03SBFc02d03,house03SBFc03d03]
     }
@@ -84,6 +86,8 @@ func house03makeTree()->(){
     house03d02SBTc01d03.add(child: house03NTd05SBFc02d03)
     
     //TODO: colocar o filho certo do house03SBFc02d03
+    
+    house03SBFc02d03.child = []
     
     if(PlayerModel.getInstance().keys.contains("Normal")){
         house03SBFc02d03.child = [house03NTd01SBFc02d03]
