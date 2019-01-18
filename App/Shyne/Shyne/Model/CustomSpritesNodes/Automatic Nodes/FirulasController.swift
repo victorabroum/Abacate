@@ -54,7 +54,7 @@ class FirulasController {
                         self.addCar()
                     }
                 }else{
-                    self.add(firula)
+                    self.add(firula, random: false)
                 }
             }
             

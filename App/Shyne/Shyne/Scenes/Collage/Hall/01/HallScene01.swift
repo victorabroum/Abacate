@@ -118,6 +118,7 @@ extension HallScene01{
                 busNode.run(SKAction.moveTo(x: -1392.75, duration: 2))
                 self.playerNode!.run(SKAction(named: "playerWalk")!)
                 self.playerNode!.run(SKAction.moveBy(x: 320, y: 0, duration: 2.5)){
+                    self.playerNode!.removeAllActions()
                     self.playerNode!.run(SKAction(named:"idle")!)
                     
                     // Devolver o collider

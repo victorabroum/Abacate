@@ -47,6 +47,9 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
         super.didMove(to: view)
         // Make tree for scene
         hall02MakeTree()
+        
+        bgMusic.change(name: "city_night", volume: 1)
+        NotificationCenter.default.post(name: changeBGMusicNotificationName, object: nil)
     }
     
     
@@ -135,6 +138,7 @@ extension HallScene02{
         busNode.run(SKAction.moveTo(x: -1225.077, duration: 2)){
             self.playerNode?.run(SKAction(named: "playerWalk")!)
             self.playerNode?.run(SKAction.moveTo(x: -1317.587, duration: 2)){
+                self.playerNode!.removeAllActions()
                 busNode.run(SKAction.moveTo(x: -1633.436, duration: 1)){
                     if let cenaProxima: GKScene = GKScene(fileNamed: "CityScene02"){
                         if let nextScene = cenaProxima.rootNode as? CustomSKSCene{

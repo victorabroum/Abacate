@@ -31,7 +31,6 @@
 		765B3DBF2177A72C004AA4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DBE2177A72C004AA4E3 /* Assets.xcassets */; };
 		765B3DC22177A72C004AA4E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 765B3DC02177A72C004AA4E3 /* LaunchScreen.storyboard */; };
 		765B3DD12177C062004AA4E3 /* Walkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD02177C062004AA4E3 /* Walkable.swift */; };
-		765B3DD42177C245004AA4E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD32177C245004AA4E3 /* Player.swift */; };
 		765B3DD72177C4CC004AA4E3 /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD62177C4CC004AA4E3 /* TouchController.swift */; };
 		765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */; };
 		765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */; };
@@ -61,11 +60,13 @@
 		76AEF00221ECAB9F006B251C /* HallScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00121ECAB9F006B251C /* HallScene01.sks */; };
 		76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00521ECBE5F006B251C /* HallScene02.swift */; };
 		76AEF00821ECBEB0006B251C /* HallScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00721ECBEB0006B251C /* HallScene02.sks */; };
-		76AEF00A21ECC835006B251C /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00921ECC835006B251C /* PauseButtonNode.swift */; };
+		76AEF00A21ECC835006B251C /* ActionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00921ECC835006B251C /* ActionSpriteNode.swift */; };
 		76AEF00C21ECCAFC006B251C /* PausedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00B21ECCAFC006B251C /* PausedState.swift */; };
 		76AEF00E21ECCB3A006B251C /* PausedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00D21ECCB3A006B251C /* PausedComponent.swift */; };
 		76AEF01121F0340E006B251C /* FirulasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF01021F0340E006B251C /* FirulasController.swift */; };
 		76AEF03521F0C62C006B251C /* Firulas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF03421F0C62C006B251C /* Firulas.sks */; };
+		76AEF03821F17B0B006B251C /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF03721F17B0B006B251C /* Sound.swift */; };
+		76AEF03A21F17B2D006B251C /* BackgroundMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF03921F17B2D006B251C /* BackgroundMusicController.swift */; };
 		76BA90082189FC1500A37F32 /* door_locked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA90072189FC1500A37F32 /* door_locked.wav */; };
 		76BA900C218A1CF600A37F32 /* guitarMan01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900B218A1CF600A37F32 /* guitarMan01.wav */; };
 		76BA900E218A493800A37F32 /* city_noise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76BA900D218A493800A37F32 /* city_noise.wav */; };
@@ -121,7 +122,6 @@
 		765B3DC12177A72C004AA4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		765B3DC32177A72C004AA4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		765B3DD02177C062004AA4E3 /* Walkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walkable.swift; sourceTree = "<group>"; };
-		765B3DD32177C245004AA4E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		765B3DD62177C4CC004AA4E3 /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		765B3DD82177C6AA004AA4E3 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlDelegate.swift; sourceTree = "<group>"; };
@@ -151,11 +151,13 @@
 		76AEF00121ECAB9F006B251C /* HallScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene01.sks; sourceTree = "<group>"; };
 		76AEF00521ECBE5F006B251C /* HallScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallScene02.swift; sourceTree = "<group>"; };
 		76AEF00721ECBEB0006B251C /* HallScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene02.sks; sourceTree = "<group>"; };
-		76AEF00921ECC835006B251C /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
+		76AEF00921ECC835006B251C /* ActionSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSpriteNode.swift; sourceTree = "<group>"; };
 		76AEF00B21ECCAFC006B251C /* PausedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedState.swift; sourceTree = "<group>"; };
 		76AEF00D21ECCB3A006B251C /* PausedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedComponent.swift; sourceTree = "<group>"; };
 		76AEF01021F0340E006B251C /* FirulasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirulasController.swift; sourceTree = "<group>"; };
 		76AEF03421F0C62C006B251C /* Firulas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Firulas.sks; sourceTree = "<group>"; };
+		76AEF03721F17B0B006B251C /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		76AEF03921F17B2D006B251C /* BackgroundMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusicController.swift; sourceTree = "<group>"; };
 		76BA90072189FC1500A37F32 /* door_locked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_locked.wav; path = ../../../../../Desing/Musics/door_locked.wav; sourceTree = "<group>"; };
 		76BA900B218A1CF600A37F32 /* guitarMan01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = guitarMan01.wav; path = ../../../../Desing/Musics/guitarMan01.wav; sourceTree = "<group>"; };
 		76BA900D218A493800A37F32 /* city_noise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = city_noise.wav; path = ../../../../../Desing/Musics/city_noise.wav; sourceTree = "<group>"; };
@@ -257,7 +259,6 @@
 				76BA90012189EA1100A37F32 /* Audios */,
 				C41DCF892177BF4000F53FEC /* Model */,
 				765B3DD52177C4AD004AA4E3 /* Controller */,
-				765B3DD22177C234004AA4E3 /* Entities */,
 				765B3DCD2177BB3C004AA4E3 /* Components */,
 				765B3DCC2177A996004AA4E3 /* Actions */,
 				765B3DCB2177A988004AA4E3 /* ViewController */,
@@ -328,17 +329,10 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		765B3DD22177C234004AA4E3 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				765B3DD32177C245004AA4E3 /* Player.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		765B3DD52177C4AD004AA4E3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				76AEF03621F17AF8006B251C /* Music Controller */,
 				765B3DD62177C4CC004AA4E3 /* TouchController.swift */,
 				765B3DDA2177C946004AA4E3 /* TouchControlDelegate.swift */,
 				765B3DDC2177D0EE004AA4E3 /* PlayerControl.swift */,
@@ -508,6 +502,15 @@
 			path = "Automatic Nodes";
 			sourceTree = "<group>";
 		};
+		76AEF03621F17AF8006B251C /* Music Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76AEF03721F17B0B006B251C /* Sound.swift */,
+				76AEF03921F17B2D006B251C /* BackgroundMusicController.swift */,
+			);
+			path = "Music Controller";
+			sourceTree = "<group>";
+		};
 		76BA90012189EA1100A37F32 /* Audios */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +541,7 @@
 			children = (
 				76AEF00F21F033BF006B251C /* Automatic Nodes */,
 				76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */,
-				76AEF00921ECC835006B251C /* PauseButtonNode.swift */,
+				76AEF00921ECC835006B251C /* ActionSpriteNode.swift */,
 			);
 			path = CustomSpritesNodes;
 			sourceTree = "<group>";
@@ -687,13 +690,13 @@
 				765B3DBA2177A72A004AA4E3 /* GameViewController.swift in Sources */,
 				66E5BE3621E4D59E002B760D /* TesteCoreData.xcdatamodeld in Sources */,
 				762FAAD021E9313B006991D9 /* SitState.swift in Sources */,
-				765B3DD42177C245004AA4E3 /* Player.swift in Sources */,
 				76C093EC21E542F50038D5C0 /* CustomSKScene.swift in Sources */,
 				760CBD55217E654000640A5C /* WalkingState.swift in Sources */,
 				666DA8B221790DA90078F77C /* Lista.swift in Sources */,
 				762FAAD221E9316A006991D9 /* SitComponent.swift in Sources */,
 				C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */,
 				76AEF00E21ECCB3A006B251C /* PausedComponent.swift in Sources */,
+				76AEF03A21F17B2D006B251C /* BackgroundMusicController.swift in Sources */,
 				765B3E13217D78E0004AA4E3 /* HouseScene03.swift in Sources */,
 				765B3E0F217D7884004AA4E3 /* CityScene01.swift in Sources */,
 				765B3DE82178C81F004AA4E3 /* RoomTreeStory.swift in Sources */,
@@ -708,7 +711,7 @@
 				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
-				76AEF00A21ECC835006B251C /* PauseButtonNode.swift in Sources */,
+				76AEF00A21ECC835006B251C /* ActionSpriteNode.swift in Sources */,
 				76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
@@ -721,6 +724,7 @@
 				765B3DB22177A72A004AA4E3 /* AppDelegate.swift in Sources */,
 				76D3F4DA21E39E5700FAC0E0 /* BallonStructures.swift in Sources */,
 				765B3E0B217D77EE004AA4E3 /* ClassroomScene01.swift in Sources */,
+				76AEF03821F17B0B006B251C /* Sound.swift in Sources */,
 				765B3E11217D78BD004AA4E3 /* RoomScene02.swift in Sources */,
 				C4B5D775217914AB00181DE7 /* PadariaTreeStory.swift in Sources */,
 				76C093EE21E621830038D5C0 /* ButtonLayoutComponent.swift in Sources */,
@@ -876,7 +880,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -895,7 +899,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

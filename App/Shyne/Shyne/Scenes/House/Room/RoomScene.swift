@@ -60,11 +60,11 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            print("BG AUDIOS")
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-        }
+//        if let bga = self.childNode(withName: "bgAudios") {
+//            print("BG AUDIOS")
+//            self.bgAudios = bga
+//            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+//        }
         
         room01c01PC.function = {
             PlayerModel.addKeys(k: "Desligar")
@@ -163,7 +163,7 @@ extension RoomScene {
 //            let ballonOnComputer = DialogBallon.init(rootNode: room01Root, referenceNode: ballonNodeRef, referenceScene: self)
 //            ballonOnComputer.setup()
             
-            onComputerNode.run(SKAction.wait(forDuration: 3)){
+            onComputerNode.run(SKAction.wait(forDuration: 5)){
                 onComputerNode.run(SKAction.fadeOut(withDuration: 0.5))
                 self.ballon = DialogBallon.init(rootNode: room01d01c02PC, referenceNode: self.playerNode!, referenceScene: self)
                 

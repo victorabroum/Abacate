@@ -49,9 +49,18 @@ var falouComPaiNaCasa01 = false
 var roupaNaoEscolhida = true
 var indoParaPadaria = true
 
-var listaPermissoesHouse01:Set = ["goDown","goUp","triggerDad", "dadDoor"]
-var listaPermissoesCidade:Set = ["bakeryDoor"]
-var listaPermissoesPadaria:Set = ["padeiro"]
-var listaPermissoesHouse02:Set = ["goDown","goUp","dady", "dadDoor"]
-var listaPermissoesHouse03:Set = ["goDown","goUp","triggerDad", "dadDoor"]
-var listaPermissoesRoom02:Set = ["cama"]
+// Name of music for Background
+struct BackgroundMusic {
+    var name: String
+    var musicExtension: String
+    var volume: Float
+    
+    mutating func change(name:String, musicExtension : String = "wav", volume: Float){
+        self.name = name
+        self.musicExtension = musicExtension
+        self.volume = volume
+    }
+}
+
+var bgMusic = BackgroundMusic.init(name: "house", musicExtension: "wav", volume: 0.1)
+let changeBGMusicNotificationName = Notification.Name("com.teamavocado.Hoody.changeBGMusicNotificationName")
