@@ -59,6 +59,7 @@ var hall01SBTd07 = Node(withText: NSLocalizedString("É, comigo também não.", 
 
 func hall01MakeTree(){
     //TODO: Definir o filho de hall01Root
+    hall01Root.childrens = []
     
     if(PlayerModel.getInstance().keys.contains("Email")){
         hall01Root.add(child: hall01ETRoot)
