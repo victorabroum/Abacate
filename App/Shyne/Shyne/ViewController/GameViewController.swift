@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeMusic), name: changeBGMusicNotificationName, object: nil)
         
+        UIApplication.shared.isIdleTimerDisabled = true
+        
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
             // Get the SKScene from the loaded GKScene
