@@ -15,6 +15,7 @@ var room02c02 = Answer(withText: NSLocalizedString("Ir dormir", comment: ""), wi
 var room02c03 = Answer(withText: NSLocalizedString("Ensaiar para a apresenção", comment: ""), withAmount: Feel(happy: 3, normal: 2, shy: 0))
 
 func room02MakeTree(){
+    room02Root.choices = []
     if(PlayerModel.getInstance().keys.contains("Desligar")){
         room02Root.choices = [room02c01,room02c02]
     }
