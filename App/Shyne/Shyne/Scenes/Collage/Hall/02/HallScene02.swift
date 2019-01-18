@@ -47,6 +47,9 @@ class HallScene02: CustomSKSCene, SKPhysicsContactDelegate {
         super.didMove(to: view)
         // Make tree for scene
         hall02MakeTree()
+        
+        bgMusic.change(name: "city_night", volume: 1)
+        NotificationCenter.default.post(name: changeBGMusicNotificationName, object: nil)
     }
     
     

@@ -60,11 +60,11 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            print("BG AUDIOS")
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-        }
+//        if let bga = self.childNode(withName: "bgAudios") {
+//            print("BG AUDIOS")
+//            self.bgAudios = bga
+//            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+//        }
         
         room01c01PC.function = {
             PlayerModel.addKeys(k: "Desligar")
