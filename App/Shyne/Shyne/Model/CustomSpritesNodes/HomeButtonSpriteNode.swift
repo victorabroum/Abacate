@@ -38,6 +38,8 @@ class HomeButtonSpriteNode: SKSpriteNode{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        self.isUserInteractionEnabled = false
+        
         if (self.entity != nil){
             for comp in (self.entity?.components)! {
                 if let auxComp = comp as? ButtonComponent{
