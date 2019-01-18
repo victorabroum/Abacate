@@ -32,6 +32,7 @@ var hall02Fd08 = Node(withText: NSLocalizedString("Ok.", comment: ""), withChoic
 var hall02Fd09 = Node(withText: NSLocalizedString("Nos vemos amanhã!", comment: ""), withChoices: [], inNodeNamed: hall02AnaNameNode, audioName: "ana_Voice03")
 
 func hall02MakeTree(){
+    hall02Root.childrens = []
     
     if(PlayerModel.getInstance().keys.contains("Iniciativa")){
         hall02Root = hall02FRoot

@@ -60,6 +60,8 @@ var hall01SBTd07 = Node(withText: NSLocalizedString("É, comigo também não.", 
 func hall01MakeTree(){
     //TODO: Definir o filho de hall01Root
     hall01Root.childrens = []
+    hall01ETd16.childrens = []
+    hall01EFd16.childrens = []
     
     if(PlayerModel.getInstance().keys.contains("Email")){
         hall01Root.add(child: hall01ETRoot)
@@ -71,7 +73,6 @@ func hall01MakeTree(){
     if(PlayerModel.getInstance().keys.contains("sweetBrad")){
         hall01ETd16.add(child: hall01SBTRoot)
         hall01EFd16.add(child: hall01SBTRoot)
-        hall01SBTd07.add(child: hall01d01)
     }else{
         hall01EFd16.add(child: hall01d01)
         hall01ETd16.add(child: hall01d01)
@@ -118,5 +119,6 @@ func hall01MakeTree(){
     hall01SBTd04.add(child: hall01SBTd05)
     hall01SBTd05.add(child: hall01SBTd06)
     hall01SBTd06.add(child: hall01SBTd07)
+    hall01SBTd07.add(child: hall01d01)
 }
 
