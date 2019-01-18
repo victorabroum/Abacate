@@ -173,8 +173,6 @@ class PlayerDAO{
     
     //MARK:DELETES
     static func deleteAllKeys(){
-        
-        print("DELETE")
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Keys")
             //request.predicate = NSPredicate(format: "age = %@", "12")
             request.returnsObjectsAsFaults = false

@@ -50,9 +50,7 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
                 }else if (newName == "pcCollider"){
                     if !(PlayerModel.getInstance().keys.contains("Email")){
                         
-                        
-                        
-                        if (PlayerModel.getInstance().keys.contains("Delisgar")){
+                        if (PlayerModel.getInstance().keys.contains("Desligar")){
                             self.ballon = InteractionBallon(iconName: "icon_computer", referenceNode: self.childNode(withName: "pcCollider") as! SKSpriteNode, referenceScene: self, action: {
                                 let choices = ChoicesBallon(choices: [room02c01PC, room02c02PC], referenceScene: self)
                                 choices.setup()
