@@ -131,7 +131,6 @@ class Ballon : SKSpriteNode{
             choicesBallon.setup()
         }else{
             
-            
             self.dismiss()
         }
         
