@@ -16,12 +16,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         self.view.isMultipleTouchEnabled = false
         
-        //
-        
-        
-        //
-        
-        
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
             // Get the SKScene from the loaded GKScene
@@ -51,22 +45,22 @@ class GameViewController: UIViewController {
             }
 
             var shouldAutorotate: Bool {
-        return true
-    }
+                return true
+            }
 
             var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    return .allButUpsideDown
+                } else {
+                    return .all
+                }
+            }
 
             var prefersStatusBarHidden: Bool {
-        return true
+                return true
+            }
+        }
     }
-}
-}
 }
 
 

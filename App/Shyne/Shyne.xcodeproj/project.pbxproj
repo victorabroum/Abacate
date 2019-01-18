@@ -61,7 +61,7 @@
 		76AEF00221ECAB9F006B251C /* HallScene01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00121ECAB9F006B251C /* HallScene01.sks */; };
 		76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00521ECBE5F006B251C /* HallScene02.swift */; };
 		76AEF00821ECBEB0006B251C /* HallScene02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76AEF00721ECBEB0006B251C /* HallScene02.sks */; };
-		76AEF00A21ECC835006B251C /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00921ECC835006B251C /* PauseButtonNode.swift */; };
+		76AEF00A21ECC835006B251C /* ActionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00921ECC835006B251C /* ActionSpriteNode.swift */; };
 		76AEF00C21ECCAFC006B251C /* PausedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00B21ECCAFC006B251C /* PausedState.swift */; };
 		76AEF00E21ECCB3A006B251C /* PausedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF00D21ECCB3A006B251C /* PausedComponent.swift */; };
 		76AEF01121F0340E006B251C /* FirulasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEF01021F0340E006B251C /* FirulasController.swift */; };
@@ -151,7 +151,7 @@
 		76AEF00121ECAB9F006B251C /* HallScene01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene01.sks; sourceTree = "<group>"; };
 		76AEF00521ECBE5F006B251C /* HallScene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallScene02.swift; sourceTree = "<group>"; };
 		76AEF00721ECBEB0006B251C /* HallScene02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HallScene02.sks; sourceTree = "<group>"; };
-		76AEF00921ECC835006B251C /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
+		76AEF00921ECC835006B251C /* ActionSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSpriteNode.swift; sourceTree = "<group>"; };
 		76AEF00B21ECCAFC006B251C /* PausedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedState.swift; sourceTree = "<group>"; };
 		76AEF00D21ECCB3A006B251C /* PausedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedComponent.swift; sourceTree = "<group>"; };
 		76AEF01021F0340E006B251C /* FirulasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirulasController.swift; sourceTree = "<group>"; };
@@ -538,7 +538,7 @@
 			children = (
 				76AEF00F21F033BF006B251C /* Automatic Nodes */,
 				76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */,
-				76AEF00921ECC835006B251C /* PauseButtonNode.swift */,
+				76AEF00921ECC835006B251C /* ActionSpriteNode.swift */,
 			);
 			path = CustomSpritesNodes;
 			sourceTree = "<group>";
@@ -708,7 +708,7 @@
 				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
-				76AEF00A21ECC835006B251C /* PauseButtonNode.swift in Sources */,
+				76AEF00A21ECC835006B251C /* ActionSpriteNode.swift in Sources */,
 				76AEF00621ECBE5F006B251C /* HallScene02.swift in Sources */,
 				765B3DE62178BCAF004AA4E3 /* Tree.swift in Sources */,
 				765B3DD92177C6AA004AA4E3 /* GlobalConstants.swift in Sources */,
@@ -876,7 +876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -895,7 +895,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MT8CKGYHV6;
+				DEVELOPMENT_TEAM = AYH9NYMQ3Y;
 				INFOPLIST_FILE = Shyne/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
