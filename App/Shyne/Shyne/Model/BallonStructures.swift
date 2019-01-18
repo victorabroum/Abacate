@@ -316,8 +316,7 @@ class ChoicesBallon : SKSpriteNode{
         
         // Get Player reference on Scene
         if let playerNode = self.referenceScene.childNode(withName: nodeName) as? SKSpriteNode{
-            
-            print("EITA NO \(nodeName)")
+
             
             var auxBallon = ballons[0]
             // Setup BallonA

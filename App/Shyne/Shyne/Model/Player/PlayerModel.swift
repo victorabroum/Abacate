@@ -100,7 +100,6 @@ class PlayerModel{
         getInstance().keys.remove(k)
     }
     static func savePlayer(){
-        print("AUTO SAVE - \(self.getInstance().keys)")
         PlayerDAO.deleteEverything()
         
         for a in getInstance().achviement{

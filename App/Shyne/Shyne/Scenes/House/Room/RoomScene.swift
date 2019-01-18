@@ -15,7 +15,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     var pauseShowed = false
     
     override func sceneDidLoad() {
-        print("Room didLoad")
+        
         super.sceneDidLoad()
         
         self.offsetCamera = -1
@@ -35,7 +35,7 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        print("ROOM didMove")
+
         super.didMove(to: view)
         
         self.dismissPause()
@@ -48,13 +48,13 @@ class RoomScene: CustomSKSCene,SKPhysicsContactDelegate {
         // TODO: Test if sceneName has somethig
         // Only call this notification if load return a valid valor
         if (PlayerModel.getInstance().sceneInformation.actualScenario == ""){
-            print("Não tem ninguém")
+
             if let continueButtonNode = self.childNode(withName: "homeScreen")!.childNode(withName: "continueButton") as? SKSpriteNode{
                 continueButtonNode.texture = SKTexture(imageNamed: "continueGameButton_cinza")
                 continueButtonNode.isUserInteractionEnabled = false
             }
         }else{
-            print("tem alguem")
+
             NotificationCenter.default.post(name: CustomSKSCene.loadSaveGamecompleteNotificationName, object: nil)
         }
         

@@ -24,7 +24,6 @@ class EndGame: SKScene {
     override func sceneDidLoad() {
         
         if let node = self.childNode(withName: "text") as? SKLabelNode {
-            print("TEXT")
             labelNode = node
         }
         

@@ -48,7 +48,6 @@ class PlayerControl : GKComponent, TouchControlDelegate{
         // Do something
         if self.scene != nil {
 //        self.scene?.movePlayer(command: command!)
-//            print("command \(command!)")
             self.playerNode?.movePlayer(command: command!)
         }
     }

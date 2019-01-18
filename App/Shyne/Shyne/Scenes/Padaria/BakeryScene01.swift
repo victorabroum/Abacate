@@ -22,7 +22,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         
         self.padeiroNode = self.childNode(withName: "padeirocorpo") as? SKSpriteNode
         self.padeiroNode?.isUserInteractionEnabled = false
-        print("zPOs padeiro \(self.padeiroNode!.zPosition)")
+
         
         // Dizendo que a scene comanda o delegate
         physicsWorld.contactDelegate = self
@@ -47,7 +47,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
-        print("deu colisao")
+
         if let name=contact.bodyA.node?.name!{
             var newName:String {
                 get {
@@ -56,7 +56,7 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
             }
             
             if (PlayerModel.getInstance().keys.contains(newName)){
-                print("Entrou")
+
                 if newName == "padeiro"{
                     
                     if(!(PlayerModel.getInstance().keys.contains("sweetBrad") || PlayerModel.getInstance().keys.contains("frenchBrad"))){

@@ -19,7 +19,6 @@ class HomeButtonSpriteNode: SKSpriteNode{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("name \(self.name ?? "Não tem nome")")
         NotificationCenter.default.addObserver(self, selector: #selector(setup), name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
         
     }
