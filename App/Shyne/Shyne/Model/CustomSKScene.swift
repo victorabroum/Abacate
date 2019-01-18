@@ -64,9 +64,9 @@ class CustomSKSCene: SKScene{
     }
     
     override func willMove(from view: SKView) {
-        if self.bgAudios != nil{
-            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
-        }
+//        if self.bgAudios != nil{
+//            MusicHelper.stopSounds(withAudios: self.bgAudios!.children)
+//        }
     }
     
     func preparePause() {

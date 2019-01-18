@@ -32,10 +32,10 @@ class HouseScene01: CustomSKSCene, SKPhysicsContactDelegate {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 10)
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-        }
+//        if let bga = self.childNode(withName: "bgAudios") {
+//            self.bgAudios = bga
+//            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
+//        }
         
         
         PlayerModel.addKeys(k: "triggerDad")

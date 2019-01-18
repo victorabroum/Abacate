@@ -105,6 +105,9 @@ class EndGame: SKScene {
         
         self.backgroundNode?.run(SKAction.wait(forDuration: 2)) {
             
+            felipeNode.removeAllActions()
+            annaNode.removeAllActions()
+            
             self.backgroundNode?.run(SKAction.fadeOut(withDuration: 2))
             annaNode.run(SKAction.fadeOut(withDuration: 1.5))
             felipeNode.run(SKAction.fadeOut(withDuration: 1.5))

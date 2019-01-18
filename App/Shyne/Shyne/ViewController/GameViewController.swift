@@ -11,16 +11,14 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    var backgroundMusicController: BackgroundMusicController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isMultipleTouchEnabled = false
         
-        //
-        
-        
-        //
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeMusic), name: changeBGMusicNotificationName, object: nil)
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -29,6 +27,10 @@ class GameViewController: UIViewController {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! CustomSKSCene? {
+                
+                // Start Background Music
+                self.backgroundMusicController = BackgroundMusicController(musicName: "house")
+                self.backgroundMusicController!.startMusic(withVolume: 0.1)
                 
                 // Copy gameplay related content over to the scene
                 
@@ -51,22 +53,30 @@ class GameViewController: UIViewController {
             }
 
             var shouldAutorotate: Bool {
-        return true
-    }
+                return true
+            }
 
             var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    return .allButUpsideDown
+                } else {
+                    return .all
+                }
+            }
 
             var prefersStatusBarHidden: Bool {
-        return true
+                return true
+            }
+        }
     }
+    
 }
-}
+
+// MARK: Notification for change music
+extension GameViewController{
+    @objc func changeMusic(){
+        self.backgroundMusicController?.changeMusic(to: bgMusic.name, musicExtension: bgMusic.musicExtension, withVolume: bgMusic.volume)
+    }
 }
 
 

@@ -66,8 +66,11 @@ class CityScene01: CustomSKSCene, SKPhysicsContactDelegate{
         // Prepare BG Music
         if let bga = self.childNode(withName: "bgAudios") {
             self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
+            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
         }
+        
+        bgMusic.change(name: "city_day", volume: 0.8)
+        NotificationCenter.default.post(name: changeBGMusicNotificationName, object: nil)
         
         self.correctPlayerNodePosition()
         

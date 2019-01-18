@@ -41,10 +41,9 @@ class BakeryScene01: CustomSKSCene, SKPhysicsContactDelegate {
         self.offsetCamera = -1
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.8)
-        }
+        
+        bgMusic.change(name: "bakery", volume: 0.8)
+        NotificationCenter.default.post(name: changeBGMusicNotificationName, object: nil)
     }
 
     func didBegin(_ contact: SKPhysicsContact) {

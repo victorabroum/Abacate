@@ -19,9 +19,6 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         // Prepare Dialog
         prepareDialog()
         room02MakeTree()
-        
-        
-        
     }
     
     override func didMove(to view: SKView) {
@@ -31,12 +28,6 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         self.offsetCamera = 55
         
         PlayerModel.addKeys(k: "cama")
-        
-        // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -79,7 +70,6 @@ class RoomScene02: CustomSKSCene, SKPhysicsContactDelegate {
         
         room02c01.function = {
             
-            listaPermissoesRoom02.remove("cama")
             
             let cenaProxima = SKScene(fileNamed: "EndGame")
             

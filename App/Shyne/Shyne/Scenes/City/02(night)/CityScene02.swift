@@ -31,10 +31,7 @@ class CityScene02: CustomSKSCene, SKPhysicsContactDelegate {
         self.playerNode?.prepareControl(withCamera: camera!, inScene: self, withCameraOffset: 120)
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 1.2)
-        }
+        
         
         self.offsetCamera = -1
         

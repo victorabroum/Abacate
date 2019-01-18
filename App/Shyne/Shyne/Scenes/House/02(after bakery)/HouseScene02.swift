@@ -82,10 +82,8 @@ class HouseScene02: CustomSKSCene,SKPhysicsContactDelegate {
         PlayerModel.addKeys(k: "dadDoor")
         
         // Prepare BG Music
-        if let bga = self.childNode(withName: "bgAudios") {
-            self.bgAudios = bga
-            MusicHelper.startSounds(withAudios: bgAudios!.children, withVolume: 0.2)
-        }
+        bgMusic.change(name: "house", volume: 0.1)
+        NotificationCenter.default.post(name: changeBGMusicNotificationName, object: nil)
 
     }
     
