@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import GameplayKit
 
 class HomeButtonSpriteNode: SKSpriteNode{
     
@@ -19,20 +20,15 @@ class HomeButtonSpriteNode: SKSpriteNode{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(setup), name: CustomSKSCene.didMoveCompleteNotificationName, object: nil)
-        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(setup),
+            name: CustomSKSCene.didMoveCompleteNotificationName,
+            object: nil)
     }
     
     @objc func setup() {
-        
         self.isUserInteractionEnabled = true
-        
-//        if(self.entity != nil){
-//            let text = self.userData?.value(forKey: "text")
-//            self.entity?.addComponent(ButtonLayoutComponent(withText: "\(text ?? "NO NAME")", onNode: self))
-//        }
-//        
-//        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,4 +45,24 @@ class HomeButtonSpriteNode: SKSpriteNode{
         
     }
     
+}
+
+class StartHomeButtonNode: HomeButtonSpriteNode {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let entityHelper = GKEntity()
+        entityHelper.addComponent(StartGameComponent())
+        self.entity = entityHelper
+        SKEntityManager.shared.add(entityHelper)
+    }
+}
+
+class ContinueHomeButtonNode: HomeButtonSpriteNode {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let entityHelper = GKEntity()
+        entityHelper.addComponent(ContinueGameComponent())
+        self.entity = entityHelper
+        SKEntityManager.shared.add(entityHelper)
+    }
 }

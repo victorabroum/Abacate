@@ -84,6 +84,7 @@
 		76C093F021E7C98A0038D5C0 /* AnnaAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */; };
 		76D3F4DA21E39E5700FAC0E0 /* BallonStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */; };
 		76D3F4DF21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */; };
+		76D5F1C723A4180800012679 /* SKEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D5F1C623A4180800012679 /* SKEntityManager.swift */; };
 		C40DA4DE218A3B06003470AC /* EndGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = C40DA4DD218A3B06003470AC /* EndGame.sks */; };
 		C40DA4E0218A3B3F003470AC /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DA4DF218A3B3F003470AC /* EndGame.swift */; };
 		C41DCF8D2177C50800F53FEC /* DialogComponente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DCF8C2177C50800F53FEC /* DialogComponente.swift */; };
@@ -175,6 +176,7 @@
 		76C093EF21E7C98A0038D5C0 /* AnnaAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnnaAction.sks; sourceTree = "<group>"; };
 		76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallonStructures.swift; sourceTree = "<group>"; };
 		76D3F4DE21E53B1400FAC0E0 /* HomeButtonSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonSpriteNode.swift; sourceTree = "<group>"; };
+		76D5F1C623A4180800012679 /* SKEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEntityManager.swift; sourceTree = "<group>"; };
 		C40DA4DD218A3B06003470AC /* EndGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGame.sks; sourceTree = "<group>"; };
 		C40DA4DF218A3B3F003470AC /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		C41DCF8C2177C50800F53FEC /* DialogComponente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogComponente.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				76BA9024218B3B5D00A37F32 /* MusicHelper.swift */,
 				76D3F4D921E39E5700FAC0E0 /* BallonStructures.swift */,
 				76C093EB21E542F50038D5C0 /* CustomSKScene.swift */,
+				76D5F1C623A4180800012679 /* SKEntityManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				765B3E0D217D785A004AA4E3 /* CityScene02.swift in Sources */,
 				C4BAB6C621EC269D0091A454 /* Hall01TreeStrory.swift in Sources */,
 				76BA9025218B3B5D00A37F32 /* MusicHelper.swift in Sources */,
+				76D5F1C723A4180800012679 /* SKEntityManager.swift in Sources */,
 				76064EC72189E4E000E1D776 /* MusicPanHelper.swift in Sources */,
 				765B3DDB2177C946004AA4E3 /* TouchControlDelegate.swift in Sources */,
 				76AEF00A21ECC835006B251C /* ActionSpriteNode.swift in Sources */,

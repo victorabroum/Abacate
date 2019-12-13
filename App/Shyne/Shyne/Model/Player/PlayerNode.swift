@@ -18,6 +18,16 @@ class PlayerNode: SKSpriteNode{
     var cameraReference: SKSpriteNode = SKSpriteNode(texture: nil, color: UIColor.brown, size: CGSize(width: 50, height: 50))
     var stateMachine: GKStateMachine?
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let entityHelper = GKEntity()
+        entityHelper.addComponent(PlayerControl())
+        self.entity = entityHelper
+        
+        SKEntityManager.shared.add(entityHelper)
+    }
+    
     func prepareStateMachine(){
         self.stateMachine = GKStateMachine(states: [IdleState(withPlayerNode: self),
                                                     WalkingState(withPlayerNode: self),

@@ -17,6 +17,7 @@ class CustomSKSCene: SKScene{
     
     var entities = [GKEntity]()
     var playerNode: PlayerNode?
+    private var lastUpdateTime : TimeInterval = 0
     
     // To control BG Audios
     var bgAudios: SKNode?
@@ -53,6 +54,11 @@ class CustomSKSCene: SKScene{
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        // Calculate time since last update
+        let dt = currentTime - self.lastUpdateTime
+        SKEntityManager.shared.update(dt)
+        
         if(playerNode != nil){
             self.playerNode?.makePlayerWalk()
             
