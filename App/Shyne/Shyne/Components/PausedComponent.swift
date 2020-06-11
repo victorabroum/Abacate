@@ -11,6 +11,9 @@ import GameplayKit
 import SpriteKit
 
 class PausedComponent: GKComponent{
+    
+    override class var supportsSecureCoding: Bool { return true}
+    
     var node = SKSpriteNode()
     
     func startPauseAnimation(){

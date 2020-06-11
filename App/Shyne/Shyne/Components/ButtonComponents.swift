@@ -11,6 +11,8 @@ import GameplayKit
 
 class ButtonComponent: GKComponent{
     
+    override class var supportsSecureCoding: Bool { return true}
+    
     static let doneActionNotificationName = Notification.Name(rawValue: "com.abacates.hoddy.doneActionNotificationName")
     static let continueGameNotificationName = Notification.Name("com.abacates.hoddy.continueGameNotificationName")
     

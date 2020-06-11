@@ -11,6 +11,8 @@ import GameplayKit
 
 class PlayerControl : GKComponent, TouchControlDelegate{
     
+    override class var supportsSecureCoding: Bool { return true}
+    
     var touchControlNode : TouchController?
     var scene: SKScene?
     var playerNode: PlayerNode?

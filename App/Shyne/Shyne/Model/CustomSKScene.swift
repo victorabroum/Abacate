@@ -34,6 +34,9 @@ class CustomSKSCene: SKScene{
             playerNode = node
         }
         
+        if (UIScreen.main.bounds.width >= 800) {
+            self.camera?.setScale(0.37)
+        }
         
     }
     

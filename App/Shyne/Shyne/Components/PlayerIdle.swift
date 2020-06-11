@@ -11,6 +11,8 @@ import GameplayKit
 import SpriteKit
 
 class PlayerIdle: GKComponent {
+    
+    override class var supportsSecureCoding: Bool { return true}
 
     var node = SKSpriteNode()
     

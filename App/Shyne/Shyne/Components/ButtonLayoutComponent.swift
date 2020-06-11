@@ -12,6 +12,8 @@ import GameplayKit
 
 class ButtonLayoutComponent: GKComponent {
     
+    override class var supportsSecureCoding: Bool { return true}
+    
     var node: SKNode?
     
     init(withText text: String, onNode node: SKNode){

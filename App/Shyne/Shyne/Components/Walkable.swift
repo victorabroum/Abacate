@@ -12,6 +12,8 @@ import SpriteKit
 
 class Walkable: GKComponent {
     
+    override class var supportsSecureCoding: Bool { return true}
+    
     var node = SKSpriteNode()
     
     func startWalk(){
